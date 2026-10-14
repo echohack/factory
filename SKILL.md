@@ -26,6 +26,33 @@ interesting behavior. State whether the illustration uses an actual execution
 trace or an explicitly modeled explanation. Do not imply that visual concurrency
 or physical distances measure program timing unless the data supports that.
 
+## Match the system's real scope
+
+A request to explain a system covers the whole system, not one path through it.
+"How does OBS work" means sources, compositing, audio mixing, encoders and every
+output. One frame on one belt is not enough. Before you arrange anything, write an
+architecture inventory from the code. Give a file reference for each item:
+
+- threads and processes, and what each one runs on its own clock
+- queues, caches and buffers, with their bounds
+- each kind of data that moves (video frames, audio chunks, packets, requests)
+- fan-out and fan-in: one producer feeding several consumers, or one stage that
+  joins several inputs
+- every rule that drops, repeats, reorders, blocks or retries data
+
+Draw every component that a regular user or contributor would name when they
+describe the system. Independent threads become parallel lanes that run at the
+same time. They do not become stages of one line. Use a single line only when the
+program really is one path. Smaller examples are fine for data values, frame
+counts or time scale. They are not fine for structure.
+
+Record omissions in the figure's reference table, each with a reason. A core data
+path is never an omission: no audio in a media pipeline, no writes in a database,
+no second output when the system feeds several. Before you build, ask what an
+expert in the system would say is missing. Add it, or record why it is out of
+scope. Scale time when you must, but keep the real ratios between rates, and
+state the scale.
+
 Write the semantic mapping before arranging objects. Use
 [references/programs.md](references/programs.md) for mapping choices. A belt is a
 stream, an inserter is a discrete handoff, a chest is stored state, an assembler is work, and a splitter

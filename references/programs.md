@@ -32,3 +32,10 @@ For stateful systems, add checks for conservation and ownership: no token belong
 to two queues, capacity is never exceeded, a blocked transfer retains its value,
 and restart/cancellation follow the real program. For numeric examples, include
 empty inputs, rejected inputs, and zeros; use the language’s actual numeric rules.
+
+For a whole system, start from the architecture inventory in `SKILL.md`. Map each
+thread to a lane of machines that runs on its own clock. Map each bounded buffer to
+a chest with a visible capacity. Show fan-out as one producer with several output
+inserters, each carrying its own reference or copy, and show fan-in as one machine
+fed from several sides. Give each kind of data its own item token, such as frames,
+audio chunks and packets.

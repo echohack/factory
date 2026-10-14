@@ -46,3 +46,8 @@ For catalog changes, `npm test` checks every mapped layer’s crop bounds and fi
 hash. Use `scripts/verify-catalog.mjs` with the same browser environment variables
 and the `/catalog/` URL to check search, variants, pause, mobile and reduced motion.
 Inspect the resulting contact sheets as well as any new animated frame sequences.
+
+Check scope against the architecture inventory before polishing. Every inventory
+entry is drawn, or it appears in the reference table's omissions with a reason.
+Confirm that no core data path is missing, that independent threads run in
+parallel lanes, and that every fan-out or fan-in in the code appears in the scene.
