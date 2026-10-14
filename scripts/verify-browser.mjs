@@ -49,9 +49,15 @@ try {
   assert.equal((await state(desktop)).index, paused.index + 2);
   await desktop.screenshot({ path: resolve(output, 'desktop.png'), fullPage: true });
 
+  // The process outline highlights the active step and jumps to a step on click.
+  await desktop.locator('#process button', { hasText: 'Map' }).click();
+  assert.equal((await state(desktop)).event.phase, 'map');
+  assert.match(await desktop.locator('#process [aria-current="step"]').textContent(), /Map/);
+  assert.equal(await desktop.locator('#process .process-step.done').count(), 1);
   // Exercise each event through the same public controls as the reader.
   while (!(await state(desktop)).done) await desktop.locator('#step').click();
   assert.equal(await desktop.locator('#sum').textContent(), '60');
+  assert.equal(await desktop.locator('#process .process-step.done').count(), 3);
   assert.equal(await desktop.locator('#filtered').textContent(), '[2, 4, 6, 8]');
   assert.equal(await desktop.locator('#mapped').textContent(), '[6, 12, 18, 24]');
   assert.equal(await desktop.locator('#rejected').textContent(), '[5, 7, 3, 1]');
@@ -83,8 +89,11 @@ try {
   await fit(mobile);
   for (let i = 0; i < 3; i++) await mobile.locator('#step').click();
   await mobile.screenshot({ path: resolve(output, 'mobile.png'), fullPage: true });
+  // A shorter viewport lets the whole scene leave the screen; check that premise before testing suspension.
+  await mobile.setViewportSize({ width: 390, height: 480 });
   await mobile.locator('#play').click();
   await mobile.locator('footer').scrollIntoViewIfNeeded();
+  assert.ok(await mobile.evaluate(() => document.getElementById('scene').getBoundingClientRect().bottom < 0), 'The scene is out of view');
   await mobile.waitForTimeout(100);
   const offscreen = await state(mobile);
   await mobile.waitForTimeout(250);
@@ -92,6 +101,7 @@ try {
   await mobile.locator('#scene').scrollIntoViewIfNeeded();
   await mobile.waitForFunction(index => window.factoryDemo.state.index > index, offscreen.index);
   await mobile.locator('#play').click();
+  await mobile.setViewportSize({ width: 390, height: 844 });
 
   const reduced = await open({ viewport: { width: 1280, height: 1000 }, reducedMotion: 'reduce' });
   assert.equal((await state(reduced)).playing, false);

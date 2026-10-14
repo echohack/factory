@@ -45,6 +45,13 @@ The floor is transparent over a dark CSS material; Canvas draws the tile grid.
 The view includes `arms` and a `token` with an explicit `position` and optional
 `heldBy`. Read `inserters.md` for the event and ownership contract.
 
+`kit/process.mjs` exports `processOutline(root, steps, { onJump })` for the
+vertical outline beside the scene. Steps are `{ key, title, detail, parts }`;
+`set(stepKey, partKey)` highlights the active step and part and marks earlier steps
+done, and `set('done')` completes them all. With `onJump`, each step is a button that
+seeks to the start of its phase. The figure supplies the CSS; copy the
+`.process-*` rules from the example's `style.css`.
+
 The array example model is independent from the kit. Its event `phase`, `line`,
 `from`, `to`, `value` and `message` fields connect semantic events to scene stations
 and code highlighting. For a new algorithm, write a new model and choreography;

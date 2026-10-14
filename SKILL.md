@@ -99,10 +99,25 @@ Useful detail includes real machinery, connections,
 status lamps, and stock; decorative machinery should not imply nonexistent work.
 
 Give the figure a short title, one useful instruction, the relevant code or
-pseudocode, and a live readout. Keep labels close to their stations. Reveal a
-failure, rejection, cache miss, or bottleneck through behavior as well as color.
-Let the reader pause, step, reset, and change a meaningful input. Keep keyboard
-controls scoped to the figure and ignore typing in form fields.
+pseudocode, and a live readout. Head the scene with the primary name of what it
+explains and a very short one-line description; never playback status or event
+counts. Keep labels close to their stations. Label conventions where they appear:
+a wire's meaning beside the wire, a flag or unit beside the station that sets it.
+Reveal a failure, rejection, cache miss, or bottleneck through behavior as well as
+color. Let the reader pause, step, reset, and change a meaningful input. Keep
+keyboard controls scoped to the figure and ignore typing in form fields.
+
+Below the scene, keep only one row of controls: no narration or status lines,
+legends, or phase tabs. Announce completed events in a visually hidden live region,
+and show load errors visibly. When the program runs as a sequence of phases, outline
+them top-down in a narrow sidebar on the left of the scene with `kit/process.mjs`:
+a title and one short line of detail per step, plus its parts when they matter.
+Highlight the active step and part, and let a click jump to the step. Vertical space
+holds more steps and detail than tabs; on phones the outline stacks above the scene.
+
+Put reference material below the figure as static tables, not panels that re-render
+with every event: each operation's inputs, rule or curve, and parameters, plus a
+worked example computed from the model.
 
 Use the chosen midnight blueprint treatment: near-black navy framing, a deep blue
 floor, restrained Campfire fuzz and grain, a quiet blue tile grid, soft white station
