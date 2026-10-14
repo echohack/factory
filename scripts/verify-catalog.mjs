@@ -14,9 +14,9 @@ try {
   const total=await page.evaluate(()=>window.catalogDemo.count);assert.equal(total,96);
   await page.locator('#animate').click();await page.waitForTimeout(150);
   const a=await page.locator('[data-id="foundry"] canvas').screenshot();await page.waitForTimeout(180);
-  const b=await page.locator('[data-id="foundry"] canvas').screenshot();assert.notDeepEqual(a,b,'Foundry frames animate');
+  const b=await page.locator('[data-id="foundry"] canvas').screenshot();assert.ok(!a.equals(b),'Foundry frames animate');
   await page.locator('#animate').click();const still=await page.locator('[data-id="foundry"] canvas').screenshot();await page.waitForTimeout(180);
-  assert.deepEqual(await page.locator('[data-id="foundry"] canvas').screenshot(),still,'Pause freezes native frames');
+  assert.ok((await page.locator('[data-id="foundry"] canvas').screenshot()).equals(still),'Pause freezes native frames');
   await page.reload();await ready(page);
   do {
     for(const card of await page.locator('.card').all()) {

@@ -17,6 +17,10 @@ mid-swing, and the empty return. Recipients gain stock only at release; stock pl
 in-flight items must remain constant. A machine must receive input before work.
 Inspect the dark floor, texture contrast, checker gutters, and readable labels.
 
+Compare screenshots with `Buffer.equals`, never `assert.deepEqual`: when two image
+Buffers differ, Node builds a byte-by-byte diff that can exhaust system memory.
+Compare frames only within one paused event; a timed gap can cross an event boundary.
+
 Verify pause, step, reset, edited input, invalid input, keyboard control, speed,
 reduced motion, and hidden/offscreen suspension. Avoid announcing every animation
 frame to screen readers; announce completed semantic events.
