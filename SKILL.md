@@ -97,9 +97,9 @@ failure, rejection, cache miss, or bottleneck through behavior as well as color.
 Let the reader pause, step, reset, and change a meaningful input. Keep keyboard
 controls scoped to the figure and ignore typing in form fields.
 
-Use the chosen dark blueprint treatment: deep navy and drafting-blue surfaces,
-Campfire fuzz and grain, a pale blue tile grid, icy white station labels, powder-blue
-controls, amber activity, and narrow checker gutters. Keep this section the visual focus. Read
+Use the chosen midnight blueprint treatment: near-black navy framing, a deep blue
+floor, restrained Campfire fuzz and grain, a quiet blue tile grid, soft white station
+labels, dark steel-blue controls, amber activity, and narrow checker gutters. Keep this section the visual focus. Read
 [references/design.md](references/design.md) for the material recipe and provenance.
 Preserve the grid and labels when improving machinery or layout.
 

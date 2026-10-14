@@ -1,14 +1,16 @@
-# Dark blueprint workbench
+# Midnight blueprint workbench
 
-Preserve the labeled tile grid and clear transport controls. Use deep navy framing (#0c172b), a drafting-blue floor (#153c67), icy white
-type (#e6f1ff), muted blue secondary labels, powder-blue controls (#b7d9fa),
-and small amber active states. Keep the interface blue; the native machine art
+Preserve the labeled tile grid and clear transport controls. Use near-black navy
+framing (#080f1c), a deep blue floor (#0c1e35), soft white type (#c9d6e6), muted
+blue secondary labels, dark steel-blue controls (#284b70), and small amber active
+states. Keep the grid subdued (#294562 at .5 px) and avoid large pale control fills. Keep the interface blue; the native machine art
 retains its original colors. Make the factory floor the primary visual section.
 
 The user authorized borrowing materials and layout from `~/code/campfire`:
 
 - `app/assets/css/approved-textures.css`: Graphite fuzz, a 256 px repeating
-  ash-fuzz layer at .26 screen opacity and grain at .2 soft-light opacity.
+  ash-fuzz layer adapted to .10 screen opacity and grain to .14 soft-light opacity
+  so the texture does not brighten the dark floor.
   Desaturate both texture layers over the blue floor to avoid a green cast.
 - `app/components/CharacterSheet/CharacterSheetSection.vue`: 4 px checker gutters
   between opaque content slabs.
