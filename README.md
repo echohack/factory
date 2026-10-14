@@ -8,16 +8,20 @@ import tools, focused references, and a complete interactive array example.
 
 ## Run the example
 
-Requires Node.js 20.10+ and the local asset archive created from your owned game.
-No package installation is required.
+Requires Node.js 20.10+. The mapped artwork is included in this private repository.
+No package installation or game archive is needed to build the examples.
 
 ```sh
-npm run assets
 npm run build
 npm run preview
 ```
 
-Open the printed URL in your external browser. To use a different archive:
+Open `/array-pipeline/` for the working example or `/catalog/` for the searchable
+object library in your external browser. The library contains **68 world objects
+and 28 item tokens**, with native variants, animation previews and program roles.
+Search it from the terminal with `npm run objects -- worker`.
+
+To expand or regenerate the library from the local archive:
 
 ```sh
 FACTORIO_ARCHIVE=/path/to/factorio-data npm run assets

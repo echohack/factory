@@ -16,27 +16,39 @@ Rails. `metadata/archive-summary.json` records the source/version.
 | `Factorio-Assets/animations/<entity>/<variant>/` | 83 prepared clips |
 | `reference/doc-html/` | Documentation for the archived version |
 
-All source artwork is archived. Prepared clips cover the 20 shape/direction
-variants of each of four belt tiers and the working cycles of assemblers 1–3.
-Their WebP previews run at an arbitrary inspection rate, not program time.
-The kit composes the standard yellow inserter from original platform and arm
-parts. Other inserters, complex machines and creatures need dedicated rigs.
+All source artwork is archived. `assets/manifest.json` is the reusable imported
+library, and `assets/catalog.json` maps 68 world objects and 28 item tokens to
+program roles and native variants. Read `catalog.md` for the selection workflow.
+The original seven demo selectors remain available as aliases.
 
 ## Importing
 
-`scripts/import-assets.mjs` takes a JSON spec. Inspect the example for exact syntax.
-Each named sprite selects either a prototype and a path to its sprite definition,
-or an exported icon. Files are copied by content hash to the output directory;
-`manifest.json` contains normalized frames/layers, source attribution, and version.
-The importer validates crops and rejects path traversal and unsupported layouts.
+`npm run assets` regenerates the library from `catalog/objects.mjs` using the
+local archive. `scripts/import-assets.mjs` also accepts a small JSON spec with a
+`sprites` object. Each sprite is one of:
 
-The importer supports `filename`, `layers`, width/height or size,
-frame count, line length, direction count, offsets, scale, and shadows. It fails
-on multi-file/stripe layouts, frame sequences, runtime tint, nonstandard blending,
-and general direction dictionaries. The dedicated `inserter` selector additionally
-supports the standard inserter's four-direction platform and seven-part rig.
-Extend it with a test and visual check when needed;
-do not silently drop layers to get a result.
+- `icon`: exported icon `category` and `name`.
+- `inserter`: one of the six mapped native inserter names.
+- `prototype`: prototype `type` and `name`, plus `path`, `parts`, or `variants`.
+
+A `path` is an array of prototype keys/array indices. `parts` combines explicit
+paths in drawing order. Each part has `path` and optional `shift` in tiles,
+`direction` for a fixed source-sheet direction, `frame` for a fixed frame, or
+`sheetDirections` for a Sprite4Way sheet. `variants` maps names to part arrays;
+for example a machine can expose north/east/south/west or off/on compositions.
+See the catalog source for complete splitters, underground belts and roboports.
+No layer is silently removed to force an import to succeed.
+
+The importer supports single-file and `filenames`/`lines_per_file` animations,
+frame sequences, forward/backward/ping-pong cycles, layers, sheets, native scale,
+shifts and shadows. Its PNGs are byte-for-byte source copies, named by content
+hash. The manifest records file hashes, dimensions, crops and game version.
+
+Stripes, arbitrary tint/blending, lighting, working visualisation state machines,
+creature rigs and general auto-discovery are still unsupported. Catalog mappings
+name their selected composition and omitted effects. Some bodies are static even
+though the full entity has working effects in the game. The six inserter types
+share measured joint anchors; their movement remains illustrative choreography.
 
 Offsets are in tiles; one tile is conventionally 32 pixels at scale 1. Layer
 scales apply to source pixels. Factorio’s art already has its perspective. Belt
@@ -47,10 +59,9 @@ The source includes an empty `core/graphics/arrows/tip-arrow.png`, 34 references
 to Switch vibration resources absent on macOS, and one inactive explosion
 filename superseded by stripes. See the archive’s exception reports.
 
-## Sharing
+## Repository layout
 
-Keep cached artwork, generated sites, screenshots containing game art, and any
-exported asset packs out of Git. The code repository is separate from the user’s
-local art library. Check the applicable [Factorio terms](https://factorio.com/terms-of-service)
-before a user-requested public release. Importing
-art from an owned copy does not itself license public asset redistribution.
+The selected art in `assets/` is intentionally tracked in the user's private
+repository. `dist/`, `.local/`, generated screenshots and the complete archive
+remain separate. Builds read `assets/` directly and copy only the required sprite
+files for an individual factory; the object browser includes the full library.

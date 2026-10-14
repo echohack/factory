@@ -6,8 +6,9 @@
   "engines": { "node": ">=20.10" },
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "assets": "node scripts/import-assets.mjs --spec examples/array-pipeline/assets.json --out .local/assets",
-    "build": "node examples/array-pipeline/build.mjs",
+    "assets": "node scripts/build-catalog.mjs",
+    "objects": "node scripts/list-assets.mjs",
+    "build": "node scripts/build-examples.mjs",
     "preview": "node scripts/serve.mjs --root dist --port 4173"
   }
 }

@@ -24,14 +24,14 @@ export class FactoryScene {
         { tileSize: tile, frame: view.beltFrame ?? 0, direction });
     }
     for (const b of layout.beltTiles ?? []) this.atlas.draw(ctx, b.sprite ?? 'belt', b.x * tile, b.y * tile, { tileSize: tile, frame: view.beltFrame ?? 0, direction: b.direction });
-    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, 'inserter', arm, { tileSize: tile, pass: 'shadow' });
-    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, 'inserter', arm, { tileSize: tile, pass: 'platform' });
+    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile, pass: 'shadow' });
+    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile, pass: 'platform' });
     const objects = [...layout.objects].sort((a, b) => a.y - b.y);
     for (const pass of ['shadow', 'body']) for (const object of objects) {
       this.atlas.draw(ctx, object.sprite, object.x * tile, object.y * tile,
-        { tileSize: tile, frame: view.frames?.[object.id] ?? 0, pass });
+        { tileSize: tile, frame: view.frames?.[object.id] ?? 0, variant: view.variants?.[object.id] ?? object.variant, direction: view.directions?.[object.id] ?? object.direction ?? 0, pass });
     }
-    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, 'inserter', arm, { tileSize: tile });
+    for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile });
     for (const object of objects) {
       const active = view.active === object.id;
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;

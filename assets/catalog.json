@@ -1,0 +1,2079 @@
+{
+  "gameVersion": "2.0.77",
+  "objects": [
+    {
+      "id": "wooden-chest",
+      "name": "Wooden chest",
+      "group": "Storage",
+      "roles": [
+        "queue",
+        "buffer",
+        "cache"
+      ],
+      "notes": "",
+      "prototype": "container/wooden-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-wooden-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "iron-chest",
+      "name": "Iron chest",
+      "group": "Storage",
+      "roles": [
+        "queue",
+        "buffer",
+        "cache"
+      ],
+      "notes": "",
+      "prototype": "container/iron-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-iron-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "steel-chest",
+      "name": "Steel chest",
+      "group": "Storage",
+      "roles": [
+        "queue",
+        "buffer",
+        "cache"
+      ],
+      "notes": "",
+      "prototype": "container/steel-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-steel-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "passive-provider-chest",
+      "name": "Passive provider chest",
+      "group": "Storage",
+      "roles": [
+        "producer",
+        "outbox"
+      ],
+      "notes": "Chest lid animation. Delivery rules come from the program model.",
+      "prototype": "logistic-container/passive-provider-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-passive-provider-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 7,
+      "motion": "Animated"
+    },
+    {
+      "id": "active-provider-chest",
+      "name": "Active provider chest",
+      "group": "Storage",
+      "roles": [
+        "dispatch",
+        "drain"
+      ],
+      "notes": "Chest lid animation. Delivery rules come from the program model.",
+      "prototype": "logistic-container/active-provider-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-active-provider-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 7,
+      "motion": "Animated"
+    },
+    {
+      "id": "storage-chest",
+      "name": "Storage chest",
+      "group": "Storage",
+      "roles": [
+        "shared storage",
+        "cache"
+      ],
+      "notes": "Chest lid animation. Delivery rules come from the program model.",
+      "prototype": "logistic-container/storage-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-storage-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 7,
+      "motion": "Animated"
+    },
+    {
+      "id": "buffer-chest",
+      "name": "Buffer chest",
+      "group": "Storage",
+      "roles": [
+        "prefetch",
+        "buffer"
+      ],
+      "notes": "Chest lid animation. Delivery rules come from the program model.",
+      "prototype": "logistic-container/buffer-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-buffer-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 7,
+      "motion": "Animated"
+    },
+    {
+      "id": "requester-chest",
+      "name": "Requester chest",
+      "group": "Storage",
+      "roles": [
+        "consumer",
+        "inbox"
+      ],
+      "notes": "Chest lid animation. Delivery rules come from the program model.",
+      "prototype": "logistic-container/requester-chest",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-requester-chest",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 7,
+      "motion": "Animated"
+    },
+    {
+      "id": "inserter",
+      "name": "Inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "pickup",
+        "release"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "burner-inserter",
+      "name": "Burner inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "pickup",
+        "release"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/burner-inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-burner-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "fast-inserter",
+      "name": "Fast inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "pickup",
+        "release"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/fast-inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-fast-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "long-handed-inserter",
+      "name": "Long handed inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "two-tile reach"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/long-handed-inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-long-handed-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "bulk-inserter",
+      "name": "Bulk inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "pickup",
+        "release"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/bulk-inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-bulk-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "stack-inserter",
+      "name": "Stack inserter",
+      "group": "Inserters",
+      "roles": [
+        "handoff",
+        "pickup",
+        "release"
+      ],
+      "notes": "Articulated native rig. Carry counts and speeds must be modeled explicitly; the long-handed rig needs two-tile pickup/drop spacing.",
+      "prototype": "inserter/stack-inserter",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-stack-inserter",
+      "kind": "inserter",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Articulated"
+    },
+    {
+      "id": "transport-belt",
+      "name": "Transport belt",
+      "group": "Logistics",
+      "roles": [
+        "stream",
+        "sequence",
+        "transport"
+      ],
+      "notes": "20 native belt shapes; indices are track variants, not camera angles.",
+      "prototype": "transport-belt/transport-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-transport-belt",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 20,
+      "frames": 16,
+      "motion": "Animated"
+    },
+    {
+      "id": "splitter",
+      "name": "Splitter",
+      "group": "Logistics",
+      "roles": [
+        "branch",
+        "merge",
+        "partition"
+      ],
+      "notes": "Two belt tracks, housing and cap. The model must implement routing and preserve lane ownership.",
+      "prototype": "splitter/splitter",
+      "footprint": [
+        1.8,
+        1
+      ],
+      "icon": "icon-splitter",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "underground-belt",
+      "name": "Underground belt",
+      "group": "Logistics",
+      "roles": [
+        "hidden transport",
+        "crossing"
+      ],
+      "notes": "Entrance/exit housings over belt tracks. Underground transit needs its own visible ownership/readout.",
+      "prototype": "underground-belt/underground-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-underground-belt",
+      "kind": "sprite",
+      "variants": [
+        "entrance-north",
+        "entrance-east",
+        "entrance-south",
+        "entrance-west",
+        "exit-north",
+        "exit-east",
+        "exit-south",
+        "exit-west"
+      ],
+      "directions": 1,
+      "frames": 16,
+      "motion": "Animated"
+    },
+    {
+      "id": "fast-transport-belt",
+      "name": "Fast transport belt",
+      "group": "Logistics",
+      "roles": [
+        "stream",
+        "sequence",
+        "transport"
+      ],
+      "notes": "20 native belt shapes; indices are track variants, not camera angles.",
+      "prototype": "transport-belt/fast-transport-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-fast-transport-belt",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 20,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "fast-splitter",
+      "name": "Fast splitter",
+      "group": "Logistics",
+      "roles": [
+        "branch",
+        "merge",
+        "partition"
+      ],
+      "notes": "Two belt tracks, housing and cap. The model must implement routing and preserve lane ownership.",
+      "prototype": "splitter/fast-splitter",
+      "footprint": [
+        1.8,
+        1
+      ],
+      "icon": "icon-fast-splitter",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "fast-underground-belt",
+      "name": "Fast underground belt",
+      "group": "Logistics",
+      "roles": [
+        "hidden transport",
+        "crossing"
+      ],
+      "notes": "Entrance/exit housings over belt tracks. Underground transit needs its own visible ownership/readout.",
+      "prototype": "underground-belt/fast-underground-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-fast-underground-belt",
+      "kind": "sprite",
+      "variants": [
+        "entrance-north",
+        "entrance-east",
+        "entrance-south",
+        "entrance-west",
+        "exit-north",
+        "exit-east",
+        "exit-south",
+        "exit-west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "express-transport-belt",
+      "name": "Express transport belt",
+      "group": "Logistics",
+      "roles": [
+        "stream",
+        "sequence",
+        "transport"
+      ],
+      "notes": "20 native belt shapes; indices are track variants, not camera angles.",
+      "prototype": "transport-belt/express-transport-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-express-transport-belt",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 20,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "express-splitter",
+      "name": "Express splitter",
+      "group": "Logistics",
+      "roles": [
+        "branch",
+        "merge",
+        "partition"
+      ],
+      "notes": "Two belt tracks, housing and cap. The model must implement routing and preserve lane ownership.",
+      "prototype": "splitter/express-splitter",
+      "footprint": [
+        1.8,
+        1
+      ],
+      "icon": "icon-express-splitter",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "express-underground-belt",
+      "name": "Express underground belt",
+      "group": "Logistics",
+      "roles": [
+        "hidden transport",
+        "crossing"
+      ],
+      "notes": "Entrance/exit housings over belt tracks. Underground transit needs its own visible ownership/readout.",
+      "prototype": "underground-belt/express-underground-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-express-underground-belt",
+      "kind": "sprite",
+      "variants": [
+        "entrance-north",
+        "entrance-east",
+        "entrance-south",
+        "entrance-west",
+        "exit-north",
+        "exit-east",
+        "exit-south",
+        "exit-west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "turbo-transport-belt",
+      "name": "Turbo transport belt",
+      "group": "Logistics",
+      "roles": [
+        "stream",
+        "sequence",
+        "transport"
+      ],
+      "notes": "20 native belt shapes; indices are track variants, not camera angles.",
+      "prototype": "transport-belt/turbo-transport-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-turbo-transport-belt",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 20,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "turbo-splitter",
+      "name": "Turbo splitter",
+      "group": "Logistics",
+      "roles": [
+        "branch",
+        "merge",
+        "partition"
+      ],
+      "notes": "Two belt tracks, housing and cap. The model must implement routing and preserve lane ownership.",
+      "prototype": "splitter/turbo-splitter",
+      "footprint": [
+        1.8,
+        1
+      ],
+      "icon": "icon-turbo-splitter",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "turbo-underground-belt",
+      "name": "Turbo underground belt",
+      "group": "Logistics",
+      "roles": [
+        "hidden transport",
+        "crossing"
+      ],
+      "notes": "Entrance/exit housings over belt tracks. Underground transit needs its own visible ownership/readout.",
+      "prototype": "underground-belt/turbo-underground-belt",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-turbo-underground-belt",
+      "kind": "sprite",
+      "variants": [
+        "entrance-north",
+        "entrance-east",
+        "entrance-south",
+        "entrance-west",
+        "exit-north",
+        "exit-east",
+        "exit-south",
+        "exit-west"
+      ],
+      "directions": 1,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "assembling-machine-1",
+      "name": "Assembling machine 1",
+      "group": "Production",
+      "roles": [
+        "function",
+        "worker",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/assembling-machine-1",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-assembling-machine-1",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "assembling-machine-2",
+      "name": "Assembling machine 2",
+      "group": "Production",
+      "roles": [
+        "function",
+        "worker",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/assembling-machine-2",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-assembling-machine-2",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "assembling-machine-3",
+      "name": "Assembling machine 3",
+      "group": "Production",
+      "roles": [
+        "function",
+        "worker",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/assembling-machine-3",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-assembling-machine-3",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "chemical-plant",
+      "name": "Chemical plant",
+      "group": "Production",
+      "roles": [
+        "transform",
+        "multi-input",
+        "pipeline stage"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/chemical-plant",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-chemical-plant",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 24,
+      "motion": "Animated"
+    },
+    {
+      "id": "oil-refinery",
+      "name": "Oil refinery",
+      "group": "Production",
+      "roles": [
+        "transform",
+        "multi-input",
+        "pipeline stage"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/oil-refinery",
+      "footprint": [
+        5,
+        5
+      ],
+      "icon": "icon-oil-refinery",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "centrifuge",
+      "name": "Centrifuge",
+      "group": "Production",
+      "roles": [
+        "partition",
+        "normalize",
+        "worker"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/centrifuge",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-centrifuge",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "foundry",
+      "name": "Foundry",
+      "group": "Production",
+      "roles": [
+        "worker",
+        "batch",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/foundry",
+      "footprint": [
+        5,
+        5
+      ],
+      "icon": "icon-foundry",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 128,
+      "motion": "Animated",
+      "multiFile": true
+    },
+    {
+      "id": "biochamber",
+      "name": "Biochamber",
+      "group": "Production",
+      "roles": [
+        "worker",
+        "batch",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/biochamber",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-biochamber",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "cryogenic-plant",
+      "name": "Cryogenic plant",
+      "group": "Production",
+      "roles": [
+        "worker",
+        "batch",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/cryogenic-plant",
+      "footprint": [
+        5,
+        5
+      ],
+      "icon": "icon-cryogenic-plant",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 192,
+      "motion": "Animated"
+    },
+    {
+      "id": "crusher",
+      "name": "Crusher",
+      "group": "Production",
+      "roles": [
+        "decompose",
+        "parse",
+        "transform"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "assembling-machine/crusher",
+      "footprint": [
+        2,
+        3
+      ],
+      "icon": "icon-crusher",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 48,
+      "motion": "Animated"
+    },
+    {
+      "id": "stone-furnace",
+      "name": "Stone furnace",
+      "group": "Production",
+      "roles": [
+        "compile",
+        "convert",
+        "worker"
+      ],
+      "notes": "Static body; fire, light and working effects are not included. Use a status indicator for work.",
+      "prototype": "furnace/stone-furnace",
+      "footprint": [
+        1.6,
+        2
+      ],
+      "icon": "icon-stone-furnace",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "steel-furnace",
+      "name": "Steel furnace",
+      "group": "Production",
+      "roles": [
+        "compile",
+        "convert",
+        "worker"
+      ],
+      "notes": "Static body; fire, light and working effects are not included. Use a status indicator for work.",
+      "prototype": "furnace/steel-furnace",
+      "footprint": [
+        1.6,
+        2
+      ],
+      "icon": "icon-steel-furnace",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "electric-furnace",
+      "name": "Electric furnace",
+      "group": "Production",
+      "roles": [
+        "compile",
+        "convert",
+        "worker"
+      ],
+      "notes": "Static body; fire, light and working effects are not included. Use a status indicator for work.",
+      "prototype": "furnace/electric-furnace",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-electric-furnace",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "recycler",
+      "name": "Recycler",
+      "group": "Production",
+      "roles": [
+        "cleanup",
+        "deallocate",
+        "decompose"
+      ],
+      "notes": "Native body composition; optional smoke, glow, recipe fluids, and circuit overlays are not included.",
+      "prototype": "furnace/recycler",
+      "footprint": [
+        1.8,
+        3.7
+      ],
+      "icon": "icon-recycler",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 64,
+      "motion": "Animated"
+    },
+    {
+      "id": "burner-mining-drill",
+      "name": "Burner mining drill",
+      "group": "Production",
+      "roles": [
+        "source",
+        "read",
+        "extract"
+      ],
+      "notes": "Native back-and-forth drill animation; exhaust omitted.",
+      "prototype": "mining-drill/burner-mining-drill",
+      "footprint": [
+        2,
+        2
+      ],
+      "icon": "icon-burner-mining-drill",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "pumpjack",
+      "name": "Pumpjack",
+      "group": "Production",
+      "roles": [
+        "source",
+        "poll",
+        "extract"
+      ],
+      "notes": "North-facing horsehead and base; other directions need an explicit mapping.",
+      "prototype": "mining-drill/pumpjack",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-pumpjack",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 40,
+      "motion": "Animated"
+    },
+    {
+      "id": "lab",
+      "name": "Lab",
+      "group": "Production",
+      "roles": [
+        "evaluate",
+        "validate",
+        "test"
+      ],
+      "notes": "Idle body composition. Working glow omitted; use a status indicator for work.",
+      "prototype": "lab/lab",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-lab",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "biolab",
+      "name": "Biolab",
+      "group": "Production",
+      "roles": [
+        "evaluate",
+        "validate",
+        "test"
+      ],
+      "notes": "Idle body composition. Working glow omitted; use a status indicator for work.",
+      "prototype": "lab/biolab",
+      "footprint": [
+        5,
+        5
+      ],
+      "icon": "icon-biolab",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "small-electric-pole",
+      "name": "Small electric pole",
+      "group": "Power",
+      "roles": [
+        "dependency",
+        "signal bus",
+        "shared resource"
+      ],
+      "notes": "Four native pole views. Wires and network behavior are supplied by the scene.",
+      "prototype": "electric-pole/small-electric-pole",
+      "footprint": [
+        0.8,
+        0.8
+      ],
+      "icon": "icon-small-electric-pole",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "medium-electric-pole",
+      "name": "Medium electric pole",
+      "group": "Power",
+      "roles": [
+        "dependency",
+        "signal bus",
+        "shared resource"
+      ],
+      "notes": "Four native pole views. Wires and network behavior are supplied by the scene.",
+      "prototype": "electric-pole/medium-electric-pole",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-medium-electric-pole",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "big-electric-pole",
+      "name": "Big electric pole",
+      "group": "Power",
+      "roles": [
+        "dependency",
+        "signal bus",
+        "shared resource"
+      ],
+      "notes": "Four native pole views. Wires and network behavior are supplied by the scene.",
+      "prototype": "electric-pole/big-electric-pole",
+      "footprint": [
+        2,
+        2
+      ],
+      "icon": "icon-big-electric-pole",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "substation",
+      "name": "Substation",
+      "group": "Power",
+      "roles": [
+        "dependency",
+        "signal bus",
+        "shared resource"
+      ],
+      "notes": "Four native pole views. Wires and network behavior are supplied by the scene.",
+      "prototype": "electric-pole/substation",
+      "footprint": [
+        2,
+        2
+      ],
+      "icon": "icon-substation",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 4,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "solar-panel",
+      "name": "Solar panel",
+      "group": "Power",
+      "roles": [
+        "source",
+        "budget"
+      ],
+      "notes": "",
+      "prototype": "solar-panel/solar-panel",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-solar-panel",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "accumulator",
+      "name": "Accumulator",
+      "group": "Power",
+      "roles": [
+        "accumulator",
+        "budget",
+        "stored capacity"
+      ],
+      "notes": "Static body; add a numeric charge/capacity readout.",
+      "prototype": "accumulator/accumulator",
+      "footprint": [
+        2,
+        2
+      ],
+      "icon": "icon-accumulator",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "steam-engine",
+      "name": "Steam engine",
+      "group": "Power",
+      "roles": [
+        "producer",
+        "throughput",
+        "resource supply"
+      ],
+      "notes": "Native body animation; steam and fluid simulation omitted.",
+      "prototype": "generator/steam-engine",
+      "footprint": [
+        3,
+        5
+      ],
+      "icon": "icon-steam-engine",
+      "kind": "sprite",
+      "variants": [
+        "horizontal",
+        "vertical"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "steam-turbine",
+      "name": "Steam turbine",
+      "group": "Power",
+      "roles": [
+        "producer",
+        "throughput",
+        "resource supply"
+      ],
+      "notes": "Native body animation; steam and fluid simulation omitted.",
+      "prototype": "generator/steam-turbine",
+      "footprint": [
+        3,
+        5
+      ],
+      "icon": "icon-steam-turbine",
+      "kind": "sprite",
+      "variants": [
+        "horizontal",
+        "vertical"
+      ],
+      "directions": 1,
+      "frames": 8,
+      "motion": "Animated"
+    },
+    {
+      "id": "nuclear-reactor",
+      "name": "Nuclear reactor",
+      "group": "Power",
+      "roles": [
+        "shared resource",
+        "compute budget"
+      ],
+      "notes": "Static cold body. Heat, glow and connection patches are not included.",
+      "prototype": "reactor/nuclear-reactor",
+      "footprint": [
+        5,
+        5
+      ],
+      "icon": "icon-nuclear-reactor",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "heating-tower",
+      "name": "Heating tower",
+      "group": "Power",
+      "roles": [
+        "resource supply",
+        "keep alive"
+      ],
+      "notes": "Static body; heat and fire omitted.",
+      "prototype": "reactor/heating-tower",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-heating-tower",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "boiler",
+      "name": "Boiler",
+      "group": "Power",
+      "roles": [
+        "convert",
+        "resource adapter"
+      ],
+      "notes": "Static cold body; fire, fluid and heat overlays omitted.",
+      "prototype": "boiler/boiler",
+      "footprint": [
+        3,
+        2
+      ],
+      "icon": "icon-boiler",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "heat-exchanger",
+      "name": "Heat exchanger",
+      "group": "Power",
+      "roles": [
+        "convert",
+        "resource adapter"
+      ],
+      "notes": "Static cold body; fire, fluid and heat overlays omitted.",
+      "prototype": "boiler/heat-exchanger",
+      "footprint": [
+        3,
+        2
+      ],
+      "icon": "icon-heat-exchanger",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "storage-tank",
+      "name": "Storage tank",
+      "group": "Fluids",
+      "roles": [
+        "reservoir",
+        "buffer",
+        "aggregate"
+      ],
+      "notes": "Two native orientations; fluid windows and level simulation omitted.",
+      "prototype": "storage-tank/storage-tank",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-storage-tank",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 2,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "pipe",
+      "name": "Pipe",
+      "group": "Fluids",
+      "roles": [
+        "stream",
+        "connection"
+      ],
+      "notes": "Explicit connection shapes. Choose a shape from actual neighbors.",
+      "prototype": "pipe/pipe",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-pipe",
+      "kind": "sprite",
+      "variants": [
+        "straight_vertical",
+        "straight_horizontal",
+        "corner_up_right",
+        "corner_up_left",
+        "corner_down_right",
+        "corner_down_left",
+        "t_up",
+        "t_down",
+        "t_right",
+        "t_left",
+        "cross",
+        "ending_up",
+        "ending_down",
+        "ending_left",
+        "ending_right"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "pump",
+      "name": "Pump",
+      "group": "Fluids",
+      "roles": [
+        "gate",
+        "backpressure",
+        "flow control"
+      ],
+      "notes": "Body animation; fluid connections and fluid state are supplied by the model.",
+      "prototype": "pump/pump",
+      "footprint": [
+        1,
+        2
+      ],
+      "icon": "icon-pump",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 32,
+      "motion": "Animated"
+    },
+    {
+      "id": "arithmetic-combinator",
+      "name": "Arithmetic combinator",
+      "group": "Circuits",
+      "roles": [
+        "arithmetic",
+        "map",
+        "reduce"
+      ],
+      "notes": "Native body views; labels and wire/LED state must explain the actual operation.",
+      "prototype": "arithmetic-combinator/arithmetic-combinator",
+      "footprint": [
+        1,
+        2
+      ],
+      "icon": "icon-arithmetic-combinator",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "decider-combinator",
+      "name": "Decider combinator",
+      "group": "Circuits",
+      "roles": [
+        "predicate",
+        "condition",
+        "filter"
+      ],
+      "notes": "Native body views; labels and wire/LED state must explain the actual operation.",
+      "prototype": "decider-combinator/decider-combinator",
+      "footprint": [
+        1,
+        2
+      ],
+      "icon": "icon-decider-combinator",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "selector-combinator",
+      "name": "Selector combinator",
+      "group": "Circuits",
+      "roles": [
+        "select",
+        "route",
+        "priority"
+      ],
+      "notes": "Native body views; labels and wire/LED state must explain the actual operation.",
+      "prototype": "selector-combinator/selector-combinator",
+      "footprint": [
+        1,
+        2
+      ],
+      "icon": "icon-selector-combinator",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "constant-combinator",
+      "name": "Constant combinator",
+      "group": "Circuits",
+      "roles": [
+        "constant",
+        "configuration"
+      ],
+      "notes": "Native body views; labels and wire/LED state must explain the actual operation.",
+      "prototype": "constant-combinator/constant-combinator",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-constant-combinator",
+      "kind": "sprite",
+      "variants": [
+        "north",
+        "east",
+        "south",
+        "west"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "small-lamp",
+      "name": "Small lamp",
+      "group": "Circuits",
+      "roles": [
+        "boolean",
+        "status",
+        "assertion"
+      ],
+      "notes": "Explicit on/off faces; no simulated illumination.",
+      "prototype": "lamp/small-lamp",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-small-lamp",
+      "kind": "sprite",
+      "variants": [
+        "off",
+        "on"
+      ],
+      "directions": 1,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "logistic-robot",
+      "name": "Logistic robot",
+      "group": "Robotics",
+      "roles": [
+        "message",
+        "async task",
+        "delivery"
+      ],
+      "notes": "16 native headings. Flight paths, altitude and ownership must be modeled.",
+      "prototype": "logistic-robot/logistic-robot",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-logistic-robot",
+      "kind": "sprite",
+      "variants": [
+        "idle",
+        "moving"
+      ],
+      "directions": 16,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "construction-robot",
+      "name": "Construction robot",
+      "group": "Robotics",
+      "roles": [
+        "message",
+        "async task",
+        "delivery"
+      ],
+      "notes": "16 native headings. Flight paths, altitude and ownership must be modeled.",
+      "prototype": "construction-robot/construction-robot",
+      "footprint": [
+        1,
+        1
+      ],
+      "icon": "icon-construction-robot",
+      "kind": "sprite",
+      "variants": [
+        "idle",
+        "moving"
+      ],
+      "directions": 16,
+      "frames": 1,
+      "motion": "Static"
+    },
+    {
+      "id": "roboport",
+      "name": "Roboport",
+      "group": "Robotics",
+      "roles": [
+        "scheduler",
+        "worker pool",
+        "dispatcher"
+      ],
+      "notes": "Base fan and door frames. The opening variant is a one-way sequence; settle at its final frame instead of looping it in a program.",
+      "prototype": "roboport/roboport",
+      "footprint": [
+        4,
+        4
+      ],
+      "icon": "icon-roboport",
+      "kind": "sprite",
+      "variants": [
+        "closed",
+        "opening"
+      ],
+      "directions": 1,
+      "frames": 16,
+      "motion": "Animated"
+    },
+    {
+      "id": "radar",
+      "name": "Radar",
+      "group": "Circuits",
+      "roles": [
+        "observe",
+        "monitor",
+        "poll"
+      ],
+      "notes": "64 rotational views; animation is driven by direction, not frame.",
+      "prototype": "radar/radar",
+      "footprint": [
+        3,
+        3
+      ],
+      "icon": "icon-radar",
+      "kind": "sprite",
+      "variants": [],
+      "directions": 64,
+      "frames": 1,
+      "motion": "Rotation"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "item-iron-plate",
+      "name": "iron plate",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-copper-plate",
+      "name": "copper plate",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-steel-plate",
+      "name": "steel plate",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-iron-ore",
+      "name": "iron ore",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-copper-ore",
+      "name": "copper ore",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-coal",
+      "name": "coal",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-stone",
+      "name": "stone",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-uranium-ore",
+      "name": "uranium ore",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-iron-gear-wheel",
+      "name": "iron gear wheel",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-copper-cable",
+      "name": "copper cable",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-electronic-circuit",
+      "name": "electronic circuit",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-advanced-circuit",
+      "name": "advanced circuit",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-processing-unit",
+      "name": "processing unit",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-battery",
+      "name": "battery",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-engine-unit",
+      "name": "engine unit",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-electric-engine-unit",
+      "name": "electric engine unit",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-plastic-bar",
+      "name": "plastic bar",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-sulfur",
+      "name": "sulfur",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-low-density-structure",
+      "name": "low density structure",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-rocket-fuel",
+      "name": "rocket fuel",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-automation-science-pack",
+      "name": "automation science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-logistic-science-pack",
+      "name": "logistic science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-chemical-science-pack",
+      "name": "chemical science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-production-science-pack",
+      "name": "production science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-utility-science-pack",
+      "name": "utility science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-space-science-pack",
+      "name": "space science pack",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-speed-module",
+      "name": "speed module",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    },
+    {
+      "id": "item-productivity-module",
+      "name": "productivity module",
+      "group": "Items",
+      "roles": [
+        "value",
+        "message",
+        "payload"
+      ],
+      "kind": "icon",
+      "motion": "Icon",
+      "variants": [],
+      "directions": 1,
+      "frames": 1
+    }
+  ],
+  "deferred": [
+    {
+      "id": "electric-mining-drill",
+      "reason": "Moving drill rig uses waypoints and direction-specific working layers; the base alone is incomplete."
+    },
+    {
+      "id": "big-mining-drill",
+      "reason": "Separate moving carriage, drill and status layers need a dedicated rig."
+    },
+    {
+      "id": "electromagnetic-plant",
+      "reason": "Warm-up, working and cooldown states need coordinated multi-part animation."
+    },
+    {
+      "id": "trains-and-rails",
+      "reason": "Rolling stock, track geometry and vehicle orientation need dedicated scene support."
+    },
+    {
+      "id": "creatures-and-turrets",
+      "reason": "Walking, attacking and aiming need explicit state and direction rigs."
+    }
+  ]
+}

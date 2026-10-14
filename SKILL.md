@@ -11,8 +11,8 @@ Explain a program as a working factory. Moving items are values, machine cycles 
 operations, and accumulating stock is program state. The mechanism should make the
 program understandable before the reader studies its labels.
 
-Requires Node.js 20.10+, a browser, and the local Factorio asset archive. No game
-artwork ships in this repository.
+Requires Node.js 20.10+ and a browser. The private repository includes the mapped
+art library; the local Factorio archive is only needed to expand or regenerate it.
 
 The repository follows Anatomy’s useful separation: instructions here, reusable
 code in `kit/`, complete examples in `examples/`, focused guidance in `references/`,
@@ -51,7 +51,13 @@ belts, objects, moving value tokens, and machine activity. `kit/transport.mjs`
 places adjacent inserters and supplies pickup, carry, release, and return poses. See
 [references/kit.md](references/kit.md) before extending their interfaces.
 
-Import only the needed art. The local archive defaults to
+Choose from the library before inventing an asset selector. Read
+[references/catalog.md](references/catalog.md), search `npm run objects -- cache`,
+and inspect `assets/catalog.json` for stable IDs, roles, footprints, variants, and
+rendering limits. It contains 68 world objects and 28 item tokens. Use different
+objects when their roles help explain the program, not just to decorate it.
+
+Load only the IDs a scene uses. To expand the library, the local archive defaults to
 `/path/to/factorio-data`; override with `FACTORIO_ARCHIVE` or
 `--archive`. Read [references/assets.md](references/assets.md) for coverage and
 limitations. The game archive is the source of truth for dimensions, offsets,
@@ -61,14 +67,15 @@ world entities without making that visual choice explicit.
 From the skill directory:
 
 ```sh
-node scripts/import-assets.mjs --spec examples/array-pipeline/assets.json --out .local/assets
-node examples/array-pipeline/build.mjs
+npm run build
 node scripts/serve.mjs --root dist --port 4173
 ```
 
 Open the printed URL in the user’s external browser. These commands need no npm
 installation. The build writes a local static site with copied modules and art;
-the imported cache and generated output are ignored by Git.
+generated output is ignored by Git. The object browser is at `/catalog/`, and
+the working example is at `/array-pipeline/`. `npm run assets` regenerates the
+library from the local archive.
 
 ## Make the mechanism legible
 
@@ -122,8 +129,8 @@ briefly state what it explains and any material limits.
 
 ## Asset boundary
 
-Keep original Factorio art out of source control. Build from the user’s local
-archive and copy only selected files into local output. Public distribution of
-game artwork is a separate decision; see `references/assets.md`. The skill does
-not itself request publishing, installing unrelated dependencies, or changing
-game files.
+The user authorized tracking selected artwork in this private repository. Keep
+the original archive separate and generated output ignored. New asset selections
+belong in `catalog/objects.mjs`; regenerate their hashes and manifest with
+`npm run assets`. A factory should copy only the sprites it uses. This skill does
+not request public publishing, unrelated installations, or changes to game files.

@@ -33,6 +33,12 @@ The check uses a separate headless Chrome profile and saves screenshots into
 `.local/qa/`. It does not control the user’s existing browser session or install
 dependencies. For interactive inspection, use the external browser.
 
-Before committing, inspect `git status` and `git ls-files`: game art and generated
-output must not be tracked. Importer errors should identify an unsupported field
+The selected `assets/` library is tracked in this private repository. Before
+committing, inspect `git status` and keep generated `dist/` and `.local/` output
+out of source control. Importer errors should identify an unsupported field
 or missing asset, not quietly produce a placeholder that looks like success.
+
+For catalog changes, `npm test` checks every mapped layer’s crop bounds and file
+hash. Use `scripts/verify-catalog.mjs` with the same browser environment variables
+and the `/catalog/` URL to check search, variants, pause, mobile and reduced motion.
+Inspect the resulting contact sheets as well as any new animated frame sequences.

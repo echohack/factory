@@ -19,11 +19,11 @@ test('sprite crops wrap frames within their own direction, including multi-row s
 
 test('unsupported compositions fail rather than silently losing effects', () => {
   const image = { imageWidth: 64, imageHeight: 64 };
-  for (const field of ['stripes', 'filenames', 'frame_sequence', 'tint', 'apply_runtime_tint', 'draw_as_light']) {
+  for (const field of ['stripes', 'filenames', 'tint', 'apply_runtime_tint', 'draw_as_light']) {
     assert.throws(() => normalizeLayer({ size: 32, [field]: true }, image), /Unsupported/);
   }
   assert.throws(() => normalizeLayer({ size: 32, blend_mode: 'additive' }, image), /Unsupported/);
-  assert.throws(() => normalizeLayer({ size: 32, run_mode: 'backward' }, image), /Unsupported/);
+  assert.throws(() => normalizeLayer({ size: 32, run_mode: 'random' }, image), /Unsupported/);
 });
 
 test('draw placement preserves native scale and tile offsets with shadows behind bodies', () => {

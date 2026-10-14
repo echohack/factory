@@ -36,5 +36,8 @@ base, open/closed hands, and shadows. The platform uses its four-direction sheet
 arm components articulate independently. Joint anchors were measured on the
 archived standard sprites. The two-link projection and event durations are
 explanatory choreography, not an exact reproduction of engine lighting, physics,
-power, or throughput. Only the standard yellow inserter rig is verified. Other
-types require their own reach, sprite anchors, and visual tests.
+power, or throughput. The six mapped types share these joint positions and have
+been checked with their native platform and hand widths. The long-handed inserter
+uses two-tile reach and a larger hand size; the adjacent transport planner does not
+automatically route it. Bulk/stack hand artwork does not itself implement batching.
+Choose the arm’s `sprite` ID and supply matching geometry and model behavior.

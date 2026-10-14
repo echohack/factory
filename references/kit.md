@@ -8,10 +8,14 @@ boundary; `reset()` clears playback. `snapshot()` returns the current committed
 state, current event, its progress, index, and completion status. The caller owns
 visibility, speed and requestAnimationFrame. Event duration is presentation time.
 
-`kit/sprites.mjs` exports `loadSprites(baseURL)` and `SpriteAtlas`. Load from the
+`kit/sprites.mjs` exports `loadSprites(baseURL, {ids})` and `SpriteAtlas`.
+Pass an ID list to decode only the sprites used by a scene. `spriteFiles` and
+`spriteLayers` enumerate all variants and multi-file pages. Load from the
 importer’s manifest URL directory. `draw(ctx, id, x, y, options)` anchors an object
 at its ground center. `tileSize` determines pixels per tile; `frame` is a frame
-index; `direction` is a zero-based variant. Drawing supports `pass: 'shadow'` or
+index; `direction` is a zero-based source-sheet view; `variant` selects a named
+composition such as `east`, `on`, or `entrance-north`. Consult `catalog.json` for
+valid choices. Animated frames can cross source files and follow frame sequences. Drawing supports `pass: 'shadow'` or
 `'body'` so a scene can draw all shadows first, then bodies in ground-y order.
 Icons use a separate `drawIcon` helper. Missing IDs and invalid variants throw.
 `drawInserter(ctx, id, arm, options)` draws a native platform or articulated arm.
@@ -26,6 +30,11 @@ For corners, provide explicit native variants with `beltTiles` rather than rotat
 an image. A view contains machine frame indices, an active object, a token path
 and progress, and optional object readouts. Text labels remain upright and are
 part of the Canvas picture; the page must supply a DOM state equivalent.
+Objects can set `variant` and `direction`; `view.variants` and `view.directions`
+override these by object ID for state changes. An arm can set `sprite` to select
+an inserter rig. Long-handed geometry must be specified explicitly; the automatic
+transport planner continues to place adjacent, standard-reach inserters.
+
 Optional `labelX`, `labelY`, `readoutX`, and `readoutY` place annotations in tile
 coordinates. `labelPlate` adds a small opaque backing where a label crosses a belt.
 The floor is transparent over a dark CSS material; Canvas draws the tile grid.

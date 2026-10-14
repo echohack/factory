@@ -1,23 +1,37 @@
 export function frameRect(layer, frame = 0, direction = 0) {
   if (!Number.isFinite(frame) || !Number.isInteger(direction) || direction < 0 || direction >= layer.directions) throw new RangeError('Invalid sprite frame or direction');
-  const index = direction * layer.frames + ((Math.floor(frame) % layer.frames) + layer.frames) % layer.frames;
-  const x = layer.x + index % layer.columns * layer.width;
-  const y = layer.y + Math.floor(index / layer.columns) * layer.height;
-  if (x + layer.width > layer.imageWidth || y + layer.height > layer.imageHeight) throw new Error('Sprite crop exceeds source image');
-  return { x, y, width: layer.width, height: layer.height };
+  const cycle = layer.runMode === 'forward-then-backward' ? Math.max(1, 2 * layer.frames - 2) : layer.frames;
+  let step = ((Math.floor(frame) % cycle) + cycle) % cycle;
+  if (layer.runMode === 'backward') step = layer.frames - 1 - step;
+  if (step >= layer.frames) step = cycle - step;
+  const index = direction * (layer.sourceFrames ?? layer.frames) + (layer.sequence ? layer.sequence[step] - 1 : step);
+  const page = layer.pages?.find(p => index >= p.start && index < p.start + p.count) ?? layer;
+  if (layer.pages && page === layer) throw new Error('Sprite frame has no source page');
+  const local = index - (page.start ?? 0);
+  const x = layer.x + local % layer.columns * layer.width;
+  const y = layer.y + Math.floor(local / layer.columns) * layer.height;
+  if (x + layer.width > page.imageWidth || y + layer.height > page.imageHeight) throw new Error('Sprite crop exceeds source image');
+  return { x, y, width: layer.width, height: layer.height, ...(layer.pages ? { file: page.file } : {}) };
 }
+export const spriteLayers = sprite => sprite.kind === 'inserter' ? Object.values(sprite.parts).flat() :
+  sprite.variants ? Object.values(sprite.variants).flat() : sprite.layers ?? [];
+export const spriteFiles = sprite => sprite.kind === 'icon' ? [sprite.file] :
+  spriteLayers(sprite).flatMap(l => l.pages ? l.pages.map(p => p.file) : [l.file]);
+
 export class SpriteAtlas {
   constructor(manifest, images) { this.manifest = manifest; this.images = images; }
-  draw(ctx, id, x, y, { tileSize = 32, frame = 0, direction = 0, pass = 'all', shadowAlpha = .35 } = {}) {
+  draw(ctx, id, x, y, { tileSize = 32, frame = 0, direction = 0, variant, pass = 'all', shadowAlpha = .35 } = {}) {
     const sprite = this.manifest.sprites[id];
     if (!sprite || sprite.kind !== 'sprite') throw new Error(`Unknown world sprite: ${id}`);
-    const layers = [...sprite.layers].sort((a, b) => Number(!!b.shadow) - Number(!!a.shadow));
+    const selected = variant == null ? sprite.layers : sprite.variants?.[variant];
+    if (!selected) throw new Error(`Unknown sprite variant: ${id}/${variant}`);
+    const layers = [...selected].sort((a, b) => Number(!!b.shadow) - Number(!!a.shadow));
     for (const layer of layers) {
       if (pass === 'shadow' && !layer.shadow || pass === 'body' && layer.shadow) continue;
-      const rect = frameRect(layer, frame, direction);
+      const rect = frameRect(layer, layer.fixedFrame ?? frame, layer.fixedDirection ?? (layer.directions === 1 ? 0 : direction));
       const scale = layer.scale * tileSize / 32, w = rect.width * scale, h = rect.height * scale;
       ctx.save(); if (layer.shadow) ctx.globalAlpha *= shadowAlpha;
-      ctx.drawImage(this.images.get(layer.file), rect.x, rect.y, rect.width, rect.height,
+      ctx.drawImage(this.images.get(rect.file ?? layer.file), rect.x, rect.y, rect.width, rect.height,
         x + layer.shift[0] * tileSize - w / 2, y + layer.shift[1] * tileSize - h / 2, w, h);
       ctx.restore();
     }
@@ -67,16 +81,19 @@ export class SpriteAtlas {
     ctx.restore();
   }
 }
-export async function loadSprites(baseURL) {
+export async function loadSprites(baseURL, { ids, manifest: suppliedManifest, images = new Map() } = {}) {
   const base = new URL(baseURL, location.href);
-  const response = await fetch(new URL('manifest.json', base));
-  if (!response.ok) throw new Error('Assets are missing. Run npm run assets, then npm run build.');
-  const manifest = await response.json();
-  const files = new Set(Object.values(manifest.sprites).flatMap(s => s.kind === 'icon' ? [s.file] :
-    (s.kind === 'inserter' ? Object.values(s.parts).flat() : s.layers).map(l => l.file)));
-  const images = new Map(await Promise.all([...files].map(async file => {
+  let manifest = suppliedManifest;
+  if (!manifest) {
+    const response = await fetch(new URL('manifest.json', base));
+    if (!response.ok) throw new Error('Assets are missing. Run npm run assets, then npm run build.');
+    manifest = await response.json();
+  }
+  const selected = ids ? ids.map(id => { if (!manifest.sprites[id]) throw new Error(`Unknown sprite: ${id}`); return manifest.sprites[id]; }) : Object.values(manifest.sprites);
+  const files = new Set(selected.flatMap(spriteFiles));
+  await Promise.all([...files].filter(file => !images.has(file)).map(async file => {
     const image = new Image(); image.src = new URL(file, base).href;
-    await image.decode(); return [file, image];
-  })));
+    await image.decode(); images.set(file, image);
+  }));
   return new SpriteAtlas(manifest, images);
 }
