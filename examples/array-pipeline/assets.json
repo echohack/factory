@@ -1,5 +1,6 @@
 {
   "sprites": {
+    "inserter": { "kind": "inserter", "name": "inserter" },
     "belt": { "kind": "prototype", "type": "transport-belt", "name": "transport-belt", "path": ["belt_animation_set", "animation_set"] },
     "filter": { "kind": "prototype", "type": "assembling-machine", "name": "assembling-machine-2", "path": ["graphics_set", "animation"] },
     "map": { "kind": "prototype", "type": "assembling-machine", "name": "assembling-machine-3", "path": ["graphics_set", "animation"] },

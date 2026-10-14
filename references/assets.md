@@ -19,7 +19,8 @@ Rails. `metadata/archive-summary.json` records the source/version.
 All source artwork is archived. Prepared clips cover the 20 shape/direction
 variants of each of four belt tiers and the working cycles of assemblers 1–3.
 Their WebP previews run at an arbitrary inspection rate, not program time.
-Inserters, complex machines and creatures still need composition/articulation.
+The kit composes the standard yellow inserter from original platform and arm
+parts. Other inserters, complex machines and creatures need dedicated rigs.
 
 ## Importing
 
@@ -29,10 +30,12 @@ or an exported icon. Files are copied by content hash to the output directory;
 `manifest.json` contains normalized frames/layers, source attribution, and version.
 The importer validates crops and rejects path traversal and unsupported layouts.
 
-The first implementation supports `filename`, `layers`, width/height or size,
+The importer supports `filename`, `layers`, width/height or size,
 frame count, line length, direction count, offsets, scale, and shadows. It fails
 on multi-file/stripe layouts, frame sequences, runtime tint, nonstandard blending,
-and direction dictionaries. Extend it with a test and visual check when needed;
+and general direction dictionaries. The dedicated `inserter` selector additionally
+supports the standard inserter's four-direction platform and seven-part rig.
+Extend it with a test and visual check when needed;
 do not silently drop layers to get a result.
 
 Offsets are in tiles; one tile is conventionally 32 pixels at scale 1. Layer

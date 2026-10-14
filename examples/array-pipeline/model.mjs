@@ -15,31 +15,45 @@ export function parseInput(text) {
 }
 export function makeTrace(input) {
   if (!Array.isArray(input) || input.some(n => !Number.isSafeInteger(n) || Math.abs(n) > 999) || input.length > 16) throw new Error('Invalid input values');
-  let state = { input: [...input], tested: 0, filtered: [], rejected: [], mapped: [], reduced: 0, sum: 0, phase: 'filter' };
+  const state = { input: [...input], tested: 0, filtered: [], rejected: [], mapped: [], reduced: 0, sum: 0, phase: 'filter',
+    stock: { input: input.length, filter: 0, filtered: 0, reject: 0, map: 0, mapped: 0, sum: 0 },
+    resident: { filter: null, map: null }, transit: null };
   const initial = structuredClone(state), events = [];
   const emit = (fields, change = () => {}) => {
     const before = structuredClone(state); change();
-    events.push({ duration: 750, ...fields, before, after: structuredClone(state) });
+    events.push({ duration: 350, ...fields, before, after: structuredClone(state) });
   };
-  for (let i = 0; i < input.length; i++) {
-    const value = input[i], accepted = value % 2 === 0;
-    emit({ phase: 'filter', line: 1, from: 'input', to: 'filter', value, token: i, message: `Test ${value}: ${accepted ? 'even, keep it' : 'odd, reject it'}.` });
-    emit({ phase: 'filter', line: 1, from: 'filter', to: accepted ? 'filtered' : 'reject', value, token: i, machine: 'filter', accepted,
-      message: accepted ? `${value} enters the filtered buffer.` : `${value} goes to the rejected buffer.` }, () => {
+  const transfer = (from, to, value, line, receive = () => {}) => {
+    const common = { kind: 'transfer', phase: state.phase, line, from, to, value, route: `${from}:${to}` };
+    emit({ ...common, stage: 'pickup', duration: 120, message: `Pick up ${value} from ${from}.` }, () => {
+      state.stock[from]--; state.transit = { from, to, value, holder: 'out' };
+      if (from in state.resident) state.resident[from] = null;
+    });
+    emit({ ...common, stage: 'out', duration: 280, message: `The output inserter places ${value} on the belt.` }, () => { state.transit.holder = 'belt'; });
+    emit({ ...common, stage: 'belt', duration: 360, message: `${value} reaches the input inserter for ${to}.` }, () => { state.transit.holder = 'in'; });
+    emit({ ...common, stage: 'in', duration: 280, message: `The input inserter releases ${value} into ${to}.` }, () => {
+      state.stock[to]++; state.transit = null;
+      if (to in state.resident) state.resident[to] = value;
+      receive();
+    });
+    emit({ ...common, stage: 'return', duration: 180, message: `The ${to} inserter returns empty.` });
+  };
+  for (const value of input) {
+    transfer('input', 'filter', value, 1);
+    const accepted = value % 2 === 0;
+    emit({ kind: 'work', phase: 'filter', line: 1, machine: 'filter', value, message: `Test ${value}: ${accepted ? 'even, keep it' : 'odd, reject it'}.` });
+    transfer('filter', accepted ? 'filtered' : 'reject', value, 1, () => {
       state.tested++; (accepted ? state.filtered : state.rejected).push(value);
     });
   }
-  emit({ phase: 'map', line: 2, duration: 450, message: 'Filtering is complete. Map now reads the filtered array.' }, () => { state.phase = 'map'; });
-  for (let i = 0; i < state.filtered.length; i++) {
-    const value = state.filtered[i];
-    emit({ phase: 'map', line: 2, from: 'filtered', to: 'map', value, token: i, message: `Multiply ${value} by 3.` });
-    emit({ phase: 'map', line: 2, from: 'map', to: 'mapped', value: value * 3, token: i, machine: 'map', message: `${value} × 3 = ${value * 3}.` }, () => { state.mapped.push(value * 3); });
+  emit({ phase: 'map', line: 2, message: 'Filtering is complete. Map now reads the filtered array.' }, () => { state.phase = 'map'; });
+  for (const value of state.filtered) {
+    transfer('filtered', 'map', value, 2);
+    emit({ kind: 'work', phase: 'map', line: 2, machine: 'map', value, message: `${value} × 3 = ${value * 3}.` }, () => { state.resident.map = value * 3; });
+    transfer('map', 'mapped', value * 3, 2, () => { state.mapped.push(value * 3); });
   }
-  emit({ phase: 'reduce', line: 3, duration: 450, message: 'Mapping is complete. Reduce starts with an accumulator of 0.' }, () => { state.phase = 'reduce'; });
-  for (let i = 0; i < state.mapped.length; i++) {
-    const value = state.mapped[i], previous = state.sum;
-    emit({ phase: 'reduce', line: 3, from: 'mapped', to: 'sum', value, token: i, message: `${previous} + ${value} = ${previous + value}.` }, () => { state.sum += value; state.reduced++; });
-  }
-  emit({ phase: 'done', line: 3, duration: 450, message: `Complete. The result is ${state.sum}.` }, () => { state.phase = 'done'; });
+  emit({ phase: 'reduce', line: 3, message: 'Mapping is complete. Reduce starts with an accumulator of 0.' }, () => { state.phase = 'reduce'; });
+  for (const value of state.mapped) transfer('mapped', 'sum', value, 3, () => { state.sum += value; state.reduced++; });
+  emit({ phase: 'done', line: 3, message: `Complete. The result is ${state.sum}.` }, () => { state.phase = 'done'; });
   return { initial, events, result: state.sum };
 }

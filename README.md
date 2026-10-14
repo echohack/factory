@@ -26,6 +26,9 @@ FACTORIO_ARCHIVE=/path/to/factorio-data npm run assets
 The example explains `[2, 5, 4, 7, 6, 3, 8, 1].filter(even).map(triple).reduce(sum, 0)`.
 It exposes the intermediate arrays and final value **60**. Its eager evaluation
 order is deliberate; a streaming pipeline would need a different model.
+Native inserters handle each inventory transfer: pickup, carry, belt travel,
+insertion, and empty return. The dark workbench preserves station labels and the
+tile grid, with charcoal textures and checker gutters borrowed from Campfire.
 
 ## Install as a skill
 
@@ -56,9 +59,13 @@ Game artwork is imported into `.local/` and copied into ignored `dist/` output.
 No Factorio art is committed. Wube’s asset terms still apply to generated output;
 the fact that a site runs locally does not grant permission to publish its art.
 
-The first renderer supports ordinary single-file sprite layers, explicit belt
-variants, shadows, and rendered icons. Unsupported sprite forms fail explicitly.
-Inserter articulation, complex working effects, arbitrary entity reconstruction,
-and automatic parsing of every programming language are not implemented.
+The renderer supports ordinary single-file sprite layers, explicit belt variants,
+shadows, icons, and the standard yellow inserter's platform and articulated arms.
+Its arm projection and transfer timing are explanatory, not an engine simulation.
+Unsupported sprite forms fail explicitly. Other inserter rigs, complex working
+effects, arbitrary entity reconstruction, and automatic parsing of every
+programming language are not implemented.
 
 The layout of the skill is inspired by Anatomy; this kit and example are new code.
+The two files in `assets/materials/` are user-authorized copies of Campfire's
+ash textures. Their origins and adapted surface recipes are in `references/design.md`.

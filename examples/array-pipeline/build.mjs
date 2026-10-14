@@ -8,8 +8,9 @@ try {
   const manifest = JSON.parse(await readFile(join(assets, 'manifest.json')));
   const out = resolve(root, 'dist/array-pipeline'); await mkdir(dirname(out), { recursive: true });
   staging = await mkdtemp(join(dirname(out), '.array-pipeline-'));
-  for (const file of ['index.html', 'app.mjs', 'model.mjs', 'style.css']) await cp(join(here, file), join(staging, file));
+  for (const file of ['index.html', 'app.mjs', 'model.mjs', 'layout.mjs', 'style.css']) await cp(join(here, file), join(staging, file));
   await cp(join(root, 'kit'), join(staging, 'kit'), { recursive: true });
+  await cp(join(root, 'assets/materials'), join(staging, 'materials'), { recursive: true });
   await mkdir(join(staging, 'assets'));
   for (const file of ['manifest.json', ...Object.keys(manifest.files)]) {
     if (file !== basename(file)) throw new Error('Invalid manifest filename');

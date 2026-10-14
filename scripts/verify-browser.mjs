@@ -28,10 +28,17 @@ try {
   const desktop = await open({ viewport: { width: 1440, height: 1200 } });
   await fit(desktop);
   assert.equal((await state(desktop)).playing, false);
+  await desktop.locator('#step').click();
+  await desktop.locator('#speed').selectOption('0.5');
   await desktop.locator('#play').click();
-  await desktop.waitForFunction(() => window.factoryDemo.state.progress > .2);
+  await desktop.waitForFunction(() => window.factoryDemo.state.event.stage === 'out' && window.factoryDemo.state.progress > .3);
   await desktop.locator('#play').click();
   const paused = await state(desktop), pixels = await desktop.locator('#scene').screenshot();
+  await desktop.locator('.factory-floor').screenshot({ path: resolve(output, 'inserter.png') });
+  assert.equal(paused.state.transit.holder, 'out');
+  assert.equal(paused.state.stock.input, 7);
+  assert.equal(paused.state.stock.filter, 0);
+  assert.equal(await desktop.evaluate(() => window.factoryDemo.view.arms.filter(a => a.closed).length), 1);
   await desktop.waitForTimeout(200);
   assert.deepEqual(await state(desktop), paused, 'Pause freezes playback');
   assert.deepEqual(await desktop.locator('#scene').screenshot(), pixels, 'Pause freezes sprite pixels');
@@ -88,6 +95,8 @@ try {
 
   const reduced = await open({ viewport: { width: 1280, height: 1000 }, reducedMotion: 'reduce' });
   assert.equal((await state(reduced)).playing, false);
+  await reduced.locator('#step').click();
+  await reduced.locator('#speed').selectOption('0.5');
   await reduced.locator('#play').click();
   await reduced.waitForFunction(() => window.factoryDemo.state.progress > .1);
   const still = await reduced.locator('#scene').screenshot();

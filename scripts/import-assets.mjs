@@ -57,6 +57,16 @@ export async function importAssets({ archive, spec, out }) {
     if (item.kind === 'icon') {
       if (![item.category, item.name].every(x => /^[a-z0-9_-]+$/.test(x))) throw new Error('Invalid icon selector');
       sprites[id] = { kind: 'icon', ...await image(join(archive, 'Factorio-Assets/icons'), `${item.category}/${item.name}.png`) };
+    } else if (item.kind === 'inserter') {
+      if (item.name !== 'inserter') throw new Error('Only the verified standard inserter rig is supported');
+      const proto = definitions.inserter?.[item.name];
+      if (!proto?.platform_picture?.sheet) throw new Error('Inserter requires a four-direction platform sheet');
+      const parts = {};
+      parts.platform = await layers({ ...proto.platform_picture.sheet, frame_count: 1, direction_count: 4, line_length: 4 });
+      for (const [part, field] of Object.entries({ base: 'hand_base_picture', open: 'hand_open_picture', closed: 'hand_closed_picture',
+        baseShadow: 'hand_base_shadow', openShadow: 'hand_open_shadow', closedShadow: 'hand_closed_shadow' })) parts[part] = await layers(proto[field]);
+      sprites[id] = { kind: 'inserter', prototype: `inserter/${item.name}`, handSize: proto.hand_size ?? .75,
+        pickup: proto.pickup_position, drop: proto.insert_position, parts };
     } else if (item.kind === 'prototype') {
       let node = definitions[item.type]?.[item.name];
       for (const key of item.path ?? []) node = node?.[key];

@@ -51,7 +51,7 @@ test('timed playback and event stepping produce identical states', () => {
 
 test('pause freezes partial progress, step commits once, reset restores initial state', () => {
   const trace = makeTrace([2]), player = new TracePlayer(trace.events, trace.initial);
-  player.play(); player.update(300); player.pause();
+  player.play(); player.update(trace.events[0].duration * .4); player.pause();
   const paused = player.snapshot();
   assert.equal(paused.progress, .4);
   assert.deepEqual(player.update(5000), paused);

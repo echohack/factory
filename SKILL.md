@@ -1,6 +1,6 @@
 ---
 name: factory
-description: Build interactive visualizations of programs, algorithms, and software systems using Factorio objects and locally imported game artwork. Use when the user asks for a Factorio-style explainer or invokes /factory; map execution state to belts, machines, items, buffers, and circuits.
+description: Build interactive visualizations of programs, algorithms, and software systems using Factorio objects and locally imported game artwork. Use when the user asks for a Factorio-style explainer or invokes /factory; map execution state to belts, inserters, machines, items, buffers, and circuits.
 metadata:
   opencode/slash: "true"
 ---
@@ -28,7 +28,7 @@ or physical distances measure program timing unless the data supports that.
 
 Write the semantic mapping before arranging objects. Use
 [references/programs.md](references/programs.md) for mapping choices. A belt is a
-stream or transfer, a chest is stored state, an assembler is work, and a splitter
+stream, an inserter is a discrete handoff, a chest is stored state, an assembler is work, and a splitter
 can represent a branch. A cache needs hit/miss behavior; a queue needs ordering.
 The name of the prop alone is not the explanation.
 
@@ -47,7 +47,8 @@ silently draw it as a fused streaming pipeline.
 Use the example as a starting point, not a required subject or fixed layout.
 `kit/trace.mjs` provides deterministic playback and stepping. `kit/sprites.mjs`
 draws supported native sprite layers; `kit/scene.mjs` provides tile coordinates,
-belts, objects, moving value tokens, and machine activity. See
+belts, objects, moving value tokens, and machine activity. `kit/transport.mjs`
+places adjacent inserters and supplies pickup, carry, release, and return poses. See
 [references/kit.md](references/kit.md) before extending their interfaces.
 
 Import only the needed art. The local archive defaults to
@@ -73,8 +74,21 @@ the imported cache and generated output are ignored by Git.
 
 Use Factorio’s native tile plane and fixed sprite perspective. Do not apply an
 additional isometric transform. Preserve contact points and anchors, draw shadows
-behind objects, route belts into actual ports, and keep values visibly associated
-with the objects that own them. Useful detail includes real machinery, connections,
+behind objects, and keep values visibly associated with their current owner.
+Chests and assemblers require inserters: leave an inserter tile between the
+building footprint and the belt. Each belt connection has an output inserter and
+an input inserter. Never draw a belt under a chest or through an assembler to imply
+item transfer. Direct insertion between buildings is also possible when an
+inserter's pickup and drop tiles reach both inventories.
+
+Read [references/inserters.md](references/inserters.md) before wiring a scene.
+Show pickup, a closed hand carrying the item, release, and an empty return.
+The item follows the hand while held, occupies a real belt lane while travelling,
+and enters the destination inventory only at release. Include hand contents in
+conservation checks; never count a value in both a chest and an inserter.
+Start machine work after its input arrives. Pause freezes the arms as well as belts.
+
+Useful detail includes real machinery, connections,
 status lamps, and stock; decorative machinery should not imply nonexistent work.
 
 Give the figure a short title, one useful instruction, the relevant code or
@@ -82,6 +96,12 @@ pseudocode, and a live readout. Keep labels close to their stations. Reveal a
 failure, rejection, cache miss, or bottleneck through behavior as well as color.
 Let the reader pause, step, reset, and change a meaningful input. Keep keyboard
 controls scoped to the figure and ignore typing in form fields.
+
+Use the chosen dark workbench treatment: Campfire charcoal fuzz and grain,
+subtle tile grid, warm station labels, olive controls, amber activity, and narrow
+checker gutters. Keep this section the visual focus. Read
+[references/design.md](references/design.md) for the material recipe and provenance.
+Preserve the grid and labels when improving machinery or layout.
 
 Fit the scene at narrow widths; reflow its stations when simply shrinking would
 make values unreadable. Supply a DOM/text equivalent of the important state.

@@ -7,6 +7,7 @@ the program’s important invariants rather than reproduce Factorio’s own reci
 |---|---|---|
 | Value / message | Item with a value label | Stable identity, owner, and route |
 | Sequence / stream | Belt | Ordering and transfers |
+| Inventory handoff | Inserter | Pickup, closed hand, release, empty return |
 | Function / worker | Assembler | Busy versus idle, input and output |
 | Predicate / branch | Sorter station or splitter | Both outcomes and condition |
 | Queue / buffer | Chest | Contents, order, capacity if bounded |
