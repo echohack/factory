@@ -1,0 +1,430 @@
+{
+  "format": 1,
+  "gameVersion": "2.0.77",
+  "attribution": "",
+  "sprites": {
+    "inserter": {
+      "kind": "inserter",
+      "prototype": "inserter/inserter",
+      "handSize": 0.75,
+      "pickup": [
+        0,
+        -1
+      ],
+      "drop": [
+        0,
+        1.2
+      ],
+      "parts": {
+        "platform": [
+          {
+            "file": "7df71af1c6fca5f6-inserter-platform.png",
+            "imageWidth": 420,
+            "imageHeight": 79,
+            "width": 105,
+            "height": 79,
+            "frames": 1,
+            "directions": 4,
+            "columns": 4,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0.046875,
+              0.203125
+            ],
+            "scale": 0.5,
+            "shadow": false
+          }
+        ],
+        "base": [
+          {
+            "file": "568b8b26c6bd57f8-inserter-hand-base.png",
+            "imageWidth": 32,
+            "imageHeight": 136,
+            "width": 32,
+            "height": 136,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ],
+        "open": [
+          {
+            "file": "dd4e3def386a7771-inserter-hand-open.png",
+            "imageWidth": 72,
+            "imageHeight": 164,
+            "width": 72,
+            "height": 164,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ],
+        "closed": [
+          {
+            "file": "4a52c9f2fa0a7eaa-inserter-hand-closed.png",
+            "imageWidth": 72,
+            "imageHeight": 164,
+            "width": 72,
+            "height": 164,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ],
+        "baseShadow": [
+          {
+            "file": "fba8ee6c1d7b8b35-burner-inserter-hand-base-shadow.png",
+            "imageWidth": 32,
+            "imageHeight": 132,
+            "width": 32,
+            "height": 132,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ],
+        "openShadow": [
+          {
+            "file": "497af01326de96da-burner-inserter-hand-open-shadow.png",
+            "imageWidth": 72,
+            "imageHeight": 164,
+            "width": 72,
+            "height": 164,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ],
+        "closedShadow": [
+          {
+            "file": "d97470e499694811-burner-inserter-hand-closed-shadow.png",
+            "imageWidth": 72,
+            "imageHeight": 164,
+            "width": 72,
+            "height": 164,
+            "frames": 1,
+            "directions": 1,
+            "columns": 1,
+            "x": 0,
+            "y": 0,
+            "shift": [
+              0,
+              0
+            ],
+            "scale": 0.25,
+            "shadow": false
+          }
+        ]
+      }
+    },
+    "belt": {
+      "kind": "sprite",
+      "prototype": "transport-belt/transport-belt",
+      "layers": [
+        {
+          "file": "89bd090471495532-transport-belt.png",
+          "imageWidth": 2048,
+          "imageHeight": 2560,
+          "width": 128,
+          "height": 128,
+          "frames": 16,
+          "directions": 20,
+          "columns": 16,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0,
+            0
+          ],
+          "scale": 0.5,
+          "shadow": false
+        }
+      ]
+    },
+    "filter": {
+      "kind": "sprite",
+      "prototype": "assembling-machine/assembling-machine-2",
+      "layers": [
+        {
+          "file": "4542c22980cf5416-assembling-machine-2.png",
+          "imageWidth": 1712,
+          "imageHeight": 872,
+          "width": 214,
+          "height": 218,
+          "frames": 32,
+          "directions": 1,
+          "columns": 8,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0,
+            0.125
+          ],
+          "scale": 0.5,
+          "shadow": false
+        },
+        {
+          "file": "d001fe39c6f2681e-assembling-machine-2-shadow.png",
+          "imageWidth": 1568,
+          "imageHeight": 652,
+          "width": 196,
+          "height": 163,
+          "frames": 32,
+          "directions": 1,
+          "columns": 8,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0.375,
+            0.1484375
+          ],
+          "scale": 0.5,
+          "shadow": true
+        }
+      ]
+    },
+    "map": {
+      "kind": "sprite",
+      "prototype": "assembling-machine/assembling-machine-3",
+      "layers": [
+        {
+          "file": "5232e08b30e9c0c7-assembling-machine-3.png",
+          "imageWidth": 1712,
+          "imageHeight": 948,
+          "width": 214,
+          "height": 237,
+          "frames": 32,
+          "directions": 1,
+          "columns": 8,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0,
+            -0.0234375
+          ],
+          "scale": 0.5,
+          "shadow": false
+        },
+        {
+          "file": "f568a7ec392abda1-assembling-machine-3-shadow.png",
+          "imageWidth": 2080,
+          "imageHeight": 648,
+          "width": 260,
+          "height": 162,
+          "frames": 32,
+          "directions": 1,
+          "columns": 8,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0.875,
+            0.125
+          ],
+          "scale": 0.5,
+          "shadow": true
+        }
+      ]
+    },
+    "wooden-chest": {
+      "kind": "sprite",
+      "prototype": "container/wooden-chest",
+      "layers": [
+        {
+          "file": "7be61d905c3d000f-wooden-chest.png",
+          "imageWidth": 62,
+          "imageHeight": 72,
+          "width": 62,
+          "height": 72,
+          "frames": 1,
+          "directions": 1,
+          "columns": 1,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0.015625,
+            -0.0625
+          ],
+          "scale": 0.5,
+          "shadow": false
+        },
+        {
+          "file": "d9c07f12fe246eda-wooden-chest-shadow.png",
+          "imageWidth": 104,
+          "imageHeight": 40,
+          "width": 104,
+          "height": 40,
+          "frames": 1,
+          "directions": 1,
+          "columns": 1,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0.3125,
+            0.203125
+          ],
+          "scale": 0.5,
+          "shadow": true
+        }
+      ]
+    },
+    "steel-chest": {
+      "kind": "sprite",
+      "prototype": "container/steel-chest",
+      "layers": [
+        {
+          "file": "4ca0dfcbd64b7649-steel-chest.png",
+          "imageWidth": 64,
+          "imageHeight": 80,
+          "width": 64,
+          "height": 80,
+          "frames": 1,
+          "directions": 1,
+          "columns": 1,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            -0.0078125,
+            -0.015625
+          ],
+          "scale": 0.5,
+          "shadow": false
+        },
+        {
+          "file": "55827d55aff04782-steel-chest-shadow.png",
+          "imageWidth": 110,
+          "imageHeight": 46,
+          "width": 110,
+          "height": 46,
+          "frames": 1,
+          "directions": 1,
+          "columns": 1,
+          "x": 0,
+          "y": 0,
+          "shift": [
+            0.3828125,
+            0.25
+          ],
+          "scale": 0.5,
+          "shadow": true
+        }
+      ]
+    },
+    "item": {
+      "kind": "icon",
+      "file": "f336920a8b97d40a-iron-plate.png",
+      "imageWidth": 64,
+      "imageHeight": 64
+    }
+  },
+  "files": {
+    "7df71af1c6fca5f6-inserter-platform.png": {
+      "sha256": "7df71af1c6fca5f6ebcc429b5475cbb18950f46c79fd74ee25c24543d64acbf0",
+      "bytes": 36235
+    },
+    "568b8b26c6bd57f8-inserter-hand-base.png": {
+      "sha256": "568b8b26c6bd57f8df93a80a4d0cefa881ca906aee8cbe0b0705d98a5819144c",
+      "bytes": 7179
+    },
+    "dd4e3def386a7771-inserter-hand-open.png": {
+      "sha256": "dd4e3def386a777180532db99f70312b32f28a3dae23291454fdc0e00f5a72a9",
+      "bytes": 11546
+    },
+    "4a52c9f2fa0a7eaa-inserter-hand-closed.png": {
+      "sha256": "4a52c9f2fa0a7eaa85a95dcc3d553e74d03357e25cb176aee6919020743a623f",
+      "bytes": 11415
+    },
+    "fba8ee6c1d7b8b35-burner-inserter-hand-base-shadow.png": {
+      "sha256": "fba8ee6c1d7b8b357a1afeb11cab290ed90ee4dc6da19bc4c910bf7fe917a19d",
+      "bytes": 943
+    },
+    "497af01326de96da-burner-inserter-hand-open-shadow.png": {
+      "sha256": "497af01326de96da10c648356fa77aa100f368fd9693a629ea11a32fc627a27b",
+      "bytes": 1413
+    },
+    "d97470e499694811-burner-inserter-hand-closed-shadow.png": {
+      "sha256": "d97470e49969481187956d6557728070be494c11000566c9cab9f7ad269e4786",
+      "bytes": 1208
+    },
+    "89bd090471495532-transport-belt.png": {
+      "sha256": "89bd0904714955321374b3cb6e7c8e70c2ac47f95f5332e2a89c2e4e404dca64",
+      "bytes": 1475827
+    },
+    "d001fe39c6f2681e-assembling-machine-2-shadow.png": {
+      "sha256": "d001fe39c6f2681ecf1e98314b93fb33a5dfcb67551200b92517840ec561576d",
+      "bytes": 32217
+    },
+    "4542c22980cf5416-assembling-machine-2.png": {
+      "sha256": "4542c22980cf541618726bb22bd67324fac8404011f47f1a10f18e73af51a2a3",
+      "bytes": 2237497
+    },
+    "f568a7ec392abda1-assembling-machine-3-shadow.png": {
+      "sha256": "f568a7ec392abda18b80cbada85f6c14e2d7fcb212fdf54b26be188dae095a7b",
+      "bytes": 57497
+    },
+    "5232e08b30e9c0c7-assembling-machine-3.png": {
+      "sha256": "5232e08b30e9c0c767deab0594213c30f856c9846cf104a658fd442ea58f8082",
+      "bytes": 2241510
+    },
+    "7be61d905c3d000f-wooden-chest.png": {
+      "sha256": "7be61d905c3d000f70d20dfdc629912dbe656ee51fb12bd679befbbf8f0026f5",
+      "bytes": 9368
+    },
+    "d9c07f12fe246eda-wooden-chest-shadow.png": {
+      "sha256": "d9c07f12fe246eda10e29c055335a7f8dfeeb7ca8479c02b4a731ec49430fe84",
+      "bytes": 438
+    },
+    "55827d55aff04782-steel-chest-shadow.png": {
+      "sha256": "55827d55aff047829bfba5915861a9a007842ed62f61ddd212a4571cc4a31ff0",
+      "bytes": 505
+    },
+    "4ca0dfcbd64b7649-steel-chest.png": {
+      "sha256": "4ca0dfcbd64b764988392ea451762a0f7815bab32105fb92d2acbfd55023f780",
+      "bytes": 10892
+    },
+    "f336920a8b97d40a-iron-plate.png": {
+      "sha256": "f336920a8b97d40ad1c058cd8ec29b6375e5bf173551e4d4cac31a22fab672c7",
+      "bytes": 4821
+    }
+  }
+}
