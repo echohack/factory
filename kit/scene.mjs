@@ -23,7 +23,7 @@ export class FactoryScene {
       for (let i = .5; i < length; i++) this.atlas.draw(ctx, belt.sprite ?? 'belt', (a[0] + dx * i) * tile, (a[1] + dy * i) * tile,
         { tileSize: tile, frame: view.beltFrame ?? 0, direction });
     }
-    for (const b of layout.beltTiles ?? []) this.atlas.draw(ctx, b.sprite ?? 'belt', b.x * tile, b.y * tile, { tileSize: tile, frame: view.beltFrame ?? 0, direction: b.direction });
+    for (const b of layout.beltTiles ?? []) this.atlas.draw(ctx, b.sprite ?? 'belt', b.x * tile, b.y * tile, { tileSize: tile, frame: view.beltFrame ?? 0, direction: b.direction, variant: b.variant });
     for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile, pass: 'shadow' });
     for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile, pass: 'platform' });
     const objects = [...layout.objects].sort((a, b) => a.y - b.y);
@@ -35,15 +35,24 @@ export class FactoryScene {
     for (const object of objects) {
       const active = [].concat(view.active ?? []).includes(object.id);
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;
-      if (object.labelPlate) {
-        ctx.fillStyle = '#0c1e35'; ctx.fillRect(lx - 43, ly - 13, 86, 36);
-      }
       ctx.textAlign = 'center'; ctx.font = '600 11px ui-monospace, SFMono-Regular, monospace';
+      // An empty label leaves only the readout, for stations a neighbor's label already names.
+      if (object.label) {
+      if (object.labelPlate) {
+        // The plate fits its text, so short labels can sit on a belt without hiding neighbors.
+        const labelW = ctx.measureText(object.label.toUpperCase()).width + 24;
+        ctx.font = '11px system-ui, sans-serif'; const w = Math.max(labelW, ctx.measureText(object.caption ?? '').width + 12);
+        ctx.fillStyle = '#0c1e35'; ctx.fillRect(lx - w / 2, ly - 13, w, object.caption ? 36 : 19);
+        ctx.font = '600 11px ui-monospace, SFMono-Regular, monospace';
+      }
       ctx.fillStyle = active ? '#f0b978' : '#c9d6e6'; ctx.fillText(object.label.toUpperCase(), lx, ly);
+      const labelWidth = ctx.measureText(object.label.toUpperCase()).width;
       ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = '#9cb5d1';
       ctx.fillText(object.caption ?? '', lx, ly + 17);
-      ctx.beginPath(); ctx.arc(lx - ctx.measureText(object.label).width / 2 - 10, ly - 4, 2.4, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(lx - labelWidth / 2 - 8, ly - 4, 2.4, 0, Math.PI * 2);
       ctx.fillStyle = active ? '#f0b978' : '#627f9f'; ctx.fill();
+      }
+      ctx.textAlign = 'center';
       if (view.readouts?.[object.id] != null) {
         ctx.fillStyle = '#193650'; const text = String(view.readouts[object.id]); ctx.font = '600 12px ui-monospace, monospace';
         const width = Math.max(28, ctx.measureText(text).width + 14), ry = (object.readoutY ?? object.y + 1.35) * tile;

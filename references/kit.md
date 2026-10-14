@@ -27,7 +27,9 @@ tile coordinates into the responsive canvas. Layout contains `width`, `height`,
 `objects: [{id,sprite,x,y,label,caption}]` and axis-aligned `belts` with `from` and
 `to` tile points. Each belt segment uses native east/west/north/south artwork.
 For corners, provide explicit native variants with `beltTiles` rather than rotating
-an image. A view contains machine frame indices, an active object, a token path
+an image. Belt directions 4–11 are the native corners E→N, N→E, W→N, N→W, S→E,
+E→S, S→W and W→S. A belt tile may also set `sprite` and `variant`, such as an
+underground entrance. A view contains machine frame indices, an active object, a token path
 and progress, and optional object readouts. Text labels remain upright and are
 part of the Canvas picture; the page must supply a DOM state equivalent.
 Objects can set `variant` and `direction`; `view.variants` and `view.directions`
@@ -36,7 +38,7 @@ an inserter rig. Long-handed geometry must be specified explicitly; the automati
 transport planner continues to place adjacent, standard-reach inserters.
 
 Optional `labelX`, `labelY`, `readoutX`, and `readoutY` place annotations in tile
-coordinates. `labelPlate` adds a small opaque backing where a label crosses a belt.
+coordinates. `labelPlate` adds an opaque backing, sized to the text, where a label crosses a belt.
 The floor is transparent over a dark CSS material; Canvas draws the tile grid.
 
 `kit/transport.mjs` exports `connectStations`, `connectLayout`, `swing`, and
