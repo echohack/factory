@@ -1,4 +1,5 @@
 // Phase headings top-down beside the scene. set(key) highlights one and marks earlier ones done; set('done') completes all.
+// Parallel phases: set([keys]) highlights several, and { done } names finished ones explicitly.
 export function processOutline(root, steps, { onJump } = {}) {
   const make = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text != null) node.textContent = text; return node; };
   const list = make('ol', 'process-steps');
@@ -11,11 +12,12 @@ export function processOutline(root, steps, { onJump } = {}) {
   });
   root.replaceChildren(list);
   return {
-    set(active) {
-      const index = steps.findIndex(s => s.key === active), done = active === 'done' ? steps.length : index;
+    set(active, { done } = {}) {
+      const keys = [].concat(active), first = Math.min(...keys.map(k => steps.findIndex(s => s.key === k)).filter(i => i >= 0));
       rows.forEach(({ item, head }, i) => {
-        item.classList.toggle('active', i === index); item.classList.toggle('done', i < done);
-        if (i === index) head.setAttribute('aria-current', 'step'); else head.removeAttribute('aria-current');
+        const on = keys.includes(steps[i].key), finished = done ? done.includes(steps[i].key) : active === 'done' || i < first;
+        item.classList.toggle('active', on); item.classList.toggle('done', !on && finished);
+        if (on) head.setAttribute('aria-current', 'step'); else head.removeAttribute('aria-current');
       });
     }
   };

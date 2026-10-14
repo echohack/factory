@@ -23,9 +23,11 @@ imported Factorio game artwork. The build copies them into `materials/`.
 
 Reference tables reuse the workbench frame and header. Their `.blueprint` body
 carries the same ash textures as the floor, and the table layer draws a 32 px tile
-grid of 1 px `rgba(41, 69, 98, .55)` lines to match the canvas grid. The table starts
-on a grid line, and `kit/tables.mjs` snaps every row to whole tiles, so the grid
-lines are the row dividers. Draw no row borders. Center cell text vertically.
+grid to match the canvas grid: 1 px row lines in `rgba(78, 114, 152, .8)` and
+quieter column lines in `rgba(41, 69, 98, .55)`. The table starts on a grid line, and
+`kit/tables.mjs` snaps every row to whole tiles, so the row lines are the only
+dividers. Draw no row borders. Center cell text vertically. Fill the header row
+with `#183454`, the active sidebar color, and set its labels in `#dbe7f4` at 600.
 
 Use 12 px checker gutters on desktop and 6 px on phones. The floor material is
 under the Canvas, leaving labels and machinery clear. Grid lines are quieter than

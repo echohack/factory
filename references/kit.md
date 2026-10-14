@@ -45,11 +45,15 @@ moves that many tiles along the building's face, so a 3x3 machine can feed up to
 three parallel belts from one side. The target must sit on the shifted line. The example declares station sizes and connection pairs in
 `layout.mjs`; `connectLayout` supplies belt tiles and adjacent inserters.
 The view includes `arms` and a `token` with an explicit `position` and optional
-`heldBy`. Set `token.icon` to an item ID to draw a different token than `item`. Read `inserters.md` for the event and ownership contract.
+`heldBy`. Set `token.icon` to an item ID to draw a different token than `item`. A scene with
+work running in parallel passes `view.tokens` (several tokens) and an array for
+`view.active`; compose arm poses by calling `transferView` once per running transfer. Read `inserters.md` for the event and ownership contract.
 
 `kit/process.mjs` exports `processOutline(root, steps, { onJump })` for the phase
 headings beside the scene. Steps are `{ key, title }`. `set(key)` highlights one
-heading and marks earlier ones done; `set('done')` completes them all. With `onJump`,
+heading and marks earlier ones done; `set('done')` completes them all. For phases
+that run in parallel, `set([keys], { done })` highlights several headings and names the
+finished ones. With `onJump`,
 each heading is a button that seeks to the start of its phase. The figure supplies
 the CSS; copy the `.process-*` rules from the example's `style.css`.
 

@@ -33,7 +33,7 @@ export class FactoryScene {
     }
     for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile });
     for (const object of objects) {
-      const active = view.active === object.id;
+      const active = [].concat(view.active ?? []).includes(object.id);
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;
       if (object.labelPlate) {
         ctx.fillStyle = '#0c1e35'; ctx.fillRect(lx - 43, ly - 13, 86, 36);
@@ -52,10 +52,11 @@ export class FactoryScene {
         ctx.fillStyle = '#dbe7f4'; ctx.fillText(text, rx, ry + 3);
       }
     }
-    const position = view.token?.position ?? pointOnPath(view.token?.path, view.token?.progress ?? 0);
-    if (position) {
-      const [x, groundY] = position.map(p => p * tile), y = groundY - (view.token.heldBy ? .12 * tile : 0), value = String(view.token.value);
-      this.atlas.drawIcon(ctx, view.token.icon ?? 'item', x, y, Math.max(13, tile * .5));
+    for (const token of view.tokens ?? (view.token ? [view.token] : [])) {
+      const position = token.position ?? pointOnPath(token.path, token.progress ?? 0);
+      if (!position) continue;
+      const [x, groundY] = position.map(p => p * tile), y = groundY - (token.heldBy ? .12 * tile : 0), value = String(token.value);
+      this.atlas.drawIcon(ctx, token.icon ?? 'item', x, y, Math.max(13, tile * .5));
       ctx.font = '700 13px ui-monospace, monospace'; const w = Math.max(25, ctx.measureText(value).width + 13);
       ctx.fillStyle = '#0b1a2b'; ctx.fillRect(x - w / 2, y - 30, w, 22); ctx.textAlign = 'center'; ctx.fillStyle = '#dbe7f4'; ctx.fillText(value, x, y - 14);
     }

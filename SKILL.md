@@ -102,10 +102,11 @@ Start the page with the scene's workbench. Put no masthead, wordmark, edition
 label, eyebrow, or headline above it. The workbench header names what the figure
 explains, with a one-line description, never playback status or event counts. Keep
 labels close to their stations. Label conventions where they appear in the diagram:
-a wire's meaning beside the wire, a flag beside the station that sets it. Reveal a
-failure, rejection, cache miss, or bottleneck through behavior as well as color.
-Let the reader pause, step, reset, and change a meaningful input. Keep keyboard
-controls scoped to the figure and ignore typing in form fields.
+a wire's meaning beside the wire, a flag beside the station that sets it. Use one
+word for one action everywhere: if three consumers read a table, all three wires
+say READS. Reveal a failure, rejection, cache miss, or bottleneck through behavior
+as well as color. Let the reader pause, step, reset, and change a meaningful input.
+Keep keyboard controls scoped to the figure and ignore typing in form fields.
 
 Below the scene, keep only one row of controls. Do not add narration or status
 lines, legends, phase tabs, a code listing, or a live-state panel. The scene and its
@@ -114,7 +115,9 @@ and show load errors visibly. When the program runs in phases, list the phase
 headings top-down in a narrow sidebar on the left of the scene with
 `kit/process.mjs`. Use headings only. Give the active heading a lighter background
 and the amber rule, mark earlier headings done, and let a click jump to a phase. On
-phones the headings stack above the scene.
+phones the headings stack above the scene. Run independent work, such as separate
+consumers of one table, in parallel lanes: their headings light together, and each
+lane finishes on its own. Parallel lanes show independence, not measured timing.
 
 Put reference material below the figure in static tables that do not re-render
 during playback: each operation's inputs, rule or curve, and parameters, plus a
