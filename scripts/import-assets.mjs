@@ -75,7 +75,7 @@ export async function importAssets({ archive, spec, out }) {
   }
   if (!Object.keys(sprites).length) throw new Error('The asset spec is empty');
   for (const [file, data] of files) await copyFile(data.source, join(out, file));
-  const manifest = { format: 1, gameVersion: summary.version, attribution: 'Factorio artwork © Wube Software; imported from a local owned copy.', sprites,
+  const manifest = { format: 1, gameVersion: summary.version, attribution: '', sprites,
     files: Object.fromEntries([...files].map(([name, value]) => [name, { sha256: value.sha256, bytes: value.bytes }])) };
   await writeFile(join(out, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   return manifest;
