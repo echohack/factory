@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Factory · OBS streaming pipeline</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23254b72'/%3E%3Cpath d='M8 24V14l8-5v5l8-5v15Z' fill='%23dbe7f4'/%3E%3C/svg%3E"><link rel="stylesheet" href="./style.css"></head>
+<body>
+<main id="factory" tabindex="0" aria-label="Interactive OBS pipeline factory">
+  <div id="bench" class="workbench-frame"><section class="workbench" aria-labelledby="factory-title">
+    <div class="bench-header"><h2 id="factory-title">OBS Studio: stream and record</h2><p class="bench-summary">Sources, the graphics and audio threads, two encoders, and two outputs running at once.</p></div>
+    <div class="bench-body"><nav id="process" class="process" aria-label="Stages"></nav>
+    <div class="factory-floor"><canvas id="scene" role="img" aria-label="OBS pipeline factory."></canvas></div></div>
+    <div class="transport"><div class="buttons"><button id="play" class="primary" disabled>Start ▶</button><button id="step" disabled>Step <span aria-hidden="true">→</span></button><button id="reset" disabled>Reset</button></div><label class="speed">SCENARIO <select id="scenario"><option value="healthy">Healthy</option><option value="render">Rendering lag</option><option value="encode">Encoding lag</option><option value="network">Network congestion</option><option value="custom" hidden>Custom</option></select></label><label class="speed">SPEED <select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label><span class="keyboard-hint"><kbd>space</kbd> pause · <kbd>→</kbd> step</span></div>
+    <p id="narration" class="sr-only" role="status" aria-live="polite">Loading the factory…</p>
+  </section></div>
+  <div class="workbench-frame reference"><section class="workbench" aria-labelledby="stages-title">
+    <div class="bench-header"><h2 id="stages-title">Stages</h2><span class="bench-meta">LIBOBS · OBS-OUTPUTS</span></div>
+    <div class="blueprint"><div class="table-wrap"><table id="stages"><thead><tr><th scope="col">Stage</th><th scope="col">Thread</th><th scope="col">Source</th><th scope="col">Rule</th></tr></thead><tbody id="stages-body"></tbody></table></div></div>
+  </section></div>
+  <div class="workbench-frame reference"><section class="workbench" aria-labelledby="results-title">
+    <div class="bench-header"><h2 id="results-title">Scenario results</h2><span class="bench-meta">45 FRAMES AT 30 FPS</span></div>
+    <div class="blueprint"><div class="table-wrap"><table id="results"><thead><tr><th scope="col">Scenario</th><th scope="col">Render</th><th scope="col">Encode</th><th scope="col">Upload</th><th scope="col">Ticks</th><th scope="col">Missed</th><th scope="col">Skipped</th><th scope="col">Dropped</th><th scope="col">Sent / recorded</th></tr></thead><tbody id="results-body"></tbody></table></div></div>
+  </section></div>
+  <form id="input-form" class="input-panel" onsubmit="return false"><div class="input-label">Stage costs<span>Changing one rebuilds the trace.</span></div>
+    <div class="settings">
+      <label>Render per frame <select id="set-render"><option value="20">20 ms</option><option value="50">50 ms</option></select></label>
+      <label>Encode per frame <select id="set-encode"><option value="20">20 ms</option><option value="50">50 ms</option></select></label>
+      <label>Upload speed <select id="set-upload"><option value="3" id="upload-fast">fast</option><option value="0.6" id="upload-slow">slow</option></select></label>
+    </div></form>
+  <footer><span>A MODELED TRACE, NOT A MEASUREMENT · REAL OBS RATES · HANDOFFS TAKE 8 MS SO THEY CAN BE SEEN</span><a href="../catalog/">Object library</a></footer>
+</main><script type="module" src="./app.mjs"></script>
+</body></html>

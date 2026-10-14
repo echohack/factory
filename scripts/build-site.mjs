@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { spriteFiles } from '../kit/sprites.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export async function buildSite(name, ids) {
-  if (!['array-pipeline', 'catalog'].includes(name)) throw new Error('Unknown example');
+  if (!['array-pipeline', 'obs-pipeline', 'catalog'].includes(name)) throw new Error('Unknown example');
   const assets = join(root, 'assets'), source = join(root, 'examples', name), out = join(root, 'dist', name);
   const manifest = JSON.parse(await readFile(join(assets, 'manifest.json')));
   if (ids) manifest.sprites = Object.fromEntries(ids.map(id => { if (!manifest.sprites[id]) throw new Error(`Missing asset: ${id}`); return [id, manifest.sprites[id]]; }));

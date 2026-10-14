@@ -1,0 +1,121 @@
+:root {
+  color-scheme: dark;
+  --paper: #080f1c;
+  --surface: #0e1b2e;
+  --ink: #c9d6e6;
+  --muted: #91a5bd;
+  --line: #263b54;
+  --accent: #8fb5de;
+  --gutter: 12px;
+  --inset: 24px; /* One left edge for header text, phase headings, controls and table text. */
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1680px; margin: 0 auto; padding: 30px 40px 24px; outline: none; }
+button, input, select { font: inherit; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; border: 1px solid #36516f; border-radius: 4px; padding: 10px 16px; background: #15283f; color: var(--ink); font-size: 13px; font-weight: 550; transition: background .15s; }
+button:hover { background: #203a57; }
+button:disabled { opacity: .45; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+footer, .speed, .bench-meta, thead th { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: 1.1px; }
+/* Campfire's 4px checker gutter separates the frame from its surface. */
+.workbench-frame { padding: var(--gutter); border: 1px solid #263c56; border-radius: 9px; background-color: #0c192a; background-image: conic-gradient(#192e47 25%, transparent 25% 50%, #192e47 50% 75%, transparent 75%); background-size: 4px 4px; }
+.workbench { border: 1px solid #304a66; border-radius: 5px; overflow: hidden; background: var(--surface); }
+.bench-header { display: flex; align-items: baseline; gap: 14px; padding: 15px var(--inset); border-bottom: 1px solid var(--line); }
+.bench-header h2 { font-size: 13px; font-weight: 600; margin: 0; white-space: nowrap; }
+.bench-summary { margin: 0; font-size: 12px; color: var(--muted); }
+.bench-body { display: grid; grid-template-columns: 140px minmax(0, 1fr); }
+.process { border-right: 1px solid var(--line); background: #0d1a2c; padding: 14px 0; }
+.process-steps { list-style: none; margin: 0; padding: 0; }
+.process-step { position: relative; padding: 9px 16px 9px var(--inset); }
+.process-step.active { background: #16304d; }
+.process-step::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; }
+.process-step.active::before { background: #f0b978; }
+.process-head { display: flex; gap: 9px; align-items: baseline; width: 100%; padding: 0; border: 0; border-radius: 0; background: none; color: var(--muted); font-size: 12.5px; font-weight: 550; text-align: left; }
+button.process-head:hover { background: none; color: var(--ink); }
+.process-number { font: 600 10px ui-monospace, SFMono-Regular, monospace; color: #6f89a8; min-width: 12px; }
+.process-step.done .process-head, .process-step.done .process-number { color: #8fa8c4; }
+.process-step.active .process-head, .process-step.active .process-number { color: #f0b978; }
+/* Campfire's ash textures over a deep blueprint-blue drafting surface. */
+.factory-floor, .blueprint { position: relative; isolation: isolate; background-color: #0c1e35; }
+.factory-floor::before, .factory-floor::after, .blueprint::before, .blueprint::after { content: ''; position: absolute; z-index: 0; inset: 0; pointer-events: none; background-repeat: repeat; background-size: 256px 256px; filter: grayscale(1); }
+.factory-floor::before, .blueprint::before { background-image: url('./materials/ash-fuzz.webp'); mix-blend-mode: screen; opacity: .10; }
+.factory-floor::after, .blueprint::after { background-image: url('./materials/ash-grain.png'); mix-blend-mode: soft-light; opacity: .14; }
+canvas { position: relative; z-index: 1; display: block; width: 100%; }
+/* Reference tables sit on the scene's floor. Rows snap to whole 32px tiles (kit/tables.mjs), so the grid lines divide them. */
+.reference { margin-top: 24px; }
+.bench-meta { margin-left: auto; color: var(--muted); white-space: nowrap; }
+.blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; padding: 0 0 1px;
+  background-image: linear-gradient(to bottom, rgba(78, 114, 152, .8) 1px, transparent 1px), linear-gradient(to right, rgba(41, 69, 98, .55) 1px, transparent 1px);
+  background-size: 32px 32px; }
+.blueprint thead tr { background: #183454; }
+.blueprint :is(th, td):first-child { padding-left: var(--inset); }
+.blueprint :is(th, td):last-child { padding-right: var(--inset); }
+.blueprint thead th { color: #dbe7f4; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+thead th { color: var(--muted); text-align: left; padding: 4px 8px; font-weight: 400; text-transform: uppercase; vertical-align: middle; }
+tbody th, tbody td { padding: 4px 8px; text-align: left; vertical-align: middle; }
+tbody th { font-weight: 550; white-space: nowrap; }
+td code { font: 12px ui-monospace, SFMono-Regular, monospace; color: #c9d6e6; }
+.transport { border-top: 1px solid var(--line); display: flex; align-items: center; gap: 23px; padding: 15px var(--inset); background: #102037; }
+.buttons { display: flex; gap: 8px; }
+.primary { background: #284b70; color: #dbe7f4; border-color: #4a6b8d; min-width: 133px; }
+.primary:hover { background: #345d86; }
+.buttons button span { margin-left: 13px; }
+.speed { display: flex; gap: 8px; align-items: center; color: var(--muted); }
+select { border: 0; border-bottom: 1px solid #405d7c; background: transparent; color: var(--ink); font-size: 13px; padding: 5px 2px; }
+.keyboard-hint { margin-left: auto; color: #91a8c1; font-size: 11px; }
+kbd { border: 1px solid #354f6c; padding: 2px 4px; border-radius: 3px; font-size: 10px; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+#narration:not(.sr-only) { padding: 13px var(--inset); margin: 0; border-top: 1px solid var(--line); font-size: 13px; color: #efa27d; }
+.input-panel { margin-top: 30px; padding: 23px 0; display: grid; grid-template-columns: 1fr 1.35fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); gap: 8px 30px; }
+.input-panel label { font-size: 13px; line-height: 1.5; }
+.input-panel label span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
+.input-panel > div { display: flex; gap: 8px; align-items: center; }
+.input-panel input { min-width: 0; flex: 1; border: 1px solid #36516f; border-radius: 4px; padding: 11px; background: #0d1b2e; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, monospace; }
+.input-panel button { white-space: nowrap; }
+.input-panel > p { grid-column: 2; margin: 0; color: #efa27d; font-size: 12px; }
+footer { display: flex; justify-content: space-between; color: #879db7; font-size: 9px; margin-top: 24px; letter-spacing: .6px; }
+footer a { color: inherit; text-decoration: none; border-bottom: 1px solid #36516f; }
+footer a:hover { color: var(--ink); }
+@media (max-width: 900px) {
+  .bench-body { grid-template-columns: 128px minmax(0, 1fr); }
+  main { padding: 22px 24px; }
+  .keyboard-hint { display: none; }
+  .transport { gap: 14px; }
+  .input-panel { grid-template-columns: 1fr; }
+  .input-panel > p { grid-column: 1; }
+}
+@media (max-width: 560px) {
+  :root { --gutter: 6px; --inset: 16px; }
+  .bench-body { grid-template-columns: 1fr; }
+  .process { border-right: 0; border-bottom: 1px solid var(--line); padding: 6px 0; }
+  .process-step { padding: 4px 12px 4px var(--inset); }
+  main { padding: 18px 12px; }
+  .bench-header { padding: 13px var(--inset); flex-direction: column; gap: 3px; }
+  .bench-meta { margin-left: 0; }
+  .transport { padding: 12px var(--inset); gap: 8px; flex-wrap: wrap; }
+  .buttons { gap: 5px; }
+  .buttons button { font-size: 11px; padding: 9px 10px; }
+  .primary { min-width: 116px; }
+  .buttons button span { margin-left: 5px; }
+  .speed { font-size: 8px; gap: 4px; margin-left: auto; }
+  .speed select { font-size: 11px; }
+  .input-panel > div { flex-wrap: wrap; }
+  .input-panel input { width: 100%; flex-basis: 100%; }
+  .input-panel button { margin-left: auto; }
+  footer { font-size: 8px; line-height: 1.8; gap: 12px; }
+  footer span:last-child { text-align: right; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none!important; scroll-behavior: auto!important; } }
+.input-label { margin: 0; font-size: 13px; line-height: 1.5; }
+.input-label span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
+.settings { display: flex; flex-wrap: wrap; gap: 14px 28px; }
+.settings label { display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: var(--muted); }
+.transport { flex-wrap: wrap; }
+/* Wide reference tables scroll inside their frame on phones instead of wrapping every cell. */
+@media (max-width: 900px) { .blueprint table { min-width: 760px; } }
