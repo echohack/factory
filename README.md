@@ -27,8 +27,8 @@ The example explains `[2, 5, 4, 7, 6, 3, 8, 1].filter(even).map(triple).reduce(s
 It exposes the intermediate arrays and final value **60**. Its eager evaluation
 order is deliberate; a streaming pipeline would need a different model.
 Native inserters handle each inventory transfer: pickup, carry, belt travel,
-insertion, and empty return. The dark workbench preserves station labels and the
-tile grid, with charcoal textures and checker gutters borrowed from Campfire.
+insertion, and empty return. The dark blueprint workbench preserves station labels and the
+tile grid, with ash textures and checker gutters borrowed from Campfire.
 
 ## Install as a skill
 

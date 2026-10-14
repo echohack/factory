@@ -11,8 +11,8 @@ export class FactoryScene {
     }
     const ctx = this.ctx, tile = cssWidth / layout.width;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, cssWidth, cssHeight);
-    // CSS supplies the charcoal material; clear Canvas leaves its texture visible.
-    ctx.lineWidth = .5; ctx.strokeStyle = '#666c66';
+    // CSS supplies the blueprint-blue material; clear Canvas leaves its texture visible.
+    ctx.lineWidth = .5; ctx.strokeStyle = '#4777a5';
     for (let x = 0; x <= layout.width; x++) { ctx.beginPath(); ctx.moveTo(x * tile, 0); ctx.lineTo(x * tile, cssHeight); ctx.stroke(); }
     for (let y = 0; y <= layout.height; y++) { ctx.beginPath(); ctx.moveTo(0, y * tile); ctx.lineTo(cssWidth, y * tile); ctx.stroke(); }
     for (const belt of layout.belts ?? []) {
@@ -36,20 +36,20 @@ export class FactoryScene {
       const active = view.active === object.id;
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;
       if (object.labelPlate) {
-        ctx.fillStyle = '#2b302e'; ctx.fillRect(lx - 43, ly - 13, 86, 36);
+        ctx.fillStyle = '#153c67'; ctx.fillRect(lx - 43, ly - 13, 86, 36);
       }
       ctx.textAlign = 'center'; ctx.font = '600 11px ui-monospace, SFMono-Regular, monospace';
-      ctx.fillStyle = active ? '#e8a26c' : '#dcded2'; ctx.fillText(object.label.toUpperCase(), lx, ly);
-      ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = '#a8aea2';
+      ctx.fillStyle = active ? '#f0b978' : '#e6f1ff'; ctx.fillText(object.label.toUpperCase(), lx, ly);
+      ctx.font = '11px system-ui, sans-serif'; ctx.fillStyle = '#b0cbea';
       ctx.fillText(object.caption ?? '', lx, ly + 17);
       ctx.beginPath(); ctx.arc(lx - ctx.measureText(object.label).width / 2 - 10, ly - 4, 2.4, 0, Math.PI * 2);
-      ctx.fillStyle = active ? '#e8a26c' : '#757e6f'; ctx.fill();
+      ctx.fillStyle = active ? '#f0b978' : '#759bc5'; ctx.fill();
       if (view.readouts?.[object.id] != null) {
-        ctx.fillStyle = '#363e37'; const text = String(view.readouts[object.id]); ctx.font = '600 12px ui-monospace, monospace';
+        ctx.fillStyle = '#214e7d'; const text = String(view.readouts[object.id]); ctx.font = '600 12px ui-monospace, monospace';
         const width = Math.max(28, ctx.measureText(text).width + 14), ry = (object.readoutY ?? object.y + 1.35) * tile;
         const rx = (object.readoutX ?? object.x) * tile;
         ctx.fillRect(rx - width / 2, ry - 12, width, 22);
-        ctx.fillStyle = '#e5e7d9'; ctx.fillText(text, rx, ry + 3);
+        ctx.fillStyle = '#edf6ff'; ctx.fillText(text, rx, ry + 3);
       }
     }
     const position = view.token?.position ?? pointOnPath(view.token?.path, view.token?.progress ?? 0);
@@ -57,7 +57,7 @@ export class FactoryScene {
       const [x, groundY] = position.map(p => p * tile), y = groundY - (view.token.heldBy ? .12 * tile : 0), value = String(view.token.value);
       this.atlas.drawIcon(ctx, 'item', x, y, Math.max(13, tile * .5));
       ctx.font = '700 13px ui-monospace, monospace'; const w = Math.max(25, ctx.measureText(value).width + 13);
-      ctx.fillStyle = '#292f2b'; ctx.fillRect(x - w / 2, y - 30, w, 22); ctx.textAlign = 'center'; ctx.fillStyle = '#fff9eb'; ctx.fillText(value, x, y - 14);
+      ctx.fillStyle = '#0e2948'; ctx.fillRect(x - w / 2, y - 30, w, 22); ctx.textAlign = 'center'; ctx.fillStyle = '#edf6ff'; ctx.fillText(value, x, y - 14);
     }
   }
 }

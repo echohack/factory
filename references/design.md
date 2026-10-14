@@ -1,13 +1,15 @@
-# Dark workbench
+# Dark blueprint workbench
 
-Preserve the labeled tile grid and clear transport controls. Use charcoal surfaces
-with a slight green cast, warm white type, sage secondary labels, olive controls,
-and amber active states. Make the factory floor the primary visual section.
+Preserve the labeled tile grid and clear transport controls. Use deep navy framing (#0c172b), a drafting-blue floor (#153c67), icy white
+type (#e6f1ff), muted blue secondary labels, powder-blue controls (#b7d9fa),
+and small amber active states. Keep the interface blue; the native machine art
+retains its original colors. Make the factory floor the primary visual section.
 
 The user authorized borrowing materials and layout from `~/code/campfire`:
 
 - `app/assets/css/approved-textures.css`: Graphite fuzz, a 256 px repeating
   ash-fuzz layer at .26 screen opacity and grain at .2 soft-light opacity.
+  Desaturate both texture layers over the blue floor to avoid a green cast.
 - `app/components/CharacterSheet/CharacterSheetSection.vue`: 4 px checker gutters
   between opaque content slabs.
 - `app/assets/css/skill-tree-book.css`: framed workbench, quiet header/footer
