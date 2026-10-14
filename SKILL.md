@@ -98,26 +98,34 @@ Start machine work after its input arrives. Pause freezes the arms as well as be
 Useful detail includes real machinery, connections,
 status lamps, and stock; decorative machinery should not imply nonexistent work.
 
-Give the figure a short title, one useful instruction, the relevant code or
-pseudocode, and a live readout. Head the scene with the primary name of what it
-explains and a very short one-line description; never playback status or event
-counts. Keep labels close to their stations. Label conventions where they appear:
-a wire's meaning beside the wire, a flag or unit beside the station that sets it.
-Reveal a failure, rejection, cache miss, or bottleneck through behavior as well as
-color. Let the reader pause, step, reset, and change a meaningful input. Keep
-keyboard controls scoped to the figure and ignore typing in form fields.
+Start the page with the scene's workbench. Put no masthead, wordmark, edition
+label, eyebrow, or headline above it. The workbench header names what the figure
+explains, with a one-line description, never playback status or event counts. Keep
+labels close to their stations. Label conventions where they appear in the diagram:
+a wire's meaning beside the wire, a flag beside the station that sets it. Reveal a
+failure, rejection, cache miss, or bottleneck through behavior as well as color.
+Let the reader pause, step, reset, and change a meaningful input. Keep keyboard
+controls scoped to the figure and ignore typing in form fields.
 
-Below the scene, keep only one row of controls: no narration or status lines,
-legends, or phase tabs. Announce completed events in a visually hidden live region,
-and show load errors visibly. When the program runs as a sequence of phases, outline
-them top-down in a narrow sidebar on the left of the scene with `kit/process.mjs`:
-a title and one short line of detail per step, plus its parts when they matter.
-Highlight the active step and part, and let a click jump to the step. Vertical space
-holds more steps and detail than tabs; on phones the outline stacks above the scene.
+Below the scene, keep only one row of controls. Do not add narration or status
+lines, legends, phase tabs, a code listing, or a live-state panel. The scene and its
+readouts carry the state. Announce completed events in a visually hidden live region,
+and show load errors visibly. When the program runs in phases, list the phase
+headings top-down in a narrow sidebar on the left of the scene with
+`kit/process.mjs`. Use headings only. Give the active heading a lighter background
+and the amber rule, mark earlier headings done, and let a click jump to a phase. On
+phones the headings stack above the scene.
 
-Put reference material below the figure as static tables, not panels that re-render
-with every event: each operation's inputs, rule or curve, and parameters, plus a
-worked example computed from the model.
+Put reference material below the figure in static tables that do not re-render
+during playback: each operation's inputs, rule or curve, and parameters, plus a
+worked example computed from the model. Frame each table like the scene: the
+same workbench frame and header, with the blueprint floor and its tile grid behind
+the cells. Snap rows to whole tiles with `kit/tables.mjs` so the grid lines divide
+them, and draw no row borders. Give each table a heading and no description. The example's Operations
+table shows the pattern.
+
+Write every visible string plainly. Use titles, labels, and table cells. Cut
+taglines, explanatory paragraphs, and em dashes.
 
 Use the chosen midnight blueprint treatment: near-black navy framing, a deep blue
 floor, restrained Campfire fuzz and grain, a quiet blue tile grid, soft white station

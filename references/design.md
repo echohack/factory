@@ -21,6 +21,12 @@ The user authorized borrowing materials and layout from `~/code/campfire`:
 Campfire's files in `public/img/textures/`. They are separate from the locally
 imported Factorio game artwork. The build copies them into `materials/`.
 
+Reference tables reuse the workbench frame and header. Their `.blueprint` body
+carries the same ash textures as the floor, and the table layer draws a 32 px tile
+grid of 1 px `rgba(41, 69, 98, .55)` lines to match the canvas grid. The table starts
+on a grid line, and `kit/tables.mjs` snaps every row to whole tiles, so the grid
+lines are the row dividers. Draw no row borders. Center cell text vertically.
+
 Use 12 px checker gutters on desktop and 6 px on phones. The floor material is
 under the Canvas, leaving labels and machinery clear. Grid lines are quieter than
 belt edges. Reflow stations vertically on smaller screens; keep text readable

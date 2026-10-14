@@ -17,8 +17,12 @@ const center = object => [object.x, object.y];
 
 export function connectLayout(layout) {
   const byID = Object.fromEntries(layout.objects.map(object => [object.id, object]));
-  const routes = Object.fromEntries(layout.connections.map(([a, b]) => {
-    const route = connectStations(byID[a], byID[b]); return [route.key, route];
+  // A shift moves the source port along its face, so one machine side can feed several belts.
+  const routes = Object.fromEntries(layout.connections.map(([a, b, { shift = 0 } = {}]) => {
+    const source = byID[a], target = byID[b];
+    if (Math.abs(shift) > ((source.size ?? 1) - 1) / 2) throw new Error('A shifted port must stay on the source building');
+    const across = Math.abs(target.x - source.x) > Math.abs(target.y - source.y) ? 'y' : 'x';
+    const route = connectStations(shift ? { ...source, [across]: source[across] + shift } : source, target); return [route.key, route];
   }));
   return { ...layout, routes, beltTiles: Object.values(routes).flatMap(route => route.tiles) };
 }

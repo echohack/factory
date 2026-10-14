@@ -55,7 +55,7 @@ export class FactoryScene {
     const position = view.token?.position ?? pointOnPath(view.token?.path, view.token?.progress ?? 0);
     if (position) {
       const [x, groundY] = position.map(p => p * tile), y = groundY - (view.token.heldBy ? .12 * tile : 0), value = String(view.token.value);
-      this.atlas.drawIcon(ctx, 'item', x, y, Math.max(13, tile * .5));
+      this.atlas.drawIcon(ctx, view.token.icon ?? 'item', x, y, Math.max(13, tile * .5));
       ctx.font = '700 13px ui-monospace, monospace'; const w = Math.max(25, ctx.measureText(value).width + 13);
       ctx.fillStyle = '#0b1a2b'; ctx.fillRect(x - w / 2, y - 30, w, 22); ctx.textAlign = 'center'; ctx.fillStyle = '#dbe7f4'; ctx.fillText(value, x, y - 14);
     }

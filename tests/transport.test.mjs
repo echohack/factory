@@ -63,3 +63,12 @@ test('stock plus the single in-flight value is conserved; recipients only gain s
     assert.equal(trace.events.at(-1).after.transit, null);
   }
 });
+
+test('a shifted port lets one machine side feed parallel belts', () => {
+  const machine = { id: 'm', x: 5.5, y: 5.5, size: 3 }, upper = { id: 'u', x: 13.5, y: 4.5 }, lower = { id: 'l', x: 13.5, y: 6.5 };
+  const layout = connectLayout({ objects: [machine, upper, lower], connections: [['m', 'u', { shift: -1 }], ['m', 'l', { shift: 1 }]] });
+  assert.deepEqual(layout.routes['m:u'].out.pickup, [6.5, 4.5]);
+  assert.deepEqual(layout.routes['m:l'].out.pivot, [7.5, 6.5]);
+  assert.ok(layout.routes['m:u'].tiles.every(t => t.y === 4.5) && layout.routes['m:l'].tiles.every(t => t.y === 6.5));
+  assert.throws(() => connectLayout({ objects: [machine, upper], connections: [['m', 'u', { shift: -2 }]] }), /stay on the source/);
+});

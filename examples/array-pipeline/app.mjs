@@ -5,15 +5,26 @@ import { FactoryScene } from './kit/scene.mjs';
 import { factoryLayout } from './layout.mjs';
 import { transferView, connectLayout } from './kit/transport.mjs';
 import { processOutline } from './kit/process.mjs';
+import { keepRowsOnGrid } from './kit/tables.mjs';
 const $ = id => document.getElementById(id);
 let input = [...DEFAULT_INPUT], trace = makeTrace(input), player = new TracePlayer(trace.events, trace.initial);
 let scene, visible = true, lastTime = null, lastIndex = -1, frameClock = 0;
 const media = matchMedia('(prefers-reduced-motion: reduce)'), narrow = matchMedia('(max-width: 560px)');
 const layout = () => connectLayout(factoryLayout(narrow.matches));
-const STEPS = [{ key: 'filter', title: 'Filter', detail: 'Test every value; keep the even ones.' },
-  { key: 'map', title: 'Map', detail: 'Multiply each kept value by 3.' }, { key: 'reduce', title: 'Reduce', detail: 'Add them up, starting at 0.' }];
+const STEPS = [{ key: 'filter', title: 'Filter' }, { key: 'map', title: 'Map' }, { key: 'reduce', title: 'Reduce' }];
 const outline = processOutline($('process'), STEPS, { onJump: jump });
 function jump(phase) { const i = trace.events.findIndex(e => e.phase === phase); player.seek(i <= 0 ? 0 : i + 1); lastTime = null; render(); }
+const opsGrid = keepRowsOnGrid($('ops'));
+function renderOps() {
+  const s = trace.events.at(-1).after, list = a => `[${a.join(', ')}]`;
+  $('ops-body').replaceChildren(...[['Filter', 'n => n % 2 === 0', list(input), list(s.filtered)], ['Map', 'n => n * 3', list(s.filtered), list(s.mapped)],
+    ['Reduce', '(sum, n) => sum + n, 0', list(s.mapped), String(s.sum)]].map(([step, code, reads, returns]) => {
+    const tr = document.createElement('tr'), th = document.createElement('th'); th.scope = 'row'; th.textContent = step; tr.append(th);
+    for (const text of [code, reads, returns]) { const td = document.createElement('td'), c = document.createElement('code'); c.textContent = text; td.append(c); tr.append(td); }
+    return tr;
+  }));
+  opsGrid.refresh();
+}
 function render() {
   if (!scene) return;
   const snap = player.snapshot(), state = snap.state, event = snap.event, l = layout();
@@ -21,14 +32,9 @@ function render() {
   const transport = transferView(l.routes, event, media.matches ? 0 : snap.progress);
   scene.render(l, { beltFrame: frameClock / 60, frames: active ? { [active]: frameClock / 55 } : {}, active,
     ...transport, readouts: { ...state.stock, filter: undefined, map: undefined, sum: state.sum } });
-  $('sum').value = state.sum; $('sum').textContent = state.sum;
-  $('input-summary').textContent = `${input.length} ${input.length===1?'value':'values'}. Three operations.`;
-  for (const key of ['filtered','mapped','rejected']) $(key).textContent = `[${state[key].join(', ')}]`;
-  $('reduced-count').textContent = `${state.reduced} ${state.reduced===1?'value':'values'} added`;
   $('play').textContent = snap.done ? 'Run again ↺' : snap.playing ? 'Pause Ⅱ' : snap.index ? 'Continue ▶' : 'Run factory ▶';
   $('step').disabled = snap.done;
   outline.set(snap.done ? 'done' : event?.phase ?? state.phase);
-  document.querySelectorAll('[data-line]').forEach(el => el.classList.toggle('active',Number(el.dataset.line)===(event?.line??3)));
   if (snap.index!==lastIndex) {
     $('narration').textContent = snap.done ? `Complete. The result is ${state.sum}.` : snap.index ? trace.events[snap.index-1].message : media.matches ? 'Reduced motion is on. Use Step to inspect each event.' : 'Ready. Run the factory, or step through one event at a time.';
     lastIndex=snap.index;
@@ -47,7 +53,7 @@ $('factory').addEventListener('keydown',e=>{
 });
 $('input-form').addEventListener('submit',e=>{
   e.preventDefault();
-  try { const values=parseInput($('input-values').value);const next=makeTrace(values); input=values;trace=next;player=new TracePlayer(trace.events,trace.initial);$('input-error').textContent='';$('input-values').removeAttribute('aria-invalid');reset(); }
+  try { const values=parseInput($('input-values').value);const next=makeTrace(values); input=values;trace=next;player=new TracePlayer(trace.events,trace.initial);renderOps();$('input-error').textContent='';$('input-values').removeAttribute('aria-invalid');reset(); }
   catch(error){$('input-error').textContent=error.message;$('input-values').setAttribute('aria-invalid','true');}
 });
 media.addEventListener('change',()=>{if(media.matches)player.pause();lastTime=null;lastIndex=-1;render();});
@@ -63,6 +69,7 @@ function frame(now){
   }
   lastTime=visible&&!document.hidden?now:null;requestAnimationFrame(frame);
 }
+renderOps();
 try {
   const atlas=await loadSprites('./assets/');scene=new FactoryScene($('scene'),atlas);
   for(const id of ['play','step','reset'])$(id).disabled=false;

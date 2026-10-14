@@ -28,7 +28,7 @@ FACTORIO_ARCHIVE=/path/to/factorio-data npm run assets
 ```
 
 The example explains `[2, 5, 4, 7, 6, 3, 8, 1].filter(even).map(triple).reduce(sum, 0)`.
-It exposes the intermediate arrays and final value **60**. Its eager evaluation
+Its chests hold the intermediate arrays, and the reduce chest ends at **60**. Its eager evaluation
 order is deliberate; a streaming pipeline would need a different model.
 Native inserters handle each inventory transfer: pickup, carry, belt travel,
 insertion, and empty return. The dark blueprint workbench preserves station labels and the

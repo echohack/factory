@@ -23,6 +23,7 @@ async function open(options) {
   return page;
 }
 const state = page => page.evaluate(() => window.factoryDemo.state);
+const floor = async page => (await state(page)).state;
 const fit = async page => assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'No horizontal page overflow');
 try {
   const desktop = await open({ viewport: { width: 1440, height: 1200 } });
@@ -56,15 +57,21 @@ try {
   assert.equal(await desktop.locator('#process .process-step.done').count(), 1);
   // Exercise each event through the same public controls as the reader.
   while (!(await state(desktop)).done) await desktop.locator('#step').click();
-  assert.equal(await desktop.locator('#sum').textContent(), '60');
+  assert.equal((await floor(desktop)).sum, 60);
+  assert.deepEqual(await desktop.locator('#ops-body td:last-child').allTextContents(), ['[2, 4, 6, 8]', '[6, 12, 18, 24]', '60']);
+  assert.equal(await desktop.evaluate(() => [...document.querySelectorAll('.blueprint .table-wrap')].flatMap(wrap => [...wrap.querySelectorAll('tr')].map(row => {
+    const top = row.getBoundingClientRect().top - wrap.getBoundingClientRect().top, height = row.getBoundingClientRect().height;
+    return Math.abs(top / 32 - Math.round(top / 32)) < .02 && Math.abs(height / 32 - Math.round(height / 32)) < .02;
+  })).every(Boolean)), true, 'Table rows sit on the floor grid');
+  assert.match(await desktop.locator('#scene').getAttribute('aria-label'), /Accumulator 60\./);
   assert.equal(await desktop.locator('#process .process-step.done').count(), 3);
-  assert.equal(await desktop.locator('#filtered').textContent(), '[2, 4, 6, 8]');
-  assert.equal(await desktop.locator('#mapped').textContent(), '[6, 12, 18, 24]');
-  assert.equal(await desktop.locator('#rejected').textContent(), '[5, 7, 3, 1]');
+  assert.deepEqual((await floor(desktop)).filtered, [2, 4, 6, 8]);
+  assert.deepEqual((await floor(desktop)).mapped, [6, 12, 18, 24]);
+  assert.deepEqual((await floor(desktop)).rejected, [5, 7, 3, 1]);
   await desktop.screenshot({ path: resolve(output, 'complete.png'), fullPage: true });
   await desktop.locator('#reset').click();
-  assert.equal(await desktop.locator('#sum').textContent(), '0');
-  assert.equal(await desktop.locator('#mapped').textContent(), '[]');
+  assert.equal((await floor(desktop)).sum, 0);
+  assert.deepEqual((await floor(desktop)).mapped, []);
 
   await desktop.locator('#input-values').fill('1, 2, 3');
   await desktop.locator('#input-form button').click();
@@ -79,20 +86,21 @@ try {
   await desktop.locator('#scene').scrollIntoViewIfNeeded();
   await desktop.locator('#play').click();
   await desktop.waitForFunction(() => window.factoryDemo.state.done, { timeout: 15000 });
-  assert.equal(await desktop.locator('#sum').textContent(), '6');
+  assert.equal((await floor(desktop)).sum, 6);
+  assert.equal(await desktop.locator('#ops-body tr:last-child td:last-child').textContent(), '6');
   await desktop.locator('#input-values').fill('');
   await desktop.locator('#input-form button').click();
   while (!(await state(desktop)).done) await desktop.locator('#step').click();
-  assert.equal(await desktop.locator('#sum').textContent(), '0');
+  assert.equal((await floor(desktop)).sum, 0);
 
   const mobile = await open({ viewport: { width: 390, height: 844 }, isMobile: true, deviceScaleFactor: 2 });
   await fit(mobile);
   for (let i = 0; i < 3; i++) await mobile.locator('#step').click();
   await mobile.screenshot({ path: resolve(output, 'mobile.png'), fullPage: true });
-  // A shorter viewport lets the whole scene leave the screen; check that premise before testing suspension.
-  await mobile.setViewportSize({ width: 390, height: 480 });
+  // Extra room below the page lets the whole scene scroll out of view; check that premise before testing suspension.
+  await mobile.addStyleTag({ content: 'body { padding-bottom: 150vh; }' });
   await mobile.locator('#play').click();
-  await mobile.locator('footer').scrollIntoViewIfNeeded();
+  await mobile.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
   assert.ok(await mobile.evaluate(() => document.getElementById('scene').getBoundingClientRect().bottom < 0), 'The scene is out of view');
   await mobile.waitForTimeout(100);
   const offscreen = await state(mobile);
@@ -101,7 +109,6 @@ try {
   await mobile.locator('#scene').scrollIntoViewIfNeeded();
   await mobile.waitForFunction(index => window.factoryDemo.state.index > index, offscreen.index);
   await mobile.locator('#play').click();
-  await mobile.setViewportSize({ width: 390, height: 844 });
 
   const reduced = await open({ viewport: { width: 1280, height: 1000 }, reducedMotion: 'reduce' });
   assert.equal((await state(reduced)).playing, false);
