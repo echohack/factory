@@ -7,6 +7,7 @@
   --line: #263b54;
   --accent: #8fb5de;
   --gutter: 12px;
+  --inset: 24px; /* One left edge for header text, phase headings, controls and table text. */
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--paper);
   color: var(--ink);
@@ -24,13 +25,13 @@ footer, .speed, .bench-meta, thead th { font-family: ui-monospace, SFMono-Regula
 /* Campfire's 4px checker gutter separates the frame from its surface. */
 .workbench-frame { padding: var(--gutter); border: 1px solid #263c56; border-radius: 9px; background-color: #0c192a; background-image: conic-gradient(#192e47 25%, transparent 25% 50%, #192e47 50% 75%, transparent 75%); background-size: 4px 4px; }
 .workbench { border: 1px solid #304a66; border-radius: 5px; overflow: hidden; background: var(--surface); }
-.bench-header { display: flex; align-items: baseline; gap: 14px; padding: 15px 21px; border-bottom: 1px solid var(--line); }
+.bench-header { display: flex; align-items: baseline; gap: 14px; padding: 15px var(--inset); border-bottom: 1px solid var(--line); }
 .bench-header h2 { font-size: 13px; font-weight: 600; margin: 0; white-space: nowrap; }
 .bench-summary { margin: 0; font-size: 12px; color: var(--muted); }
 .bench-body { display: grid; grid-template-columns: 140px minmax(0, 1fr); }
 .process { border-right: 1px solid var(--line); background: #0d1a2c; padding: 14px 0; }
 .process-steps { list-style: none; margin: 0; padding: 0; }
-.process-step { position: relative; padding: 9px 16px 9px 18px; }
+.process-step { position: relative; padding: 9px 16px 9px var(--inset); }
 .process-step.active { background: #16304d; }
 .process-step::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; }
 .process-step.active::before { background: #f0b978; }
@@ -48,17 +49,19 @@ canvas { position: relative; z-index: 1; display: block; width: 100%; }
 /* Reference tables sit on the scene's floor. Rows snap to whole 32px tiles (kit/tables.mjs), so the grid lines divide them. */
 .reference { margin-top: 24px; }
 .bench-meta { margin-left: auto; color: var(--muted); white-space: nowrap; }
-.blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; padding: 0 16px 1px;
+.blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; padding: 0 0 1px;
   background-image: linear-gradient(to bottom, rgba(78, 114, 152, .8) 1px, transparent 1px), linear-gradient(to right, rgba(41, 69, 98, .55) 1px, transparent 1px);
   background-size: 32px 32px; }
 .blueprint thead tr { background: #183454; }
+.blueprint :is(th, td):first-child { padding-left: var(--inset); }
+.blueprint :is(th, td):last-child { padding-right: var(--inset); }
 .blueprint thead th { color: #dbe7f4; font-weight: 600; }
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th { color: var(--muted); text-align: left; padding: 4px 8px; font-weight: 400; text-transform: uppercase; vertical-align: middle; }
 tbody th, tbody td { padding: 4px 8px; text-align: left; vertical-align: middle; }
 tbody th { font-weight: 550; white-space: nowrap; }
 td code { font: 12px ui-monospace, SFMono-Regular, monospace; color: #c9d6e6; }
-.transport { border-top: 1px solid var(--line); display: flex; align-items: center; gap: 23px; padding: 15px 20px; background: #102037; }
+.transport { border-top: 1px solid var(--line); display: flex; align-items: center; gap: 23px; padding: 15px var(--inset); background: #102037; }
 .buttons { display: flex; gap: 8px; }
 .primary { background: #284b70; color: #dbe7f4; border-color: #4a6b8d; min-width: 133px; }
 .primary:hover { background: #345d86; }
@@ -68,7 +71,7 @@ select { border: 0; border-bottom: 1px solid #405d7c; background: transparent; c
 .keyboard-hint { margin-left: auto; color: #91a8c1; font-size: 11px; }
 kbd { border: 1px solid #354f6c; padding: 2px 4px; border-radius: 3px; font-size: 10px; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-#narration:not(.sr-only) { padding: 13px 20px; margin: 0; border-top: 1px solid var(--line); font-size: 13px; color: #efa27d; }
+#narration:not(.sr-only) { padding: 13px var(--inset); margin: 0; border-top: 1px solid var(--line); font-size: 13px; color: #efa27d; }
 .input-panel { margin-top: 30px; padding: 23px 0; display: grid; grid-template-columns: 1fr 1.35fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); gap: 8px 30px; }
 .input-panel label { font-size: 13px; line-height: 1.5; }
 .input-panel label span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
@@ -88,15 +91,14 @@ footer a:hover { color: var(--ink); }
   .input-panel > p { grid-column: 1; }
 }
 @media (max-width: 560px) {
-  :root { --gutter: 6px; }
+  :root { --gutter: 6px; --inset: 16px; }
   .bench-body { grid-template-columns: 1fr; }
   .process { border-right: 0; border-bottom: 1px solid var(--line); padding: 6px 0; }
-  .process-step { padding: 4px 12px 4px 14px; }
+  .process-step { padding: 4px 12px 4px var(--inset); }
   main { padding: 18px 12px; }
-  .bench-header { padding: 13px; flex-direction: column; gap: 3px; }
+  .bench-header { padding: 13px var(--inset); flex-direction: column; gap: 3px; }
   .bench-meta { margin-left: 0; }
-  .blueprint .table-wrap { padding: 0 8px 1px; }
-  .transport { padding: 12px; gap: 8px; flex-wrap: wrap; }
+  .transport { padding: 12px var(--inset); gap: 8px; flex-wrap: wrap; }
   .buttons { gap: 5px; }
   .buttons button { font-size: 11px; padding: 9px 10px; }
   .primary { min-width: 116px; }

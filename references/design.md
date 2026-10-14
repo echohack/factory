@@ -28,6 +28,13 @@ quieter column lines in `rgba(41, 69, 98, .55)`. The table starts on a grid line
 `kit/tables.mjs` snaps every row to whole tiles, so the row lines are the only
 dividers. Draw no row borders. Center cell text vertically. Fill the header row
 with `#183454`, the active sidebar color, and set its labels in `#dbe7f4` at 600.
+Run that fill from frame edge to frame edge: the table takes the full width and
+its first and last cells carry the inset.
+
+Header text, sidebar headings, the first control, and table text all start on one
+left edge, the `--inset` variable: 24 px on desktop and 16 px on phones. Set every
+horizontal padding inside the workbench from it instead of picking a number per
+element.
 
 Use 12 px checker gutters on desktop and 6 px on phones. The floor material is
 under the Canvas, leaving labels and machinery clear. Grid lines are quieter than

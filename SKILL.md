@@ -124,8 +124,9 @@ during playback: each operation's inputs, rule or curve, and parameters, plus a
 worked example computed from the model. Frame each table like the scene: the
 same workbench frame and header, with the blueprint floor and its tile grid behind
 the cells. Snap rows to whole tiles with `kit/tables.mjs` so the grid lines divide
-them, and draw no row borders. Give each table a heading and no description. The example's Operations
-table shows the pattern.
+them, and draw no row borders. Give each table a heading and no description. The
+example's Operations table shows the pattern. Start header text, phase headings,
+controls, and table text on one left edge.
 
 Write every visible string plainly. Use titles, labels, and table cells. Cut
 taglines, explanatory paragraphs, and em dashes.
