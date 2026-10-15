@@ -22,11 +22,9 @@
   <a href="#limits">Limits</a>
 </p>
 
-<p align="center">
-  <img src=".github/assets/obs-pipeline.webp" width="900" alt="The OBS Studio example as a factory under network congestion. Pumpjacks for the camera, mic and desktop audio feed belts through the graphics thread, the x264 and AAC encoders, and the stream and recording outputs. The send buffer holds 47 packets, 400 ms of video, and 26 P-frames have been dropped.">
-</p>
+https://github.com/user-attachments/assets/f7791a8b-f4ea-4ade-b52d-5a4be2bad7eb
 
-<p align="center"><sub><code>examples/obs-pipeline</code> under network congestion, 37 seconds in. The send buffer has backed up to 400 ms, and the stream has dropped 26 P-frames while the recording keeps every packet.</sub></p>
+<p align="center"><sub><code>examples/obs-pipeline</code> under network congestion, from start to finish. The send buffer backs up, the stream drops P-frames, and the recording keeps every packet.</sub></p>
 
 ---
 
@@ -201,8 +199,7 @@ factory/
 ├── scripts/                  import, build, preview server and browser checks
 ├── tests/                    Vite+ test suites
 ├── vite.config.mjs           test and coverage settings
-├── agents/openai.yaml        the skill's display name in Codex
-└── .github/assets/           README images
+└── agents/openai.yaml        the skill's display name in Codex
 ```
 
 </details>
