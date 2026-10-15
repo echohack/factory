@@ -59,11 +59,6 @@ finished ones. With `onJump`,
 each heading is a button that seeks to the start of its phase. The figure supplies
 the CSS; copy the `.process-*` rules from the example's `style.css`.
 
-`kit/tables.mjs` exports `snapRows(table, tile)` and `keepRowsOnGrid(table, tile)`.
-They set each row to a whole number of 32 px tiles, and re-snap when the width
-changes, so a reference table's rows sit on the floor grid. Call `refresh()` after
-rewriting the rows.
-
 The array example model is independent from the kit. Its event `phase`, `from`,
 `to`, `value` and `message` fields connect semantic events to scene stations, the
 phase outline and the screen-reader announcements. For a new algorithm, write a new model and choreography;

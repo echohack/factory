@@ -2,6 +2,16 @@
 
 All notable changes to Factory are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Reference tables are plain tables: a filled header row, thin dividers between rows and roomier cells, over the same frame and textured floor, without the tile grid.
+
+### Removed
+
+- `kit/tables.mjs`, which snapped table rows to the tile grid.
+
 ## [0.1.0] - 2026-10-14
 
 The first public release.

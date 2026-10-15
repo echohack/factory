@@ -57,10 +57,6 @@ try {
   while (!(await state(desktop)).done) await desktop.locator('#step').click();
   assert.equal((await floor(desktop)).sum, 60);
   assert.deepEqual(await desktop.locator('#ops-body td:last-child').allTextContents(), ['[2, 4, 6, 8]', '[6, 12, 18, 24]', '60']);
-  assert.equal(await desktop.evaluate(() => [...document.querySelectorAll('.blueprint .table-wrap')].flatMap(wrap => [...wrap.querySelectorAll('tr')].map(row => {
-    const top = row.getBoundingClientRect().top - wrap.getBoundingClientRect().top, height = row.getBoundingClientRect().height;
-    return Math.abs(top / 32 - Math.round(top / 32)) < .02 && Math.abs(height / 32 - Math.round(height / 32)) < .02;
-  })).every(Boolean)), true, 'Table rows sit on the floor grid');
   assert.match(await desktop.locator('#scene').getAttribute('aria-label'), /Accumulator 60\./);
   assert.equal(await desktop.locator('#process .process-step.done').count(), 3);
   assert.deepEqual((await floor(desktop)).filtered, [2, 4, 6, 8]);

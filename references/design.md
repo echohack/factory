@@ -22,11 +22,9 @@ Campfire's files in `public/img/textures/`, tracked in this repository. They are
 separate from the imported Factorio game artwork. The build copies them into `materials/`.
 
 Reference tables reuse the workbench frame and header. Their `.blueprint` body
-carries the same ash textures as the floor, and the table layer draws a 32 px tile
-grid to match the canvas grid: 1 px row lines in `rgba(78, 114, 152, .8)` and
-quieter column lines in `rgba(41, 69, 98, .55)`. The table starts on a grid line, and
-`kit/tables.mjs` snaps every row to whole tiles, so the row lines are the only
-dividers. Draw no row borders. Center cell text vertically. Fill the header row
+carries the same ash textures as the floor, with no tile grid. Draw plain table
+rows: 10 px of vertical padding, top-aligned text, tabular figures, and a 1 px
+divider in `rgba(78, 114, 152, .35)` between rows. Fill the header row
 with `#183454`, the active sidebar color, and set its labels in `#dbe7f4` at 600.
 Run that fill from frame edge to frame edge: the table takes the full width and
 its first and last cells carry the inset.

@@ -168,9 +168,9 @@ lane finishes on its own. Parallel lanes show independence, not measured timing.
 Put reference material below the figure in static tables that do not re-render
 during playback: each operation's inputs, rule or curve, and parameters, plus a
 worked example computed from the model. Frame each table like the scene: the
-same workbench frame and header, with the blueprint floor and its tile grid behind
-the cells. Snap rows to whole tiles with `kit/tables.mjs` so the grid lines divide
-them, and draw no row borders. Give each table a heading and no description. The
+same workbench frame and header over the same textured floor, but no tile grid.
+Draw it as a plain table: a filled header row, a thin divider between rows, and
+room around each cell. Give each table a heading and no description. The
 example's Operations table shows the pattern. Start header text, phase headings,
 controls, and table text on one left edge.
 

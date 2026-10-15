@@ -5,7 +5,6 @@ import { FactoryScene } from '../../kit/scene.mjs';
 import { factoryLayout } from './layout.mjs';
 import { transferView, connectLayout } from '../../kit/transport.mjs';
 import { processOutline } from '../../kit/process.mjs';
-import { keepRowsOnGrid } from '../../kit/tables.mjs';
 const $ = id => document.getElementById(id);
 let input = [...DEFAULT_INPUT], trace = makeTrace(input), player = new TracePlayer(trace.events, trace.initial);
 let scene, visible = true, lastTime = null, lastIndex = -1, frameClock = 0;
@@ -14,7 +13,6 @@ const layout = () => connectLayout(factoryLayout(narrow.matches));
 const STEPS = [{ key: 'filter', title: 'Filter' }, { key: 'map', title: 'Map' }, { key: 'reduce', title: 'Reduce' }];
 const outline = processOutline($('process'), STEPS, { onJump: jump });
 function jump(phase) { const i = trace.events.findIndex(e => e.phase === phase); player.seek(i <= 0 ? 0 : i + 1); lastTime = null; render(); }
-const opsGrid = keepRowsOnGrid($('ops'));
 function renderOps() {
   const s = trace.events.at(-1).after, list = a => `[${a.join(', ')}]`;
   $('ops-body').replaceChildren(...[['Filter', 'n => n % 2 === 0', list(input), list(s.filtered)], ['Map', 'n => n * 3', list(s.filtered), list(s.mapped)],
@@ -23,7 +21,6 @@ function renderOps() {
     for (const text of [code, reads, returns]) { const td = document.createElement('td'), c = document.createElement('code'); c.textContent = text; td.append(c); tr.append(td); }
     return tr;
   }));
-  opsGrid.refresh();
 }
 function render() {
   if (!scene) return;

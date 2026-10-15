@@ -46,16 +46,15 @@ button.process-head:hover { background: none; color: var(--ink); }
 canvas { position: relative; z-index: 1; display: block; width: 100%; }
 .reference { margin-top: 24px; }
 .bench-meta { margin-left: auto; color: var(--muted); white-space: nowrap; }
-.blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; padding: 0 0 1px;
-  background-image: linear-gradient(to bottom, rgba(78, 114, 152, .8) 1px, transparent 1px), linear-gradient(to right, rgba(41, 69, 98, .55) 1px, transparent 1px);
-  background-size: 32px 32px; }
+.blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; }
 .blueprint thead tr { background: #183454; }
 .blueprint :is(th, td):first-child { padding-left: var(--inset); }
 .blueprint :is(th, td):last-child { padding-right: var(--inset); }
 .blueprint thead th { color: #dbe7f4; font-weight: 600; }
-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-thead th { color: var(--muted); text-align: left; padding: 4px 8px; font-weight: 400; text-transform: uppercase; vertical-align: middle; }
-tbody th, tbody td { padding: 4px 8px; text-align: left; vertical-align: middle; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+thead th { color: var(--muted); text-align: left; padding: 10px 8px; font-weight: 400; text-transform: uppercase; vertical-align: middle; }
+tbody th, tbody td { padding: 10px 8px; text-align: left; vertical-align: top; border-top: 1px solid rgba(78, 114, 152, .35); }
+tbody tr:first-child :is(th, td) { border-top: 0; }
 tbody th { font-weight: 550; white-space: nowrap; }
 td code { font: 12px ui-monospace, SFMono-Regular, monospace; color: #c9d6e6; }
 .transport { border-top: 1px solid var(--line); display: flex; align-items: center; gap: 23px; padding: 15px var(--inset); background: #102037; }

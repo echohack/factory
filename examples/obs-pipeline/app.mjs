@@ -4,7 +4,6 @@ import { loadSprites } from '../../kit/sprites.mjs';
 import { FactoryScene } from '../../kit/scene.mjs';
 import { swing, pointOnPath } from '../../kit/transport.mjs';
 import { processOutline } from '../../kit/process.mjs';
-import { keepRowsOnGrid } from '../../kit/tables.mjs';
 import { factoryLayout } from './layout.mjs';
 const $ = id => document.getElementById(id);
 let settings = { ...SCENARIOS.healthy }, trace = makeTrace(settings), player = new TracePlayer(trace.events, trace.initial);
@@ -127,14 +126,12 @@ function renderTables() {
 }
 const LABEL = { healthy: 'Healthy', render: 'Rendering lag', encode: 'Encoding lag', network: 'Network congestion' };
 const currentName = () => Object.entries(SCENARIOS).find(([, s]) => Object.keys(s).every(k => s[k] === settings[k]))?.[0] ?? 'custom';
-const grids = {};
 function fill(id, rows) {
   $(`${id}-body`).replaceChildren(...rows.map(([head, ...cells]) => {
     const tr = document.createElement('tr'), th = document.createElement('th'); th.scope = 'row'; th.textContent = head; tr.append(th);
     for (const text of cells) { const td = document.createElement('td'); td.textContent = text; tr.append(td); }
     return tr;
   }));
-  (grids[id] ??= keepRowsOnGrid($(id))).refresh();
 }
 function toggle() { if (player.snapshot().done) { player.reset(); frameClock = 0; lastIndex = -1; } player.playing ? player.pause() : player.play(); lastTime = null; render(); }
 function reset() { player.reset(); frameClock = 0; lastIndex = -1; lastTime = null; render(); }
