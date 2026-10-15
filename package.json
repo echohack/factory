@@ -1,6 +1,9 @@
 {
   "name": "factory-skill",
   "version": "0.1.0",
+  "description": "A Claude skill that explains programs as working Factorio factories",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "git+https://github.com/echohack/factory.git" },
   "private": true,
   "type": "module",
   "engines": { "node": ">=20.10" },
