@@ -171,5 +171,11 @@ try {
   for (const id of ['play', 'step', 'reset']) $(id).disabled = false;
   load(settings); requestAnimationFrame(frame);
   window.factoryDemo = { seek(i) { player.seek(i); render(); }, get state() { return player.snapshot(); }, get trace() { return trace; }, get layout() { return layout(); },
-    load(name) { load({ ...SCENARIOS[name] }); }, step() { player.step(); render(); }, finish() { player.seek(trace.events.length); render(); }, reset, render };
+    load(name) { load({ ...SCENARIOS[name] }); }, step() { player.step(); render(); },
+    get duration() { return trace.events.reduce((sum, e) => sum + e.duration, 0); },
+    renderAt(ms) {
+      player.pause(); let i = 0, left = ms;
+      while (i < trace.events.length && left >= trace.events[i].duration) left -= trace.events[i++].duration;
+      player.index = i; player.elapsed = i < trace.events.length ? left : 0; frameClock = ms; lastIndex = -1; render();
+    }, finish() { player.seek(trace.events.length); render(); }, reset, render };
 } catch (error) { $('narration').textContent = error.message; $('narration').classList.remove('sr-only'); console.error(error); }
