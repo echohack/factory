@@ -1,4 +1,5 @@
 {
+  "icon": "foundry",
   "ids": ["inserter", "transport-belt", "underground-belt", "pumpjack", "burner-mining-drill", "small-lamp", "foundry",
     "assembling-machine-1", "assembling-machine-2", "assembling-machine-3", "chemical-plant",
     "steel-chest", "buffer-chest", "wooden-chest",

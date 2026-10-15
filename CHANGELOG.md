@@ -16,6 +16,7 @@ The first public release.
 - `assets/manifest.json` records each file's game path, SHA-256 and size, sorted by game path.
 - Builds stop with a clear message when the art is not imported, and the tests skip only the art hash check.
 - Every command runs through [Vite+](https://viteplus.dev), installed with Bun: `vp install`, `vp run assets`, `vp run dev`, `vp build`, `vp preview`, `vp run objects` and `vp test`. Tasks live in `vite.config.mjs`.
+- A sidebar at `https://factory.localhost`, in the style of Campfire's, lists every diagram under `examples/` with its icon, filters them with ⌘K, and picks up new diagrams while `vp run dev` runs. It collapses to an icon rail on narrow screens.
 - The examples are a Vite multi-page app. `vp run dev` serves them with live reload at `https://factory.localhost` through Portless, and `vp build` bundles each page with only the sprites its `assets.json` lists.
 - Tests for the models, event conservation, stepping, sprite crops and asset paths, with coverage, and optional Playwright checks for the built pages.
 - A screenshot of the OBS example at the top of the README.

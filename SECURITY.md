@@ -4,7 +4,7 @@
 
 Factory is a set of instructions, a browser kit and local Node scripts.
 
-- `vp dev` serves the examples on localhost, and `vp run dev` routes them through the local [Portless](https://github.com/vercel-labs/portless) proxy at `https://factory.localhost`. The factory plugin in `scripts/vite-plugin-factory.mjs` serves each page only the sprite files its `assets.json` names. `vp preview` serves `dist/`, bound to `127.0.0.1:4173` in `vite.config.mjs`.
+- `vp dev` serves the examples on localhost, and `vp run dev` routes them through the local [Portless](https://github.com/vercel-labs/portless) proxy at `https://factory.localhost`. The factory plugin in `scripts/vite-plugin-factory.mjs` serves each page only the sprite files its `assets.json` names, and the sidebar only icon files from the library manifest. `vp preview` serves `dist/`, bound to `127.0.0.1:4173` in `vite.config.mjs`.
 - `vp run assets` and `vp run import-assets` read your Factorio install and its exports, and write only to `assets/` or the `--out` folder. Every image path from the data dump must resolve inside the game's `data/` folder.
 - `vp run verify-browser` and `vp run verify-catalog` load Playwright from `PLAYWRIGHT_MODULE` and drive headless Chrome on the local preview, or on a URL you give them. Point them only at pages you trust.
 

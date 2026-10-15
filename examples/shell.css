@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+  --paper: #080f1c;
+  --panel: rgba(11, 21, 37, .75);
+  --ink: #c9d6e6;
+  --muted: #91a5bd;
+  --line: #1c2f46;
+  --hover: #122640;
+  --active: #183454;
+  --highlight: #dbe7f4;
+  --accent: #8fb5de;
+  --mark: #254b72;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; overflow: hidden; }
+.app-shell { position: fixed; inset: 0; display: flex; height: 100dvh; min-height: 360px; overflow: hidden; background: var(--paper); }
+.app-shell, .app-shell * { scrollbar-width: thin; scrollbar-color: rgba(145, 165, 189, .4) transparent; }
+.app-shell ::-webkit-scrollbar { width: 10px; height: 10px; }
+.app-shell ::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 10px; background: rgba(145, 165, 189, .4); background-clip: padding-box; }
+.app-shell ::-webkit-scrollbar-track, .app-shell ::-webkit-scrollbar-corner { background: transparent; }
+.app-skip { position: fixed; top: -100px; left: 80px; z-index: 100; padding: 12px; background: var(--active); color: var(--highlight); }
+.app-skip:focus { top: 12px; }
+.sidebar { flex: 0 0 200px; min-width: 0; border-right: 1px solid var(--line); }
+.navigation-panel { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 18px 8px 10px; background: var(--panel); backdrop-filter: blur(4px); }
+.panel-brand { display: flex; align-items: center; gap: 9px; flex-shrink: 0; height: 32px; margin: 0 3px 20px; color: var(--highlight); font-size: 15px; font-weight: 650; letter-spacing: .01em; text-decoration: none; }
+.brand-mark { width: 24px; height: 24px; flex: none; }
+.brand-mark rect { fill: var(--mark); }
+.brand-mark path { fill: var(--highlight); }
+.menu { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0; padding: 0; list-style: none; }
+.menu-link { display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 8px; border-radius: 6px; color: var(--muted); font-size: 14px; line-height: 20px; text-decoration: none; transition: background .15s, color .15s; }
+.menu-link:hover { background: var(--hover); color: var(--ink); }
+.menu-link[aria-current="page"] { background: var(--active); color: var(--highlight); }
+.menu-link:focus-visible, .panel-search:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
+.menu-icon { width: 20px; height: 20px; flex: none; object-fit: contain; }
+.menu-mono { display: grid; place-items: center; border-radius: 4px; background: var(--mark); color: var(--highlight); font-size: 11px; font-weight: 650; }
+.menu-glyph { width: 17px; height: 17px; flex: none; margin: 0 1.5px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.menu-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.panel-search { flex-shrink: 0; margin-bottom: 4px; cursor: text; }
+.panel-search input { flex: 1; min-width: 0; padding: 0; border: 0; background: none; color: var(--ink); font: inherit; outline: none; }
+.panel-search input::placeholder { color: var(--muted); opacity: 1; }
+.panel-search input::-webkit-search-cancel-button { display: none; }
+.search-shortcut { margin-left: auto; color: var(--muted); font-family: inherit; font-size: 11px; white-space: nowrap; }
+.menu-scroll { flex: 1; min-height: 0; overflow: auto; }
+.section-rule { height: 1px; margin: 18px 8px; background: var(--line); }
+.menu-note { margin: 8px; color: var(--muted); font-size: 13px; }
+.panel-footer { display: flex; flex-direction: column; flex-shrink: 0; padding-top: 10px; margin-top: 12px; border-top: 1px solid var(--line); }
+.workspace-pane { position: relative; flex: 1; min-width: 0; min-height: 0; outline: none; }
+.workspace-pane iframe { display: block; width: 100%; height: 100%; border: 0; background: var(--paper); }
+.workspace-status { position: absolute; inset: 0; display: grid; place-content: center; margin: 0; padding: 24px; color: var(--muted); font-size: 14px; text-align: center; background: var(--paper); }
+[hidden] { display: none !important; }
+@media (max-width: 760px) {
+  .sidebar { flex-basis: 52px; }
+  .navigation-panel { padding-inline: 5px; }
+  .panel-brand { justify-content: center; margin-inline: 0; }
+  .brand-mark { width: 28px; height: 28px; }
+  .brand-name, .menu-label, .panel-search, .menu-note { display: none; }
+  .menu-link { justify-content: center; padding-inline: 0; }
+  .section-rule { margin-inline: 6px; }
+}

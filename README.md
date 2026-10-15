@@ -51,7 +51,7 @@ vp run assets
 vp run dev
 ```
 
-Open `https://factory.localhost/array-pipeline/` in your browser. Then, in Claude Code:
+Open `https://factory.localhost` in your browser: a sidebar lists every diagram. Then, in Claude Code:
 
 ```text
 /factory explain how an LRU cache with 4 slots evicts entries
@@ -164,7 +164,7 @@ Three habits get the best figures:
 
 ## Examples
 
-After the [import](#game-assets), `vp run dev` serves them with live reload at `https://factory.localhost`. `vp build` writes a static copy to `dist/`, and `vp preview` serves it.
+After the [import](#game-assets), `vp run dev` serves them with live reload at `https://factory.localhost`, where a sidebar lists every diagram, including the ones you build. `vp build` writes a static copy to `dist/`, and `vp preview` serves it.
 
 | Example | What it shows | Page |
 |---|---|---|
@@ -178,7 +178,7 @@ Search the library from the terminal with `vp run objects cache`.
 
 - **[`SKILL.md`](SKILL.md)** is what Claude reads. It sets the workflow: read the program, write the architecture inventory, map program parts to factory parts, write a pure model, build the scene from the kit, and verify the result in a browser.
 - **[`kit/`](kit)** is the framework-free browser kit: deterministic trace playback (`trace.mjs`), native sprite drawing (`sprites.mjs`), the tile scene with belts, labels and moving items (`scene.mjs`), inserter placement and poses (`transport.mjs`), the phase list (`process.mjs`) and grid-snapped tables (`tables.mjs`).
-- **[`vite.config.mjs`](vite.config.mjs)** makes `examples/` a Vite multi-page app. Its plugin serves and bundles each page with only the sprites its `assets.json` lists.
+- **[`vite.config.mjs`](vite.config.mjs)** makes `examples/` a Vite multi-page app. Its plugin serves and bundles each page with only the sprites its `assets.json` lists, and lists every page in the sidebar.
 - **[`references/`](references)** are the long-form guides Claude opens when it needs them: program mapping, the kit API, the object library, game assets, inserters, design and verification.
 - **The library.** [`catalog/objects.mjs`](catalog/objects.mjs) selects each object from the game's prototype definitions. `vp run assets` turns that into `assets/manifest.json` and `assets/catalog.json`, and copies the art.
 - **Verification.** `vp test` runs the test suite on [Vite+](https://viteplus.dev). It checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, `vp run verify-browser` and `vp run verify-catalog` drive the built pages at desktop and phone sizes and save screenshots.
@@ -198,7 +198,7 @@ factory/
 │   ├── manifest.json         every imported file: game path, SHA-256 and size
 │   ├── catalog.json          objects, roles, footprints and variants
 │   └── materials/            the workbench textures
-├── examples/                 array-pipeline, obs-pipeline and the catalog browser
+├── examples/                 the sidebar, array-pipeline, obs-pipeline and the catalog browser
 ├── scripts/                  import, the Vite plugin and browser checks
 ├── tests/                    Vite+ test suites
 ├── vite.config.mjs           the Vite+ app, tasks and test settings

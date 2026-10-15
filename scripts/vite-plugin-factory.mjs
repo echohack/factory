@@ -18,10 +18,27 @@ async function pages() {
 
 async function selection(name) {
   const path = join(examples, name, 'assets.json');
-  if (!await exists(path)) return { ids: [], catalog: false };
+  if (!await exists(path)) return { ids: [], catalog: false, icon: null };
   const spec = JSON.parse(await readFile(path));
-  if (spec.all) return { ids: null, catalog: true };
-  return { ids: spec.ids ?? Object.keys(spec.sprites ?? {}), catalog: false };
+  if (spec.all) return { ids: null, catalog: true, icon: spec.icon ?? null };
+  return { ids: spec.ids ?? Object.keys(spec.sprites ?? {}), catalog: false, icon: spec.icon ?? null };
+}
+
+const entities = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'" };
+const decode = text => text.replace(/&(amp|lt|gt|quot|#39);/g, entity => entities[entity]);
+
+export async function figureList() {
+  const library = JSON.parse(await readFile(join(assets, 'manifest.json')));
+  const figures = await Promise.all((await pages()).map(async name => {
+    const html = await readFile(join(examples, name, 'index.html'), 'utf8').catch(() => null);
+    if (html == null) return null;
+    const title = decode(/<title>([^<]*)<\/title>/i.exec(html)?.[1] ?? '').replace(/^\s*Factory\s*[·—–-]\s*/, '').trim() || name;
+    const { catalog, icon } = await selection(name).catch(() => ({ catalog: false, icon: null }));
+    const sprite = icon ? library.sprites[`icon-${icon}`] ?? library.sprites[icon] : null;
+    const file = sprite?.kind === 'icon' && await exists(join(assets, sprite.file)) ? sprite.file : null;
+    return { name, title, icon: file, library: catalog };
+  }));
+  return figures.filter(Boolean);
 }
 
 export async function pageAssets(name) {
@@ -37,23 +54,28 @@ export async function pageAssets(name) {
   return { manifest: { ...library, sprites, files: Object.fromEntries(files.map(file => [file, library.files[file]])) }, files, missing, catalog };
 }
 
-function redirectHome(server) {
-  server.middlewares.use(async (req, res, next) => {
-    if (req.url !== '/' && req.url !== '/index.html') return next();
-    const names = await pages();
-    res.statusCode = 302; res.setHeader('Location', `/${names.includes('array-pipeline') ? 'array-pipeline' : names[0]}/`); res.end();
-  });
-}
-
 export function factory() {
   return {
     name: 'factory',
     async config() {
       const names = await pages();
-      return { build: { rollupOptions: { input: Object.fromEntries(names.map(name => [name, join(examples, name, 'index.html')])) } } };
+      const input = Object.fromEntries(names.map(name => [name, join(examples, name, 'index.html')]));
+      return { build: { rollupOptions: { input: { index: join(examples, 'index.html'), ...input } } } };
     },
     configureServer(server) {
-      redirectHome(server);
+      const listed = path => /[\\/]examples[\\/][^\\/]+[\\/](index\.html|assets\.json)$/.test(path);
+      const refresh = path => { if (listed(path)) server.ws.send({ type: 'custom', event: 'factory:figures' }); };
+      for (const event of ['add', 'change', 'unlink']) server.watcher.on(event, refresh);
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url ?? '').split(/[?#]/)[0];
+        try {
+          if (url === '/figures.json') { res.setHeader('Content-Type', 'application/json'); return res.end(JSON.stringify(await figureList())); }
+          const icon = /^\/icons\/([^/]+)$/.exec(url)?.[1];
+          const icons = icon && Object.values(JSON.parse(await readFile(join(assets, 'manifest.json'))).sprites).filter(sprite => sprite.kind === 'icon');
+          if (icons && icons.some(sprite => sprite.file === icon) && await exists(join(assets, icon))) { res.setHeader('Content-Type', 'image/png'); return res.end(await readFile(join(assets, icon))); }
+        } catch (error) { res.statusCode = 500; return res.end(error.message); }
+        next();
+      });
       server.middlewares.use(async (req, res, next) => {
         const match = /^\/([a-z0-9-]+)\/assets\/([^/?#]+)/.exec(req.url ?? '');
         if (!match || !(await pages()).includes(match[1])) return next();
@@ -71,8 +93,10 @@ export function factory() {
         } catch (error) { res.statusCode = 500; res.end(error.message); }
       });
     },
-    configurePreviewServer: redirectHome,
     async generateBundle() {
+      const figures = await figureList();
+      this.emitFile({ type: 'asset', fileName: 'figures.json', source: JSON.stringify(figures, null, 2) + '\n' });
+      for (const icon of new Set(figures.map(figure => figure.icon).filter(Boolean))) this.emitFile({ type: 'asset', fileName: `icons/${icon}`, source: await readFile(join(assets, icon)) });
       for (const name of await pages()) {
         const page = await pageAssets(name);
         if (page.missing.length) this.error(missingArt(page.missing.length));

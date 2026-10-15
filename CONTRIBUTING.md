@@ -41,7 +41,7 @@ ln -s "$PWD" ~/.config/opencode/skills/factory
 vp run dev
 ```
 
-`vp run dev` serves every example with live reload at `https://factory.localhost`, through [Portless](https://github.com/vercel-labs/portless). Its first run creates a local certificate authority and binds port 443, which asks for sudo. `vp dev` serves the same pages on localhost without Portless.
+`vp run dev` serves every example with live reload at `https://factory.localhost`, behind a sidebar that lists them, through [Portless](https://github.com/vercel-labs/portless). Its first run creates a local certificate authority and binds port 443, which asks for sudo. `vp dev` serves the same pages on localhost without Portless.
 
 ```sh
 vp build
@@ -86,7 +86,7 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 
 ## Changing the skill's text
 
-`SKILL.md` and `references/` are instructions an agent follows, so keep them short, exact and in the same plain voice. When you add an example, give it a folder under `examples/` with an `index.html` and an `assets.json` that lists its sprite IDs. Vite picks it up as a page. Add it to the table in the README.
+`SKILL.md` and `references/` are instructions an agent follows, so keep them short, exact and in the same plain voice. When you add an example, give it a folder under `examples/` with an `index.html` and an `assets.json` that lists its sprite IDs and its sidebar `"icon"`. Vite picks it up as a page, and the sidebar lists it by its `<title>`. Add it to the table in the README.
 
 ## Pull requests
 

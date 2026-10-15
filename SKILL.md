@@ -77,7 +77,9 @@ silently draw it as a fused streaming pipeline.
 Use the example as a starting point, not a required subject or fixed layout.
 A figure is a folder under `examples/` with an `index.html`, modules that import
 the kit from `../../kit/`, and an `assets.json` that lists the sprite IDs it draws
-as `{ "ids": [...] }`. Vite picks up every such folder as a page.
+as `{ "ids": [...] }`. Vite picks up every such folder as a page. The sidebar at
+`https://factory.localhost` lists it by its `<title>`, after `Factory ·`, with the
+icon of the object that `"icon"` in `assets.json` names.
 `kit/trace.mjs` provides deterministic playback and stepping. `kit/sprites.mjs`
 draws supported native sprite layers; `kit/scene.mjs` provides tile coordinates,
 belts, objects, moving value tokens, and machine activity. `kit/transport.mjs`
@@ -104,12 +106,13 @@ vp run dev
 ```
 
 It serves every figure with live reload at `https://factory.localhost`, through
-Portless, which needs Node.js 24. Open `https://factory.localhost/array-pipeline/`
-in the user’s external browser; the object browser is at `/catalog/`. Without
-Portless, `vp dev` serves the same pages on localhost. `vp build` writes a static
-site to `dist/` with only the sprites each page lists, and `vp preview` serves it
-on port 4173. `vp run assets` regenerates the library from the user's game files,
-and `vp test` runs the tests. Generated output is ignored by Git.
+Portless, which needs Node.js 24. The home page is a sidebar of every figure. Open
+`https://factory.localhost/#<figure>` in the user’s external browser to show one
+in it; `/<figure>/` shows the figure alone, and the object browser is `#catalog`.
+Without Portless, `vp dev` serves the same pages on localhost. `vp build` writes a
+static site to `dist/` with only the sprites each page lists, and `vp preview`
+serves it on port 4173. `vp run assets` regenerates the library from the user's
+game files, and `vp test` runs the tests. Generated output is ignored by Git.
 
 ## Make the mechanism legible
 

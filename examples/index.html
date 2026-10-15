@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Factory</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23254b72'/%3E%3Cpath d='M8 24V14l8-5v5l8-5v15Z' fill='%23dbe7f4'/%3E%3C/svg%3E"><link rel="stylesheet" href="./shell.css"></head>
+<body>
+<div class="app-shell">
+  <a href="#workspace" class="app-skip">Skip to diagram</a>
+  <aside class="sidebar">
+    <nav class="navigation-panel" aria-label="Factory diagrams">
+      <a class="panel-brand" href="./" title="Factory" aria-label="Factory home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="4"/><path d="M8 24V14l8-5v5l8-5v15Z"/></svg>
+        <span class="brand-name">Factory</span>
+      </a>
+      <label class="panel-search menu-link">
+        <svg class="menu-glyph" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Search" aria-label="Search diagrams" autocomplete="off" spellcheck="false">
+        <kbd id="shortcut" class="search-shortcut" aria-hidden="true">⌘ K</kbd>
+      </label>
+      <div class="menu-scroll">
+        <ul id="diagrams" class="menu" aria-label="Diagrams"></ul>
+        <div id="rule" class="section-rule" hidden></div>
+        <ul id="library" class="menu" aria-label="Library"></ul>
+        <p id="no-match" class="menu-note" hidden>No diagrams match.</p>
+      </div>
+      <div class="panel-footer">
+        <a id="open" class="menu-link" href="./" target="_blank" rel="noopener" title="Open full page">
+          <svg class="menu-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+          <span class="menu-label">Open full page</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+  <main id="workspace" class="workspace-pane" tabindex="-1">
+    <iframe id="frame" title="Diagram"></iframe>
+    <p id="status" class="workspace-status" role="status" hidden></p>
+  </main>
+</div>
+<script type="module" src="./shell.mjs"></script>
+</body>
+</html>
