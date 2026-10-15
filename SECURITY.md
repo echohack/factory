@@ -4,9 +4,9 @@
 
 Factory is a set of instructions, a browser kit and local Node scripts.
 
-- `scripts/serve.mjs` serves one folder on `127.0.0.1` only. It answers `GET` and `HEAD` and refuses paths and symlinks that leave its root.
-- `npm run assets` and `scripts/import-assets.mjs` read your Factorio install and its exports, and write only to `assets/` or the `--out` folder. Every image path from the data dump must resolve inside the game's `data/` folder.
-- `scripts/verify-browser.mjs` and `scripts/verify-catalog.mjs` load Playwright from `PLAYWRIGHT_MODULE` and drive headless Chrome on the URL you give them. Point them only at pages you trust.
+- `vp preview` serves `dist/` with Vite's preview server, bound to `127.0.0.1:4173` in `vite.config.mjs`.
+- `vp run assets` and `vp run import-assets` read your Factorio install and its exports, and write only to `assets/` or the `--out` folder. Every image path from the data dump must resolve inside the game's `data/` folder.
+- `vp run verify-browser` and `vp run verify-catalog` load Playwright from `PLAYWRIGHT_MODULE` and drive headless Chrome on the local preview, or on a URL you give them. Point them only at pages you trust.
 
 A security problem is anything in this repository that could let a page, a prompt, a data dump or a file run code, read or write files, or reach the network in a way the user did not ask for: in the kit, in the scripts, in the example pages, or in instructions in `SKILL.md` and `references/` that would lead an agent to do something unsafe.
 

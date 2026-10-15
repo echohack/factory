@@ -1,6 +1,6 @@
 # Verification
 
-Run `bun run test` (after `bun install`) and build the example with actual imported art. Test the model
+Run `vp test` and build the example with actual imported art. Test the model
 against the language’s real result, including empty and all-rejected inputs.
 Stepping and continuous playback must reach the same final state. Check that
 every intermediate array and cumulative total agrees with the model.
@@ -25,12 +25,12 @@ Verify pause, step, reset, edited input, invalid input, keyboard control, speed,
 reduced motion, and hidden/offscreen suspension. Avoid announcing every animation
 frame to screen readers; announce completed semantic events.
 
-Optional automated browser check (server already running):
+Optional automated browser check, with `vp preview` already running:
 
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs \
 CHROME_PATH='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
-node scripts/verify-browser.mjs http://127.0.0.1:4173/array-pipeline/
+vp run verify-browser
 ```
 
 The check uses a separate headless Chrome profile and saves screenshots into
@@ -42,9 +42,9 @@ and materials are tracked. Before committing, inspect `git status` and keep game
 art, generated `dist/` and `.local/` output out of source control. Importer errors should identify an unsupported field
 or missing asset, not quietly produce a placeholder that looks like success.
 
-For catalog changes, `bun run test` checks every mapped layer’s crop bounds and file
-hash. Use `scripts/verify-catalog.mjs` with the same browser environment variables
-and the `/catalog/` URL to check search, variants, pause, mobile and reduced motion.
+For catalog changes, `vp test` checks every mapped layer’s crop bounds and file
+hash. Use `vp run verify-catalog` with the same browser environment variables
+to check search, variants, pause, mobile and reduced motion.
 Inspect the resulting contact sheets as well as any new animated frame sequences.
 
 Check scope against the architecture inventory before polishing. Every inventory

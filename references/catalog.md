@@ -5,8 +5,8 @@ The reusable selection lives in `catalog/objects.mjs`. Its generated
 native variants, frame counts and rendering limitations. The actual layers and
 files are in `assets/manifest.json`. These are world entities, not enlarged icons.
 
-Run `npm run objects -- cache` (or `worker`, `predicate`, `Power`, etc.) to find a
-part. Build with `npm run build`, then open `/catalog/` on the local preview server
+Run `vp run objects cache` (or `worker`, `predicate`, `Power`, etc.) to find a
+part. Build with `vp run examples`, start `vp preview`, then open `/catalog/`
 to inspect the 68 world objects and 28 item tokens. The browser has search,
 category filters, direction/state selectors and optional animation previews.
 
@@ -49,7 +49,7 @@ rails and creatures are listed as deferred, not represented by partial bodies.
 Public timing claims still require a real trace; gallery playback is illustrative.
 
 To extend the library, inspect the exact prototype in the data dump, add explicit paths
-and role/coverage notes in `catalog/objects.mjs`, regenerate with `npm run assets`,
+and role/coverage notes in `catalog/objects.mjs`, regenerate with `vp run assets`,
 then run the crop/hash checks and visually inspect all new orientations. Keep
 unsupported layers as an explicit limitation or implement their format; never
 guess a sheet layout or drop an essential machine part.

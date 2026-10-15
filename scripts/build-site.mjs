@@ -11,7 +11,7 @@ export async function buildSite(name, ids) {
   const files = [...new Set(Object.values(manifest.sprites).flatMap(spriteFiles))];
   manifest.files = Object.fromEntries(files.map(file => [file, manifest.files[file]]));
   const missing = (await Promise.all(files.map(file => access(join(assets, file)).then(() => null, () => file)))).filter(Boolean);
-  if (missing.length) throw new Error(`${missing.length} Factorio images are missing from assets/. Import them from your copy of the game with npm run assets; see README.md.`);
+  if (missing.length) throw new Error(`${missing.length} Factorio images are missing from assets/. Import them from your copy of the game with vp run assets; see README.md.`);
   await mkdir(dirname(out), { recursive: true });
   let staging = await mkdtemp(join(dirname(out), `.${name}-`));
   try {

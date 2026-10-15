@@ -11,16 +11,7 @@
   "type": "module",
   "packageManager": "bun@1.2.4",
   "engines": {
-    "node": ">=20.10"
-  },
-  "scripts": {
-    "test": "vp test",
-    "test:watch": "vp test watch",
-    "test:coverage": "vp test run --coverage",
-    "assets": "node scripts/build-catalog.mjs",
-    "objects": "node scripts/list-assets.mjs",
-    "build": "node scripts/build-examples.mjs",
-    "preview": "node scripts/serve.mjs --root dist --port 4173"
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "5.0.1",

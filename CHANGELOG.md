@@ -12,10 +12,11 @@ The first public release.
 - The browser kit: `trace.mjs` for deterministic playback and stepping, `sprites.mjs` for native sprite layers, `scene.mjs` for the tile scene with belts, corners, underground pieces, label plates and moving items, `transport.mjs` for articulated inserter handoffs, `process.mjs` for the phase list and parallel lanes, and `tables.mjs` for reference tables snapped to the tile grid.
 - The object library: 68 world objects and 28 item tokens with program roles, footprints, variants and notes on omitted effects, and a browser for it at `/catalog/`.
 - Examples: `array-pipeline`, filter, map and reduce in JavaScript's eager order, and `obs-pipeline`, OBS Studio streaming and recording at once.
-- `npm run assets` imports the art from your own copy of Factorio 2.0 with Space Age: the game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output. It finds default Steam and standalone installs, or takes `--data` and `--script-output`.
+- `vp run assets` imports the art from your own copy of Factorio 2.0 with Space Age: the game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output. It finds default Steam and standalone installs, or takes `--data` and `--script-output`.
 - `assets/manifest.json` records each file's game path, SHA-256 and size, sorted by game path.
 - Builds stop with a clear message when the art is not imported, and the tests skip only the art hash check.
-- Tests for the models, event conservation, stepping, sprite crops and asset paths on [Vite+](https://viteplus.dev), installed with Bun: `bun run test`, `bun run test:watch` and `bun run test:coverage`. Optional Playwright checks for the built pages.
+- Every command runs through [Vite+](https://viteplus.dev), installed with Bun: `vp install`, `vp run assets`, `vp run examples`, `vp preview`, `vp run objects` and `vp test`. Tasks live in `vite.config.mjs`, and Vite's preview server replaces the custom one.
+- Tests for the models, event conservation, stepping, sprite crops and asset paths, with coverage, and optional Playwright checks for the built pages.
 - A screenshot of the OBS example at the top of the README.
 - README, Apache 2.0 license, changelog, contributing guide and security policy.
 

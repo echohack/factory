@@ -145,7 +145,7 @@ export async function importAssets({ game, archive, data, scriptOutput, spec, ou
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const args = process.argv.slice(2), get = (key, fallback) => { const i = args.indexOf(key); return i < 0 ? fallback : args[i + 1]; };
-  if (args.includes('--help')) console.log('node scripts/import-assets.mjs --spec file.json --out directory [--data directory --script-output directory | --archive directory]');
+  if (args.includes('--help')) console.log('vp run import-assets --spec file.json --out directory [--data directory --script-output directory | --archive directory]');
   else try {
     const manifest = await importAssets({ ...gameOptions(args), spec: resolve(get('--spec', 'examples/array-pipeline/assets.json')), out: resolve(get('--out', '.local/assets')) });
     console.log(`Imported ${Object.keys(manifest.sprites).length} sprites from Factorio ${manifest.gameVersion}; ${Object.keys(manifest.files).length} image files.`);

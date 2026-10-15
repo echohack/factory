@@ -6,8 +6,8 @@ Thank you for helping. A Factory figure is judged by whether a reader understand
 
 You need:
 
-- **Node.js 24** for development, as pinned in `.nvmrc`. Using the skill needs only Node 20.10 or later.
-- **Bun 1.2.4.** It installs [Vite+](https://viteplus.dev), which runs the tests. The kit, the build scripts and the import use only Node's built-in modules.
+- **The [Vite+](https://viteplus.dev) CLI, `vp`.** Every command runs through it. `vp install` uses Bun 1.2.4, as pinned in `package.json`. Without the global CLI, run `bun install` once, then `bunx vp` in place of `vp`.
+- **Node.js 24**, as pinned in `.nvmrc`. Vite+ also runs on Node 22.18 or later. The kit, the build scripts and the import use only Node's built-in modules.
 - **Factorio 2.0 with Space Age**, for the art. The README's [Game assets](README.md#game-assets) section shows how to export and import it.
 - **Google Chrome and an existing Playwright installation** for the browser checks.
 - **Claude Code**, Codex or OpenCode, to try the skill itself.
@@ -15,8 +15,8 @@ You need:
 ```sh
 git clone https://github.com/echohack/factory.git
 cd factory
-bun install
-bun run assets
+vp install
+vp run assets
 ```
 
 To use your working copy as the skill while you change it, link it into your personal skills folder. Move any installed copy out of the way first.
@@ -38,11 +38,11 @@ ln -s "$PWD" ~/.config/opencode/skills/factory
 ## Building the examples
 
 ```sh
-bun run build
-bun run preview
+vp run examples
+vp preview
 ```
 
-`bun run build` writes `dist/array-pipeline/`, `dist/obs-pipeline/` and `dist/catalog/`, each with only the sprites it uses. `bun run preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
+`vp run examples` writes `dist/array-pipeline/`, `dist/obs-pipeline/` and `dist/catalog/`, each with only the sprites it uses. `vp preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
 
 ## The checks
 
@@ -51,16 +51,16 @@ Run the ones that match what you touched, and read every PNG they write: open it
 **Tests.** The models, event conservation, stepping, sprite crops and asset paths, on Vite+. Without imported art, the art hash test is skipped; run it with the art before you change the library. All tests must pass.
 
 ```sh
-bun run test
-bun run test:watch
-bun run test:coverage
+vp test
+vp test watch
+vp test run --coverage
 ```
 
-**Browser checks.** With the preview server running. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
+**Browser checks.** With `vp preview` running. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
 
 ```sh
-PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node scripts/verify-browser.mjs http://127.0.0.1:4173/array-pipeline/
-PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node scripts/verify-catalog.mjs http://127.0.0.1:4173/catalog/
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-browser
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-catalog
 ```
 
 **Review.** [`references/verification.md`](references/verification.md) has the full list: desktop and 390 px widths, a branch outcome, an operation in progress, the final result, reduced motion, and pause, step and reset.
@@ -74,7 +74,7 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 - **The model is the truth.** Keep each figure's model pure and runnable on its own. Readouts, counters and machine activity come from it. Animation may interpolate between events, but it never invents work or loses a value.
 - **Inserters do every handoff.** Show the pickup, a closed hand carrying the item, the release and an empty return. A belt never runs under a chest or through an assembler, and stock plus items in flight stays constant. See [`references/inserters.md`](references/inserters.md).
 - **The real scope.** A figure of a system draws every thread, queue and output a user of that system would name, and lists what it leaves out in its reference table, with a reason.
-- **Library changes go through the catalog.** Add or change objects in [`catalog/objects.mjs`](catalog/objects.mjs), run `bun run assets`, and commit the regenerated `assets/manifest.json` and `assets/catalog.json`. Map each layer from the data dump. Never guess a sheet layout or drop a part to make an import pass.
+- **Library changes go through the catalog.** Add or change objects in [`catalog/objects.mjs`](catalog/objects.mjs), run `vp run assets`, and commit the regenerated `assets/manifest.json` and `assets/catalog.json`. Map each layer from the data dump. Never guess a sheet layout or drop a part to make an import pass.
 - **Kit changes keep the examples working.** Rebuild both examples and the catalog, run the checks, and update [`references/kit.md`](references/kit.md) in the same pull request.
 - **Plain strings.** A figure's titles, labels and table cells are written plainly, with no taglines, narration or em dashes.
 
@@ -87,7 +87,7 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 1. For anything larger than a fix, open a draft pull request early, so we can agree on the approach before you polish it.
 2. Fork the repository and branch from `main`.
 3. Make one change per pull request.
-4. Run `bun run test` with the art imported, rebuild the examples, and confirm that `git status --short` shows only what you meant to change.
+4. Run `vp test` with the art imported, rebuild the examples with `vp run examples`, and confirm that `git status --short` shows only what you meant to change.
 5. For a visual change, attach screenshots at desktop and phone widths.
 6. Add a line under `Unreleased` in [`CHANGELOG.md`](CHANGELOG.md).
 

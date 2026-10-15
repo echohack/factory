@@ -23,8 +23,9 @@ available as aliases.
 
 ## Importing
 
-`npm run assets` regenerates the library from `catalog/objects.mjs` using the
-user's game files. `scripts/import-assets.mjs` also accepts a small JSON spec with a
+`vp run assets` regenerates the library from `catalog/objects.mjs` using the
+user's game files. `vp run import-assets --spec file.json --out folder` imports a
+small JSON spec instead, with a
 `sprites` object. Each sprite is one of:
 
 - `icon`: exported icon `category` and `name`.

@@ -82,30 +82,30 @@ places adjacent inserters and supplies pickup, carry, release, and return poses.
 [references/kit.md](references/kit.md) before extending their interfaces.
 
 Choose from the library before inventing an asset selector. Read
-[references/catalog.md](references/catalog.md), search `npm run objects -- cache`,
+[references/catalog.md](references/catalog.md), search `vp run objects cache`,
 and inspect `assets/catalog.json` for stable IDs, roles, footprints, variants, and
 rendering limits. It contains 68 world objects and 28 item tokens. Use different
 objects when their roles help explain the program, not just to decorate it.
 
-Load only the IDs a scene uses. To expand the library, `npm run assets` reads the
+Load only the IDs a scene uses. To expand the library, `vp run assets` reads the
 game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output.
 Read [references/assets.md](references/assets.md) for locations, coverage and
 limitations. The game data is the source of truth for dimensions, offsets,
 directions, and frame counts. Do not guess crops or substitute item icons for
 world entities without making that visual choice explicit.
 
-From the skill directory:
+Every command runs through Vite+. From the skill directory, after `vp install`:
 
 ```sh
-npm run build
-node scripts/serve.mjs --root dist --port 4173
+vp run examples
+vp preview
 ```
 
-Open the printed URL in the user’s external browser. These commands need no npm
-installation. The build writes a local static site with copied modules and art;
-generated output is ignored by Git. The object browser is at `/catalog/`, and
-the working example is at `/array-pipeline/`. `npm run assets` regenerates the
-library from the user's game files.
+Open `http://127.0.0.1:4173/array-pipeline/` in the user’s external browser.
+`vp run examples` writes a local static site with copied modules and art;
+generated output is ignored by Git. The object browser is at `/catalog/`.
+`vp run assets` regenerates the library from the user's game files, and
+`vp test` runs the tests.
 
 ## Make the mechanism legible
 
@@ -189,6 +189,6 @@ briefly state what it explains and any material limits.
 Factorio artwork belongs to Wube Software. Git ignores the imported PNGs in
 `assets/`; only `manifest.json`, `catalog.json` and `materials/` are tracked. Never
 commit game art or built output. New asset selections belong in
-`catalog/objects.mjs`; regenerate their hashes and manifest with `npm run assets`.
+`catalog/objects.mjs`; regenerate their hashes and manifest with `vp run assets`.
 A factory should copy only the sprites it uses. This skill does not publish
 anything, install unrelated software, or change game files.

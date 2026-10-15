@@ -6,7 +6,7 @@
   <a href="https://code.claude.com/docs/en/skills"><img src="https://img.shields.io/badge/Claude_Code-skill-1b1b19?style=flat-square&logo=claude&logoColor=white" alt="Claude Code skill"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-compatible-1b1b19?style=flat-square" alt="Agent Skills compatible"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-1b1b19?style=flat-square" alt="Apache 2.0 license"></a>
-  <a href="#requirements"><img src="https://img.shields.io/badge/node-%E2%89%A5%2020.10-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 20.10 or later"></a>
+  <a href="#requirements"><img src="https://img.shields.io/badge/node-24-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 24"></a>
   <a href="#requirements"><img src="https://img.shields.io/badge/dependencies-0-1b1b19?style=flat-square" alt="No dependencies"></a>
   <a href="#game-assets"><img src="https://img.shields.io/badge/Factorio-2.0_%2B_Space_Age-1b1b19?style=flat-square" alt="Needs Factorio 2.0 with Space Age"></a>
 </p>
@@ -36,19 +36,20 @@ The factory runs from a small, pure model of the program, so every count and rea
 
 ## Quick start
 
-You need Node.js 20.10 or later and your own copy of Factorio 2.0 with Space Age.
+You need the [Vite+](https://viteplus.dev/guide/) CLI, `vp`, Node.js 24, and your own copy of Factorio 2.0 with Space Age.
 
 ```sh
 git clone https://github.com/echohack/factory.git ~/.claude/skills/factory
 cd ~/.claude/skills/factory
+vp install
 ```
 
 Export the game's data and icons once, as described in [Game assets](#game-assets), then import the art and open the examples:
 
 ```sh
-npm run assets
-npm run build
-npm run preview
+vp run assets
+vp run examples
+vp preview
 ```
 
 Open `http://127.0.0.1:4173/array-pipeline/` in your browser. Then, in Claude Code:
@@ -57,7 +58,7 @@ Open `http://127.0.0.1:4173/array-pipeline/` in your browser. Then, in Claude Co
 /factory explain how an LRU cache with 4 slots evicts entries
 ```
 
-In Codex, type `$factory`. There is nothing to `npm install`: the kit and scripts use only Node's built-in modules.
+In Codex, type `$factory`. `vp install` installs Vite+ itself, with Bun; the kit and scripts use only Node's built-in modules.
 
 ## Game assets
 
@@ -74,9 +75,9 @@ Factory draws with Factorio's own sprites. That art belongs to Wube Software, so
      ```
 
      On Windows the binary is `bin\x64\factorio.exe` in the install folder; on Linux it is `bin/x64/factorio`.
-3. **Import.** From this repository, run `npm run assets`. It should print `Mapped 68 world objects and 28 item tokens; 330 source images.`
+3. **Import.** From this repository, run `vp run assets`. It should print `Mapped 68 world objects and 28 item tokens; 330 source images.`
 
-`npm run assets` looks for the game and its exports in these places:
+`vp run assets` looks for the game and its exports in these places:
 
 | | Game data | Exports |
 |---|---|---|
@@ -90,7 +91,7 @@ Factory draws with Factorio's own sprites. That art belongs to Wube Software, so
 If your copy is somewhere else, name the folders:
 
 ```sh
-npm run assets -- --data "/path/to/Factorio/data" --script-output "/path/to/script-output"
+vp run assets --data "/path/to/Factorio/data" --script-output "/path/to/script-output"
 ```
 
 `FACTORIO_DATA` and `FACTORIO_SCRIPT_OUTPUT` do the same. The import copies each file byte for byte and checks every sprite's layout against its image. It does not change your game files.
@@ -164,7 +165,7 @@ Three habits get the best figures:
 
 ## Examples
 
-Build them with `npm run build` and serve them with `npm run preview`, after the [import](#game-assets).
+Build them with `vp run examples` and serve them with `vp preview`, after the [import](#game-assets).
 
 | Example | What it shows | Page |
 |---|---|---|
@@ -172,15 +173,15 @@ Build them with `npm run build` and serve them with `npm run preview`, after the
 | [`obs-pipeline`](examples/obs-pipeline) | OBS Studio streaming and recording at once: sources, the graphics and audio threads, two encoders and two outputs, each on its own clock. Load healthy, rendering lag, encoding lag or network congestion and watch where frames are dropped. | `/obs-pipeline/` |
 | [`catalog`](examples/catalog) | The object library: 68 world objects and 28 item tokens, with search, category filters, directions, states and animation previews. | `/catalog/` |
 
-Search the library from the terminal with `npm run objects -- cache`.
+Search the library from the terminal with `vp run objects cache`.
 
 ## How it works
 
 - **[`SKILL.md`](SKILL.md)** is what Claude reads. It sets the workflow: read the program, write the architecture inventory, map program parts to factory parts, write a pure model, build the scene from the kit, and verify the result in a browser.
 - **[`kit/`](kit)** is the framework-free browser kit: deterministic trace playback (`trace.mjs`), native sprite drawing (`sprites.mjs`), the tile scene with belts, labels and moving items (`scene.mjs`), inserter placement and poses (`transport.mjs`), the phase list (`process.mjs`) and grid-snapped tables (`tables.mjs`).
 - **[`references/`](references)** are the long-form guides Claude opens when it needs them: program mapping, the kit API, the object library, game assets, inserters, design and verification.
-- **The library.** [`catalog/objects.mjs`](catalog/objects.mjs) selects each object from the game's prototype definitions. `npm run assets` turns that into `assets/manifest.json` and `assets/catalog.json`, and copies the art.
-- **Verification.** `bun run test` runs the [Vite+](https://viteplus.dev) test suite, which checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, [`scripts/verify-browser.mjs`](scripts/verify-browser.mjs) and [`scripts/verify-catalog.mjs`](scripts/verify-catalog.mjs) drive the built pages at desktop and phone sizes and save screenshots.
+- **The library.** [`catalog/objects.mjs`](catalog/objects.mjs) selects each object from the game's prototype definitions. `vp run assets` turns that into `assets/manifest.json` and `assets/catalog.json`, and copies the art.
+- **Verification.** `vp test` runs the test suite on [Vite+](https://viteplus.dev). It checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, `vp run verify-browser` and `vp run verify-catalog` drive the built pages at desktop and phone sizes and save screenshots.
 
 <details>
 <summary><b>Repository layout</b></summary>
@@ -198,9 +199,9 @@ factory/
 │   ├── catalog.json          objects, roles, footprints and variants
 │   └── materials/            the workbench textures
 ├── examples/                 array-pipeline, obs-pipeline and the catalog browser
-├── scripts/                  import, build, preview server and browser checks
+├── scripts/                  import, build and browser checks
 ├── tests/                    Vite+ test suites
-├── vite.config.mjs           test and coverage settings
+├── vite.config.mjs           Vite+ tasks, preview and test settings
 ├── agents/openai.yaml        the skill's display name in Codex
 └── .github/assets/           README images
 ```
@@ -212,10 +213,10 @@ factory/
 | | Needed for | Notes |
 |---|---|---|
 | **Factorio 2.0 with Space Age** | the art | Your own copy, from Steam or factorio.com. The library was mapped on 2.0.77. |
-| **Node.js 20.10+** | everything | Built-in modules only: nothing to `npm install`. |
-| **A browser** | viewing figures | Figures are multi-file static sites. `npm run preview` serves them on `127.0.0.1:4173`. |
+| **[Vite+](https://viteplus.dev/guide/)** | every command | Install the `vp` CLI once, then run `vp install` in the repository; it installs with Bun 1.2.4. Without the global CLI, `bun install` and `bunx vp` work the same. |
+| **Node.js 24** | everything | Pinned in `.nvmrc`; Vite+ also runs on 22.18 or later. The kit and scripts use only built-in modules. |
+| **A browser** | viewing figures | Figures are multi-file static sites. `vp preview` serves them on `127.0.0.1:4173`. |
 | **[Claude Code](https://code.claude.com/docs/en/overview)**, [Codex](https://developers.openai.com/codex/skills) or [OpenCode](https://opencode.ai/docs/skills/) | using the skill | Written for Claude Code; it follows the open Agent Skills format. |
-| **Bun 1.2.4 and Node.js 24** | the tests only | `bun install`, then `bun run test`. The tests run on [Vite+](https://viteplus.dev). |
 | **Playwright and Chrome** | the browser checks only | Not installed by this repository. Point `PLAYWRIGHT_MODULE` at an existing installation; see [`references/verification.md`](references/verification.md). |
 
 ## Limits

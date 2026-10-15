@@ -84,7 +84,7 @@ export async function loadSprites(baseURL, { ids, manifest: suppliedManifest, im
   let manifest = suppliedManifest;
   if (!manifest) {
     const response = await fetch(new URL('manifest.json', base));
-    if (!response.ok) throw new Error('Assets are missing. Run npm run assets, then npm run build.');
+    if (!response.ok) throw new Error('Assets are missing. Run vp run assets, then vp run examples.');
     manifest = await response.json();
   }
   const selected = ids ? ids.map(id => { if (!manifest.sprites[id]) throw new Error(`Unknown sprite: ${id}`); return manifest.sprites[id]; }) : Object.values(manifest.sprites);
