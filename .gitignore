@@ -1,5 +1,6 @@
 .local/
 dist/
+coverage/
 node_modules/
 .DS_Store
 *.log

@@ -3,15 +3,27 @@
   "version": "0.1.0",
   "description": "A Claude skill that explains programs as working Factorio factories",
   "license": "Apache-2.0",
-  "repository": { "type": "git", "url": "git+https://github.com/echohack/factory.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/echohack/factory.git"
+  },
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20.10" },
+  "packageManager": "bun@1.2.4",
+  "engines": {
+    "node": ">=20.10"
+  },
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
+    "test": "vp test",
+    "test:watch": "vp test watch",
+    "test:coverage": "vp test run --coverage",
     "assets": "node scripts/build-catalog.mjs",
     "objects": "node scripts/list-assets.mjs",
     "build": "node scripts/build-examples.mjs",
     "preview": "node scripts/serve.mjs --root dist --port 4173"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "5.0.1",
+    "vite-plus": "1.0.0"
   }
 }

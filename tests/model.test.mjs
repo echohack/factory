@@ -1,5 +1,4 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
+import { test, expect } from 'vite-plus/test';
 import { makeTrace, parseInput, DEFAULT_INPUT, SOURCE_LINES } from '../examples/array-pipeline/model.mjs';
 import { TracePlayer } from '../kit/trace.mjs';
 
@@ -7,12 +6,12 @@ test('trace agrees with the displayed JavaScript, including boundary inputs', ()
   const execute = new Function('input', SOURCE_LINES.join('\n') + '\nreturn result;');
   for (const input of [DEFAULT_INPUT, [], [1, 3, 5], [0], [-4, -3, 2, 2], Array(16).fill(998)]) {
     const trace = makeTrace(input), final = trace.events.at(-1).after;
-    assert.equal(trace.result, execute(input));
-    assert.equal(final.sum, execute(input));
-    assert.equal(final.tested, input.length);
-    assert.equal(final.reduced, input.filter(n => n % 2 === 0).length);
+    expect(trace.result).toBe(execute(input));
+    expect(final.sum).toBe(execute(input));
+    expect(final.tested).toBe(input.length);
+    expect(final.reduced).toBe(input.filter(n => n % 2 === 0).length);
   }
-  assert.equal(makeTrace(DEFAULT_INPUT).result, 60);
+  expect(makeTrace(DEFAULT_INPUT).result).toBe(60);
 });
 
 test('all filtering precedes mapping, then reduction, with conservation at each event', () => {
@@ -20,17 +19,17 @@ test('all filtering precedes mapping, then reduction, with conservation at each 
   let previous = initial, lastPhase = 0;
   const order = { filter: 0, map: 1, reduce: 2, done: 3 };
   for (const event of events) {
-    assert.deepEqual(event.before, previous);
-    assert.ok(order[event.phase] >= lastPhase);
+    expect(event.before).toStrictEqual(previous);
+    expect(order[event.phase] >= lastPhase).toBeTruthy();
     lastPhase = order[event.phase];
     const s = event.after;
-    assert.equal(s.tested, s.filtered.length + s.rejected.length);
-    assert.deepEqual(s.filtered, s.input.slice(0, s.tested).filter(n => n % 2 === 0));
-    assert.deepEqual(s.rejected, s.input.slice(0, s.tested).filter(n => n % 2 !== 0));
-    assert.deepEqual(s.mapped, s.filtered.slice(0, s.mapped.length).map(n => n * 3));
-    assert.equal(s.sum, s.mapped.slice(0, s.reduced).reduce((a, b) => a + b, 0));
-    if (event.phase !== 'filter') assert.equal(s.tested, s.input.length);
-    if (['reduce', 'done'].includes(event.phase)) assert.equal(s.mapped.length, s.filtered.length);
+    expect(s.tested).toBe(s.filtered.length + s.rejected.length);
+    expect(s.filtered).toStrictEqual(s.input.slice(0, s.tested).filter(n => n % 2 === 0));
+    expect(s.rejected).toStrictEqual(s.input.slice(0, s.tested).filter(n => n % 2 !== 0));
+    expect(s.mapped).toStrictEqual(s.filtered.slice(0, s.mapped.length).map(n => n * 3));
+    expect(s.sum).toBe(s.mapped.slice(0, s.reduced).reduce((a, b) => a + b, 0));
+    if (event.phase !== 'filter') expect(s.tested).toBe(s.input.length);
+    if (['reduce', 'done'].includes(event.phase)) expect(s.mapped.length).toBe(s.filtered.length);
     previous = s;
   }
 });
@@ -41,35 +40,35 @@ test('timed playback and event stepping produce identical states', () => {
   running.play();
   for (const event of trace.events) {
     const stepped = stepper.step(), timed = running.update(event.duration);
-    assert.equal(stepped.index, timed.index);
-    assert.deepEqual(stepped.state, timed.state);
+    expect(stepped.index).toBe(timed.index);
+    expect(stepped.state).toStrictEqual(timed.state);
   }
-  assert.equal(running.snapshot().done, true);
-  assert.equal(running.snapshot().playing, false);
-  assert.equal(running.snapshot().state.sum, 60);
+  expect(running.snapshot().done).toBe(true);
+  expect(running.snapshot().playing).toBe(false);
+  expect(running.snapshot().state.sum).toBe(60);
 });
 
 test('pause freezes partial progress, step commits once, reset restores initial state', () => {
   const trace = makeTrace([2]), player = new TracePlayer(trace.events, trace.initial);
   player.play(); player.update(trace.events[0].duration * .4); player.pause();
   const paused = player.snapshot();
-  assert.equal(paused.progress, .4);
-  assert.deepEqual(player.update(5000), paused);
-  assert.equal(player.step().index, 1);
-  assert.equal(player.snapshot().progress, 0);
+  expect(paused.progress).toBe(.4);
+  expect(player.update(5000)).toStrictEqual(paused);
+  expect(player.step().index).toBe(1);
+  expect(player.snapshot().progress).toBe(0);
   player.seek(trace.events.length);
-  assert.equal(player.snapshot().state.sum, 6);
-  assert.deepEqual(player.reset().state, trace.initial);
+  expect(player.snapshot().state.sum).toBe(6);
+  expect(player.reset().state).toStrictEqual(trace.initial);
   const copy = player.snapshot(); copy.state.input[0] = 999;
-  assert.equal(player.snapshot().state.input[0], 2);
-  assert.throws(() => player.seek(-1), RangeError);
-  assert.throws(() => player.update(-1), RangeError);
-  assert.throws(() => new TracePlayer([{ duration: 0 }], {}));
+  expect(player.snapshot().state.input[0]).toBe(2);
+  expect(() => player.seek(-1)).toThrow(RangeError);
+  expect(() => player.update(-1)).toThrow(RangeError);
+  expect(() => new TracePlayer([{ duration: 0 }], {})).toThrow();
 });
 
 test('input parser accepts empty and signed integers, rejects ambiguous or unsafe inputs', () => {
-  assert.deepEqual(parseInput(''), []);
-  assert.deepEqual(parseInput(' -12, 0, 18 '), [-12, 0, 18]);
-  for (const text of ['2,,4', '1.5', 'NaN', '1000', '1e2', Array(17).fill(1).join(',')]) assert.throws(() => parseInput(text));
-  assert.throws(() => makeTrace([Infinity]));
+  expect(parseInput('')).toStrictEqual([]);
+  expect(parseInput(' -12, 0, 18 ')).toStrictEqual([-12, 0, 18]);
+  for (const text of ['2,,4', '1.5', 'NaN', '1000', '1e2', Array(17).fill(1).join(',')]) expect(() => parseInput(text)).toThrow();
+  expect(() => makeTrace([Infinity])).toThrow();
 });

@@ -1,6 +1,6 @@
 # Verification
 
-Run `npm test` and build the example with actual imported art. Test the model
+Run `bun run test` (after `bun install`) and build the example with actual imported art. Test the model
 against the language’s real result, including empty and all-rejected inputs.
 Stepping and continuous playback must reach the same final state. Check that
 every intermediate array and cumulative total agrees with the model.
@@ -42,7 +42,7 @@ and materials are tracked. Before committing, inspect `git status` and keep game
 art, generated `dist/` and `.local/` output out of source control. Importer errors should identify an unsupported field
 or missing asset, not quietly produce a placeholder that looks like success.
 
-For catalog changes, `npm test` checks every mapped layer’s crop bounds and file
+For catalog changes, `bun run test` checks every mapped layer’s crop bounds and file
 hash. Use `scripts/verify-catalog.mjs` with the same browser environment variables
 and the `/catalog/` URL to check search, variants, pause, mobile and reduced motion.
 Inspect the resulting contact sheets as well as any new animated frame sequences.
