@@ -16,7 +16,7 @@ The first public release.
 - `assets/manifest.json` records each file's game path, SHA-256 and size, sorted by game path.
 - Builds stop with a clear message when the art is not imported, and the tests skip only the art hash check.
 - Tests for the models, event conservation, stepping, sprite crops and asset paths on [Vite+](https://viteplus.dev), installed with Bun: `bun run test`, `bun run test:watch` and `bun run test:coverage`. Optional Playwright checks for the built pages.
-- A video of the OBS example at the top of the README.
+- A screenshot of the OBS example at the top of the README.
 - README, Apache 2.0 license, changelog, contributing guide and security policy.
 
 ### Removed
