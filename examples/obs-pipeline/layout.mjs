@@ -70,7 +70,7 @@ const MOBILE = {
 const T = ([x, y]) => [y, x];
 const add = (a, b, k = 1) => [a[0] + b[0] * k, a[1] + b[1] * k];
 const dirIndex = ([dx, dy]) => dx > 0 ? 0 : dx < 0 ? 1 : dy < 0 ? 2 : 3;
-const CORNERS = { '0>2': 4, '2>0': 5, '1>2': 6, '2>1': 7, '3>0': 8, '0>3': 9, '3>1': 10, '1>3': 11 };
+const CORNERS = { '1>2': 4, '3>0': 5, '0>2': 6, '3>1': 7, '2>0': 8, '1>3': 9, '2>1': 10, '0>3': 11 };
 
 function buildRoute([key, outPort, outDir, inPort, inDir, via, under, direct], flip) {
   const P = flip ? T : p => p;
