@@ -1,5 +1,3 @@
-// Explicit prototype paths from the archived Factorio 2.0.77 data dump.
-// Keep selection, program role, and omitted effects together when extending this list.
 export const objects = [];
 const part = (path, extra = {}) => ({ path: path.split('.').map(k => /^\d+$/.test(k) ? Number(k) : k), ...extra });
 const dirs = ['north', 'east', 'south', 'west'];

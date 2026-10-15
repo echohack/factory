@@ -1,12 +1,7 @@
-// A modeled trace of OBS streaming and recording at once. Each OBS thread runs on
-// its own clock; rules follow libobs, obs-outputs and obs-ffmpeg. Times are model
-// milliseconds at real OBS rates (30 fps video, 48 kHz AAC). Inputs are scenario
-// costs, not measurements. Every state change is an instant; the view interpolates
-// the inserter handoffs between instants.
 export const FPS = 30, INTERVAL = 1000 / FPS, FRAMES = 45, CACHE_SIZE = 6, KEYINT = 15;
 export const CAMERA_FPS = 60, AUDIO_INTERVAL = 1024 / 48, AUDIO_DELAY = 2 * (1024 / 48);
 export const DROP_P_MS = 400, KEY_SIZE = 6, P_SIZE = 1, AUDIO_SIZE = .2;
-export const HANDOFF = { out: 2, belt: 3, in: 2, back: 1 }; // model ms; a visible stand-in for a queue push
+export const HANDOFF = { out: 2, belt: 3, in: 2, back: 1 };
 export const RELEASE = HANDOFF.out + HANDOFF.belt + HANDOFF.in, CYCLE = RELEASE + HANDOFF.back;
 export const MIX_MS = 3, AAC_MS = 3, MUX_MS = 1;
 export const SCENARIOS = {
@@ -21,7 +16,6 @@ export const uploadRatio = upload => upload / BITRATE;
 export function validate(s) {
   for (const key of Object.keys(OPTIONS)) if (!OPTIONS[key].includes(s?.[key])) throw new Error(`Unsupported ${key} setting`);
 }
-// Routes are the inserter-and-belt links drawn in layout.mjs.
 export const ROUTES = [
   ['camera', 'asyncq'], ['asyncq', 'gfx'], ['asyncq', 'unused'], ['game', 'gfx'], ['gfx', 'cache'], ['gfx', 'skipped'],
   ['cache', 'venc'], ['venc', 'stream'], ['venc', 'record'],
@@ -44,16 +38,12 @@ export function makeTrace(settings) {
     cacheReserved: 0, encoding: null, vt: 0, minPriority: 0, lastVideoDts: null, lagged: null
   };
   const initial = structuredClone(s), events = [];
-  // Arrival order at each sink, for checks; not part of the displayed state.
   const trail = { mux: [], sendbuf: [], dropped: [], sent: [] };
-  // ---- discrete-event scheduler --------------------------------------------
   const queue = []; let seq = 0;
   const at = (time, fn) => { queue.push({ time, seq: seq++, fn }); };
   let notes = [];
   const note = text => notes.push(text);
   const routes = Object.fromEntries(ROUTES.map(key => [key, { free: 0, waiting: [] }]));
-  // Move one item (or a batch) across a route. take() removes it from the source
-  // at pickup; give() credits the destination at release.
   const send = (key, item, take, give) => {
     if (!routes[key]) throw new Error(`Unknown route ${key}`);
     routes[key].waiting.push({ item, take, give }); pump(key);
@@ -69,8 +59,6 @@ export function makeTrace(settings) {
     at(s.t + CYCLE, () => { s.transits.splice(s.transits.indexOf(transit), 1); pump(key); });
   };
 
-  // ---- async video source: camera capture thread (60 fps) -------------------
-  // Sources capture until the graphics thread has covered the stream's video time.
   const live = () => s.videoEnd == null || s.t < s.videoEnd;
   const camera = c => at(c * 1000 / CAMERA_FPS, () => {
     if (!live()) return;
@@ -81,7 +69,6 @@ export function makeTrace(settings) {
   });
   camera(0);
   const chunks = { mic: 0, desk: 0 };
-  // ---- async audio sources: capture threads push 1024-sample chunks ----------
   for (const [src, buf, icon] of [['mic', 'micbuf', 'item-iron-ore'], ['desk', 'deskbuf', 'item-copper-ore']])
     (function capture(n) { at(n * AUDIO_INTERVAL, () => {
       if (!live()) return;
@@ -91,11 +78,9 @@ export function makeTrace(settings) {
       send(`${src}:${buf}`, chunk, () => s.held[src].splice(s.held[src].indexOf(chunk), 1), () => s.stock[buf].push(chunk));
     }); })(0);
 
-  // ---- graphics thread (obs-video.c) ------------------------------------------
   let frameNo = 0;
   const gfxTick = () => {
     const k = ++frameNo, tickStart = s.t;
-    // tick_sources(): the async source keeps the newest frame that is due and releases older ones.
     const due = s.stock.asyncq.filter(f => f.ts <= s.t);
     const pick = due.at(-1);
     for (const f of due.slice(0, -1)) send('asyncq:unused', f, () => s.stock.asyncq.splice(s.stock.asyncq.indexOf(f), 1),
@@ -105,15 +90,12 @@ export function makeTrace(settings) {
     const arrived = () => { if (++inputs === need) busy('gfx', s.t, tickStart + R, `F${k}`); };
     if (pick) send('asyncq:gfx', pick, () => s.stock.asyncq.splice(s.stock.asyncq.indexOf(pick), 1), () => { s.held.gfx.push(pick); arrived(); });
     const tex = { label: `G${k}`, icon: 'item-iron-gear-wheel', kind: 'game' };
-    // Game capture is a sync source: it draws on the graphics thread when asked.
     s.held.game.push(tex); busy('game', s.t, s.t + RELEASE);
     send('game:gfx', tex, () => s.held.game.splice(s.held.game.indexOf(tex), 1), () => { s.held.gfx.push(tex); arrived(); });
     at(tickStart + R, () => finishRender(k, tickStart));
   };
   const finishRender = (k) => {
-    // Inputs are consumed into the composited, scaled, NV12-converted frame.
     s.held.gfx = []; s.busy.gfx = null; s.count.rendered++;
-    // video_sleep(): sleep to the next tick, or count every interval that passed.
     const late = s.t >= s.vt + INTERVAL;
     const count = late ? Math.floor(Math.max(s.t - s.vt, INTERVAL) / INTERVAL) : 1;
     const nextVt = s.vt + INTERVAL * count;
@@ -123,7 +105,6 @@ export function makeTrace(settings) {
     s.held.gfx.push(frame);
     const used = s.stock.cache.length + s.cacheReserved + (s.encoding ? 1 : 0);
     if (used >= CACHE_SIZE) {
-      // video_output_lock_frame(): a full cache cannot take the frame.
       const last = s.stock.cache.at(-1) ?? s.encoding;
       last.count += count; last.skipped += count; last.reps.push(...Array(count).fill('skip')); last.label = `${last.id}×${last.count}`;
       note(`Frame cache full (${CACHE_SIZE}/${CACHE_SIZE}). F${k} is skipped; ${last.id} will be encoded ${count} more time${count > 1 ? 's' : ''}.`);
@@ -137,7 +118,6 @@ export function makeTrace(settings) {
   };
   at(0, gfxTick);
 
-  // ---- video-io thread + x264 (video-io.c, obs-encoder.c) ----------------------
   let pts = 0, vencBusy = false;
   const encodeVideo = () => {
     if (vencBusy) return;
@@ -153,7 +133,6 @@ export function makeTrace(settings) {
     at(s.t + work, () => {
       const p = pts++, key = p % KEYINT === 0, reason = f.reps[f.done];
       f.done++;
-      // video_output_cur_frame(): a repeat taken from skipped counts as a skipped frame.
       if (f.done < f.count && f.skipped > 0) { f.skipped--; s.count.skippedStat++; }
       s.busy.venc = null; vencBusy = false;
       if (f.done === f.count) { s.held.venc.splice(s.held.venc.indexOf(f), 1); s.encoding = null; }
@@ -166,7 +145,6 @@ export function makeTrace(settings) {
     });
   };
 
-  // ---- audio thread (obs-audio.c) + AAC on the audio-io thread ------------------
   (function mixTick(n) { at(n * AUDIO_INTERVAL + AUDIO_DELAY, () => {
     if (n >= Math.min(chunks.mic, chunks.desk)) { if (live()) mixTick(n); return; }
     mixTick(n + 1);
@@ -193,7 +171,6 @@ export function makeTrace(settings) {
       send(`${buf}:mixer`, chunk, () => s.stock[buf].splice(s.stock[buf].indexOf(chunk), 1), () => { s.held.mixer.push(chunk); both(); });
   }); })(0);
 
-  // ---- outputs: interleave_packets() (obs-output.c) -----------------------------
   const flushing = { stream: false, record: false };
   const interleave = (out, pkt) => {
     const buf = s.stock[out];
@@ -201,8 +178,6 @@ export function makeTrace(settings) {
     if (i < 0) i = buf.length; buf.splice(i, 0, pkt);
     release(out);
   };
-  // A packet leaves only when the buffer holds a later packet of the other type.
-  // Released packets wait in the buffer for the output inserter, in order.
   const release = out => {
     const buf = s.stock[out];
     for (;;) {
@@ -214,7 +189,6 @@ export function makeTrace(settings) {
     }
   };
 
-  // ---- recording: ffmpeg-mux writes every packet; it never drops ------------------
   let muxBusy = false; const muxQueue = [];
   const muxWrite = pkt => { trail.mux.push(pkt); s.held.mux.push(pkt); muxQueue.push(pkt); muxNext(); };
   const muxNext = () => {
@@ -227,12 +201,10 @@ export function makeTrace(settings) {
     });
   };
 
-  // ---- streaming: rtmp_stream_data() + send_thread (rtmp-stream.c) ----------------
   const rtmpData = pkt => {
     trail.sendbuf.push(pkt);
     const q = s.stock.sendbuf;
     if (pkt.kind === 'video') {
-      // check_to_drop_frames(): too much buffered video drops queued P-frames.
       const first = q.find(p => p.kind === 'video' && !p.key);
       const span = first && s.lastVideoDts != null ? s.lastVideoDts - first.dts : 0;
       if (q.length >= 5 && span > DROP_P_MS) {
@@ -245,7 +217,6 @@ export function makeTrace(settings) {
         });
         s.minPriority = 3;
       }
-      // add_video_packet(): while dropping, discard until a keyframe arrives.
       if (!pkt.key && s.minPriority === 3) {
         s.held.sendbufOut = (s.held.sendbufOut ?? 0) + 1;
         send('sendbuf:dropped', pkt, () => {}, () => { trail.dropped.push(pkt); s.held.sendbufOut--; s.count.dropped++; s.last.dropped = pkt.label; });
@@ -266,7 +237,6 @@ export function makeTrace(settings) {
     });
   };
 
-  // Stop: once every frame is encoded, the outputs flush what they still hold.
   const busy = (machine, from, to, label) => { s.busy[machine] = { from, to, label }; };
   at(END, function stop() {
     const upstream = /^(camera|asyncq|game|gfx|cache|venc|mic|desk|micbuf|deskbuf|mixer|aenc):/;
@@ -277,7 +247,6 @@ export function makeTrace(settings) {
     flushing.stream = flushing.record = true; release('stream'); release('record');
   });
 
-  // ---- run ---------------------------------------------------------------------
   let prevT = 0;
   while (queue.length) {
     queue.sort((a, b) => a.time - b.time || a.seq - b.seq);

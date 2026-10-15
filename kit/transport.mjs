@@ -1,4 +1,3 @@
-// Tile geometry and transfer choreography are independent of Canvas and playback.
 export const pointOnPath = (points, progress) => {
   if (!points?.length) return null;
   const lengths = points.slice(1).map((p, i) => Math.hypot(p[0] - points[i][0], p[1] - points[i][1]));
@@ -17,7 +16,6 @@ const center = object => [object.x, object.y];
 
 export function connectLayout(layout) {
   const byID = Object.fromEntries(layout.objects.map(object => [object.id, object]));
-  // A shift moves the source port along its face, so one machine side can feed several belts.
   const routes = Object.fromEntries(layout.connections.map(([a, b, { shift = 0 } = {}]) => {
     const source = byID[a], target = byID[b];
     if (Math.abs(shift) > ((source.size ?? 1) - 1) / 2) throw new Error('A shifted port must stay on the source building');

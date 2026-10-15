@@ -46,7 +46,6 @@ export class SpriteAtlas {
     if (rig?.kind !== 'inserter') throw new Error(`Unknown inserter rig: ${id}`);
     const [x, y] = arm.pivot.map(v => v * tileSize);
     if (pass === 'platform') {
-      // Sprite4Way is N/E/S/W; an inserter's orientation faces its pickup tile.
       const direction = arm.flow[0] > 0 ? 3 : arm.flow[0] < 0 ? 1 : arm.flow[1] > 0 ? 0 : 2;
       for (const layer of rig.parts.platform) {
         const r = frameRect(layer, 0, direction), scale = layer.scale * tileSize / 32;
@@ -75,7 +74,6 @@ export class SpriteAtlas {
       }
     };
     ctx.save(); if (shadow) ctx.globalAlpha *= .45;
-    // Pixel joints measured on the archived 2.0.77 standard inserter sprites.
     segment(shadow ? 'baseShadow' : 'base', root, elbow, 128, 16);
     segment(shadow ? arm.closed ? 'closedShadow' : 'openShadow' : arm.closed ? 'closed' : 'open', elbow, hand, 152, 28);
     ctx.restore();

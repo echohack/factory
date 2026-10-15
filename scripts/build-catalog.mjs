@@ -12,7 +12,6 @@ const definitions = JSON.parse(await readFile(join(archive, 'metadata/data-raw-d
 const sprites = Object.fromEntries(objects.map(o => [o.id, o.selector]));
 for (const o of objects) sprites[`icon-${o.id}`] = { kind: 'icon', category: 'entity', name: o.id };
 for (const name of tokens) sprites[`item-${name}`] = { kind: 'icon', category: 'item', name };
-// Preserve the original example's aliases while adding canonical reusable IDs.
 Object.assign(sprites, JSON.parse(await readFile(join(root, 'examples/array-pipeline/assets.json'))).sprites);
 const manifest = await importAssets({ archive, spec: { sprites }, out, definitions });
 const catalog = {

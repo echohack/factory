@@ -31,7 +31,6 @@ export function normalizeLayer(node, image) {
   if ([width, height, frames, directions, layer.columns].some(x => !Number.isInteger(x) || x <= 0) ||
       [layer.x, layer.y].some(x => !Number.isInteger(x) || x < 0) || !Number.isFinite(layer.scale) || layer.scale <= 0 ||
       layer.shift.length !== 2 || layer.shift.some(x => !Number.isFinite(x))) throw new Error('Invalid sprite dimensions or placement');
-  // Check the last column used as well as the final row.
   const total = sourceFrames * directions;
   const perFile = Array.isArray(image) ? node.lines_per_file * layer.columns : total;
   if (!Number.isInteger(perFile) || perFile <= 0 || images.length !== Math.ceil(total / perFile)) throw new Error('Invalid multi-file sprite layout');

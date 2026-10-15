@@ -1,5 +1,3 @@
-// Phase headings top-down beside the scene. set(key) highlights one and marks earlier ones done; set('done') completes all.
-// Parallel phases: set([keys]) highlights several, and { done } names finished ones explicitly.
 export function processOutline(root, steps, { onJump } = {}) {
   const make = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text != null) node.textContent = text; return node; };
   const list = make('ol', 'process-steps');

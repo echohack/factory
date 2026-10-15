@@ -50,12 +50,10 @@ try {
   assert.equal((await state(desktop)).index, paused.index + 2);
   await desktop.screenshot({ path: resolve(output, 'desktop.png'), fullPage: true });
 
-  // The process outline highlights the active step and jumps to a step on click.
   await desktop.locator('#process button', { hasText: 'Map' }).click();
   assert.equal((await state(desktop)).event.phase, 'map');
   assert.match(await desktop.locator('#process [aria-current="step"]').textContent(), /Map/);
   assert.equal(await desktop.locator('#process .process-step.done').count(), 1);
-  // Exercise each event through the same public controls as the reader.
   while (!(await state(desktop)).done) await desktop.locator('#step').click();
   assert.equal((await floor(desktop)).sum, 60);
   assert.deepEqual(await desktop.locator('#ops-body td:last-child').allTextContents(), ['[2, 4, 6, 8]', '[6, 12, 18, 24]', '60']);
@@ -97,7 +95,6 @@ try {
   await fit(mobile);
   for (let i = 0; i < 3; i++) await mobile.locator('#step').click();
   await mobile.screenshot({ path: resolve(output, 'mobile.png'), fullPage: true });
-  // Extra room below the page lets the whole scene scroll out of view; check that premise before testing suspension.
   await mobile.addStyleTag({ content: 'body { padding-bottom: 150vh; }' });
   await mobile.locator('#play').click();
   await mobile.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
@@ -112,7 +109,6 @@ try {
 
   const reduced = await open({ viewport: { width: 1280, height: 1000 }, reducedMotion: 'reduce' });
   assert.equal((await state(reduced)).playing, false);
-  // Reduced motion draws each event at its start pose, so a frame paused mid-event matches progress 0.
   await reduced.locator('#step').click();
   const still = await reduced.locator('#scene').screenshot(), index = (await state(reduced)).index;
   await reduced.locator('#speed').selectOption('0.5');

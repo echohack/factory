@@ -7,7 +7,7 @@
   --line: #263b54;
   --accent: #8fb5de;
   --gutter: 12px;
-  --inset: 24px; /* One left edge for header text, phase headings, controls and table text. */
+  --inset: 24px;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--paper);
   color: var(--ink);
@@ -22,7 +22,6 @@ button:hover { background: #203a57; }
 button:disabled { opacity: .45; cursor: default; }
 button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 footer, .speed, .bench-meta, thead th { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: 1.1px; }
-/* Campfire's 4px checker gutter separates the frame from its surface. */
 .workbench-frame { padding: var(--gutter); border: 1px solid #263c56; border-radius: 9px; background-color: #0c192a; background-image: conic-gradient(#192e47 25%, transparent 25% 50%, #192e47 50% 75%, transparent 75%); background-size: 4px 4px; }
 .workbench { border: 1px solid #304a66; border-radius: 5px; overflow: hidden; background: var(--surface); }
 .bench-header { display: flex; align-items: baseline; gap: 14px; padding: 15px var(--inset); border-bottom: 1px solid var(--line); }
@@ -40,13 +39,11 @@ button.process-head:hover { background: none; color: var(--ink); }
 .process-number { font: 600 10px ui-monospace, SFMono-Regular, monospace; color: #6f89a8; min-width: 12px; }
 .process-step.done .process-head, .process-step.done .process-number { color: #8fa8c4; }
 .process-step.active .process-head, .process-step.active .process-number { color: #f0b978; }
-/* Campfire's ash textures over a deep blueprint-blue drafting surface. */
 .factory-floor, .blueprint { position: relative; isolation: isolate; background-color: #0c1e35; }
 .factory-floor::before, .factory-floor::after, .blueprint::before, .blueprint::after { content: ''; position: absolute; z-index: 0; inset: 0; pointer-events: none; background-repeat: repeat; background-size: 256px 256px; filter: grayscale(1); }
 .factory-floor::before, .blueprint::before { background-image: url('./materials/ash-fuzz.webp'); mix-blend-mode: screen; opacity: .10; }
 .factory-floor::after, .blueprint::after { background-image: url('./materials/ash-grain.png'); mix-blend-mode: soft-light; opacity: .14; }
 canvas { position: relative; z-index: 1; display: block; width: 100%; }
-/* Reference tables sit on the scene's floor. Rows snap to whole 32px tiles (kit/tables.mjs), so the grid lines divide them. */
 .reference { margin-top: 24px; }
 .bench-meta { margin-left: auto; color: var(--muted); white-space: nowrap; }
 .blueprint .table-wrap { position: relative; z-index: 1; overflow-x: auto; padding: 0 0 1px;
@@ -117,5 +114,4 @@ footer a:hover { color: var(--ink); }
 .settings { display: flex; flex-wrap: wrap; gap: 14px 28px; }
 .settings label { display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: var(--muted); }
 .transport { flex-wrap: wrap; }
-/* Wide reference tables scroll inside their frame on phones instead of wrapping every cell. */
 @media (max-width: 900px) { .blueprint table { min-width: 760px; } }

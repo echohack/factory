@@ -58,7 +58,6 @@ async function render() {
     if(object.directions>1){card.direction=document.createElement('select');card.direction.setAttribute('aria-label',`${object.name} direction`);for(let i=0;i<object.directions;i++)card.direction.add(new Option(`${object.group==='Logistics'?'Shape':'View'} ${String(i+1).padStart(2,'0')}`,i));q('.options').append(card.direction);card.direction.onchange=()=>draw(card);}
     if(!object.variants.length && object.directions===1)q('.options').remove();
     $('cards').append(article);cards.push(card);
-    // Decode one object's files at a time; paging releases the previous image cache.
     try {card.atlas=await loadSprites('./assets/',{manifest,ids:[object.id],images});if(version!==revision)return;draw(card);}
     catch(error){q('.notes').textContent=error.message;console.error(error);}
   }

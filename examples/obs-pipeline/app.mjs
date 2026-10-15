@@ -32,7 +32,6 @@ function jump(key) {
   if (i >= 0) { player.seek(i + 1); lastTime = null; render(); }
 }
 
-// Arm poses and visible items for every handoff running at time t.
 function handoffs(l, state, t) {
   const arms = [], tokens = [];
   for (const route of Object.values(l.routes)) {

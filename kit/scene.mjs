@@ -11,7 +11,6 @@ export class FactoryScene {
     }
     const ctx = this.ctx, tile = cssWidth / layout.width;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, cssWidth, cssHeight);
-    // CSS supplies the blueprint-blue material; clear Canvas leaves its texture visible.
     ctx.lineWidth = .5; ctx.strokeStyle = '#294562';
     for (let x = 0; x <= layout.width; x++) { ctx.beginPath(); ctx.moveTo(x * tile, 0); ctx.lineTo(x * tile, cssHeight); ctx.stroke(); }
     for (let y = 0; y <= layout.height; y++) { ctx.beginPath(); ctx.moveTo(0, y * tile); ctx.lineTo(cssWidth, y * tile); ctx.stroke(); }
@@ -36,10 +35,8 @@ export class FactoryScene {
       const active = [].concat(view.active ?? []).includes(object.id);
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;
       ctx.textAlign = 'center'; ctx.font = '600 11px ui-monospace, SFMono-Regular, monospace';
-      // An empty label leaves only the readout, for stations a neighbor's label already names.
       if (object.label) {
       if (object.labelPlate) {
-        // The plate fits its text, so short labels can sit on a belt without hiding neighbors.
         const labelW = ctx.measureText(object.label.toUpperCase()).width + 24;
         ctx.font = '11px system-ui, sans-serif'; const w = Math.max(labelW, ctx.measureText(object.caption ?? '').width + 12);
         ctx.fillStyle = '#0c1e35'; ctx.fillRect(lx - w / 2, ly - 13, w, object.caption ? 36 : 19);

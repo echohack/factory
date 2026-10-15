@@ -1,5 +1,3 @@
-// Stations and routes in desktop tile coordinates. Phones get the transpose, so
-// every belt stays axis-aligned and every route keeps its shape.
 const E = [1, 0], S = [0, 1], N = [0, -1];
 const STATIONS = [
   ['camera', 'pumpjack', 3, 3.5, 5.5, 'Camera', 'async source, 60 fps'],
@@ -25,7 +23,6 @@ const STATIONS = [
   ['mux', 'assembling-machine-2', 3, 51.5, 16.5, 'ffmpeg-mux', 'separate process'],
   ['file', 'steel-chest', 1, 59.5, 16.5, 'recording.mkv', '']
 ];
-// [key, out port, out direction, in port, in direction, corner points, underground span]
 const ROUTE_SPECS = [
   ['camera:asyncq', [4.5, 5.5], E, [11.5, 5.5], E],
   ['asyncq:gfx', [11.5, 5.5], E, [18.5, 5.5], E],
@@ -49,8 +46,6 @@ const ROUTE_SPECS = [
   ['record:mux', [44.5, 16.5], E, [50.5, 16.5], E],
   ['mux:file', [52.5, 16.5], E, [59.5, 16.5], E]
 ];
-// Desktop label and readout positions in absolute tiles. Top-row labels share one
-// line above the item lane; bottom-row labels share one line below the machines.
 const DESKTOP_LABELS = {
   camera: [3.5, 1.6], asyncq: [11.5, 1.6], gfx: [19.5, 1.6], cache: [27.5, 1.6], venc: [35.5, 1.6], stream: [43.5, 1.6], sendbuf: [51.5, 1.6], uplink: [59.5, 1.6],
   unused: [8.2, 10.4], preview: [25.3, 9.4], game: [24.9, 11.6], skipped: [15.2, 11.4], dropped: [54.6, 11.4],
@@ -62,8 +57,6 @@ const DESKTOP_READOUTS = {
   stream: [40.4, 8.4], sendbuf: [48.2, 8.3], dropped: [49.4, 11.5], uplink: [59.5, 7.9], micbuf: [11.5, 15.9], deskbuf: [11.5, 17.1],
   mixer: [19.5, 20.0], aenc: [27.5, 18.9], record: [43.5, 18.9], mux: [51.5, 18.9], file: [59.5, 18.1]
 };
-// Phones use the transpose. Short names sit on plates over each station's incoming
-// belt, and readouts sit on the outgoing belt, so nothing spills past the columns.
 const MOBILE = {
   camera: ['Camera', [5.5, 1.1], null], asyncq: ['Async frames', [5.5, 8.4], [5.5, 13.3]], unused: ['Released', [10.5, 13.6], [12.6, 11.5]],
   gfx: ['Graphics', [5.5, 15.4], [5.5, 22.2]], game: ['Game', [12.2, 20.6], null], preview: ['Preview', [12.6, 22.7], null],
@@ -77,7 +70,6 @@ const MOBILE = {
 const T = ([x, y]) => [y, x];
 const add = (a, b, k = 1) => [a[0] + b[0] * k, a[1] + b[1] * k];
 const dirIndex = ([dx, dy]) => dx > 0 ? 0 : dx < 0 ? 1 : dy < 0 ? 2 : 3;
-// Native belt sheet order after the four straights: E→N, N→E, W→N, N→W, S→E, E→S, S→W, W→S.
 const CORNERS = { '0>2': 4, '2>0': 5, '1>2': 6, '2>1': 7, '3>0': 8, '0>3': 9, '3>1': 10, '1>3': 11 };
 
 function buildRoute([key, outPort, outDir, inPort, inDir, via, under, direct], flip) {
@@ -107,7 +99,6 @@ function buildRoute([key, outPort, outDir, inPort, inDir, via, under, direct], f
       tiles.push({ x: p[0], y: p[1], direction, sprite: 'transport-belt' });
     }
   }
-  // An underground pair replaces the belt tiles it spans.
   if (hidden.length) {
     const [a, b] = hidden, d = dirIndex([Math.sign(b[0] - a[0]), Math.sign(b[1] - a[1])]);
     const name = ['east', 'west', 'north', 'south'][d];
