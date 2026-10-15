@@ -1,10 +1,10 @@
 import { makeTrace, SCENARIOS, CACHE_SIZE, HANDOFF, RELEASE, CYCLE, INTERVAL, DROP_P_MS, KEYINT, uploadRatio } from './model.mjs';
-import { TracePlayer } from './kit/trace.mjs';
-import { loadSprites } from './kit/sprites.mjs';
-import { FactoryScene } from './kit/scene.mjs';
-import { swing, pointOnPath } from './kit/transport.mjs';
-import { processOutline } from './kit/process.mjs';
-import { keepRowsOnGrid } from './kit/tables.mjs';
+import { TracePlayer } from '../../kit/trace.mjs';
+import { loadSprites } from '../../kit/sprites.mjs';
+import { FactoryScene } from '../../kit/scene.mjs';
+import { swing, pointOnPath } from '../../kit/transport.mjs';
+import { processOutline } from '../../kit/process.mjs';
+import { keepRowsOnGrid } from '../../kit/tables.mjs';
 import { factoryLayout } from './layout.mjs';
 const $ = id => document.getElementById(id);
 let settings = { ...SCENARIOS.healthy }, trace = makeTrace(settings), player = new TracePlayer(trace.events, trace.initial);

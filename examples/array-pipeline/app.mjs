@@ -1,11 +1,11 @@
 import { makeTrace, parseInput, DEFAULT_INPUT } from './model.mjs';
-import { TracePlayer } from './kit/trace.mjs';
-import { loadSprites } from './kit/sprites.mjs';
-import { FactoryScene } from './kit/scene.mjs';
+import { TracePlayer } from '../../kit/trace.mjs';
+import { loadSprites } from '../../kit/sprites.mjs';
+import { FactoryScene } from '../../kit/scene.mjs';
 import { factoryLayout } from './layout.mjs';
-import { transferView, connectLayout } from './kit/transport.mjs';
-import { processOutline } from './kit/process.mjs';
-import { keepRowsOnGrid } from './kit/tables.mjs';
+import { transferView, connectLayout } from '../../kit/transport.mjs';
+import { processOutline } from '../../kit/process.mjs';
+import { keepRowsOnGrid } from '../../kit/tables.mjs';
 const $ = id => document.getElementById(id);
 let input = [...DEFAULT_INPUT], trace = makeTrace(input), player = new TracePlayer(trace.events, trace.initial);
 let scene, visible = true, lastTime = null, lastIndex = -1, frameClock = 0;

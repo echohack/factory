@@ -1,4 +1,4 @@
-import { loadSprites, spriteLayers } from './kit/sprites.mjs';
+import { loadSprites, spriteLayers } from '../../kit/sprites.mjs';
 const $ = id => document.getElementById(id), pageSize = 12;
 const [catalog, manifest] = await Promise.all(['catalog.json', 'manifest.json'].map(async path => {
   const response = await fetch(`./assets/${path}`); if (!response.ok) throw new Error(`Missing ${path}`); return response.json();

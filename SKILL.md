@@ -75,6 +75,9 @@ array evaluation: all filtering happens before mapping, then reduction. Do not
 silently draw it as a fused streaming pipeline.
 
 Use the example as a starting point, not a required subject or fixed layout.
+A figure is a folder under `examples/` with an `index.html`, modules that import
+the kit from `../../kit/`, and an `assets.json` that lists the sprite IDs it draws
+as `{ "ids": [...] }`. Vite picks up every such folder as a page.
 `kit/trace.mjs` provides deterministic playback and stepping. `kit/sprites.mjs`
 draws supported native sprite layers; `kit/scene.mjs` provides tile coordinates,
 belts, objects, moving value tokens, and machine activity. `kit/transport.mjs`
@@ -97,15 +100,16 @@ world entities without making that visual choice explicit.
 Every command runs through Vite+. From the skill directory, after `vp install`:
 
 ```sh
-vp run examples
-vp preview
+vp run dev
 ```
 
-Open `http://127.0.0.1:4173/array-pipeline/` in the user’s external browser.
-`vp run examples` writes a local static site with copied modules and art;
-generated output is ignored by Git. The object browser is at `/catalog/`.
-`vp run assets` regenerates the library from the user's game files, and
-`vp test` runs the tests.
+It serves every figure with live reload at `https://factory.localhost`, through
+Portless, which needs Node.js 24. Open `https://factory.localhost/array-pipeline/`
+in the user’s external browser; the object browser is at `/catalog/`. Without
+Portless, `vp dev` serves the same pages on localhost. `vp build` writes a static
+site to `dist/` with only the sprites each page lists, and `vp preview` serves it
+on port 4173. `vp run assets` regenerates the library from the user's game files,
+and `vp test` runs the tests. Generated output is ignored by Git.
 
 ## Make the mechanism legible
 

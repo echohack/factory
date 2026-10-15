@@ -41,8 +41,8 @@ button.process-head:hover { background: none; color: var(--ink); }
 .process-step.active .process-head, .process-step.active .process-number { color: #f0b978; }
 .factory-floor, .blueprint { position: relative; isolation: isolate; background-color: #0c1e35; }
 .factory-floor::before, .factory-floor::after, .blueprint::before, .blueprint::after { content: ''; position: absolute; z-index: 0; inset: 0; pointer-events: none; background-repeat: repeat; background-size: 256px 256px; filter: grayscale(1); }
-.factory-floor::before, .blueprint::before { background-image: url('./materials/ash-fuzz.webp'); mix-blend-mode: screen; opacity: .10; }
-.factory-floor::after, .blueprint::after { background-image: url('./materials/ash-grain.png'); mix-blend-mode: soft-light; opacity: .14; }
+.factory-floor::before, .blueprint::before { background-image: url('../../assets/materials/ash-fuzz.webp'); mix-blend-mode: screen; opacity: .10; }
+.factory-floor::after, .blueprint::after { background-image: url('../../assets/materials/ash-grain.png'); mix-blend-mode: soft-light; opacity: .14; }
 canvas { position: relative; z-index: 1; display: block; width: 100%; }
 .reference { margin-top: 24px; }
 .bench-meta { margin-left: auto; color: var(--muted); white-space: nowrap; }

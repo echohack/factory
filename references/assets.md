@@ -64,6 +64,6 @@ explosion filename superseded by stripes. None of them is in the library.
 
 Factorio artwork belongs to Wube Software and stays out of Git: `.gitignore`
 ignores everything in `assets/` except `manifest.json`, `catalog.json` and
-`materials/`. `dist/`, `.local/` and generated screenshots are ignored too. Builds
-read `assets/` directly and copy only the required sprite files for an
-individual factory; the object browser includes the full library.
+`materials/`. `dist/`, `.local/` and generated screenshots are ignored too. `vp dev`
+serves and `vp build` copies only the sprite files a page lists in its
+`assets.json`; the object browser includes the full library.

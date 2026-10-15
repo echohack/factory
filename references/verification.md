@@ -25,7 +25,8 @@ Verify pause, step, reset, edited input, invalid input, keyboard control, speed,
 reduced motion, and hidden/offscreen suspension. Avoid announcing every animation
 frame to screen readers; announce completed semantic events.
 
-Optional automated browser check, with `vp preview` already running:
+Optional automated browser check, against `vp preview` after `vp build`. To check
+the dev server instead, pass its URL, such as `https://factory.localhost/array-pipeline/`:
 
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs \

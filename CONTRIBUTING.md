@@ -7,7 +7,7 @@ Thank you for helping. A Factory figure is judged by whether a reader understand
 You need:
 
 - **The [Vite+](https://viteplus.dev) CLI, `vp`.** Every command runs through it. `vp install` uses Bun 1.2.4, as pinned in `package.json`. Without the global CLI, run `bun install` once, then `bunx vp` in place of `vp`.
-- **Node.js 24**, as pinned in `.nvmrc`. Vite+ also runs on Node 22.18 or later. The kit, the build scripts and the import use only Node's built-in modules.
+- **Node.js 24**, as pinned in `.nvmrc`. Portless needs it; Vite+ also runs on Node 22.18 or later. The kit, the build scripts and the import use only Node's built-in modules.
 - **Factorio 2.0 with Space Age**, for the art. The README's [Game assets](README.md#game-assets) section shows how to export and import it.
 - **Google Chrome and an existing Playwright installation** for the browser checks.
 - **Claude Code**, Codex or OpenCode, to try the skill itself.
@@ -38,11 +38,17 @@ ln -s "$PWD" ~/.config/opencode/skills/factory
 ## Building the examples
 
 ```sh
-vp run examples
+vp run dev
+```
+
+`vp run dev` serves every example with live reload at `https://factory.localhost`, through [Portless](https://github.com/vercel-labs/portless). Its first run creates a local certificate authority and binds port 443, which asks for sudo. `vp dev` serves the same pages on localhost without Portless.
+
+```sh
+vp build
 vp preview
 ```
 
-`vp run examples` writes `dist/array-pipeline/`, `dist/obs-pipeline/` and `dist/catalog/`, each with only the sprites it uses. `vp preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
+`vp build` writes `dist/array-pipeline/`, `dist/obs-pipeline/` and `dist/catalog/`, each with only the sprites its `assets.json` lists. `vp preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
 
 ## The checks
 
@@ -56,7 +62,7 @@ vp test watch
 vp test run --coverage
 ```
 
-**Browser checks.** With `vp preview` running. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
+**Browser checks.** Against `vp preview` after `vp build`; pass a URL such as `https://factory.localhost/array-pipeline/` to check the dev server instead. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
 
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-browser
@@ -80,14 +86,14 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 
 ## Changing the skill's text
 
-`SKILL.md` and `references/` are instructions an agent follows, so keep them short, exact and in the same plain voice. When you add an example, give it a folder under `examples/` with a `build.mjs`, add it to [`scripts/build-examples.mjs`](scripts/build-examples.mjs) and to the list in [`scripts/build-site.mjs`](scripts/build-site.mjs), and add it to the table in the README.
+`SKILL.md` and `references/` are instructions an agent follows, so keep them short, exact and in the same plain voice. When you add an example, give it a folder under `examples/` with an `index.html` and an `assets.json` that lists its sprite IDs. Vite picks it up as a page. Add it to the table in the README.
 
 ## Pull requests
 
 1. For anything larger than a fix, open a draft pull request early, so we can agree on the approach before you polish it.
 2. Fork the repository and branch from `main`.
 3. Make one change per pull request.
-4. Run `vp test` with the art imported, rebuild the examples with `vp run examples`, and confirm that `git status --short` shows only what you meant to change.
+4. Run `vp test` with the art imported, run `vp build`, and confirm that `git status --short` shows only what you meant to change.
 5. For a visual change, attach screenshots at desktop and phone widths.
 6. Add a line under `Unreleased` in [`CHANGELOG.md`](CHANGELOG.md).
 

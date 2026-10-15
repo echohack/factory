@@ -6,7 +6,7 @@ native variants, frame counts and rendering limitations. The actual layers and
 files are in `assets/manifest.json`. These are world entities, not enlarged icons.
 
 Run `vp run objects cache` (or `worker`, `predicate`, `Power`, etc.) to find a
-part. Build with `vp run examples`, start `vp preview`, then open `/catalog/`
+part. Run `vp run dev`, then open `/catalog/` at `https://factory.localhost`
 to inspect the 68 world objects and 28 item tokens. The browser has search,
 category filters, direction/state selectors and optional animation previews.
 
@@ -33,8 +33,8 @@ atlas.drawIcon(ctx, 'item-electronic-circuit', tokenX, tokenY, 24);
 ```
 
 The example's seven original aliases (`filter`, `map`, `belt`, `item`, etc.)
-still work. Prefer canonical IDs for new scenes. An individual build should use
-`spriteFiles` to copy only its selected IDs, their variants and all animation pages.
+still work. Prefer canonical IDs for new scenes. A page lists its IDs in its
+`assets.json`, and `vp build` copies only those, with their variants and all animation pages.
 
 Footprints come from the north-facing prototype selection box. Swap width/height
 for rotated rectangular buildings; preserve the actual belt and inserter contact
