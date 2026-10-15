@@ -141,7 +141,9 @@ labels close to their stations. Label conventions where they appear in the diagr
 a wire's meaning beside the wire, a flag beside the station that sets it. Use one
 word for one action everywhere: if three consumers read a table, all three wires
 say READS. Reveal a failure, rejection, cache miss, or bottleneck through behavior
-as well as color. Let the reader pause, step, reset, and change a meaningful input.
+as well as color. Let the reader pause, step, and reset. If the reader can change an
+input, such as a scenario, put that control in the one row of controls, without
+helper text.
 Keep keyboard controls scoped to the figure and ignore typing in form fields.
 
 Below the scene, keep only one row of controls. Do not add narration or status

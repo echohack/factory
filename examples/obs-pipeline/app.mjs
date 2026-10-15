@@ -140,7 +140,6 @@ function toggle() { if (player.snapshot().done) { player.reset(); frameClock = 0
 function reset() { player.reset(); frameClock = 0; lastIndex = -1; lastTime = null; render(); }
 function load(next) {
   settings = next; trace = makeTrace(settings); player = new TracePlayer(trace.events, trace.initial);
-  for (const key of ['render', 'encode', 'upload']) $(`set-${key}`).value = String(settings[key]);
   $('scenario').value = currentName();
   reset();
 }
@@ -153,9 +152,6 @@ $('factory').addEventListener('keydown', e => {
   if (e.code === 'ArrowRight') { e.preventDefault(); player.step(); render(); }
 });
 $('scenario').addEventListener('change', () => { if (SCENARIOS[$('scenario').value]) load({ ...SCENARIOS[$('scenario').value] }); });
-for (const key of ['render', 'encode', 'upload']) $(`set-${key}`).addEventListener('change', () => load({ ...settings, [key]: Number($(`set-${key}`).value) }));
-$('upload-fast').textContent = `${uploadRatio(3).toFixed(1)}× bitrate`;
-$('upload-slow').textContent = `${uploadRatio(.6).toFixed(1)}× bitrate`;
 media.addEventListener('change', () => { if (media.matches) player.pause(); lastTime = null; lastIndex = -1; render(); });
 narrow.addEventListener('change', render);
 document.addEventListener('visibilitychange', () => { lastTime = null; });

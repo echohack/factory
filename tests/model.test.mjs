@@ -1,5 +1,5 @@
 import { test, expect } from 'vite-plus/test';
-import { makeTrace, parseInput, DEFAULT_INPUT, SOURCE_LINES } from '../examples/array-pipeline/model.mjs';
+import { makeTrace, DEFAULT_INPUT, SOURCE_LINES } from '../examples/array-pipeline/model.mjs';
 import { TracePlayer } from '../kit/trace.mjs';
 
 test('trace agrees with the displayed JavaScript, including boundary inputs', () => {
@@ -66,9 +66,6 @@ test('pause freezes partial progress, step commits once, reset restores initial 
   expect(() => new TracePlayer([{ duration: 0 }], {})).toThrow();
 });
 
-test('input parser accepts empty and signed integers, rejects ambiguous or unsafe inputs', () => {
-  expect(parseInput('')).toStrictEqual([]);
-  expect(parseInput(' -12, 0, 18 ')).toStrictEqual([-12, 0, 18]);
-  for (const text of ['2,,4', '1.5', 'NaN', '1000', '1e2', Array(17).fill(1).join(',')]) expect(() => parseInput(text)).toThrow();
-  expect(() => makeTrace([Infinity])).toThrow();
+test('the model rejects values it cannot draw', () => {
+  for (const input of [[Infinity], [1.5], [1000], Array(17).fill(1)]) expect(() => makeTrace(input)).toThrow();
 });

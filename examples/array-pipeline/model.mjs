@@ -5,14 +5,6 @@ export const SOURCE_LINES = [
   '  .map(n => n * 3)',
   '  .reduce((sum, n) => sum + n, 0);'
 ];
-export function parseInput(text) {
-  if (!text.trim()) return [];
-  const parts = text.split(',').map(x => x.trim());
-  if (parts.length > 16 || parts.some(x => !/^-?\d+$/.test(x))) throw new Error('Use up to 16 whole numbers, separated by commas.');
-  const values = parts.map(Number);
-  if (values.some(x => Math.abs(x) > 999)) throw new Error('Choose values between −999 and 999.');
-  return values;
-}
 export function makeTrace(input) {
   if (!Array.isArray(input) || input.some(n => !Number.isSafeInteger(n) || Math.abs(n) > 999) || input.length > 16) throw new Error('Invalid input values');
   const state = { input: [...input], tested: 0, filtered: [], rejected: [], mapped: [], reduced: 0, sum: 0, phase: 'filter',

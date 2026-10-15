@@ -71,25 +71,12 @@ try {
   assert.equal((await floor(desktop)).sum, 0);
   assert.deepEqual((await floor(desktop)).mapped, []);
 
-  await desktop.locator('#input-values').fill('1, 2, 3');
-  await desktop.locator('#input-form button').click();
-  assert.deepEqual((await state(desktop)).state.input, [1, 2, 3]);
-  await desktop.locator('#input-values').fill('2,,4');
-  await desktop.locator('#input-form button').click();
-  assert.ok(await desktop.locator('#input-error').textContent());
-  assert.deepEqual((await state(desktop)).state.input, [1, 2, 3], 'Invalid input preserves the previous model');
-  await desktop.locator('#input-values').fill('1, 2, 3');
-  await desktop.locator('#input-form button').click();
   await desktop.locator('#speed').selectOption('4');
   await desktop.locator('#scene').scrollIntoViewIfNeeded();
   await desktop.locator('#play').click();
-  await desktop.waitForFunction(() => window.factoryDemo.state.done, { timeout: 15000 });
-  assert.equal((await floor(desktop)).sum, 6);
-  assert.equal(await desktop.locator('#ops-body tr:last-child td:last-child').textContent(), '6');
-  await desktop.locator('#input-values').fill('');
-  await desktop.locator('#input-form button').click();
-  while (!(await state(desktop)).done) await desktop.locator('#step').click();
-  assert.equal((await floor(desktop)).sum, 0);
+  await desktop.waitForFunction(() => window.factoryDemo.state.done, { timeout: 60000 });
+  assert.equal((await floor(desktop)).sum, 60);
+  assert.equal(await desktop.locator('#ops-body tr:last-child td:last-child').textContent(), '60');
 
   const mobile = await open({ viewport: { width: 390, height: 844 }, isMobile: true, deviceScaleFactor: 2 });
   await fit(mobile);

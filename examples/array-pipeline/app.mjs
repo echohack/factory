@@ -1,4 +1,4 @@
-import { makeTrace, parseInput, DEFAULT_INPUT } from './model.mjs';
+import { makeTrace, DEFAULT_INPUT } from './model.mjs';
 import { TracePlayer } from '../../kit/trace.mjs';
 import { loadSprites } from '../../kit/sprites.mjs';
 import { FactoryScene } from '../../kit/scene.mjs';
@@ -50,11 +50,6 @@ $('factory').addEventListener('keydown',e=>{
   if (e.target.closest('input,select,textarea,button,a') || e.altKey || e.metaKey || e.ctrlKey || !scene) return;
   if(e.code==='Space'){e.preventDefault();toggle();}
   if(e.code==='ArrowRight'){e.preventDefault();player.step();render();}
-});
-$('input-form').addEventListener('submit',e=>{
-  e.preventDefault();
-  try { const values=parseInput($('input-values').value);const next=makeTrace(values); input=values;trace=next;player=new TracePlayer(trace.events,trace.initial);renderOps();$('input-error').textContent='';$('input-values').removeAttribute('aria-invalid');reset(); }
-  catch(error){$('input-error').textContent=error.message;$('input-values').setAttribute('aria-invalid','true');}
 });
 media.addEventListener('change',()=>{if(media.matches)player.pause();lastTime=null;lastIndex=-1;render();});
 document.addEventListener('visibilitychange',()=>{lastTime=null;});

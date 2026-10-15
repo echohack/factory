@@ -69,20 +69,11 @@ select { border: 0; border-bottom: 1px solid #405d7c; background: transparent; c
 kbd { border: 1px solid #354f6c; padding: 2px 4px; border-radius: 3px; font-size: 10px; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 #narration:not(.sr-only) { padding: 13px var(--inset); margin: 0; border-top: 1px solid var(--line); font-size: 13px; color: #efa27d; }
-.input-panel { margin-top: 30px; padding: 23px 0; display: grid; grid-template-columns: 1fr 1.35fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); gap: 8px 30px; }
-.input-panel label { font-size: 13px; line-height: 1.5; }
-.input-panel label span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
-.input-panel > div { display: flex; gap: 8px; align-items: center; }
-.input-panel input { min-width: 0; flex: 1; border: 1px solid #36516f; border-radius: 4px; padding: 11px; background: #0d1b2e; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, monospace; }
-.input-panel button { white-space: nowrap; }
-.input-panel > p { grid-column: 2; margin: 0; color: #efa27d; font-size: 12px; }
 @media (max-width: 900px) {
   .bench-body { grid-template-columns: 128px minmax(0, 1fr); }
   main { padding: 22px 24px; }
   .keyboard-hint { display: none; }
   .transport { gap: 14px; }
-  .input-panel { grid-template-columns: 1fr; }
-  .input-panel > p { grid-column: 1; }
 }
 @media (max-width: 560px) {
   :root { --gutter: 6px; --inset: 16px; }
@@ -99,14 +90,7 @@ kbd { border: 1px solid #354f6c; padding: 2px 4px; border-radius: 3px; font-size
   .buttons button span { margin-left: 5px; }
   .speed { font-size: 8px; gap: 4px; margin-left: auto; }
   .speed select { font-size: 11px; }
-  .input-panel > div { flex-wrap: wrap; }
-  .input-panel input { width: 100%; flex-basis: 100%; }
-  .input-panel button { margin-left: auto; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none!important; scroll-behavior: auto!important; } }
-.input-label { margin: 0; font-size: 13px; line-height: 1.5; }
-.input-label span { display: block; font-size: 11px; color: var(--muted); margin-top: 5px; }
-.settings { display: flex; flex-wrap: wrap; gap: 14px 28px; }
-.settings label { display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: var(--muted); }
 .transport { flex-wrap: wrap; }
 @media (max-width: 900px) { .blueprint table { min-width: 760px; } }
