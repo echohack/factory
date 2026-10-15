@@ -18,8 +18,9 @@ ask the user to import it as the README's Game assets section describes. Never
 download Factorio art from anywhere else.
 
 The repository follows Anatomy’s useful separation: instructions here, reusable
-code in `kit/`, complete examples in `examples/`, focused guidance in `references/`,
-and deterministic preparation/checking tools in `scripts/`.
+code in `kit/`, the object library in `catalog/`, factory patterns in `patterns/`,
+complete examples in `examples/`, focused guidance in `references/`, and
+deterministic preparation/checking tools in `scripts/`.
 
 ## Start from the program
 
@@ -49,11 +50,8 @@ program really is one path. Smaller examples are fine for data values, frame
 counts or time scale. They are not fine for structure.
 
 When the system has several major parts, such as a web frontend, a worker and a
-database, or an outside service like GitHub, draw each part as a dotted area with
-its name, using `areas` in the layout. Keep every station of a part inside its
-area, give each area its own rectangle, and let belts and wires cross area edges
-where data passes between parts. Lay the stations out by part first, then route
-the belts between them.
+database, or an outside service like GitHub, give each part its own named, dotted
+area with the `districts` pattern.
 
 Record omissions in the figure's reference table, each with a reason. A core data
 path is never an omission: no audio in a media pipeline, no writes in a database,
@@ -66,12 +64,39 @@ Write the semantic mapping before arranging objects. Use
 [references/programs.md](references/programs.md) for mapping choices. A belt is a
 stream, an inserter is a discrete handoff, a chest is stored state, an assembler is work, and a splitter
 can represent a branch. A cache needs hit/miss behavior; a queue needs ordering.
-The name of the prop alone is not the explanation.
+The name of the prop alone is not the explanation. Then choose factory patterns
+for the arrangement, as the next section describes.
 
 Keep the model pure and independently executable. Compute displayed values,
 counters, highlighting, and machine activity from that model. Animation may
 interpolate between events, but it must not invent work, lose values, or change
 the answer. A stopped machine is visually stopped.
+
+## Build from factory patterns
+
+A factory pattern is an arrangement that Factorio players build again and again,
+with one fixed software meaning: a worker row is a worker pool, a splitter fan-out
+is a load balancer, backpressure is a full belt that stops its producer. The
+library in `patterns/` holds them in six families, with the ground rules every
+scene obeys, builders for their parts, and a running standard example of each.
+Read [references/patterns.md](references/patterns.md) before you lay out a scene,
+search with `vp run patterns <term>`, and open `https://factory.localhost/#patterns`
+to watch the examples run.
+
+Pick a pattern for each item of the architecture inventory by what the code does:
+a queue between threads is a belt handoff or a buffer chest, a pool of identical
+workers is a worker row, a retry is a loop or recirculation, a rate limit is a pump
+gate or a circuit limit. Lay out the parts as districts, place each part's patterns
+inside its area, then route the belts between them. Keep each pattern's rules; only
+its size and counts follow the program. When no pattern fits, build from the ground
+rules and say so in your plan.
+
+The ground rules replace any placement you would otherwise improvise: an inserter
+stands between a building and its belt, belts never run into or under buildings,
+arms reach exactly the game's tiles, undergrounds pair up, pipes join only where
+they connect, areas keep apart, and poles power what they draw. Run `checkLayout`
+from `patterns/rules.mjs` on every layout, in the figure's tests, and expect no
+violations.
 
 ## Build from the kit
 
@@ -121,7 +146,8 @@ vp run dev
 It serves every figure with live reload at `https://factory.localhost`, through
 Portless, which needs Node.js 24. The home page is a sidebar of every figure. Open
 `https://factory.localhost/#<figure>` in the user’s external browser to show one
-in it; `/<figure>/` shows the figure alone, and the object browser is `#catalog`.
+in it; `/<figure>/` shows the figure alone, the object browser is `#catalog`, and
+the pattern gallery is `#patterns`.
 Without Portless, `vp dev` serves the same pages on localhost. `vp build` writes a
 static site to `dist/` with only the sprites each page lists, and `vp preview`
 serves it on port 4173. `vp run assets` regenerates the library from the user's
@@ -132,11 +158,7 @@ game files, and `vp test` runs the tests. Generated output is ignored by Git.
 Use Factorio’s native tile plane and fixed sprite perspective. Do not apply an
 additional isometric transform. Preserve contact points and anchors, draw shadows
 behind objects, and keep values visibly associated with their current owner.
-Chests and assemblers require inserters: leave an inserter tile between the
-building footprint and the belt. Each belt connection has an output inserter and
-an input inserter. Never draw a belt under a chest or through an assembler to imply
-item transfer. Direct insertion between buildings is also possible when an
-inserter's pickup and drop tiles reach both inventories.
+Place every building, belt and inserter by the ground rules in `patterns/rules.mjs`.
 
 Read [references/inserters.md](references/inserters.md) before wiring a scene.
 Show pickup, a closed hand carrying the item, release, and an empty return.
@@ -198,7 +220,7 @@ automatic work while hidden or offscreen, without a catch-up jump on return.
 ## Verify the explanation
 
 Follow [references/verification.md](references/verification.md). Run the model’s
-meaningful checks, import the actual assets, and open the finished figure. Inspect
+meaningful checks and `checkLayout` on every layout, import the actual assets, and open the finished figure. Inspect
 desktop and phone layouts, a branch outcome, an operation in progress, the final
 result, and reduced motion. Check that pause really freezes machinery and that
 reset clears both the simulation and readouts.

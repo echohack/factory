@@ -18,10 +18,10 @@ async function pages() {
 
 async function selection(name) {
   const path = join(examples, name, 'assets.json');
-  if (!await exists(path)) return { ids: [], catalog: false, icon: null };
+  if (!await exists(path)) return { ids: [], catalog: false, library: false, icon: null };
   const spec = JSON.parse(await readFile(path));
-  if (spec.all) return { ids: null, catalog: true, icon: spec.icon ?? null };
-  return { ids: spec.ids ?? Object.keys(spec.sprites ?? {}), catalog: false, icon: spec.icon ?? null };
+  if (spec.all) return { ids: null, catalog: true, library: true, icon: spec.icon ?? null };
+  return { ids: spec.ids ?? Object.keys(spec.sprites ?? {}), catalog: false, library: spec.library === true, icon: spec.icon ?? null };
 }
 
 const entities = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'" };
@@ -33,10 +33,10 @@ export async function figureList() {
     const html = await readFile(join(examples, name, 'index.html'), 'utf8').catch(() => null);
     if (html == null) return null;
     const title = decode(/<title>([^<]*)<\/title>/i.exec(html)?.[1] ?? '').replace(/^\s*Factory\s*[·—–-]\s*/, '').trim() || name;
-    const { catalog, icon } = await selection(name).catch(() => ({ catalog: false, icon: null }));
+    const { library: listed, icon } = await selection(name).catch(() => ({ library: false, icon: null }));
     const sprite = icon ? library.sprites[`icon-${icon}`] ?? library.sprites[icon] : null;
     const file = sprite?.kind === 'icon' && await exists(join(assets, sprite.file)) ? sprite.file : null;
-    return { name, title, icon: file, library: catalog };
+    return { name, title, icon: file, library: listed };
   }));
   return figures.filter(Boolean);
 }

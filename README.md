@@ -147,6 +147,8 @@ It's best if you have your planning documents, source code, or other artifacts a
 
 You can browse any of your created architecture diagrams at `https://factory.localhost`. Just run `vp run dev` to start the local server. `vp build` writes a static copy to `dist/`, and `vp preview` serves it.
 
+The same sidebar holds the object library and the factory patterns: 36 arrangements from real Factorio builds, such as worker rows, splitter fan-outs, main buses and backpressure, each with its software meaning and a running example. The skill builds every diagram from them.
+
 ## Contributing
 
 Pull requests are welcome.

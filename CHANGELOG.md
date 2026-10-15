@@ -6,11 +6,23 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 
 ### Added
 
+- Factory patterns. `patterns/` holds 36 arrangements taken from real factories, in six families: handoffs, belts, cells, fluids, layout and control. Each has one software meaning, its own rules, and a standard example that runs in the gallery at `https://factory.localhost/#patterns`. `vp run patterns <term>` searches them by vocabulary term.
+- Ground rules in `patterns/rules.mjs`, with `checkLayout`, which checks any layout for them: whole tiles, one thing per tile, inserter reach and ends, belt continuity, paired undergrounds, joined pipes, drill drops, areas and power. They replace the building rules that were prose in `SKILL.md` and the references.
+- Builders in `patterns/build.mjs` that take positions from the game data: inserter reach, drill drops, fluid ports, wire anchors, underground reach and tile footprints.
+- `checkMotion`, which rejects an inserter that carries two values or swings before it returns, and two values on one spot of a belt.
+- `wires` and `notes` in a scene layout, for copper, red and green wires and short labels on the floor. A token with an empty value draws only its icon.
+- `"library": true` in a page's `assets.json` lists the page with the library while it keeps its own sprite list.
+- `vp run verify-patterns` checks the gallery in a browser and saves a screenshot of every example.
 - `areas` in a scene layout draw dotted, named rectangles around the major parts of a system. The skill uses them for multi-part figures, and the OBS example marks libobs, the RTMP output and the ffmpeg-mux recording process.
 
 ### Changed
 
+- `SKILL.md` builds scenes from factory patterns, and places every building, belt and inserter by the ground rules.
 - Reference tables are plain tables: a filled header row, thin dividers between rows and roomier cells, over the same frame and textured floor, without the tile grid.
+
+### Fixed
+
+- Belt corners joined the wrong edges. Factorio names corner sprites by the edges they join, and the OBS example read the names as travel directions. `references/kit.md` now states the convention, and `belt()` picks corners from a path.
 
 ### Removed
 

@@ -25,12 +25,19 @@ test('the catalog page gets the whole library and its catalog', async () => {
   expect(page.catalog).toBe(true);
 });
 
+test('a library page that lists its sprites gets only those, without the catalog', async () => {
+  const spec = await read('../examples/patterns/assets.json'), page = await pageAssets('patterns');
+  expect(Object.keys(page.manifest.sprites)).toStrictEqual(spec.ids);
+  expect(page.catalog).toBe(false);
+});
+
 test('the sidebar lists every page by its title, with the library apart and only library icons', async () => {
   const library = await read('../assets/manifest.json'), figures = await figureList();
   expect(figures.map(figure => [figure.name, figure.title, figure.library])).toStrictEqual([
     ['array-pipeline', 'filter, map, reduce', false],
     ['catalog', 'Object library', true],
     ['obs-pipeline', 'OBS streaming pipeline', false],
+    ['patterns', 'Factory patterns', true],
   ]);
   const icons = Object.values(library.sprites).filter(sprite => sprite.kind === 'icon').map(sprite => sprite.file);
   for (const figure of figures) if (figure.icon !== null) expect(icons).toContain(figure.icon);

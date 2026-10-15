@@ -11,9 +11,10 @@ screenshot that you create. Check anchors, belt continuity, shadow placement,
 token visibility, label collisions, and clipping. The page should not scroll
 horizontally. Native UI controls must remain readable when the scene reflows.
 
-For every connection, verify that belt tiles and inserter bases stay outside
-building footprints. Check pickup and drop reach, lane alignment, a held item in
-mid-swing, and the empty return. Recipients gain stock only at release; stock plus
+Run `checkLayout` from `patterns/rules.mjs` on every layout, desktop and phone,
+and expect no violations: it checks footprints, inserter reach and ends, belt
+continuity, undergrounds, pipes, areas and power. Then look at lane alignment, a
+held item in mid-swing, and the empty return. Recipients gain stock only at release; stock plus
 in-flight items must remain constant. A machine must receive input before work.
 Inspect the dark floor, texture contrast, checker gutters, and readable labels.
 
@@ -42,6 +43,11 @@ Imported Factorio art in `assets/` is ignored by Git; only the manifest, catalog
 and materials are tracked. Before committing, inspect `git status` and keep game
 art, generated `dist/` and `.local/` output out of source control. Importer errors should identify an unsupported field
 or missing asset, not quietly produce a placeholder that looks like success.
+
+For pattern changes, `vp test` runs every standard example through `checkLayout`
+and `checkMotion`. `vp run verify-patterns` with the same browser environment
+variables checks the gallery and saves a screenshot of each example in
+`.local/qa/patterns/`; read them.
 
 For catalog changes, `vp test` checks every mapped layer’s crop bounds and file
 hash. Use `vp run verify-catalog` with the same browser environment variables

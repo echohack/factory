@@ -17,8 +17,10 @@ export default defineConfig({
       assets: { command: 'node scripts/build-catalog.mjs', cache: false },
       'import-assets': { command: 'node scripts/import-assets.mjs', cache: false },
       objects: { command: 'node scripts/list-assets.mjs', cache: false },
+      patterns: { command: 'node scripts/list-patterns.mjs', cache: false },
       'verify-browser': { command: 'node scripts/verify-browser.mjs', cache: false },
       'verify-catalog': { command: 'node scripts/verify-catalog.mjs', cache: false },
+      'verify-patterns': { command: 'node scripts/verify-patterns.mjs', cache: false },
     },
   },
   test: {
@@ -29,7 +31,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov', 'json-summary'],
-      include: ['kit/**/*.mjs', 'scripts/import-assets.mjs', 'scripts/vite-plugin-factory.mjs', 'examples/*/model.mjs', 'examples/*/layout.mjs'],
+      include: ['kit/**/*.mjs', 'patterns/**/*.mjs', 'scripts/import-assets.mjs', 'scripts/vite-plugin-factory.mjs', 'examples/*/model.mjs', 'examples/*/layout.mjs'],
     },
   },
 });

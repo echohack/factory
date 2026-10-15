@@ -35,7 +35,8 @@ empty inputs, rejected inputs, and zeros; use the language’s actual numeric ru
 
 For a whole system, start from the architecture inventory in `SKILL.md`. Map each
 thread to a lane of machines that runs on its own clock. Map each bounded buffer to
-a chest with a visible capacity. Show fan-out as one producer with several output
-inserters, each carrying its own reference or copy, and show fan-in as one machine
-fed from several sides. Give each kind of data its own item token, such as frames,
-audio chunks and packets.
+a chest with a visible capacity. Give each kind of data its own item token, such as
+frames, audio chunks and packets. Then pick the arrangement from the factory
+patterns in [patterns.md](patterns.md): fan-out is a splitter fan-out or one
+producer with an output inserter per consumer, fan-in is a side-load or a fishbone,
+a shared table is a shared store, and so on.
