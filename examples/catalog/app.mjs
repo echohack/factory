@@ -3,11 +3,7 @@ const $ = id => document.getElementById(id), pageSize = 50;
 const [catalog, manifest] = await Promise.all(['catalog.json', 'manifest.json'].map(async path => {
   const response = await fetch(`./assets/${path}`); if (!response.ok) throw new Error(`Missing ${path}`); return response.json();
 }));
-const featured = ['assembling-machine-3', 'foundry', 'chemical-plant', 'recycler', 'buffer-chest', 'fast-inserter', 'splitter', 'arithmetic-combinator', 'substation', 'logistic-robot', 'accumulator', 'cryogenic-plant'];
-const all = [...catalog.objects, ...catalog.tokens].sort((a,b) => {
-  const rank = o => featured.includes(o.id) ? featured.indexOf(o.id) : featured.length;
-  return rank(a)-rank(b);
-});
+const all = [...catalog.objects, ...catalog.tokens];
 let pageNumber=0, playing=false, clock=0, last=null, revision=0, cards=[];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 for (const group of [...new Set(all.map(o=>o.group))]) $('group').add(new Option(group,group));

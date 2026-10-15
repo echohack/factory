@@ -10,7 +10,9 @@ The first public release.
 
 - `SKILL.md`: explain a program as a working Factorio factory. Read the code, write an architecture inventory with file references, map program parts to factory parts, keep a pure model, build from the kit, and verify the figure in a browser.
 - The browser kit: `trace.mjs` for deterministic playback and stepping, `sprites.mjs` for native sprite layers, `scene.mjs` for the tile scene with belts, corners, underground pieces, label plates and moving items, `transport.mjs` for articulated inserter handoffs, `process.mjs` for the phase list and parallel lanes, and `tables.mjs` for reference tables snapped to the tile grid.
-- The object library: 68 world objects and 28 item tokens with program roles, footprints, variants and notes on omitted effects, and a browser for it at `/catalog/`.
+- The object library: 68 world objects and 28 item tokens with footprints, variants and notes on omitted effects, in Factorio's crafting-menu order, and a browser for it at `/catalog/`.
+- A shared vocabulary of 85 architecture terms in `catalog/vocabulary.mjs`. Every object carries four to eight of them, `vp run objects` searches them, and tests keep every term in use.
+- Fixed meanings for the 28 item tokens: an iron plate is always a record, copper cable a packet, an electronic circuit a request. The OBS example uses them.
 - Examples: `array-pipeline`, filter, map and reduce in JavaScript's eager order, and `obs-pipeline`, OBS Studio streaming and recording at once.
 - `vp run assets` imports the art from your own copy of Factorio 2.0 with Space Age: the game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output. It finds default Steam and standalone installs, or takes `--data` and `--script-output`.
 - `assets/manifest.json` records each file's game path, SHA-256 and size, sorted by game path.

@@ -1,8 +1,9 @@
 # Object library
 
-The reusable selection lives in `catalog/objects.mjs`. Its generated
-`assets/catalog.json` lists IDs, program roles, footprints, source prototype,
-native variants, frame counts and rendering limitations. The actual layers and
+The reusable selection lives in `catalog/objects.mjs`, and its terms and item
+meanings in `catalog/vocabulary.mjs`. The generated `assets/catalog.json` lists
+IDs, role terms, footprints, source prototype, native variants, frame counts and
+rendering limitations, in Factorio's crafting-menu order within each collection. The actual layers and
 files are in `assets/manifest.json`. These are world entities, not enlarged icons.
 
 Run `vp run objects cache` (or `worker`, `predicate`, `Power`, etc.) to find a
@@ -10,17 +11,46 @@ part. Run `vp run dev`, then open `/catalog/` at `https://factory.localhost`
 to inspect the 68 world objects and 28 item tokens. The browser has search,
 category filters, direction/state selectors and optional animation previews.
 
-| Collection | Useful choices | Program roles |
+| Collection | Useful choices | Terms |
 |---|---|---|
-| Storage | Wood, iron, steel, five logistic chests | Queues, caches, inboxes, outboxes, prefetch |
-| Inserters | Standard, burner, fast, long-handed, bulk, stack | Discrete ownership transfers |
-| Logistics | Four tiers of belts, splitters and underground belts | Streams, branches, joins, crossings |
-| Production | Assemblers, chemical plant, refinery, centrifuge, foundry, biochamber, cryogenic plant, crusher, furnaces, recycler, labs, burner drill, pumpjack | Functions, transforms, parsing, validation, cleanup, sources |
-| Power | Poles, substation, accumulator, solar panel, engines, turbine, reactors, boiler, heat exchanger | Dependencies, shared budgets, resource supply |
-| Fluids | Tank, pump and 15 pipe shapes | Reservoirs, backpressure, flow gates |
-| Circuits | Arithmetic, decider, selector, constant combinators, lamp, radar | Arithmetic, predicates, configuration, status, observation |
-| Robotics | Logistic robot, construction robot, roboport | Messages, asynchronous tasks, schedulers |
-| Items | Plates, ores, gears, circuits, batteries, science packs and modules | Distinct values, payloads, typed messages |
+| Storage | Wood, iron, steel, five logistic chests | buffer, queue, cache, database, publish, subscribe, leader, replica, follower, flush, evict |
+| Inserters | Burner, standard, long-handed, fast, bulk, stack | handoff, commit, event loop, batch |
+| Logistics | Four tiers of belts, underground belts and splitters | stream, log, write-ahead log, backpressure, load balancer, router, fan-out, fan-in, shard, proxy |
+| Production | Drills, furnaces, foundry, recycler, biochamber, assemblers, refinery, chemical plant, centrifuge, cryogenic plant, labs, crusher | worker, process, thread, transform, join, parse, encode, decode, snapshot, garbage collection, dead letter, ingest, validate |
+| Power | Poles, substation, boiler, engines, solar panel, accumulator, reactor, heat exchanger, turbine, heating tower | dependency, message bus, broadcast, compute budget, cpu, gpu, rate limit, heartbeat, adapter |
+| Fluids | Tank, pipe in 15 shapes, pump | buffer, stream, backpressure, rate limit, gateway |
+| Circuits | Lamp, arithmetic, decider, selector and constant combinators, radar | map, reduce, filter, auth, reject, consensus, lock, sort, index, config, monitor, health check, alert |
+| Robotics | Logistic robot, construction robot, roboport | async task, message bus, retry, scheduler, worker pool |
+| Items | Ores, plates, intermediates, science packs, modules | One fixed meaning each; see below |
+
+## Vocabulary
+
+Every object carries four to eight of the 85 terms in `catalog/vocabulary.mjs`.
+Tests keep every term attached to at least one object and every object inside the
+vocabulary. To add a term, tag an object with it in the same change, then run
+`vp run assets` to copy the terms into `catalog.json`.
+
+## Item meanings
+
+Each item token stands for one kind of data in every figure. Carry each kind of
+data on its token, and label tokens to tell items of the same kind apart.
+
+| Item | Meaning | Item | Meaning |
+|---|---|---|---|
+| `coal` | message | `copper-cable` | packet |
+| `stone` | file | `electronic-circuit` | request |
+| `iron-ore` | raw bytes | `advanced-circuit` | delta |
+| `copper-ore` | sample | `processing-unit` | response |
+| `uranium-ore` | secret | `engine-unit` | command |
+| `iron-plate` | record | `electric-engine-unit` | transaction |
+| `copper-plate` | frame | `low-density-structure` | snapshot |
+| `steel-plate` | batch | `rocket-fuel` | lock |
+| `plastic-bar` | key | `automation-science-pack` | event |
+| `sulfur` | error | `logistic-science-pack` | ack |
+| `battery` | credit | `chemical-science-pack` | log entry |
+| `iron-gear-wheel` | job | `production-science-pack` | metric |
+| `speed-module` | config | `utility-science-pack` | alert |
+| `productivity-module` | feature flag | `space-science-pack` | heartbeat |
 
 Use stable IDs directly:
 

@@ -91,6 +91,13 @@ and inspect `assets/catalog.json` for stable IDs, roles, footprints, variants, a
 rendering limits. It contains 68 world objects and 28 item tokens. Use different
 objects when their roles help explain the program, not just to decorate it.
 
+Every object carries terms from the shared vocabulary in `catalog/vocabulary.mjs`,
+such as `load balancer`, `write-ahead log` or `dead letter`; search them with
+`vp run objects <term>`. Each item token has one fixed meaning, listed in the same
+file and as `meaning` in `catalog.json`: an iron plate is always a record, copper
+cable a packet, an electronic circuit a request. Carry each kind of data on the
+token with that meaning, and never give a token another meaning.
+
 Load only the IDs a scene uses. To expand the library, `vp run assets` reads the
 game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output.
 Read [references/assets.md](references/assets.md) for locations, coverage and

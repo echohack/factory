@@ -1,11 +1,24 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { objects, tokens, deferred } from '../catalog/objects.mjs';
+import { objects, tokens, deferred, collections } from '../catalog/objects.mjs';
+import { meanings } from '../catalog/vocabulary.mjs';
 import { importAssets, gameOptions, locateGame } from './import-assets.mjs';
 import { spriteLayers } from '../kit/sprites.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const itemTypes = ['item', 'tool', 'module', 'item-with-entity-data', 'capsule', 'rail-planner', 'repair-tool', 'ammo'];
+function craftingOrder(definitions, name, first) {
+  const item = itemTypes.map(type => definitions[type]?.[name]).find(Boolean);
+  if (!item) throw new Error(`The data dump has no item for ${name}`);
+  const subgroup = definitions['item-subgroup'][item.subgroup ?? 'other'], group = definitions['item-group'][subgroup.group];
+  return [subgroup.group === first ? 0 : 1, group.order ?? '', subgroup.order ?? '', item.order ?? '', name];
+}
+const byKey = key => (a, b) => {
+  const x = key(a), y = key(b);
+  for (let i = 0; i < x.length; i++) if (x[i] !== y[i]) return x[i] < y[i] ? -1 : 1;
+  return 0;
+};
 const out = join(root, 'assets');
 try {
   const game = await locateGame(gameOptions());
@@ -29,8 +42,8 @@ try {
         frames: Math.max(1, ...layers.filter(l => l.fixedFrame == null).map(l => l.frames)),
         motion: sprite.kind === 'inserter' ? 'Articulated' : o.id === 'radar' ? 'Rotation' : layers.some(l => l.frames > 1 && l.fixedFrame == null) ? 'Animated' : 'Static',
         ...(multiFile ? { multiFile: true } : {}) };
-    }),
-    tokens: tokens.map(name => ({ id: `item-${name}`, name: name.replaceAll('-', ' '), group: 'Items', roles: ['value', 'message', 'payload'], kind: 'icon', motion: 'Icon', variants: [], directions: 1, frames: 1 })),
+    }).sort(byKey(o => [collections.indexOf(o.group), ...craftingOrder(definitions, o.id)])),
+    tokens: [...tokens].sort(byKey(name => craftingOrder(definitions, name, 'intermediate-products'))).map(name => ({ id: `item-${name}`, name: name.replaceAll('-', ' '), group: 'Items', meaning: meanings[name], roles: [meanings[name]], kind: 'icon', motion: 'Icon', variants: [], directions: 1, frames: 1 })),
     deferred,
   };
   await writeFile(join(out, 'catalog.json'), JSON.stringify(catalog, null, 2) + '\n');
