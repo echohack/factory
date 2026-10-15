@@ -1,5 +1,5 @@
 import { loadSprites, spriteLayers } from '../../kit/sprites.mjs';
-const $ = id => document.getElementById(id), pageSize = 12;
+const $ = id => document.getElementById(id), pageSize = 50;
 const [catalog, manifest] = await Promise.all(['catalog.json', 'manifest.json'].map(async path => {
   const response = await fetch(`./assets/${path}`); if (!response.ok) throw new Error(`Missing ${path}`); return response.json();
 }));
@@ -12,7 +12,6 @@ let pageNumber=0, playing=false, clock=0, last=null, revision=0, cards=[];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 for (const group of [...new Set(all.map(o=>o.group))]) $('group').add(new Option(group,group));
 $('summary').textContent=`${catalog.objects.length} WORLD OBJECTS / ${catalog.tokens.length} ITEM TOKENS`;
-for (const item of catalog.deferred) { const li=document.createElement('li'); li.textContent=`${item.id}: ${item.reason}`; $('deferred').append(li); }
 const filtered=()=>all.filter(o=>(!$('group').value||o.group===$('group').value) && [o.name,o.id,o.group,...o.roles].join(' ').toLowerCase().includes($('search').value.toLowerCase().trim()));
 function pose(o, time, direction) {
   const rig=manifest.sprites[o.id], reach=Math.abs(rig.pickup[1]);
@@ -47,18 +46,16 @@ async function render() {
   const images=new Map();
   for(const object of visible){
     const article=document.createElement('article');article.className='card';article.dataset.id=object.id;
-    article.innerHTML='<div class="preview"><canvas></canvas></div><div class="card-body"><div class="card-meta"><span class="category"></span><span class="badge"></span></div><h2></h2><code class="part-id"></code><p class="roles"></p><p class="notes"></p><div class="options"></div></div>';
-    const q=s=>article.querySelector(s), canvas=q('canvas');canvas.setAttribute('aria-label',object.name+' sprite preview');
-    q('.category').textContent=object.group.toUpperCase();q('.badge').textContent=object.motion.toUpperCase();q('h2').textContent=object.name;
-    q('.part-id').textContent=object.id;q('.roles').textContent=object.roles.join(' · ');
-    q('.notes').textContent=object.notes || (object.kind==='icon'?'Item token for a value or payload.':'Native body and shadow.');
+    article.innerHTML='<div class="preview"><canvas></canvas></div><div class="card-body"><h2></h2><p class="roles"></p><div class="options"></div></div>';
+    const q=s=>article.querySelector(s), canvas=q('canvas');canvas.setAttribute('aria-label',object.id+' sprite preview');
+    q('h2').textContent=object.id;q('.roles').textContent=object.roles.join(' · ');
     const card={object,canvas,article};
-    if(object.variants.length){card.variant=document.createElement('select');card.variant.setAttribute('aria-label',`${object.name} variant`);for(const v of object.variants)card.variant.add(new Option(v.replaceAll('_',' '),v));q('.options').append(card.variant);card.variant.onchange=()=>draw(card);}
-    if(object.directions>1){card.direction=document.createElement('select');card.direction.setAttribute('aria-label',`${object.name} direction`);for(let i=0;i<object.directions;i++)card.direction.add(new Option(`${object.group==='Logistics'?'Shape':'View'} ${String(i+1).padStart(2,'0')}`,i));q('.options').append(card.direction);card.direction.onchange=()=>draw(card);}
+    if(object.variants.length){card.variant=document.createElement('select');card.variant.setAttribute('aria-label',`${object.id} variant`);for(const v of object.variants)card.variant.add(new Option(v.replaceAll('_',' '),v));q('.options').append(card.variant);card.variant.onchange=()=>draw(card);}
+    if(object.directions>1){card.direction=document.createElement('select');card.direction.setAttribute('aria-label',`${object.id} direction`);for(let i=0;i<object.directions;i++)card.direction.add(new Option(`${object.group==='Logistics'?'Shape':'View'} ${String(i+1).padStart(2,'0')}`,i));q('.options').append(card.direction);card.direction.onchange=()=>draw(card);}
     if(!object.variants.length && object.directions===1)q('.options').remove();
     $('cards').append(article);cards.push(card);
     try {card.atlas=await loadSprites('./assets/',{manifest,ids:[object.id],images});if(version!==revision)return;draw(card);}
-    catch(error){q('.notes').textContent=error.message;console.error(error);}
+    catch(error){const p=document.createElement('p');p.className='card-error';p.textContent=error.message;q('.card-body').append(p);console.error(error);}
   }
   $('cards').setAttribute('aria-busy','false');
   window.catalogDemo={count:list.length,visible:cards.map(c=>c.object.id),manifest,catalog};

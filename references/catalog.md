@@ -43,9 +43,10 @@ not a generic router for every shape in the catalog. Splitter routing, fluid
 connections, robot flight, circuit wires and inventory rules remain model work.
 
 Animation means the selected body has native frames; it does not promise every
-in-game effect. Card notes identify static bodies and omitted effects. The
-electric/big mining drill rigs, electromagnetic plant state machine, vehicles,
-rails and creatures are listed as deferred, not represented by partial bodies.
+in-game effect. Each object's `notes` in `assets/catalog.json` name static bodies
+and omitted effects. The electric/big mining drill rigs, electromagnetic plant
+state machine, vehicles, rails and creatures are listed under `deferred` in
+`assets/catalog.json`, not represented by partial bodies.
 Public timing claims still require a real trace; gallery playback is illustrative.
 
 To extend the library, inspect the exact prototype in the data dump, add explicit paths
