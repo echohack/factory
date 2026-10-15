@@ -69,7 +69,7 @@ export function makeTrace(settings) {
   });
   camera(0);
   const chunks = { mic: 0, desk: 0 };
-  for (const [src, buf, icon] of [['mic', 'micbuf', 'item-iron-ore'], ['desk', 'deskbuf', 'item-copper-ore']])
+  for (const [src, buf, icon] of [['mic', 'micbuf', 'item-copper-ore'], ['desk', 'deskbuf', 'item-copper-ore']])
     (function capture(n) { at(n * AUDIO_INTERVAL, () => {
       if (!live()) return;
       capture(n + 1); chunks[src] = n + 1;
@@ -89,7 +89,7 @@ export function makeTrace(settings) {
     let inputs = 0; const need = pick ? 2 : 1;
     const arrived = () => { if (++inputs === need) busy('gfx', s.t, tickStart + R, `F${k}`); };
     if (pick) send('asyncq:gfx', pick, () => s.stock.asyncq.splice(s.stock.asyncq.indexOf(pick), 1), () => { s.held.gfx.push(pick); arrived(); });
-    const tex = { label: `G${k}`, icon: 'item-iron-gear-wheel', kind: 'game' };
+    const tex = { label: `G${k}`, icon: 'item-copper-plate', kind: 'game' };
     s.held.game.push(tex); busy('game', s.t, s.t + RELEASE);
     send('game:gfx', tex, () => s.held.game.splice(s.held.game.indexOf(tex), 1), () => { s.held.gfx.push(tex); arrived(); });
     at(tickStart + R, () => finishRender(k, tickStart));
@@ -101,7 +101,7 @@ export function makeTrace(settings) {
     const nextVt = s.vt + INTERVAL * count;
     s.count.missed += count - 1; s.count.ticks += count; s.vt = nextVt;
     if (count > 1) { s.lagged = `F${k}`; note(`F${k} finished ${(s.t - (nextVt - INTERVAL * count)).toFixed(0)} ms into its tick; OBS shows it for ${count} ticks (missed frames +${count - 1}).`); }
-    const frame = { label: count > 1 ? `F${k}×${count}` : `F${k}`, id: `F${k}`, icon: 'item-iron-plate', kind: 'frame', count, reps: ['new', ...Array(count - 1).fill('lag')], skipped: 0, done: 0 };
+    const frame = { label: count > 1 ? `F${k}×${count}` : `F${k}`, id: `F${k}`, icon: 'item-copper-plate', kind: 'frame', count, reps: ['new', ...Array(count - 1).fill('lag')], skipped: 0, done: 0 };
     s.held.gfx.push(frame);
     const used = s.stock.cache.length + s.cacheReserved + (s.encoding ? 1 : 0);
     if (used >= CACHE_SIZE) {
@@ -137,7 +137,7 @@ export function makeTrace(settings) {
       s.busy.venc = null; vencBusy = false;
       if (f.done === f.count) { s.held.venc.splice(s.held.venc.indexOf(f), 1); s.encoding = null; }
       for (const out of ['stream', 'record']) {
-        const pkt = { label: `${key ? 'K' : 'P'}${p}`, icon: key ? 'item-advanced-circuit' : 'item-electronic-circuit', kind: 'video', key, dts: p * INTERVAL, size: key ? KEY_SIZE : P_SIZE, reason, image: f.id };
+        const pkt = { label: `${key ? 'K' : 'P'}${p}`, icon: key ? 'item-low-density-structure' : 'item-advanced-circuit', kind: 'video', key, dts: p * INTERVAL, size: key ? KEY_SIZE : P_SIZE, reason, image: f.id };
         s.held.venc.push(pkt);
         send(`venc:${out}`, pkt, () => s.held.venc.splice(s.held.venc.indexOf(pkt), 1), () => interleave(out, pkt));
       }
@@ -153,14 +153,14 @@ export function makeTrace(settings) {
     const both = () => { if (++got < 2) return; busy('mixer', s.t, s.t + MIX_MS, `A${n + 1}`);
       at(s.t + MIX_MS, () => {
         s.held.mixer = s.held.mixer.filter(c => c.n !== n); s.busy.mixer = null;
-        const mixed = { label: `A${n + 1}`, icon: 'item-copper-cable', kind: 'mix', n };
+        const mixed = { label: `A${n + 1}`, icon: 'item-steel-plate', kind: 'mix', n };
         s.held.mixer.push(mixed);
         send('mixer:aenc', mixed, () => s.held.mixer.splice(s.held.mixer.indexOf(mixed), 1), () => {
           s.held.aenc.push(mixed); busy('aenc', s.t, s.t + AAC_MS, `a${n}`);
           at(s.t + AAC_MS, () => {
             s.held.aenc.splice(s.held.aenc.indexOf(mixed), 1); s.busy.aenc = null;
             for (const out of ['stream', 'record']) {
-              const pkt = { label: `a${n}`, icon: 'item-battery', kind: 'audio', dts: n * AUDIO_INTERVAL, size: AUDIO_SIZE };
+              const pkt = { label: `a${n}`, icon: 'item-copper-cable', kind: 'audio', dts: n * AUDIO_INTERVAL, size: AUDIO_SIZE };
               s.held.aenc.push(pkt);
               send(`aenc:${out}`, pkt, () => s.held.aenc.splice(s.held.aenc.indexOf(pkt), 1), () => interleave(out, pkt));
             }
@@ -212,7 +212,7 @@ export function makeTrace(settings) {
         note(`Send buffer holds ${span.toFixed(0)} ms of video (over ${DROP_P_MS} ms). OBS drops ${victims.length} queued P-frames, keeps keyframes and audio, and drops new P-frames until the next keyframe.`);
         for (const v of victims) q.splice(q.indexOf(v), 1);
         s.held.sendbufOut = (s.held.sendbufOut ?? 0) + victims.length;
-        send('sendbuf:dropped', { label: `${victims.length}×P`, icon: 'item-electronic-circuit', n: victims.length }, () => {}, () => {
+        send('sendbuf:dropped', { label: `${victims.length}×P`, icon: 'item-advanced-circuit', n: victims.length }, () => {}, () => {
           s.held.sendbufOut -= victims.length; trail.dropped.push(...victims); s.count.dropped += victims.length; s.last.dropped = `${victims[0].label}–${victims.at(-1).label}`;
         });
         s.minPriority = 3;
