@@ -63,7 +63,7 @@ In your harness, type
 
 ## Game assets
 
-Factory draws with Factorio's sprites. If you own the game, you an import
+Factory draws with Factorio's sprites, so you'll need to own the game.
 
 1. Export Data. Start the game twice, once with each option. Each run writes into the `script-output` folder and quits. You can either do this by hand in Steam or Standalone. Your LLM can probably just do this for you with standalone if you ask nicely.
    - Steam: in your Library, right-click Factorio and open **Properties → General → Launch options**. Enter `--dump-data` and press Play. When the game has closed, enter `--dump-icon-sprites` and press Play again. Then clear the launch options.
