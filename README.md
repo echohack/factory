@@ -1,13 +1,11 @@
 <h1 align="center">Factory</h1>
 
-<p align="center"><b>A Claude skill that explains a program by building it as a working Factorio factory.</b><br>Also runs in Codex and OpenCode.<br>Values ride belts, inserters hand them over, machines do the work, and chests hold the state.</p>
+<p align="center"><b>A skill for building software architecture diagrams as a Factorio factory.</b></p>
 
 <p align="center">
-  <a href="https://code.claude.com/docs/en/skills"><img src="https://img.shields.io/badge/Claude_Code-skill-1b1b19?style=flat-square&logo=claude&logoColor=white" alt="Claude Code skill"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-compatible-1b1b19?style=flat-square" alt="Agent Skills compatible"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-1b1b19?style=flat-square" alt="Apache 2.0 license"></a>
   <a href="#requirements"><img src="https://img.shields.io/badge/node-24-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 24"></a>
-  <a href="#requirements"><img src="https://img.shields.io/badge/dependencies-0-1b1b19?style=flat-square" alt="No dependencies"></a>
   <a href="#game-assets"><img src="https://img.shields.io/badge/Factorio-2.0_%2B_Space_Age-1b1b19?style=flat-square" alt="Needs Factorio 2.0 with Space Age"></a>
 </p>
 
@@ -22,21 +20,25 @@
   <a href="#limits">Limits</a>
 </p>
 
-<p align="center">
-  <img src=".github/assets/obs-pipeline.webp" width="900" alt="The OBS Studio example as a factory under network congestion. Pumpjacks for the camera, mic and desktop audio feed belts through the graphics thread, the x264 and AAC encoders, and the stream and recording outputs. The send buffer holds 47 packets, 400 ms of video, and 26 P-frames have been dropped.">
-</p>
+https://github.com/user-attachments/assets/f7791a8b-f4ea-4ade-b52d-5a4be2bad7eb
 
-<p align="center"><sub><code>examples/obs-pipeline</code> under network congestion, 37 seconds in. The send buffer has backed up to 400 ms, and the stream has dropped 26 P-frames while the recording keeps every packet.</sub></p>
+<p align="center"><sub><code>examples/obs-pipeline</code> A high level sample of OBS Studio's architecture.<code>/factory explain how OBS works</code></sub></p>
 
 ---
 
-Ask Claude to explain a program, an algorithm or a whole system, and Factory has it build that program as a factory floor. Each value is an item on a belt. Each operation is a machine cycle. Stored state is stock in a chest. A filter is an assembler that lets some items through, a queue is a chest that keeps its order, and a cache miss is a machine that waits for a delivery.
+`/factory explain how my application architecture works`
 
-The factory runs from a small, pure model of the program, so every count and readout on the floor is computed, not drawn. You can pause it, step it event by event, reset it, and change its input. For a real system, Claude first writes an inventory of its threads, queues and data paths from the code, so the figure keeps the system's real scope.
+This skill will build a working, moving architecture diagram using a Factorio factory to explain a program, an algorithm or a whole system.
+
+Extremely useful for planning work for software engineering. After you've written your plan on what you're going to build, give this skill your RFC or planning documents and your code repo. Simply run `/factory explain <how this is going to work>` When it's done, you get a great visualization of your architecture. Much, much better than trying to build confusing mermaid charts, or heaven forbid, UML diagrams or other nonsense. Factorio objects give you a shared design language too, so as you build architecture diagrams, you'll be able to spot common patterns easily.
 
 ## Quick start
 
 You need the [Vite+](https://viteplus.dev/guide/) CLI, `vp`, Node.js 24, and your own copy of Factorio 2.0 with Space Age.
+
+Support games! Wube is an excellent company. Besides, are you really a professional software engineer until you own a copy of Factorio?
+
+If on some odd chance you've never heard of [Factorio, you can read about it here](https://www.factorio.com/).
 
 ```sh
 git clone https://github.com/echohack/factory.git ~/.claude/skills/factory
@@ -51,22 +53,21 @@ vp run assets
 vp run dev
 ```
 
-Open `https://factory.localhost` in your browser: a sidebar lists every diagram. Then, in Claude Code:
+Open `https://factory.localhost/array-pipeline/` in your browser.
+
+In your harness, type
 
 ```text
 /factory explain how an LRU cache with 4 slots evicts entries
 ```
 
-In Codex, type `$factory`. `vp install` installs Vite+ itself, with Bun; the kit and scripts use only Node's built-in modules.
-
 ## Game assets
 
-Factory draws with Factorio's own sprites. That art belongs to Wube Software, so this repository ships none of it. It publishes the list instead: [`assets/manifest.json`](assets/manifest.json) names all 330 files the library uses, each with its path in the game (`source`), its SHA-256 and its size. If you own the game, one command copies those files from your install into `assets/`, where Git ignores them.
+Factory draws with Factorio's sprites. If you own the game, you an import
 
-1. **Turn off other mods.** In Factorio's **Mods** menu, leave only Base, Elevated Rails, Quality and Space Age on.
-2. **Export the data and the icons.** Start the game twice, once with each option. Each run writes into the `script-output` folder and quits.
-   - **Steam:** in your Library, right-click Factorio and open **Properties → General → Launch options**. Enter `--dump-data` and press **Play**. When the game has closed, enter `--dump-icon-sprites` and press **Play** again. Then clear the launch options.
-   - **Standalone:** run the game binary with each option, for example on macOS:
+1. Export Data. Start the game twice, once with each option. Each run writes into the `script-output` folder and quits. You can either do this by hand in Steam or Standalone. Your LLM can probably just do this for you with standalone if you ask nicely.
+   - Steam: in your Library, right-click Factorio and open **Properties → General → Launch options**. Enter `--dump-data` and press Play. When the game has closed, enter `--dump-icon-sprites` and press Play again. Then clear the launch options.
+   - Standalone: run the game binary with each option, for example on macOS:
 
      ```sh
      /Applications/factorio.app/Contents/MacOS/factorio --dump-data
@@ -74,7 +75,7 @@ Factory draws with Factorio's own sprites. That art belongs to Wube Software, so
      ```
 
      On Windows the binary is `bin\x64\factorio.exe` in the install folder; on Linux it is `bin/x64/factorio`.
-3. **Import.** From this repository, run `vp run assets`. It should print `Mapped 68 world objects and 28 item tokens; 330 source images.`
+2. Import. From this repository, run `vp run assets`. That's it!
 
 `vp run assets` looks for the game and its exports in these places:
 
@@ -92,26 +93,6 @@ If your copy is somewhere else, name the folders:
 ```sh
 vp run assets --data "/path/to/Factorio/data" --script-output "/path/to/script-output"
 ```
-
-`FACTORIO_DATA` and `FACTORIO_SCRIPT_OUTPUT` do the same. The import copies each file byte for byte and checks every sprite's layout against its image. It does not change your game files.
-
-The library was mapped on Factorio 2.0.77. A later 2.0 release can change some sprites: the import then rewrites `assets/manifest.json`, and `git diff` shows what changed. Without Space Age the import stops, because the OBS example and several library objects are Space Age machines.
-
-Built pages in `dist/` contain the imported art too. Check Wube's terms before you publish one.
-
-## What it makes
-
-A figure is a local static site: one workbench page with the factory floor at the top, a narrow list of the program's phases beside it, one row of controls under it, and reference tables below.
-
-| Part | What it shows |
-|---|---|
-| **The floor** | Native Factorio belts, inserters, assemblers, chests and circuits on the game's own tile plane, with station labels and live readouts. Items stay with their current owner: on a belt lane, in an inserter's closed hand, or in an inventory. |
-| **Phases** | The program's phases, top to bottom. The active one lights up, and a click jumps to it. Independent work, such as two consumers of one table, runs in parallel lanes. |
-| **Controls** | Play, step, reset, speed and the program's input. Keyboard controls stay inside the figure. |
-| **Tables** | Each operation's inputs, rule and parameters, and a worked example, all computed from the model. |
-
-Every figure fits a phone, starts paused under reduced motion, stops working while it is off screen, and announces completed events to screen readers.
-
 ## Install
 
 Factory is a standard [Agent Skill](https://agentskills.io): a folder with a `SKILL.md` at its root. Clone this repository into a skill folder, then run the [import](#game-assets) inside it.
@@ -132,10 +113,10 @@ Claude Code picks up new skills in a running session; start a new session if `/f
 Type `/factory` (in Codex, `$factory`) and say what the figure should explain:
 
 ```text
-/factory explain how a token bucket rate limiter admits a burst of 12 requests with a bucket of 5
+/factory explain how Kubernetes works
 ```
 
-You don't have to name the skill. Claude also loads it when you ask for a Factorio-style explainer.
+It's best if you have your planning documents, source code, or other artifacts available for your LLM to parse.
 
 <details>
 <summary><b>More prompts</b></summary>
@@ -143,107 +124,38 @@ You don't have to name the skill. Claude also loads it when you ask for a Factor
 <br>
 
 ```text
-/factory explain how PostgreSQL makes a COMMIT durable: WAL buffers, the backend's WAL flush, group commit, the WAL writer, the background writer and the checkpointer
+/factory explain how PostgreSQL makes a COMMIT durable, go into detail about how the WAL handles it
 ```
 
 ```text
-/factory explain how Kafka handles a produce request with acks=all: the producer's record accumulator and sender thread, the partition leader's log, follower fetches, the in-sync replica set and the high watermark
+/factory explain how Kafka handles a produce request
 ```
 
 ```text
-/factory explain how Redis runs commands on its single-threaded event loop, and how BGSAVE forks a child that writes the RDB snapshot with copy-on-write
+/factory explain how Redis runs commands on its event loop
 ```
 
 ```text
-/factory explain how Nginx serves a request: the master and worker processes, each worker's epoll event loop, proxy_pass to an upstream group and its keepalive connection cache
+/factory explain how Nginx serves a request
 ```
 
 ```text
-/factory explain how Chromium produces a frame: the renderer main thread's style, layout and paint, the commit to the compositor thread, raster workers, and Viz in the GPU process drawing it
+/factory explain how Chromium produces a frame
 ```
 
 </details>
 
-Three habits get the best figures:
+## Factory browser
 
-1. **Point at the real code.** Factory reads it, writes an inventory of the parts, and draws all of them. A figure of a system shows every thread, queue and output, not one path through it.
-2. **Give real numbers.** Sizes, counts, rates and limits. The model uses them, and the floor shows their effects.
-3. **Say what should go wrong.** A miss, a rejection, a dropped frame or a full queue is shown by what the machines do, not only by a color.
-
-## Examples
-
-After the [import](#game-assets), `vp run dev` serves them with live reload at `https://factory.localhost`, where a sidebar lists every diagram, including the ones you build. `vp build` writes a static copy to `dist/`, and `vp preview` serves it.
-
-| Example | What it shows | Page |
-|---|---|---|
-| [`array-pipeline`](examples/array-pipeline) | `[2, 5, 4, 7, 6, 3, 8, 1].filter(even).map(triple).reduce(sum, 0)` in JavaScript's eager order: all filtering, then all mapping, then the reduction. Chests hold each intermediate array, and the reduce chest ends at 60. Change the input and run it again. | `/array-pipeline/` |
-| [`obs-pipeline`](examples/obs-pipeline) | OBS Studio streaming and recording at once: sources, the graphics and audio threads, two encoders and two outputs, each on its own clock. Load healthy, rendering lag, encoding lag or network congestion and watch where frames are dropped. | `/obs-pipeline/` |
-| [`catalog`](examples/catalog) | The object library: 68 world objects and 28 item tokens, with search, category filters, directions, states and animation previews. | `/catalog/` |
-
-Search the library from the terminal with `vp run objects cache`.
-
-## How it works
-
-- **[`SKILL.md`](SKILL.md)** is what Claude reads. It sets the workflow: read the program, write the architecture inventory, map program parts to factory parts, write a pure model, build the scene from the kit, and verify the result in a browser.
-- **[`kit/`](kit)** is the framework-free browser kit: deterministic trace playback (`trace.mjs`), native sprite drawing (`sprites.mjs`), the tile scene with belts, labels and moving items (`scene.mjs`), inserter placement and poses (`transport.mjs`), the phase list (`process.mjs`) and grid-snapped tables (`tables.mjs`).
-- **[`vite.config.mjs`](vite.config.mjs)** makes `examples/` a Vite multi-page app. Its plugin serves and bundles each page with only the sprites its `assets.json` lists, and lists every page in the sidebar.
-- **[`references/`](references)** are the long-form guides Claude opens when it needs them: program mapping, the kit API, the object library, game assets, inserters, design and verification.
-- **The library.** [`catalog/objects.mjs`](catalog/objects.mjs) selects each object from the game's prototype definitions. `vp run assets` turns that into `assets/manifest.json` and `assets/catalog.json`, and copies the art.
-- **Verification.** `vp test` runs the test suite on [Vite+](https://viteplus.dev). It checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, `vp run verify-browser` and `vp run verify-catalog` drive the built pages at desktop and phone sizes and save screenshots.
-
-<details>
-<summary><b>Repository layout</b></summary>
-
-<br>
-
-```text
-factory/
-├── SKILL.md                  the skill: workflow, mapping rules and design
-├── kit/                      the browser kit: trace, sprites, scene, transport, process, tables
-├── references/               long-form guides Claude reads as needed
-├── catalog/objects.mjs       the object library's selections and program roles
-├── assets/
-│   ├── manifest.json         every imported file: game path, SHA-256 and size
-│   ├── catalog.json          objects, roles, footprints and variants
-│   └── materials/            the workbench textures
-├── examples/                 the sidebar, array-pipeline, obs-pipeline and the catalog browser
-├── scripts/                  import, the Vite plugin and browser checks
-├── tests/                    Vite+ test suites
-├── vite.config.mjs           the Vite+ app, tasks and test settings
-├── agents/openai.yaml        the skill's display name in Codex
-└── .github/assets/           README images
-```
-
-</details>
-
-## Requirements
-
-| | Needed for | Notes |
-|---|---|---|
-| **Factorio 2.0 with Space Age** | the art | Your own copy, from Steam or factorio.com. The library was mapped on 2.0.77. |
-| **[Vite+](https://viteplus.dev/guide/)** | every command | Install the `vp` CLI once, then run `vp install` in the repository; it installs with Bun 1.2.4. Without the global CLI, `bun install` and `bunx vp` work the same. |
-| **Node.js 24** | everything | Pinned in `.nvmrc`; Vite+ also runs on 22.18 or later, but Portless needs 24. The kit and scripts use only built-in modules. |
-| **[Portless](https://github.com/vercel-labs/portless)** | `vp run dev` | Installed by `vp install`. Its first run creates a local certificate authority and binds port 443, which asks for sudo. Without it, `vp dev` serves the same pages on localhost. |
-| **A browser** | viewing figures | `vp run dev` serves figures with live reload at `https://factory.localhost`; `vp build` writes them as a static site. |
-| **[Claude Code](https://code.claude.com/docs/en/overview)**, [Codex](https://developers.openai.com/codex/skills) or [OpenCode](https://opencode.ai/docs/skills/) | using the skill | Written for Claude Code; it follows the open Agent Skills format. |
-| **Playwright and Chrome** | the browser checks only | Not installed by this repository. Point `PLAYWRIGHT_MODULE` at an existing installation; see [`references/verification.md`](references/verification.md). |
-
-## Limits
-
-- **It needs the game.** No art ships with the repository, and there is no fallback for the base game without Space Age.
-- **The motion is illustrative.** Event durations are presentation time, and parallel lanes show independence, not measured timing. Inserter swings are choreography on measured joints, not the game's physics.
-- **Not every in-game effect is drawn.** Stripes, runtime tints, lighting, smoke and working glows are unsupported, so some machine bodies are static. The catalog notes what each object omits. Electric mining drills, the electromagnetic plant, vehicles, rails and creatures are deferred.
-- **It explains; it does not profile.** A figure built from an explicit model says so. Timing claims need a real trace.
+You can browse any of your created architecture diagrams at `https://factory.localhost`. Just run `vp run dev` to start the local server. `vp build` writes a static copy to `dist/`, and `vp preview` serves it.
 
 ## Contributing
 
-Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first: it covers the import, the tests, the browser checks, and the house rules a change has to keep (among them, no comments in code and no game art in Git). Report security problems as described in [SECURITY.md](SECURITY.md). Issues and the wiki are turned off.
-
-- [Contributing guide](CONTRIBUTING.md)
+Pull requests are welcome.
+- Read [CONTRIBUTING.md](CONTRIBUTING.md)
+- Report security problems by following [SECURITY.md](SECURITY.md)
 - [Changelog](CHANGELOG.md)
 
 ## License
 
 [Apache 2.0](LICENSE) © 2026 echohack
-
-The license covers this repository's code and documentation. It does not cover Factorio or its art. Factorio is a trademark of Wube Software Ltd., and this project is not affiliated with or endorsed by Wube Software.
