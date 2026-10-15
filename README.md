@@ -5,19 +5,15 @@
 <p align="center">
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-compatible-1b1b19?style=flat-square" alt="Agent Skills compatible"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-1b1b19?style=flat-square" alt="Apache 2.0 license"></a>
-  <a href="#requirements"><img src="https://img.shields.io/badge/node-24-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 24"></a>
+  <img src="https://img.shields.io/badge/node-24-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 24">
   <a href="#game-assets"><img src="https://img.shields.io/badge/Factorio-2.0_%2B_Space_Age-1b1b19?style=flat-square" alt="Needs Factorio 2.0 with Space Age"></a>
 </p>
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
   <a href="#game-assets">Game assets</a> ·
-  <a href="#what-it-makes">What it makes</a> ·
   <a href="#install">Install</a> ·
-  <a href="#usage">Usage</a> ·
-  <a href="#examples">Examples</a> ·
-  <a href="#how-it-works">How it works</a> ·
-  <a href="#limits">Limits</a>
+  <a href="#usage">Usage</a>
 </p>
 
 <p align="center">
