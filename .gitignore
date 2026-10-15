@@ -4,3 +4,7 @@ node_modules/
 .DS_Store
 *.log
 __pycache__/
+/assets/*
+!/assets/catalog.json
+!/assets/manifest.json
+!/assets/materials/

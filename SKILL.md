@@ -11,8 +11,11 @@ Explain a program as a working factory. Moving items are values, machine cycles 
 operations, and accumulating stock is program state. The mechanism should make the
 program understandable before the reader studies its labels.
 
-Requires Node.js 20.10+ and a browser. The private repository includes the mapped
-art library; the local Factorio archive is only needed to expand or regenerate it.
+Requires Node.js 20.10+, a browser, and Factorio artwork imported from the user's
+own copy of Factorio 2.0 with Space Age. The repository ships the library's
+manifest and catalog but no game art. If `assets/` holds no PNG files, stop and
+ask the user to import it as the README's Game assets section describes. Never
+download Factorio art from anywhere else.
 
 The repository follows Anatomy’s useful separation: instructions here, reusable
 code in `kit/`, complete examples in `examples/`, focused guidance in `references/`,
@@ -84,10 +87,10 @@ and inspect `assets/catalog.json` for stable IDs, roles, footprints, variants, a
 rendering limits. It contains 68 world objects and 28 item tokens. Use different
 objects when their roles help explain the program, not just to decorate it.
 
-Load only the IDs a scene uses. To expand the library, the local archive defaults to
-`/path/to/factorio-data`; override with `FACTORIO_ARCHIVE` or
-`--archive`. Read [references/assets.md](references/assets.md) for coverage and
-limitations. The game archive is the source of truth for dimensions, offsets,
+Load only the IDs a scene uses. To expand the library, `npm run assets` reads the
+game's `data/` folder and its `--dump-data` and `--dump-icon-sprites` output.
+Read [references/assets.md](references/assets.md) for locations, coverage and
+limitations. The game data is the source of truth for dimensions, offsets,
 directions, and frame counts. Do not guess crops or substitute item icons for
 world entities without making that visual choice explicit.
 
@@ -102,7 +105,7 @@ Open the printed URL in the user’s external browser. These commands need no np
 installation. The build writes a local static site with copied modules and art;
 generated output is ignored by Git. The object browser is at `/catalog/`, and
 the working example is at `/array-pipeline/`. `npm run assets` regenerates the
-library from the local archive.
+library from the user's game files.
 
 ## Make the mechanism legible
 
@@ -183,8 +186,9 @@ briefly state what it explains and any material limits.
 
 ## Asset boundary
 
-The user authorized tracking selected artwork in this private repository. Keep
-the original archive separate and generated output ignored. New asset selections
-belong in `catalog/objects.mjs`; regenerate their hashes and manifest with
-`npm run assets`. A factory should copy only the sprites it uses. This skill does
-not request public publishing, unrelated installations, or changes to game files.
+Factorio artwork belongs to Wube Software. Git ignores the imported PNGs in
+`assets/`; only `manifest.json`, `catalog.json` and `materials/` are tracked. Never
+commit game art or built output. New asset selections belong in
+`catalog/objects.mjs`; regenerate their hashes and manifest with `npm run assets`.
+A factory should copy only the sprites it uses. This skill does not publish
+anything, install unrelated software, or change game files.

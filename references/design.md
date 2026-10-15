@@ -6,7 +6,7 @@ blue secondary labels, dark steel-blue controls (#284b70), and small amber activ
 states. Keep the grid subdued (#294562 at .5 px) and avoid large pale control fills. Keep the interface blue; the native machine art
 retains its original colors. Make the factory floor the primary visual section.
 
-The user authorized borrowing materials and layout from `~/code/campfire`:
+The materials and layout come from Campfire, a separate project by the same author:
 
 - `app/assets/css/approved-textures.css`: Graphite fuzz, a 256 px repeating
   ash-fuzz layer adapted to .10 screen opacity and grain to .14 soft-light opacity
@@ -18,8 +18,8 @@ The user authorized borrowing materials and layout from `~/code/campfire`:
   rules, mono metadata, and responsive margins.
 
 `assets/materials/ash-fuzz.webp` and `ash-grain.png` are unchanged copies of
-Campfire's files in `public/img/textures/`. They are separate from the locally
-imported Factorio game artwork. The build copies them into `materials/`.
+Campfire's files in `public/img/textures/`, tracked in this repository. They are
+separate from the imported Factorio game artwork. The build copies them into `materials/`.
 
 Reference tables reuse the workbench frame and header. Their `.blueprint` body
 carries the same ash textures as the floor, and the table layer draws a 32 px tile

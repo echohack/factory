@@ -48,7 +48,7 @@ electric/big mining drill rigs, electromagnetic plant state machine, vehicles,
 rails and creatures are listed as deferred, not represented by partial bodies.
 Public timing claims still require a real trace; gallery playback is illustrative.
 
-To extend the library, inspect the exact archived prototype, add explicit paths
+To extend the library, inspect the exact prototype in the data dump, add explicit paths
 and role/coverage notes in `catalog/objects.mjs`, regenerate with `npm run assets`,
 then run the crop/hash checks and visually inspect all new orientations. Keep
 unsupported layers as an explicit limitation or implement their format; never

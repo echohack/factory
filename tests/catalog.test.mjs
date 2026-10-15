@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { normalizeLayer } from '../scripts/import-assets.mjs';
 import { frameRect, spriteLayers, spriteFiles, SpriteAtlas } from '../kit/sprites.mjs';
@@ -35,7 +36,7 @@ test('variants keep fixed track directions and static shadows while selecting mo
   assert.throws(()=>atlas.draw(ctx,'machine',0,0,{variant:'missing'}),/variant/);
 });
 
-test('the committed catalog has every file and valid crops for all frames and directions', async () => {
+test('the committed catalog maps every ID to manifest files with valid crops for all frames and directions', async () => {
   const manifest=JSON.parse(await readFile(new URL('../assets/manifest.json',import.meta.url)));
   const catalog=JSON.parse(await readFile(new URL('../assets/catalog.json',import.meta.url)));
   const ids=[...catalog.objects,...catalog.tokens].map(o=>o.id);
@@ -45,12 +46,18 @@ test('the committed catalog has every file and valid crops for all frames and di
     for(const file of spriteFiles(sprite))assert.ok(manifest.files[file],`Untracked manifest image: ${file}`);
     for(const layer of spriteLayers(sprite))for(let d=0;d<layer.directions;d++)for(let f=0;f<layer.frames;f++)frameRect(layer,f,d);
   }
+  assert.ok(manifest.sprites.foundry.layers[0].pages.length>1);
+  assert.ok(manifest.sprites['cryogenic-plant'].layers.some(l=>l.sequence));
+  assert.equal(manifest.sprites['long-handed-inserter'].pickup[1],-2);
+});
+
+const manifestURL=new URL('../assets/manifest.json',import.meta.url);
+const imported=Object.keys(JSON.parse(await readFile(manifestURL)).files).some(file=>existsSync(new URL(`../assets/${file}`,import.meta.url)));
+test('imported art matches every manifest size and hash',{skip:!imported&&'Factorio art is not imported; run npm run assets'},async () => {
+  const manifest=JSON.parse(await readFile(manifestURL));
   for(const [file,meta] of Object.entries(manifest.files)){
     const data=await readFile(new URL(`../assets/${file}`,import.meta.url));
     assert.equal(data.length,meta.bytes,file);
     assert.equal(createHash('sha256').update(data).digest('hex'),meta.sha256,file);
   }
-  assert.ok(manifest.sprites.foundry.layers[0].pages.length>1);
-  assert.ok(manifest.sprites['cryogenic-plant'].layers.some(l=>l.sequence));
-  assert.equal(manifest.sprites['long-handed-inserter'].pickup[1],-2);
 });

@@ -12297,1325 +12297,1655 @@
     }
   },
   "files": {
-    "7be61d905c3d000f-wooden-chest.png": {
-      "sha256": "7be61d905c3d000f70d20dfdc629912dbe656ee51fb12bd679befbbf8f0026f5",
-      "bytes": 9368
-    },
-    "d9c07f12fe246eda-wooden-chest-shadow.png": {
-      "sha256": "d9c07f12fe246eda10e29c055335a7f8dfeeb7ca8479c02b4a731ec49430fe84",
-      "bytes": 438
-    },
-    "12c2ebe355173cb8-iron-chest.png": {
-      "sha256": "12c2ebe355173cb85c20eb9b1fdb2f08bb75cea6ef9982434c6708ba193c998b",
-      "bytes": 10550
-    },
-    "f1198ba8287e50c8-iron-chest-shadow.png": {
-      "sha256": "f1198ba8287e50c8c7261deaf52793bf56c0b778b9067045a5519ff1780034cd",
-      "bytes": 1016
-    },
-    "4ca0dfcbd64b7649-steel-chest.png": {
-      "sha256": "4ca0dfcbd64b764988392ea451762a0f7815bab32105fb92d2acbfd55023f780",
-      "bytes": 10892
-    },
-    "55827d55aff04782-steel-chest-shadow.png": {
-      "sha256": "55827d55aff047829bfba5915861a9a007842ed62f61ddd212a4571cc4a31ff0",
-      "bytes": 505
-    },
-    "19634db9f5058730-passive-provider-chest.png": {
-      "sha256": "19634db9f5058730dfa1bc33154b7eac69e62bd054f33bd9f0d8ea9424f29373",
-      "bytes": 17537
-    },
-    "0681b49a6378ba5a-logistic-chest-shadow.png": {
-      "sha256": "0681b49a6378ba5a506d97d06791a54fdfd324372c577ae86057fefb0c397f26",
-      "bytes": 849
-    },
-    "c2f658e3a0546001-active-provider-chest.png": {
-      "sha256": "c2f658e3a0546001823b65b3671f48b2a32ff71087273d498062df075bbdb941",
-      "bytes": 17674
-    },
-    "d9f414099ddfd446-storage-chest.png": {
-      "sha256": "d9f414099ddfd446dafb031796b735f679ba890bb8829be8684dbbd4246baa23",
-      "bytes": 17584
-    },
-    "b5077d8d8e5e7227-buffer-chest.png": {
-      "sha256": "b5077d8d8e5e7227ddc10273d1dba653599c4c24b418464a50dc4665f70da79a",
-      "bytes": 17630
-    },
-    "29c7470d8b8943ea-requester-chest.png": {
-      "sha256": "29c7470d8b8943ea32404b06b23b6937cc824307f77c93e8eb218b6280897bcd",
-      "bytes": 17579
-    },
-    "7df71af1c6fca5f6-inserter-platform.png": {
-      "sha256": "7df71af1c6fca5f6ebcc429b5475cbb18950f46c79fd74ee25c24543d64acbf0",
-      "bytes": 36235
-    },
-    "568b8b26c6bd57f8-inserter-hand-base.png": {
-      "sha256": "568b8b26c6bd57f8df93a80a4d0cefa881ca906aee8cbe0b0705d98a5819144c",
-      "bytes": 7179
-    },
-    "dd4e3def386a7771-inserter-hand-open.png": {
-      "sha256": "dd4e3def386a777180532db99f70312b32f28a3dae23291454fdc0e00f5a72a9",
-      "bytes": 11546
-    },
-    "4a52c9f2fa0a7eaa-inserter-hand-closed.png": {
-      "sha256": "4a52c9f2fa0a7eaa85a95dcc3d553e74d03357e25cb176aee6919020743a623f",
-      "bytes": 11415
-    },
-    "fba8ee6c1d7b8b35-burner-inserter-hand-base-shadow.png": {
-      "sha256": "fba8ee6c1d7b8b357a1afeb11cab290ed90ee4dc6da19bc4c910bf7fe917a19d",
-      "bytes": 943
-    },
-    "497af01326de96da-burner-inserter-hand-open-shadow.png": {
-      "sha256": "497af01326de96da10c648356fa77aa100f368fd9693a629ea11a32fc627a27b",
-      "bytes": 1413
-    },
-    "d97470e499694811-burner-inserter-hand-closed-shadow.png": {
-      "sha256": "d97470e49969481187956d6557728070be494c11000566c9cab9f7ad269e4786",
-      "bytes": 1208
-    },
-    "c7772d4f14f861e7-burner-inserter-platform.png": {
-      "sha256": "c7772d4f14f861e7e5fea4dafd79ef2ebe6c40bc4a2f4a715335d18d95864582",
-      "bytes": 35681
-    },
-    "5e0e2d90c17a28ab-burner-inserter-hand-base.png": {
-      "sha256": "5e0e2d90c17a28ab3bae465d58e26862b59a5ff4b09627a0d7243ab198be7ec6",
-      "bytes": 7122
-    },
-    "cceb9d1ad4b77f80-burner-inserter-hand-open.png": {
-      "sha256": "cceb9d1ad4b77f80648cd1968123a4e6375501a1a7a684f6d7a16c7e369f8d09",
-      "bytes": 12043
-    },
-    "b8078289132153c1-burner-inserter-hand-closed.png": {
-      "sha256": "b8078289132153c1fc270796e09eb7c947de63d63b01053986cc711149f61728",
-      "bytes": 11947
-    },
-    "99b0981430b926e5-fast-inserter-platform.png": {
-      "sha256": "99b0981430b926e5d97543f25e51f10443baba0e926a52c8b59de8270c406374",
-      "bytes": 36971
-    },
-    "833a282506955a25-fast-inserter-hand-base.png": {
-      "sha256": "833a282506955a2538b98528a98e3d6d200abddd4778bde1cffcb4b3e6a579ce",
-      "bytes": 7261
-    },
-    "27d05dc46b6024d6-fast-inserter-hand-open.png": {
-      "sha256": "27d05dc46b6024d6948a6eb946d69ab7e7aca0dee8959e532c95966ca84bdf4f",
-      "bytes": 12358
-    },
-    "41313d1ec1f35dad-fast-inserter-hand-closed.png": {
-      "sha256": "41313d1ec1f35dad13f8a944ef4619d8761d0a621ae53fe103daff53c5fa2285",
-      "bytes": 12236
-    },
-    "3b1d807bd5880ca8-long-handed-inserter-platform.png": {
-      "sha256": "3b1d807bd5880ca8e0d03b1862f551e908f1604a104e47aac3205331954331d0",
-      "bytes": 35897
-    },
-    "a90890e8bc248778-long-handed-inserter-hand-base.png": {
-      "sha256": "a90890e8bc2487783f76e82e7bc44163fb3c73c08e6a27bce17137582d00f501",
-      "bytes": 7303
-    },
-    "9fabe44397754066-long-handed-inserter-hand-open.png": {
-      "sha256": "9fabe4439775406690152ec75acfa9d182116b2549b44b4c1e9255098b33eafd",
-      "bytes": 11866
-    },
-    "c37c43218964409b-long-handed-inserter-hand-closed.png": {
-      "sha256": "c37c43218964409b4b22c91f8eb473b1065c28727984dcdce24d7172c695faa9",
-      "bytes": 11740
-    },
-    "1e7fda723cd95550-bulk-inserter-platform.png": {
-      "sha256": "1e7fda723cd95550dc9e1cb977f92faae79602549c01a799218322861edd2c79",
-      "bytes": 36791
-    },
-    "21c66663cc444cd4-bulk-inserter-hand-base.png": {
-      "sha256": "21c66663cc444cd42b5d39508adaee44cd1300364689346d7987d4735515a638",
-      "bytes": 7207
-    },
-    "f05b4dbf3d8426fc-bulk-inserter-hand-open.png": {
-      "sha256": "f05b4dbf3d8426fc7d8607f70395d46b4e3b4c225393cb3b396332d2c0f086da",
-      "bytes": 22731
-    },
-    "f019c81251309e7c-bulk-inserter-hand-closed.png": {
-      "sha256": "f019c81251309e7c27f09d769c88eab540c45e3e617b99c6cb5a8440f9a31fae",
-      "bytes": 21469
-    },
-    "fd4ee1a0c58980cc-bulk-inserter-hand-open-shadow.png": {
-      "sha256": "fd4ee1a0c58980ccb96dad76d5063c2ac86fec12cee6c84e20ccb470e6074b31",
-      "bytes": 5374
-    },
-    "e09e4a781e5f3253-bulk-inserter-hand-closed-shadow.png": {
-      "sha256": "e09e4a781e5f3253301ae505705b35fe9c5d9ee77bf1f2dad4f418c1957c2ae8",
-      "bytes": 5034
-    },
-    "532811a9a767603b-stack-inserter-platform.png": {
-      "sha256": "532811a9a767603b73a27818be94541627ed53ee58378fd1377a0f642d7dd0ff",
-      "bytes": 36697
-    },
-    "a01d5afbd79130c8-stack-inserter-hand-base.png": {
-      "sha256": "a01d5afbd79130c8325c80a0ac54f06783144c8f8deb22966b0482d755cff419",
-      "bytes": 10252
-    },
-    "6f7afe461c1185b6-stack-inserter-hand-open.png": {
-      "sha256": "6f7afe461c1185b67bee33318c1d3017a57f061040cb591ecec3e1d1dae1f727",
-      "bytes": 32186
-    },
-    "c692101d1a3e4dac-stack-inserter-hand-closed.png": {
-      "sha256": "c692101d1a3e4dacaa6bbcc6f8076cd7399a579afc4b93b0dfc23c9343fc9cee",
-      "bytes": 29634
-    },
-    "c61af2ef1b04da05-stack-inserter-hand-open-shadow.png": {
-      "sha256": "c61af2ef1b04da0507b8b04049c1dc006bb3a2419b7ca5618c02e97da31b62da",
-      "bytes": 4768
-    },
-    "ed4fe4859698c8fb-stack-inserter-hand-closed-shadow.png": {
-      "sha256": "ed4fe4859698c8fbd1f43bade81a3db99919c7b5e9087e9778d60c06c1125002",
-      "bytes": 4814
-    },
-    "89bd090471495532-transport-belt.png": {
-      "sha256": "89bd0904714955321374b3cb6e7c8e70c2ac47f95f5332e2a89c2e4e404dca64",
-      "bytes": 1475827
-    },
-    "af87bc1b0911e442-empty.png": {
-      "sha256": "af87bc1b0911e442ec6580d428379730f03799781e36362c266b97be15704bb7",
-      "bytes": 87
-    },
-    "5317533022f7707b-splitter-east.png": {
-      "sha256": "5317533022f7707b95a1a7e098a3cc0ca309f1fff2b580407c0f5dc4eeb37068",
-      "bytes": 404053
-    },
-    "7701912d57a683fd-splitter-east-top_patch.png": {
-      "sha256": "7701912d57a683fda8e22a56df824d3ca7a83bf9de8ba62ec0d77323181edbb4",
-      "bytes": 402733
-    },
-    "2922097c27d0ab94-splitter-west-top_patch.png": {
-      "sha256": "2922097c27d0ab944cbe683a479ebc23d7b39e888854f3bfbbe65b97f743fcfb",
-      "bytes": 385343
-    },
-    "8d8017a3c733cdc6-splitter-north.png": {
-      "sha256": "8d8017a3c733cdc68ec9960af30ca758abaa5ad9c355d35122c31a03608c8e53",
-      "bytes": 600048
-    },
-    "237327bc615c7c92-splitter-south.png": {
-      "sha256": "237327bc615c7c929b8a266a8668d2b353e6243260c76d4f8b9d424929a1a861",
-      "bytes": 556172
-    },
-    "2c6bd136fe54e4ff-splitter-west.png": {
-      "sha256": "2c6bd136fe54e4ffa6a1cb971e9880880b9b1b9e3a80646ab4116ac1f29de50f",
-      "bytes": 431479
-    },
-    "d555bdca8d9ba1f0-underground-belt-structure-front-patch.png": {
-      "sha256": "d555bdca8d9ba1f0f98967c8e27b0c853fae223caf30e69803ee6b8b3b16fe30",
-      "bytes": 6270
-    },
-    "253b188bb30fe2d6-underground-belt-structure-back-patch.png": {
-      "sha256": "253b188bb30fe2d6553c7e486850397c9c33eb332692f2e983aad948dee5efd1",
-      "bytes": 2027
-    },
-    "e44d6f237e8e2e10-underground-belt-structure.png": {
-      "sha256": "e44d6f237e8e2e109529a6ede0e496aceea7af8c5646da6405918a3e8a172bc3",
-      "bytes": 146854
-    },
-    "53ad9b581f585c7a-fast-transport-belt.png": {
-      "sha256": "53ad9b581f585c7abb4c858c6bdb4c8f25a21a11266beba0c13d87be89176b68",
-      "bytes": 2132060
-    },
-    "cd0521be7182d71b-fast-splitter-east.png": {
-      "sha256": "cd0521be7182d71b10775e95d26a1cb312d23b7b67d7ee06d912530fbf697d01",
-      "bytes": 402938
-    },
-    "1f107c9efdca37f0-fast-splitter-east-top_patch.png": {
-      "sha256": "1f107c9efdca37f067bbed6bcb70d138af29bb8061bb735ad00490f4b75602d9",
-      "bytes": 398245
-    },
-    "d1744c1607545049-fast-splitter-north.png": {
-      "sha256": "d1744c160754504946ebc12f3f8f7035169071204cfe1a343906992291154e57",
-      "bytes": 595670
-    },
-    "71c797db21b44c98-fast-splitter-south.png": {
-      "sha256": "71c797db21b44c988fbfe7b4f9ad42df1c3d0083f16bb4d7130e392a46631159",
-      "bytes": 553402
-    },
-    "c04ad7c439f437d3-fast-splitter-west-top_patch.png": {
-      "sha256": "c04ad7c439f437d3b62461d680866dac3656c86c643f5cda9acb4fc2373f82f8",
-      "bytes": 382646
-    },
-    "401bb972d177225c-fast-splitter-west.png": {
-      "sha256": "401bb972d177225c80048d849c515be7c1fe871c1c3b45149635da78deeb548e",
-      "bytes": 429826
-    },
-    "c825dfc39143133d-fast-underground-belt-structure-back-patch.png": {
-      "sha256": "c825dfc39143133d0a6e751c9b32490d98a8f4a70081fb65ed77bf984e73187e",
-      "bytes": 2022
-    },
-    "0290c33aace62c7b-fast-underground-belt-structure.png": {
-      "sha256": "0290c33aace62c7b31c4c481734c9cf6647912af916dd777a205af608c42d24e",
-      "bytes": 145229
-    },
-    "3ae57e60bce03282-fast-underground-belt-structure-front-patch.png": {
-      "sha256": "3ae57e60bce0328294b2731ca29f388dde3f24b9cf21aa868d9ff38f8b97d86c",
-      "bytes": 6300
-    },
-    "4ffffed91d4a150a-express-transport-belt.png": {
-      "sha256": "4ffffed91d4a150a0f81ee5d052aaa6d9ac6ff135a1ee0eefa4f871d076b51ee",
-      "bytes": 2145367
-    },
-    "e6e7c2abc9dd119d-express-splitter-east.png": {
-      "sha256": "e6e7c2abc9dd119d09b014b1c566e8d5a559a72fd07c7cef1ecddb7e59966914",
-      "bytes": 403392
-    },
-    "894f62d07ec15e0f-express-splitter-east-top_patch.png": {
-      "sha256": "894f62d07ec15e0f9ad0584f2689e7dff8b346fe60cca282304dbfa94c13069d",
-      "bytes": 400632
-    },
-    "538879fd216aac80-express-splitter-north.png": {
-      "sha256": "538879fd216aac8076839f1c56fe7a57caa354963a88145c6f4820b447fd7f43",
-      "bytes": 601175
-    },
-    "040237331f1dca41-express-splitter-west-top_patch.png": {
-      "sha256": "040237331f1dca419a1b7f510e70b57609bd2dfb80604f8e03b3beae833d7cd2",
-      "bytes": 385614
-    },
-    "ddbb48c462890580-express-splitter-west.png": {
-      "sha256": "ddbb48c4628905803d80363abbc54a7b16570ce13e76cd1a7e6600865f1fa0bf",
-      "bytes": 436403
-    },
-    "005ab2318b27d5a8-express-splitter-south.png": {
-      "sha256": "005ab2318b27d5a8d7962276684218616a99b24e1b7c44242da6e58e5871343d",
-      "bytes": 555814
-    },
-    "2c40ef6419da106d-express-underground-belt-structure-back-patch.png": {
-      "sha256": "2c40ef6419da106dc8b6c872a07c4dda1d2b1dbc539a3964970dac4aa4da1439",
-      "bytes": 2052
-    },
-    "b58cb657179facf4-express-underground-belt-structure.png": {
-      "sha256": "b58cb657179facf4724c4a6fc13f994e74fe442717a7b3695b8c03786a0147a7",
-      "bytes": 146371
-    },
-    "f1f4b77ee25a82af-express-underground-belt-structure-front-patch.png": {
-      "sha256": "f1f4b77ee25a82af21c5c9fe2824edda461bb6c68dfb1abbe63e2ef582e1ef93",
-      "bytes": 6296
-    },
-    "a26127acd6695d04-turbo-transport-belt.png": {
-      "sha256": "a26127acd6695d04b760109d60b80dda799f19f0893723a5a442ff1198ca9a37",
-      "bytes": 3677187
-    },
-    "d12258e82b20c3d1-turbo-splitter-east-top_patch.png": {
-      "sha256": "d12258e82b20c3d1ed3a61a60de55a1c0e2f1331b0e7a8c4af433c339020ab57",
-      "bytes": 406622
-    },
-    "9f0d57ca135490be-turbo-splitter-east.png": {
-      "sha256": "9f0d57ca135490be99139e8ab6028b259f760f10dbfaf63b9c53f20738b12d4a",
-      "bytes": 405515
-    },
-    "cf19d4b9661ef7ab-turbo-splitter-north.png": {
-      "sha256": "cf19d4b9661ef7abeec9fe2f1442ee57c04cc6daf85dbe8774b5ae29a53ee6ac",
-      "bytes": 597704
-    },
-    "285a62cf344dc9cb-turbo-splitter-west-top_patch.png": {
-      "sha256": "285a62cf344dc9cb54ee7606729aad4e7a5938e5d76e180b496c7d005d6004fb",
-      "bytes": 389759
-    },
-    "d1e13e6adb7c7ff4-turbo-splitter-west.png": {
-      "sha256": "d1e13e6adb7c7ff446fbe467491ae4f4863df6534d0d5b6f69b341427a1d04d7",
-      "bytes": 442142
-    },
-    "e04f8ea9bc6ae2e6-turbo-splitter-south.png": {
-      "sha256": "e04f8ea9bc6ae2e6088388338d89db83cf092f06c8bbd47c007f56f5e4d320d5",
-      "bytes": 536520
-    },
-    "3166cb7bf333fe97-turbo-underground-belt-structure.png": {
-      "sha256": "3166cb7bf333fe9749b687c40ccd6fd3c3296f4930183ec2a5ace7cbc27dbb54",
-      "bytes": 148323
-    },
-    "41082dbda90db1f9-turbo-underground-belt-structure-front-patch.png": {
-      "sha256": "41082dbda90db1f9ef4a354f1b1135ae905608cbbdab11fb2bc32b966dfd59d7",
-      "bytes": 7775
-    },
-    "0dd740f4cee7a67c-turbo-underground-belt-structure-back-patch.png": {
-      "sha256": "0dd740f4cee7a67c4aab49faa11c7daff6942b2aa51e12c1f47cb90bc5596326",
-      "bytes": 42851
+    "474f6b0433210a25-accumulator-shadow.png": {
+      "source": "__base__/graphics/entity/accumulator/accumulator-shadow.png",
+      "sha256": "474f6b0433210a25fd4139a14073ebb724d4f3f50bf746ddba974f9c0f3c5785",
+      "bytes": 3417
+    },
+    "683b720aaedb542c-accumulator.png": {
+      "source": "__base__/graphics/entity/accumulator/accumulator.png",
+      "sha256": "683b720aaedb542c26b6fb9176782aae518c420865f308b14c98bfb96ce8fe12",
+      "bytes": 48275
     },
     "c91c459fe1a7ef16-assembling-machine-1-shadow.png": {
+      "source": "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow.png",
       "sha256": "c91c459fe1a7ef16bfa2ee962caec31ef5c1988c1dc89675acb98a139b73df5b",
       "bytes": 29307
     },
     "2d48d144d0f79b0b-assembling-machine-1.png": {
+      "source": "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
       "sha256": "2d48d144d0f79b0b3ae45bd18c5ec12fde12c247d20742c3e8d6895b70d5d82a",
       "bytes": 2114047
     },
     "d001fe39c6f2681e-assembling-machine-2-shadow.png": {
+      "source": "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-shadow.png",
       "sha256": "d001fe39c6f2681ecf1e98314b93fb33a5dfcb67551200b92517840ec561576d",
       "bytes": 32217
     },
     "4542c22980cf5416-assembling-machine-2.png": {
+      "source": "__base__/graphics/entity/assembling-machine-2/assembling-machine-2.png",
       "sha256": "4542c22980cf541618726bb22bd67324fac8404011f47f1a10f18e73af51a2a3",
       "bytes": 2237497
     },
     "f568a7ec392abda1-assembling-machine-3-shadow.png": {
+      "source": "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-shadow.png",
       "sha256": "f568a7ec392abda18b80cbada85f6c14e2d7fcb212fdf54b26be188dae095a7b",
       "bytes": 57497
     },
     "5232e08b30e9c0c7-assembling-machine-3.png": {
+      "source": "__base__/graphics/entity/assembling-machine-3/assembling-machine-3.png",
       "sha256": "5232e08b30e9c0c767deab0594213c30f856c9846cf104a658fd442ea58f8082",
       "bytes": 2241510
     },
-    "4c889b53eed81de8-chemical-plant-shadow.png": {
-      "sha256": "4c889b53eed81de8d88c309471494af4a218ce45901fd22f33ac685d4870a16f",
-      "bytes": 16094
-    },
-    "25cb8328d42a4999-chemical-plant.png": {
-      "sha256": "25cb8328d42a4999f90ee8cd06e7f3837703257327cdf2fb468729331d709589",
-      "bytes": 2484654
-    },
-    "1ce942224bb0648b-oil-refinery-shadow.png": {
-      "sha256": "1ce942224bb0648b28c2d3378540f62cfcaf303030b71d3905d06a458f00bcfc",
-      "bytes": 69719
-    },
-    "0420674cb3ca6f9b-oil-refinery.png": {
-      "sha256": "0420674cb3ca6f9b1fb95abe60b6cd4eb96808da69a232e9071a2538f4c5611f",
-      "bytes": 1000872
-    },
-    "9bff6d90ced9de99-centrifuge-C-shadow.png": {
-      "sha256": "9bff6d90ced9de99a71404bb191ed77601cfb81f4a2dbb103b0746fb8284339f",
-      "bytes": 281355
-    },
-    "6bcc63b92d4b978d-centrifuge-B-shadow.png": {
-      "sha256": "6bcc63b92d4b978d8e4d4863e1abb0764382bfd4842355aadc0afaed5631d39f",
-      "bytes": 235133
-    },
-    "b840508c2de2e2b9-centrifuge-A-shadow.png": {
-      "sha256": "b840508c2de2e2b90d001fba665edf6eecfd84dd12ef19da6087e3f71d8bbd7d",
-      "bytes": 195979
-    },
-    "dfa5ce339e008e5f-centrifuge-B.png": {
-      "sha256": "dfa5ce339e008e5ffd998ef579cd08920f70436968f6b658b45c88280741634a",
-      "bytes": 2720886
-    },
-    "6ede8c097fc0005f-centrifuge-A.png": {
-      "sha256": "6ede8c097fc0005fa5e63010cc594b67747bbd25dc58549b9dc5eb069e31ed03",
-      "bytes": 2587525
-    },
-    "f4bc044e03703a86-centrifuge-C.png": {
-      "sha256": "f4bc044e03703a866c6ee1f3a3d70fd29ab4c39a304193971206fd64e760d80c",
-      "bytes": 3502727
-    },
-    "0231385a0d0df34c-foundry-shadow-2.png": {
-      "sha256": "0231385a0d0df34cc525903053ba75dbac0359c07e8bfeac6e446846d8439949",
-      "bytes": 217628
-    },
-    "dfa3787f1e4f53c5-foundry-shadow-1.png": {
-      "sha256": "dfa3787f1e4f53c5a672d945883d3f6e934ff1a8e5d52f7fc1875ad32f0fd468",
-      "bytes": 214902
-    },
-    "05cc4b8a17c14541-foundry-main-2.png": {
-      "sha256": "05cc4b8a17c1454145170194d30e1cb11fadb432807800a99367e369ec814ab6",
-      "bytes": 8658516
-    },
-    "effeddb40e34c343-foundry-main-1.png": {
-      "sha256": "effeddb40e34c343bb8c0be7df70c08f834f5ae8e3cd5852b07016e35150dae4",
-      "bytes": 9224239
-    },
-    "0a3c13b60cea6f8d-biochamber-shadow.png": {
-      "sha256": "0a3c13b60cea6f8db65a9c43f1036d7b3b833f2b37238f68d4b3b45cae093ba5",
-      "bytes": 9746
-    },
-    "00c0027d2a84d0d4-biochamber.png": {
-      "sha256": "00c0027d2a84d0d44c925d9b4c1d41a0676e6659cc263cd866af3b09aa9678d6",
-      "bytes": 98751
-    },
-    "cefeda8f21381b9d-biochamber-animation.png": {
-      "sha256": "cefeda8f21381b9d527f7da3129fb455a54bef8a8e31fe1ba561a233751d23f5",
-      "bytes": 640473
-    },
-    "a01d9c3cd5e9da1c-cryogenic-plant-main.png": {
-      "sha256": "a01d9c3cd5e9da1c01d44f6005e3a273dc269b12728560c8361fc28dd576beb0",
-      "bytes": 276810
-    },
-    "af1fa94a878f492b-cryogenic-plant-anim1-base.png": {
-      "sha256": "af1fa94a878f492b058ca8d71698528deff18da409f1b7c47bd373682892120e",
-      "bytes": 383106
-    },
-    "04b562b05990c0be-cryogenic-plant-anim2-base.png": {
-      "sha256": "04b562b05990c0be8d34ce10d13831e74d2532f17c0ac19b22c044b3f5ce4708",
-      "bytes": 172737
-    },
-    "7adbe9899b18ce39-cryogenic-plant-shadow.png": {
-      "sha256": "7adbe9899b18ce39eb3545cefdc90219f02baa3b76f44897de7cbff498a15e8b",
-      "bytes": 18498
-    },
-    "c394c67f9a4aedc5-cryogenic-plant-anim4-base.png": {
-      "sha256": "c394c67f9a4aedc5f766323899acc75e02bec1ec5aa83c19d246b0204bef8deb",
-      "bytes": 268917
-    },
-    "5ad14a3c030f0634-cryogenic-plant-anim6-base.png": {
-      "sha256": "5ad14a3c030f06347e173a15ccc614fa02ed6517ea4782ad4bf30fde025d2a43",
-      "bytes": 455582
-    },
-    "7a8b3aea199782bf-cryogenic-plant-anim5-base.png": {
-      "sha256": "7a8b3aea199782bfd14fb2cc2d9ba043d65586ba41b7300bbbb860590f1ccbdd",
-      "bytes": 550413
-    },
-    "3d6ec585434649bc-crusher-vertical-integration.png": {
-      "sha256": "3d6ec585434649bcb123901c39c89565a50d70c6d7711669ff62a0b6a33c0338",
-      "bytes": 27830
-    },
-    "82460f90a3fcbf1e-crusher-horizontal-shadow.png": {
-      "sha256": "82460f90a3fcbf1e7fd2644c3be6dc16e7acb0c5b13e465454ff5bd874198dab",
-      "bytes": 4263
-    },
-    "a3896dbec5a5495a-crusher-vertical-shadow.png": {
-      "sha256": "a3896dbec5a5495aa6c69947c91f8111fbbcd0ff12c219967fc02f58a41838b1",
-      "bytes": 1297
-    },
-    "6a9df3549652f68b-crusher-horizontal-integration.png": {
-      "sha256": "6a9df3549652f68b36c2c81a5794fec6d38f92d694775d34035b7aa0b4104096",
-      "bytes": 17029
-    },
-    "d29d79e8a5353d53-crusher-vertical.png": {
-      "sha256": "d29d79e8a5353d53ca87c2857e03704f19ff7a9cb973595c8f3f39a9dab009e7",
-      "bytes": 1515030
-    },
-    "6f493bfce55f2c85-crusher-horizontal.png": {
-      "sha256": "6f493bfce55f2c85deb6a00432d6fb6a803949f73f358bbbcfe69c3081666a91",
-      "bytes": 1964424
-    },
-    "46d0eaed36c64054-stone-furnace-shadow.png": {
-      "sha256": "46d0eaed36c640542fad8bb695cdbd3b6c5054f7d12884792a812ece89cb37b8",
-      "bytes": 1648
-    },
-    "82b7968cd741a31b-stone-furnace.png": {
-      "sha256": "82b7968cd741a31b22557e760ae758eb93b32ccf47837beb0af4d6413851b68a",
-      "bytes": 35204
-    },
-    "4941a9f5d189ba84-steel-furnace-shadow.png": {
-      "sha256": "4941a9f5d189ba845b9f64112fd21f49d1216c6d3ddae4a643047115298d66e1",
-      "bytes": 2161
-    },
-    "f60deb08bbe927c3-steel-furnace.png": {
-      "sha256": "f60deb08bbe927c3ca5cc0d5559d041000cf095f3e6a162b5ed08f0eb96b9cd8",
-      "bytes": 46019
-    },
-    "6a54dd3c39251e5a-electric-furnace-shadow.png": {
-      "sha256": "6a54dd3c39251e5ae51772642b1ed59e589ff5b1a7455d9fd07f29c4e6fd9705",
-      "bytes": 4071
-    },
-    "2c0df9663b3388fc-electric-furnace.png": {
-      "sha256": "2c0df9663b3388fc68152de319b8aab93c65f6f0ca7ed185b00a7edc3bc42083",
-      "bytes": 99305
-    },
-    "9d2c345910c06820-recycler-N-shadow.png": {
-      "sha256": "9d2c345910c06820bca55979f0c18c95d616e62639184878b04bcebf07c20605",
-      "bytes": 209131
-    },
-    "875641c6f6322d1d-recycler-E-shadow.png": {
-      "sha256": "875641c6f6322d1db2571dda60204bcec24baaca3240ca0e5624a3b8a9eb9876",
-      "bytes": 153992
-    },
-    "a01b4cfe00ba7c58-recycler-S-shadow.png": {
-      "sha256": "a01b4cfe00ba7c58c74b18c2980ccb9239cfccc2b431ba6749183ef3f2ab394c",
-      "bytes": 232302
-    },
-    "f5a6373c9102657e-recycler-W-shadow.png": {
-      "sha256": "f5a6373c9102657effc725270d7e12a5084171fffd2261ba22dc901761079d25",
-      "bytes": 155204
-    },
-    "c038a603ad27bc97-recycler-E.png": {
-      "sha256": "c038a603ad27bc97681720264837d8a7d31f8365b5b1329a51876a3d5fc51f7d",
-      "bytes": 3683267
-    },
-    "cd7f8eabf2bb9bd1-recycler-S.png": {
-      "sha256": "cd7f8eabf2bb9bd1becf1e375a25a26d4473988156d918cdb1f3f65b55af94b2",
-      "bytes": 3529467
-    },
-    "de73f620cbb1f1c9-recycler-N.png": {
-      "sha256": "de73f620cbb1f1c9eec7acabcfe40bd438ad49e4b2d8c4adbacf2843ab661acf",
-      "bytes": 3672483
-    },
-    "8712e134eb790d0e-recycler-W.png": {
-      "sha256": "8712e134eb790d0ea6344a30107aecb2d2a5a392c6ef621dafaa73f3eec87d22",
-      "bytes": 4159917
-    },
-    "8ded217a7321f5f7-burner-mining-drill-E-shadow.png": {
-      "sha256": "8ded217a7321f5f78fd582f584ef5167727c1092682ab1498c5ef9ecb5f33a63",
-      "bytes": 89805
-    },
-    "3cb3dcb2144c567e-burner-mining-drill-N-shadow.png": {
-      "sha256": "3cb3dcb2144c567e274d468325f3e101a1677dac556fad1018e3d6b80e9b044f",
-      "bytes": 101709
-    },
-    "a4a38f2f37b13b77-burner-mining-drill-S-shadow.png": {
-      "sha256": "a4a38f2f37b13b77a51f5b334c41c4bf1665e63aaf93b8057903489a4a9de5b2",
-      "bytes": 100724
-    },
-    "ca754bb7cf1cdac1-burner-mining-drill-W-shadow.png": {
-      "sha256": "ca754bb7cf1cdac10a0192aa4ae37463e6060e92fdfa04728ec39226f38cb97f",
-      "bytes": 90602
-    },
-    "c08767c83f4ee6b4-burner-mining-drill-S.png": {
-      "sha256": "c08767c83f4ee6b417aa0d5a9f011b1c5bf84eefbca6ea04a12e443de33e2aab",
-      "bytes": 1038268
-    },
-    "0d7058a9a703ec95-burner-mining-drill-W.png": {
-      "sha256": "0d7058a9a703ec95d6a52f966716223d8e8619c2a16c2aca7ecbe75207c91587",
-      "bytes": 969002
-    },
-    "68cbc28585bbbcc2-burner-mining-drill-E.png": {
-      "sha256": "68cbc28585bbbcc27797d98c5981dab52643c75cd404e8bbc55fb3278f3b06c7",
-      "bytes": 983402
-    },
-    "c88f992a25388381-burner-mining-drill-N.png": {
-      "sha256": "c88f992a253883810f4813e40cd10e0a3b321ab896ae55d1a5444f5de60b7364",
-      "bytes": 1026991
-    },
-    "112c93df5f73ff4d-pumpjack-base.png": {
-      "sha256": "112c93df5f73ff4daa80385b9cbe04451cdd2d401924a1c087ee0f478474433f",
-      "bytes": 355938
-    },
-    "370e66585c7329a1-pumpjack-base-shadow.png": {
-      "sha256": "370e66585c7329a1874e428e4a8f2d4629422ec5af9b841fb69316310be68c2a",
-      "bytes": 21284
-    },
-    "6f0dee13320730a0-pumpjack-horsehead-shadow.png": {
-      "sha256": "6f0dee13320730a005f8f2816a05d4bd0b4494eafa332576312d218ab7ead5e5",
-      "bytes": 143820
-    },
-    "cccd92a5bfbda044-pumpjack-horsehead.png": {
-      "sha256": "cccd92a5bfbda044b56aa9d9088eb62b3f3e4d5d3ba0a78e6f4f88d56a587643",
-      "bytes": 2042916
-    },
-    "a95369bc1b57a24b-lab-shadow.png": {
-      "sha256": "a95369bc1b57a24bd21c287cc8b40f75340f08434f244d23c19f519f1cc92c10",
-      "bytes": 7378
-    },
-    "62f0c3ad653db8e3-lab-integration.png": {
-      "sha256": "62f0c3ad653db8e3a8c69faffe914d3e7b0806078f7db626b2a6c50307898668",
-      "bytes": 39556
-    },
-    "fef73c591af28c41-lab.png": {
-      "sha256": "fef73c591af28c419846d81d84c1b28f1fddbc2d5bc72a71a3012e7af25e4c11",
-      "bytes": 1517566
-    },
-    "01b6a71579037e85-biolab-shadow.png": {
-      "sha256": "01b6a71579037e85441d7cf0bcbe0445377e48e4ebc59b651751b6d2609c1d86",
-      "bytes": 75159
-    },
-    "7197aefc33a49418-biolab-anim.png": {
-      "sha256": "7197aefc33a494184e1a54a335aff1365669675aa67f1a42f94462f4456a184c",
-      "bytes": 6148594
-    },
-    "37ad9c547aada92f-small-electric-pole-shadow.png": {
-      "sha256": "37ad9c547aada92fc5f3cffd45e4389e09eaef1c4964ddd60a2e5ddaeecc1753",
-      "bytes": 6833
-    },
-    "29ab5ef02f99d251-small-electric-pole.png": {
-      "sha256": "29ab5ef02f99d25117f77ba2c0e47164fb834d4b8a13ae820997675c9504e380",
-      "bytes": 44465
-    },
-    "672403dd2d6cd5a9-medium-electric-pole-shadow.png": {
-      "sha256": "672403dd2d6cd5a93a7e1b98233d9f0939aa6fb56482ab939864eb578b523aee",
-      "bytes": 7760
-    },
-    "c0757403f0ba5b9e-medium-electric-pole.png": {
-      "sha256": "c0757403f0ba5b9e623ffaaeebebb297274c824b778d2fa6cc85dfe61a9b4da7",
-      "bytes": 82838
-    },
     "261a74176633bdf4-big-electric-pole-shadow.png": {
+      "source": "__base__/graphics/entity/big-electric-pole/big-electric-pole-shadow.png",
       "sha256": "261a74176633bdf45fe1f43247804dbbbd93541006d56302a90dc383d2aa0c61",
       "bytes": 41382
     },
     "b444c68164d9efc1-big-electric-pole.png": {
+      "source": "__base__/graphics/entity/big-electric-pole/big-electric-pole.png",
       "sha256": "b444c68164d9efc1f1a99dc60438c52bf229f43937c213ab4560d8c7cc5ce1f4",
       "bytes": 243206
     },
-    "7dd20ad47d44faeb-substation-shadow.png": {
-      "sha256": "7dd20ad47d44faebcd1e6a61138739ff57631e6f2cdc8834b1ed2b0349c06bcc",
-      "bytes": 19892
-    },
-    "217fbccb275c73f7-substation.png": {
-      "sha256": "217fbccb275c73f76889c3599f3ca2a1d00c50278936a4c7015a21183d7e6691",
-      "bytes": 91438
-    },
-    "8b043c8fdbedf2c2-solar-panel.png": {
-      "sha256": "8b043c8fdbedf2c289879482d01d687bcf557447e7eadc201172bb4b43aebb94",
-      "bytes": 101748
-    },
-    "4bed44aa4e510944-solar-panel-shadow.png": {
-      "sha256": "4bed44aa4e5109448ad1a52ce3795a9a83afa0f6243587bb842cf8a91f9e3568",
-      "bytes": 3874
-    },
-    "683b720aaedb542c-accumulator.png": {
-      "sha256": "683b720aaedb542c26b6fb9176782aae518c420865f308b14c98bfb96ce8fe12",
-      "bytes": 48275
-    },
-    "474f6b0433210a25-accumulator-shadow.png": {
-      "sha256": "474f6b0433210a25fd4139a14073ebb724d4f3f50bf746ddba974f9c0f3c5785",
-      "bytes": 3417
-    },
-    "a8a402be6c486ba8-steam-engine-H-shadow.png": {
-      "sha256": "a8a402be6c486ba8315b251ba90e261697ad4a6b512f69272d42abb7f5bc222c",
-      "bytes": 185828
-    },
-    "cada31acc59a587e-steam-engine-V-shadow.png": {
-      "sha256": "cada31acc59a587e8cdb03ccfff3cc7a469be371e3cb1cca6ed37d61659d089d",
-      "bytes": 254135
-    },
-    "69345dd7b86b3cbc-steam-engine-V.png": {
-      "sha256": "69345dd7b86b3cbc51842fa0eb6572f71c66b68d140dad0d7b491db12477e69d",
-      "bytes": 3787472
-    },
-    "27a5497eb6247482-steam-engine-H.png": {
-      "sha256": "27a5497eb62474828b47af4c79f1be436d2428b2daec5fb9ad0df72fd366cfae",
-      "bytes": 4066935
-    },
-    "0f61b57c63a85d16-steam-turbine-H-shadow.png": {
-      "sha256": "0f61b57c63a85d16b291c83925bfa1454b36e0e8600b6374078645b25c1ba499",
-      "bytes": 26563
-    },
-    "b16f12751863c23e-steam-turbine-V-shadow.png": {
-      "sha256": "b16f12751863c23e1812caa22149432599f41fb3c209e12a45b590dddff1d172",
-      "bytes": 34348
-    },
-    "e75a47170f4267ca-steam-turbine-V.png": {
-      "sha256": "e75a47170f4267ca71441b011b2532ab2376fe8fec374efe3be5a41773600545",
-      "bytes": 908894
-    },
-    "dd06ff9ebde586fd-steam-turbine-H.png": {
-      "sha256": "dd06ff9ebde586fd295ea4e9bb83731a6b62a13fa7a1356ac5a1ab7d6a106a26",
-      "bytes": 913431
-    },
-    "6cac66db1ad4e854-reactor.png": {
-      "sha256": "6cac66db1ad4e854a255d327166632117314e4dcdf9ca6be4d2fb5698d6a7512",
-      "bytes": 149888
-    },
-    "212c1687badaf203-reactor-pipes.png": {
-      "sha256": "212c1687badaf2039b7745e8a8892b904cdb2c2420d8397db35d81931b3b1b96",
-      "bytes": 39719
-    },
-    "c6ff4441ec36796d-reactor-shadow.png": {
-      "sha256": "c6ff4441ec36796dcd1150021ef1eb4a363183363b0e5a5e2ebb4850975d397e",
-      "bytes": 7392
-    },
-    "0c4c42b326dc5374-heating-tower-shadow.png": {
-      "sha256": "0c4c42b326dc53747ab9c700a95ecd5b2f11cd74ef249003420e9c4db8984f9d",
-      "bytes": 7919
-    },
-    "9695400d3b39a7f0-heating-tower-main.png": {
-      "sha256": "9695400d3b39a7f0f80aae6ec7a12d664d819c374b4d84cae5245b5585dbf6fb",
-      "bytes": 98944
-    },
-    "31ea2426c33b5ef1-boiler-N-shadow.png": {
-      "sha256": "31ea2426c33b5ef140449c0dac2ed3e09bfb02c6ee55700130819127ff1f5e20",
-      "bytes": 3194
-    },
-    "b87fd51947923cf0-boiler-N-idle.png": {
-      "sha256": "b87fd51947923cf013322b32d3af576288b878fc75a788bda7918559f373d36f",
-      "bytes": 68078
-    },
     "f274118f7b2d805f-boiler-E-idle.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-E-idle.png",
       "sha256": "f274118f7b2d805fc918a7aa4b8d15789921073318bcad09e00e7c281b8eb3d3",
       "bytes": 79886
     },
     "d686647a95886f04-boiler-E-patch.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-E-patch.png",
       "sha256": "d686647a95886f048400a0931e2ef949d7b891e7c44dfad247185d4d942542ec",
       "bytes": 679
     },
-    "e494af61f49838c6-boiler-S-shadow.png": {
-      "sha256": "e494af61f49838c6773a09821aa04e670b955e7896a6123dccbbbb90e3487a34",
-      "bytes": 3821
-    },
     "4be3e90aff71163e-boiler-E-shadow.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-E-shadow.png",
       "sha256": "4be3e90aff71163e59c52370ad1f6f7724ed5162c74dd52b29548ee6f1c6ae19",
       "bytes": 3747
     },
+    "b87fd51947923cf0-boiler-N-idle.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-N-idle.png",
+      "sha256": "b87fd51947923cf013322b32d3af576288b878fc75a788bda7918559f373d36f",
+      "bytes": 68078
+    },
+    "31ea2426c33b5ef1-boiler-N-shadow.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-N-shadow.png",
+      "sha256": "31ea2426c33b5ef140449c0dac2ed3e09bfb02c6ee55700130819127ff1f5e20",
+      "bytes": 3194
+    },
     "6998676cc39c6c51-boiler-S-idle.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-S-idle.png",
       "sha256": "6998676cc39c6c51ba8c2f3e9ed91bf1cd7ea50c5c21a180b730c54e6662c6eb",
       "bytes": 63191
     },
+    "e494af61f49838c6-boiler-S-shadow.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-S-shadow.png",
+      "sha256": "e494af61f49838c6773a09821aa04e670b955e7896a6123dccbbbb90e3487a34",
+      "bytes": 3821
+    },
     "f2b149f80972ba06-boiler-W-idle.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-W-idle.png",
       "sha256": "f2b149f80972ba06493773281a82d1a51913ed72e82819151bb816bd520c5cfe",
       "bytes": 73714
     },
     "803cfd5f42ee212d-boiler-W-shadow.png": {
+      "source": "__base__/graphics/entity/boiler/boiler-W-shadow.png",
       "sha256": "803cfd5f42ee212d71b6a10ebc9dc2a84420bfb1283d613543961048e99edc06",
       "bytes": 3895
     },
-    "814df8a596039654-heatex-N-idle.png": {
-      "sha256": "814df8a59603965475a525904d2b7c9cb866a6f51b6cf1d6e204e697ec39937a",
-      "bytes": 66991
+    "21c66663cc444cd4-bulk-inserter-hand-base.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-hand-base.png",
+      "sha256": "21c66663cc444cd42b5d39508adaee44cd1300364689346d7987d4735515a638",
+      "bytes": 7207
     },
-    "1a0a4be1e28f2efb-heatex-E-idle.png": {
-      "sha256": "1a0a4be1e28f2efbd3b5447697ed2f70f072f51f06aa691bc8f00cee4aabfb1a",
-      "bytes": 79492
+    "e09e4a781e5f3253-bulk-inserter-hand-closed-shadow.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-hand-closed-shadow.png",
+      "sha256": "e09e4a781e5f3253301ae505705b35fe9c5d9ee77bf1f2dad4f418c1957c2ae8",
+      "bytes": 5034
     },
-    "43fb284406320d0c-heatex-S-idle.png": {
-      "sha256": "43fb284406320d0ce43d85e2718b15c5d0cbc2d1f8b38395c9fe5abbd3130450",
-      "bytes": 64413
+    "f019c81251309e7c-bulk-inserter-hand-closed.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-hand-closed.png",
+      "sha256": "f019c81251309e7c27f09d769c88eab540c45e3e617b99c6cb5a8440f9a31fae",
+      "bytes": 21469
     },
-    "ed4b5fd875633ae7-heatex-W-idle.png": {
-      "sha256": "ed4b5fd875633ae7c9beb29f321b2b10528745e99d882e7035500e963fd8d665",
-      "bytes": 73771
+    "fd4ee1a0c58980cc-bulk-inserter-hand-open-shadow.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-hand-open-shadow.png",
+      "sha256": "fd4ee1a0c58980ccb96dad76d5063c2ac86fec12cee6c84e20ccb470e6074b31",
+      "bytes": 5374
     },
-    "fe2820ed468b4110-storage-tank.png": {
-      "sha256": "fe2820ed468b41105aa582a28f384014625182e4ee49e92ecbe5ee9cca25e7ff",
-      "bytes": 167443
+    "f05b4dbf3d8426fc-bulk-inserter-hand-open.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-hand-open.png",
+      "sha256": "f05b4dbf3d8426fc7d8607f70395d46b4e3b4c225393cb3b396332d2c0f086da",
+      "bytes": 22731
     },
-    "fe3ea349417fb080-storage-tank-shadow.png": {
-      "sha256": "fe3ea349417fb080fdb1f646122578d4fcee5868e1895e884e5c3ba5415cadcb",
-      "bytes": 6892
+    "1e7fda723cd95550-bulk-inserter-platform.png": {
+      "source": "__base__/graphics/entity/bulk-inserter/bulk-inserter-platform.png",
+      "sha256": "1e7fda723cd95550dc9e1cb977f92faae79602549c01a799218322861edd2c79",
+      "bytes": 36791
     },
-    "54ab1d8d586d8587-pipe-straight-horizontal.png": {
-      "sha256": "54ab1d8d586d85879cfefad12f2657c32e44dce1fb468474b50a99fe0004e646",
-      "bytes": 7087
+    "fba8ee6c1d7b8b35-burner-inserter-hand-base-shadow.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base-shadow.png",
+      "sha256": "fba8ee6c1d7b8b357a1afeb11cab290ed90ee4dc6da19bc4c910bf7fe917a19d",
+      "bytes": 943
     },
-    "e34b41ec47f90ece-pipe-corner-up-right.png": {
-      "sha256": "e34b41ec47f90ececc982f694c04f39228fbe56a111553c123791a7261c43064",
-      "bytes": 11064
+    "5e0e2d90c17a28ab-burner-inserter-hand-base.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base.png",
+      "sha256": "5e0e2d90c17a28ab3bae465d58e26862b59a5ff4b09627a0d7243ab198be7ec6",
+      "bytes": 7122
     },
-    "4173f3d82ddc8e6e-pipe-corner-up-left.png": {
-      "sha256": "4173f3d82ddc8e6ee7b7dc310ce6ba96a93b983a7a4c92a5399ef51c364115fd",
-      "bytes": 10818
+    "d97470e499694811-burner-inserter-hand-closed-shadow.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-closed-shadow.png",
+      "sha256": "d97470e49969481187956d6557728070be494c11000566c9cab9f7ad269e4786",
+      "bytes": 1208
     },
-    "9327471f212f98ed-pipe-straight-vertical.png": {
-      "sha256": "9327471f212f98ede6967477118661b76d0166e0fa2d95942ade51f1297c3dc2",
-      "bytes": 11476
+    "b8078289132153c1-burner-inserter-hand-closed.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-closed.png",
+      "sha256": "b8078289132153c1fc270796e09eb7c947de63d63b01053986cc711149f61728",
+      "bytes": 11947
     },
-    "edb1c2bfb81a4a36-pipe-corner-down-left.png": {
-      "sha256": "edb1c2bfb81a4a36b3ce7f2a315e92e7a52082e6d1ec275ede774b2e15afac2a",
-      "bytes": 7007
+    "497af01326de96da-burner-inserter-hand-open-shadow.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-open-shadow.png",
+      "sha256": "497af01326de96da10c648356fa77aa100f368fd9693a629ea11a32fc627a27b",
+      "bytes": 1413
     },
-    "dd83a7257e6f341c-pipe-t-up.png": {
-      "sha256": "dd83a7257e6f341c15bc0c50d92c3c85ba2e12cc1652eae5c002b775c75893c7",
-      "bytes": 12366
+    "cceb9d1ad4b77f80-burner-inserter-hand-open.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-hand-open.png",
+      "sha256": "cceb9d1ad4b77f80648cd1968123a4e6375501a1a7a684f6d7a16c7e369f8d09",
+      "bytes": 12043
     },
-    "489fe8ec2b380d94-pipe-corner-down-right.png": {
-      "sha256": "489fe8ec2b380d94e4a9c573eadb84da53940199f00fd4509a487a271ed0aecc",
-      "bytes": 6638
+    "c7772d4f14f861e7-burner-inserter-platform.png": {
+      "source": "__base__/graphics/entity/burner-inserter/burner-inserter-platform.png",
+      "sha256": "c7772d4f14f861e7e5fea4dafd79ef2ebe6c40bc4a2f4a715335d18d95864582",
+      "bytes": 35681
     },
-    "443fe8f90eea50ff-pipe-t-down.png": {
-      "sha256": "443fe8f90eea50ffe21052993d1c23b03d4bfd422f5c787db5599ac2ca9719b5",
-      "bytes": 8651
+    "8ded217a7321f5f7-burner-mining-drill-E-shadow.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-E-shadow.png",
+      "sha256": "8ded217a7321f5f78fd582f584ef5167727c1092682ab1498c5ef9ecb5f33a63",
+      "bytes": 89805
     },
-    "33b8eb1a17615a2e-pipe-t-right.png": {
-      "sha256": "33b8eb1a17615a2e75d1e93750c60520d478b3ec5cebffcbe7d6d1de61cdec0b",
-      "bytes": 12420
+    "68cbc28585bbbcc2-burner-mining-drill-E.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-E.png",
+      "sha256": "68cbc28585bbbcc27797d98c5981dab52643c75cd404e8bbc55fb3278f3b06c7",
+      "bytes": 983402
     },
-    "435e1b46ca977b8e-pipe-ending-up.png": {
-      "sha256": "435e1b46ca977b8e571c7e5a72e2f89512e47551f644aa1583fbee618d25e9ef",
-      "bytes": 12401
+    "3cb3dcb2144c567e-burner-mining-drill-N-shadow.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-N-shadow.png",
+      "sha256": "3cb3dcb2144c567e274d468325f3e101a1677dac556fad1018e3d6b80e9b044f",
+      "bytes": 101709
     },
-    "612bb5101addc411-pipe-cross.png": {
-      "sha256": "612bb5101addc41128c0fcec8f21783411406f460e385186c2cd9e24aff6fd41",
-      "bytes": 13590
+    "c88f992a25388381-burner-mining-drill-N.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-N.png",
+      "sha256": "c88f992a253883810f4813e40cd10e0a3b321ab896ae55d1a5444f5de60b7364",
+      "bytes": 1026991
     },
-    "1deaba05e29650a2-pipe-ending-down.png": {
-      "sha256": "1deaba05e29650a23b937dadb5cdc6cad9a8244294859d497bd36285b28533a6",
-      "bytes": 7874
+    "a4a38f2f37b13b77-burner-mining-drill-S-shadow.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-S-shadow.png",
+      "sha256": "a4a38f2f37b13b77a51f5b334c41c4bf1665e63aaf93b8057903489a4a9de5b2",
+      "bytes": 100724
     },
-    "6f2b6fab1d3748b6-pipe-ending-left.png": {
-      "sha256": "6f2b6fab1d3748b685a7ec95d33d56282cf1159866a7ec229427ecd5ad6bf6e0",
-      "bytes": 8057
+    "c08767c83f4ee6b4-burner-mining-drill-S.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-S.png",
+      "sha256": "c08767c83f4ee6b417aa0d5a9f011b1c5bf84eefbca6ea04a12e443de33e2aab",
+      "bytes": 1038268
     },
-    "aaa5892cc4d626b7-pipe-ending-right.png": {
-      "sha256": "aaa5892cc4d626b7512a5b531d9c18e0f37381ca631b7529fac39810b964b315",
-      "bytes": 7849
+    "ca754bb7cf1cdac1-burner-mining-drill-W-shadow.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-W-shadow.png",
+      "sha256": "ca754bb7cf1cdac10a0192aa4ae37463e6060e92fdfa04728ec39226f38cb97f",
+      "bytes": 90602
     },
-    "99e251585f9ceec9-pipe-t-left.png": {
-      "sha256": "99e251585f9ceec9413588fb921b826506f36c93a087798639b3c87b34563799",
-      "bytes": 12480
+    "0d7058a9a703ec95-burner-mining-drill-W.png": {
+      "source": "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-W.png",
+      "sha256": "0d7058a9a703ec95d6a52f966716223d8e8619c2a16c2aca7ecbe75207c91587",
+      "bytes": 969002
     },
-    "4ad468a53603d1d7-pump-north.png": {
-      "sha256": "4ad468a53603d1d7566f77a8ca965851547e90b8cc2432c75e9519002efad296",
-      "bytes": 186295
+    "b840508c2de2e2b9-centrifuge-A-shadow.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-A-shadow.png",
+      "sha256": "b840508c2de2e2b90d001fba665edf6eecfd84dd12ef19da6087e3f71d8bbd7d",
+      "bytes": 195979
     },
-    "c631a4b6d5ad0350-pump-east.png": {
-      "sha256": "c631a4b6d5ad03507c1c5f7968da070cdd6d4cd65581872ef18574f14cf84efe",
-      "bytes": 266107
+    "6ede8c097fc0005f-centrifuge-A.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-A.png",
+      "sha256": "6ede8c097fc0005fa5e63010cc594b67747bbd25dc58549b9dc5eb069e31ed03",
+      "bytes": 2587525
     },
-    "7735d8f7cfc942a1-pump-west.png": {
-      "sha256": "7735d8f7cfc942a16f2849baffa4e1d26f9f3adc575360189239ebf3f100312d",
-      "bytes": 295232
+    "6bcc63b92d4b978d-centrifuge-B-shadow.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-B-shadow.png",
+      "sha256": "6bcc63b92d4b978d8e4d4863e1abb0764382bfd4842355aadc0afaed5631d39f",
+      "bytes": 235133
     },
-    "10a3c325aa365a13-pump-south.png": {
-      "sha256": "10a3c325aa365a1375edaeb5e051b30cd2da86efb812370914b3c0cc145161e6",
-      "bytes": 216258
+    "dfa5ce339e008e5f-centrifuge-B.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-B.png",
+      "sha256": "dfa5ce339e008e5ffd998ef579cd08920f70436968f6b658b45c88280741634a",
+      "bytes": 2720886
     },
-    "2194265338e70ffe-arithmetic-combinator.png": {
-      "sha256": "2194265338e70ffec4d3465db7a78c2c8bd305fe7b22c4c28b917e57adc8aee5",
-      "bytes": 99250
+    "9bff6d90ced9de99-centrifuge-C-shadow.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-C-shadow.png",
+      "sha256": "9bff6d90ced9de99a71404bb191ed77601cfb81f4a2dbb103b0746fb8284339f",
+      "bytes": 281355
+    },
+    "f4bc044e03703a86-centrifuge-C.png": {
+      "source": "__base__/graphics/entity/centrifuge/centrifuge-C.png",
+      "sha256": "f4bc044e03703a866c6ee1f3a3d70fd29ab4c39a304193971206fd64e760d80c",
+      "bytes": 3502727
+    },
+    "4c889b53eed81de8-chemical-plant-shadow.png": {
+      "source": "__base__/graphics/entity/chemical-plant/chemical-plant-shadow.png",
+      "sha256": "4c889b53eed81de8d88c309471494af4a218ce45901fd22f33ac685d4870a16f",
+      "bytes": 16094
+    },
+    "25cb8328d42a4999-chemical-plant.png": {
+      "source": "__base__/graphics/entity/chemical-plant/chemical-plant.png",
+      "sha256": "25cb8328d42a4999f90ee8cd06e7f3837703257327cdf2fb468729331d709589",
+      "bytes": 2484654
     },
     "b7840c23d9f58b08-arithmetic-combinator-shadow.png": {
+      "source": "__base__/graphics/entity/combinator/arithmetic-combinator-shadow.png",
       "sha256": "b7840c23d9f58b0857c9433fd524cd7b47e1e9ad4f41c0c003f2655bf049e6f1",
       "bytes": 7645
     },
-    "00bc821a8fbe71c2-decider-combinator-shadow.png": {
-      "sha256": "00bc821a8fbe71c2ba5db27684ddc42cb19a20ae4f85c477dec9d9a2a104cdb2",
-      "bytes": 7901
-    },
-    "83d825ad536db365-decider-combinator.png": {
-      "sha256": "83d825ad536db3657c3c7cdc24c1a05c044eef62e3730ca713cca3098c2e3178",
-      "bytes": 104982
-    },
-    "6d7a58c534e08172-selector-combinator-shadow.png": {
-      "sha256": "6d7a58c534e081728a45f8cd4ca98bb249aaf8652973bc044f036d3220b223be",
-      "bytes": 9217
-    },
-    "5d6b28182e26d8ae-selector-combinator.png": {
-      "sha256": "5d6b28182e26d8aea16bd55d6d9d3f35f0064114eb88aa15a9755f983c68cc27",
-      "bytes": 102268
+    "2194265338e70ffe-arithmetic-combinator.png": {
+      "source": "__base__/graphics/entity/combinator/arithmetic-combinator.png",
+      "sha256": "2194265338e70ffec4d3465db7a78c2c8bd305fe7b22c4c28b917e57adc8aee5",
+      "bytes": 99250
     },
     "e0a7661234785ec0-constant-combinator-shadow.png": {
+      "source": "__base__/graphics/entity/combinator/constant-combinator-shadow.png",
       "sha256": "e0a7661234785ec0553c27f85ab599bc112ff919f2e498974067a3b21229bb79",
       "bytes": 4818
     },
     "c2fb05ce802d03bc-constant-combinator.png": {
+      "source": "__base__/graphics/entity/combinator/constant-combinator.png",
       "sha256": "c2fb05ce802d03bceffb16c40147a2ae92c023dc21a224ba944adffaefd2e6b6",
       "bytes": 65546
     },
-    "84a79b6b02fc92b4-lamp.png": {
-      "sha256": "84a79b6b02fc92b456413ab6278ee2bac78e1d449ede10fe2a9b989c2ccdd7bc",
-      "bytes": 11497
+    "00bc821a8fbe71c2-decider-combinator-shadow.png": {
+      "source": "__base__/graphics/entity/combinator/decider-combinator-shadow.png",
+      "sha256": "00bc821a8fbe71c2ba5db27684ddc42cb19a20ae4f85c477dec9d9a2a104cdb2",
+      "bytes": 7901
     },
-    "2ae6b093bc6d3a78-lamp-shadow.png": {
-      "sha256": "2ae6b093bc6d3a783b5fb62fb73ac190abb8990f16d57102200fccded41ac557",
-      "bytes": 885
+    "83d825ad536db365-decider-combinator.png": {
+      "source": "__base__/graphics/entity/combinator/decider-combinator.png",
+      "sha256": "83d825ad536db3657c3c7cdc24c1a05c044eef62e3730ca713cca3098c2e3178",
+      "bytes": 104982
     },
-    "cfe889cce7ec1cbb-lamp-light.png": {
-      "sha256": "cfe889cce7ec1cbb7ed5aae78d3c39dcf6979d05e7d72e815f4c67320d52623d",
-      "bytes": 2687
+    "6d7a58c534e08172-selector-combinator-shadow.png": {
+      "source": "__base__/graphics/entity/combinator/selector-combinator-shadow.png",
+      "sha256": "6d7a58c534e081728a45f8cd4ca98bb249aaf8652973bc044f036d3220b223be",
+      "bytes": 9217
     },
-    "bb490c5221948028-logistic-robot-shadow.png": {
-      "sha256": "bb490c5221948028a50822d225b33d703dff60092f393845a26d42bf6c86caad",
-      "bytes": 35156
-    },
-    "8c93208b239ae453-logistic-robot.png": {
-      "sha256": "8c93208b239ae4534b55ef9bf4735171d28dab96d12c6d2aaa7e8a3c0abf47f9",
-      "bytes": 416509
+    "5d6b28182e26d8ae-selector-combinator.png": {
+      "source": "__base__/graphics/entity/combinator/selector-combinator.png",
+      "sha256": "5d6b28182e26d8aea16bd55d6d9d3f35f0064114eb88aa15a9755f983c68cc27",
+      "bytes": 102268
     },
     "87bca45b2c420f99-construction-robot-shadow.png": {
+      "source": "__base__/graphics/entity/construction-robot/construction-robot-shadow.png",
       "sha256": "87bca45b2c420f9953ef4226c1a0dfe34c62db13d226822f1d5c24a2aced9a33",
       "bytes": 25931
     },
     "0a16219a13dd38e3-construction-robot.png": {
+      "source": "__base__/graphics/entity/construction-robot/construction-robot.png",
       "sha256": "0a16219a13dd38e396bba58373a2ec337d5b3d9da5dc81120656abfa9842fe5f",
       "bytes": 227352
     },
-    "c4ece64de48b13bf-roboport-shadow.png": {
-      "sha256": "c4ece64de48b13bf15ae4a77abeb7179ade00e661cd7c9dc18d126e0315ffa20",
-      "bytes": 5436
+    "6a54dd3c39251e5a-electric-furnace-shadow.png": {
+      "source": "__base__/graphics/entity/electric-furnace/electric-furnace-shadow.png",
+      "sha256": "6a54dd3c39251e5ae51772642b1ed59e589ff5b1a7455d9fd07f29c4e6fd9705",
+      "bytes": 4071
     },
-    "55a3115ad94e2293-roboport-base-patch.png": {
-      "sha256": "55a3115ad94e229381bada32312d6681123dc366ec034f991524d6b693271768",
-      "bytes": 26783
+    "2c0df9663b3388fc-electric-furnace.png": {
+      "source": "__base__/graphics/entity/electric-furnace/electric-furnace.png",
+      "sha256": "2c0df9663b3388fc68152de319b8aab93c65f6f0ca7ed185b00a7edc3bc42083",
+      "bytes": 99305
     },
-    "2ce039bcc53aca64-roboport-door-up.png": {
-      "sha256": "2ce039bcc53aca64a44e7e6877c652d80a8c67bf94b56121794ae02c3fdb78df",
-      "bytes": 97330
+    "894f62d07ec15e0f-express-splitter-east-top_patch.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-east-top_patch.png",
+      "sha256": "894f62d07ec15e0f9ad0584f2689e7dff8b346fe60cca282304dbfa94c13069d",
+      "bytes": 400632
     },
-    "4dcf658978cd2b5d-roboport-base.png": {
-      "sha256": "4dcf658978cd2b5d2fa23f8af53f0fd05665d8b8b3017dfdafc3f8dbfa1568a8",
-      "bytes": 112777
+    "e6e7c2abc9dd119d-express-splitter-east.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-east.png",
+      "sha256": "e6e7c2abc9dd119d09b014b1c566e8d5a559a72fd07c7cef1ecddb7e59966914",
+      "bytes": 403392
     },
-    "7287da6792bc8ca2-roboport-base-animation.png": {
-      "sha256": "7287da6792bc8ca26149563309cc1b2442fe055d82940ee9e85dddfe74fc7979",
-      "bytes": 38150
+    "538879fd216aac80-express-splitter-north.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-north.png",
+      "sha256": "538879fd216aac8076839f1c56fe7a57caa354963a88145c6f4820b447fd7f43",
+      "bytes": 601175
     },
-    "4649be3b3960055d-roboport-door-down.png": {
-      "sha256": "4649be3b3960055d8eb7acee3a22c5e891600d1cb962565f9d7e2f9d56f93fa5",
-      "bytes": 103463
+    "005ab2318b27d5a8-express-splitter-south.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-south.png",
+      "sha256": "005ab2318b27d5a8d7962276684218616a99b24e1b7c44242da6e58e5871343d",
+      "bytes": 555814
+    },
+    "040237331f1dca41-express-splitter-west-top_patch.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-west-top_patch.png",
+      "sha256": "040237331f1dca419a1b7f510e70b57609bd2dfb80604f8e03b3beae833d7cd2",
+      "bytes": 385614
+    },
+    "ddbb48c462890580-express-splitter-west.png": {
+      "source": "__base__/graphics/entity/express-splitter/express-splitter-west.png",
+      "sha256": "ddbb48c4628905803d80363abbc54a7b16570ce13e76cd1a7e6600865f1fa0bf",
+      "bytes": 436403
+    },
+    "4ffffed91d4a150a-express-transport-belt.png": {
+      "source": "__base__/graphics/entity/express-transport-belt/express-transport-belt.png",
+      "sha256": "4ffffed91d4a150a0f81ee5d052aaa6d9ac6ff135a1ee0eefa4f871d076b51ee",
+      "bytes": 2145367
+    },
+    "2c40ef6419da106d-express-underground-belt-structure-back-patch.png": {
+      "source": "__base__/graphics/entity/express-underground-belt/express-underground-belt-structure-back-patch.png",
+      "sha256": "2c40ef6419da106dc8b6c872a07c4dda1d2b1dbc539a3964970dac4aa4da1439",
+      "bytes": 2052
+    },
+    "f1f4b77ee25a82af-express-underground-belt-structure-front-patch.png": {
+      "source": "__base__/graphics/entity/express-underground-belt/express-underground-belt-structure-front-patch.png",
+      "sha256": "f1f4b77ee25a82af21c5c9fe2824edda461bb6c68dfb1abbe63e2ef582e1ef93",
+      "bytes": 6296
+    },
+    "b58cb657179facf4-express-underground-belt-structure.png": {
+      "source": "__base__/graphics/entity/express-underground-belt/express-underground-belt-structure.png",
+      "sha256": "b58cb657179facf4724c4a6fc13f994e74fe442717a7b3695b8c03786a0147a7",
+      "bytes": 146371
+    },
+    "833a282506955a25-fast-inserter-hand-base.png": {
+      "source": "__base__/graphics/entity/fast-inserter/fast-inserter-hand-base.png",
+      "sha256": "833a282506955a2538b98528a98e3d6d200abddd4778bde1cffcb4b3e6a579ce",
+      "bytes": 7261
+    },
+    "41313d1ec1f35dad-fast-inserter-hand-closed.png": {
+      "source": "__base__/graphics/entity/fast-inserter/fast-inserter-hand-closed.png",
+      "sha256": "41313d1ec1f35dad13f8a944ef4619d8761d0a621ae53fe103daff53c5fa2285",
+      "bytes": 12236
+    },
+    "27d05dc46b6024d6-fast-inserter-hand-open.png": {
+      "source": "__base__/graphics/entity/fast-inserter/fast-inserter-hand-open.png",
+      "sha256": "27d05dc46b6024d6948a6eb946d69ab7e7aca0dee8959e532c95966ca84bdf4f",
+      "bytes": 12358
+    },
+    "99b0981430b926e5-fast-inserter-platform.png": {
+      "source": "__base__/graphics/entity/fast-inserter/fast-inserter-platform.png",
+      "sha256": "99b0981430b926e5d97543f25e51f10443baba0e926a52c8b59de8270c406374",
+      "bytes": 36971
+    },
+    "1f107c9efdca37f0-fast-splitter-east-top_patch.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-east-top_patch.png",
+      "sha256": "1f107c9efdca37f067bbed6bcb70d138af29bb8061bb735ad00490f4b75602d9",
+      "bytes": 398245
+    },
+    "cd0521be7182d71b-fast-splitter-east.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-east.png",
+      "sha256": "cd0521be7182d71b10775e95d26a1cb312d23b7b67d7ee06d912530fbf697d01",
+      "bytes": 402938
+    },
+    "d1744c1607545049-fast-splitter-north.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-north.png",
+      "sha256": "d1744c160754504946ebc12f3f8f7035169071204cfe1a343906992291154e57",
+      "bytes": 595670
+    },
+    "71c797db21b44c98-fast-splitter-south.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-south.png",
+      "sha256": "71c797db21b44c988fbfe7b4f9ad42df1c3d0083f16bb4d7130e392a46631159",
+      "bytes": 553402
+    },
+    "c04ad7c439f437d3-fast-splitter-west-top_patch.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-west-top_patch.png",
+      "sha256": "c04ad7c439f437d3b62461d680866dac3656c86c643f5cda9acb4fc2373f82f8",
+      "bytes": 382646
+    },
+    "401bb972d177225c-fast-splitter-west.png": {
+      "source": "__base__/graphics/entity/fast-splitter/fast-splitter-west.png",
+      "sha256": "401bb972d177225c80048d849c515be7c1fe871c1c3b45149635da78deeb548e",
+      "bytes": 429826
+    },
+    "53ad9b581f585c7a-fast-transport-belt.png": {
+      "source": "__base__/graphics/entity/fast-transport-belt/fast-transport-belt.png",
+      "sha256": "53ad9b581f585c7abb4c858c6bdb4c8f25a21a11266beba0c13d87be89176b68",
+      "bytes": 2132060
+    },
+    "c825dfc39143133d-fast-underground-belt-structure-back-patch.png": {
+      "source": "__base__/graphics/entity/fast-underground-belt/fast-underground-belt-structure-back-patch.png",
+      "sha256": "c825dfc39143133d0a6e751c9b32490d98a8f4a70081fb65ed77bf984e73187e",
+      "bytes": 2022
+    },
+    "3ae57e60bce03282-fast-underground-belt-structure-front-patch.png": {
+      "source": "__base__/graphics/entity/fast-underground-belt/fast-underground-belt-structure-front-patch.png",
+      "sha256": "3ae57e60bce0328294b2731ca29f388dde3f24b9cf21aa868d9ff38f8b97d86c",
+      "bytes": 6300
+    },
+    "0290c33aace62c7b-fast-underground-belt-structure.png": {
+      "source": "__base__/graphics/entity/fast-underground-belt/fast-underground-belt-structure.png",
+      "sha256": "0290c33aace62c7b31c4c481734c9cf6647912af916dd777a205af608c42d24e",
+      "bytes": 145229
+    },
+    "1a0a4be1e28f2efb-heatex-E-idle.png": {
+      "source": "__base__/graphics/entity/heat-exchanger/heatex-E-idle.png",
+      "sha256": "1a0a4be1e28f2efbd3b5447697ed2f70f072f51f06aa691bc8f00cee4aabfb1a",
+      "bytes": 79492
+    },
+    "814df8a596039654-heatex-N-idle.png": {
+      "source": "__base__/graphics/entity/heat-exchanger/heatex-N-idle.png",
+      "sha256": "814df8a59603965475a525904d2b7c9cb866a6f51b6cf1d6e204e697ec39937a",
+      "bytes": 66991
+    },
+    "43fb284406320d0c-heatex-S-idle.png": {
+      "source": "__base__/graphics/entity/heat-exchanger/heatex-S-idle.png",
+      "sha256": "43fb284406320d0ce43d85e2718b15c5d0cbc2d1f8b38395c9fe5abbd3130450",
+      "bytes": 64413
+    },
+    "ed4b5fd875633ae7-heatex-W-idle.png": {
+      "source": "__base__/graphics/entity/heat-exchanger/heatex-W-idle.png",
+      "sha256": "ed4b5fd875633ae7c9beb29f321b2b10528745e99d882e7035500e963fd8d665",
+      "bytes": 73771
+    },
+    "568b8b26c6bd57f8-inserter-hand-base.png": {
+      "source": "__base__/graphics/entity/inserter/inserter-hand-base.png",
+      "sha256": "568b8b26c6bd57f8df93a80a4d0cefa881ca906aee8cbe0b0705d98a5819144c",
+      "bytes": 7179
+    },
+    "4a52c9f2fa0a7eaa-inserter-hand-closed.png": {
+      "source": "__base__/graphics/entity/inserter/inserter-hand-closed.png",
+      "sha256": "4a52c9f2fa0a7eaa85a95dcc3d553e74d03357e25cb176aee6919020743a623f",
+      "bytes": 11415
+    },
+    "dd4e3def386a7771-inserter-hand-open.png": {
+      "source": "__base__/graphics/entity/inserter/inserter-hand-open.png",
+      "sha256": "dd4e3def386a777180532db99f70312b32f28a3dae23291454fdc0e00f5a72a9",
+      "bytes": 11546
+    },
+    "7df71af1c6fca5f6-inserter-platform.png": {
+      "source": "__base__/graphics/entity/inserter/inserter-platform.png",
+      "sha256": "7df71af1c6fca5f6ebcc429b5475cbb18950f46c79fd74ee25c24543d64acbf0",
+      "bytes": 36235
+    },
+    "f1198ba8287e50c8-iron-chest-shadow.png": {
+      "source": "__base__/graphics/entity/iron-chest/iron-chest-shadow.png",
+      "sha256": "f1198ba8287e50c8c7261deaf52793bf56c0b778b9067045a5519ff1780034cd",
+      "bytes": 1016
+    },
+    "12c2ebe355173cb8-iron-chest.png": {
+      "source": "__base__/graphics/entity/iron-chest/iron-chest.png",
+      "sha256": "12c2ebe355173cb85c20eb9b1fdb2f08bb75cea6ef9982434c6708ba193c998b",
+      "bytes": 10550
+    },
+    "62f0c3ad653db8e3-lab-integration.png": {
+      "source": "__base__/graphics/entity/lab/lab-integration.png",
+      "sha256": "62f0c3ad653db8e3a8c69faffe914d3e7b0806078f7db626b2a6c50307898668",
+      "bytes": 39556
+    },
+    "a95369bc1b57a24b-lab-shadow.png": {
+      "source": "__base__/graphics/entity/lab/lab-shadow.png",
+      "sha256": "a95369bc1b57a24bd21c287cc8b40f75340f08434f244d23c19f519f1cc92c10",
+      "bytes": 7378
+    },
+    "fef73c591af28c41-lab.png": {
+      "source": "__base__/graphics/entity/lab/lab.png",
+      "sha256": "fef73c591af28c419846d81d84c1b28f1fddbc2d5bc72a71a3012e7af25e4c11",
+      "bytes": 1517566
+    },
+    "c2f658e3a0546001-active-provider-chest.png": {
+      "source": "__base__/graphics/entity/logistic-chest/active-provider-chest.png",
+      "sha256": "c2f658e3a0546001823b65b3671f48b2a32ff71087273d498062df075bbdb941",
+      "bytes": 17674
+    },
+    "b5077d8d8e5e7227-buffer-chest.png": {
+      "source": "__base__/graphics/entity/logistic-chest/buffer-chest.png",
+      "sha256": "b5077d8d8e5e7227ddc10273d1dba653599c4c24b418464a50dc4665f70da79a",
+      "bytes": 17630
+    },
+    "0681b49a6378ba5a-logistic-chest-shadow.png": {
+      "source": "__base__/graphics/entity/logistic-chest/logistic-chest-shadow.png",
+      "sha256": "0681b49a6378ba5a506d97d06791a54fdfd324372c577ae86057fefb0c397f26",
+      "bytes": 849
+    },
+    "19634db9f5058730-passive-provider-chest.png": {
+      "source": "__base__/graphics/entity/logistic-chest/passive-provider-chest.png",
+      "sha256": "19634db9f5058730dfa1bc33154b7eac69e62bd054f33bd9f0d8ea9424f29373",
+      "bytes": 17537
+    },
+    "29c7470d8b8943ea-requester-chest.png": {
+      "source": "__base__/graphics/entity/logistic-chest/requester-chest.png",
+      "sha256": "29c7470d8b8943ea32404b06b23b6937cc824307f77c93e8eb218b6280897bcd",
+      "bytes": 17579
+    },
+    "d9f414099ddfd446-storage-chest.png": {
+      "source": "__base__/graphics/entity/logistic-chest/storage-chest.png",
+      "sha256": "d9f414099ddfd446dafb031796b735f679ba890bb8829be8684dbbd4246baa23",
+      "bytes": 17584
+    },
+    "bb490c5221948028-logistic-robot-shadow.png": {
+      "source": "__base__/graphics/entity/logistic-robot/logistic-robot-shadow.png",
+      "sha256": "bb490c5221948028a50822d225b33d703dff60092f393845a26d42bf6c86caad",
+      "bytes": 35156
+    },
+    "8c93208b239ae453-logistic-robot.png": {
+      "source": "__base__/graphics/entity/logistic-robot/logistic-robot.png",
+      "sha256": "8c93208b239ae4534b55ef9bf4735171d28dab96d12c6d2aaa7e8a3c0abf47f9",
+      "bytes": 416509
+    },
+    "a90890e8bc248778-long-handed-inserter-hand-base.png": {
+      "source": "__base__/graphics/entity/long-handed-inserter/long-handed-inserter-hand-base.png",
+      "sha256": "a90890e8bc2487783f76e82e7bc44163fb3c73c08e6a27bce17137582d00f501",
+      "bytes": 7303
+    },
+    "c37c43218964409b-long-handed-inserter-hand-closed.png": {
+      "source": "__base__/graphics/entity/long-handed-inserter/long-handed-inserter-hand-closed.png",
+      "sha256": "c37c43218964409b4b22c91f8eb473b1065c28727984dcdce24d7172c695faa9",
+      "bytes": 11740
+    },
+    "9fabe44397754066-long-handed-inserter-hand-open.png": {
+      "source": "__base__/graphics/entity/long-handed-inserter/long-handed-inserter-hand-open.png",
+      "sha256": "9fabe4439775406690152ec75acfa9d182116b2549b44b4c1e9255098b33eafd",
+      "bytes": 11866
+    },
+    "3b1d807bd5880ca8-long-handed-inserter-platform.png": {
+      "source": "__base__/graphics/entity/long-handed-inserter/long-handed-inserter-platform.png",
+      "sha256": "3b1d807bd5880ca8e0d03b1862f551e908f1604a104e47aac3205331954331d0",
+      "bytes": 35897
+    },
+    "672403dd2d6cd5a9-medium-electric-pole-shadow.png": {
+      "source": "__base__/graphics/entity/medium-electric-pole/medium-electric-pole-shadow.png",
+      "sha256": "672403dd2d6cd5a93a7e1b98233d9f0939aa6fb56482ab939864eb578b523aee",
+      "bytes": 7760
+    },
+    "c0757403f0ba5b9e-medium-electric-pole.png": {
+      "source": "__base__/graphics/entity/medium-electric-pole/medium-electric-pole.png",
+      "sha256": "c0757403f0ba5b9e623ffaaeebebb297274c824b778d2fa6cc85dfe61a9b4da7",
+      "bytes": 82838
+    },
+    "212c1687badaf203-reactor-pipes.png": {
+      "source": "__base__/graphics/entity/nuclear-reactor/reactor-pipes.png",
+      "sha256": "212c1687badaf2039b7745e8a8892b904cdb2c2420d8397db35d81931b3b1b96",
+      "bytes": 39719
+    },
+    "c6ff4441ec36796d-reactor-shadow.png": {
+      "source": "__base__/graphics/entity/nuclear-reactor/reactor-shadow.png",
+      "sha256": "c6ff4441ec36796dcd1150021ef1eb4a363183363b0e5a5e2ebb4850975d397e",
+      "bytes": 7392
+    },
+    "6cac66db1ad4e854-reactor.png": {
+      "source": "__base__/graphics/entity/nuclear-reactor/reactor.png",
+      "sha256": "6cac66db1ad4e854a255d327166632117314e4dcdf9ca6be4d2fb5698d6a7512",
+      "bytes": 149888
+    },
+    "1ce942224bb0648b-oil-refinery-shadow.png": {
+      "source": "__base__/graphics/entity/oil-refinery/oil-refinery-shadow.png",
+      "sha256": "1ce942224bb0648b28c2d3378540f62cfcaf303030b71d3905d06a458f00bcfc",
+      "bytes": 69719
+    },
+    "0420674cb3ca6f9b-oil-refinery.png": {
+      "source": "__base__/graphics/entity/oil-refinery/oil-refinery.png",
+      "sha256": "0420674cb3ca6f9b1fb95abe60b6cd4eb96808da69a232e9071a2538f4c5611f",
+      "bytes": 1000872
+    },
+    "edb1c2bfb81a4a36-pipe-corner-down-left.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-corner-down-left.png",
+      "sha256": "edb1c2bfb81a4a36b3ce7f2a315e92e7a52082e6d1ec275ede774b2e15afac2a",
+      "bytes": 7007
+    },
+    "489fe8ec2b380d94-pipe-corner-down-right.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-corner-down-right.png",
+      "sha256": "489fe8ec2b380d94e4a9c573eadb84da53940199f00fd4509a487a271ed0aecc",
+      "bytes": 6638
+    },
+    "4173f3d82ddc8e6e-pipe-corner-up-left.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-corner-up-left.png",
+      "sha256": "4173f3d82ddc8e6ee7b7dc310ce6ba96a93b983a7a4c92a5399ef51c364115fd",
+      "bytes": 10818
+    },
+    "e34b41ec47f90ece-pipe-corner-up-right.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-corner-up-right.png",
+      "sha256": "e34b41ec47f90ececc982f694c04f39228fbe56a111553c123791a7261c43064",
+      "bytes": 11064
+    },
+    "612bb5101addc411-pipe-cross.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-cross.png",
+      "sha256": "612bb5101addc41128c0fcec8f21783411406f460e385186c2cd9e24aff6fd41",
+      "bytes": 13590
+    },
+    "1deaba05e29650a2-pipe-ending-down.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-ending-down.png",
+      "sha256": "1deaba05e29650a23b937dadb5cdc6cad9a8244294859d497bd36285b28533a6",
+      "bytes": 7874
+    },
+    "6f2b6fab1d3748b6-pipe-ending-left.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-ending-left.png",
+      "sha256": "6f2b6fab1d3748b685a7ec95d33d56282cf1159866a7ec229427ecd5ad6bf6e0",
+      "bytes": 8057
+    },
+    "aaa5892cc4d626b7-pipe-ending-right.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-ending-right.png",
+      "sha256": "aaa5892cc4d626b7512a5b531d9c18e0f37381ca631b7529fac39810b964b315",
+      "bytes": 7849
+    },
+    "435e1b46ca977b8e-pipe-ending-up.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-ending-up.png",
+      "sha256": "435e1b46ca977b8e571c7e5a72e2f89512e47551f644aa1583fbee618d25e9ef",
+      "bytes": 12401
+    },
+    "54ab1d8d586d8587-pipe-straight-horizontal.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-straight-horizontal.png",
+      "sha256": "54ab1d8d586d85879cfefad12f2657c32e44dce1fb468474b50a99fe0004e646",
+      "bytes": 7087
+    },
+    "9327471f212f98ed-pipe-straight-vertical.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-straight-vertical.png",
+      "sha256": "9327471f212f98ede6967477118661b76d0166e0fa2d95942ade51f1297c3dc2",
+      "bytes": 11476
+    },
+    "443fe8f90eea50ff-pipe-t-down.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-t-down.png",
+      "sha256": "443fe8f90eea50ffe21052993d1c23b03d4bfd422f5c787db5599ac2ca9719b5",
+      "bytes": 8651
+    },
+    "99e251585f9ceec9-pipe-t-left.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-t-left.png",
+      "sha256": "99e251585f9ceec9413588fb921b826506f36c93a087798639b3c87b34563799",
+      "bytes": 12480
+    },
+    "33b8eb1a17615a2e-pipe-t-right.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-t-right.png",
+      "sha256": "33b8eb1a17615a2e75d1e93750c60520d478b3ec5cebffcbe7d6d1de61cdec0b",
+      "bytes": 12420
+    },
+    "dd83a7257e6f341c-pipe-t-up.png": {
+      "source": "__base__/graphics/entity/pipe/pipe-t-up.png",
+      "sha256": "dd83a7257e6f341c15bc0c50d92c3c85ba2e12cc1652eae5c002b775c75893c7",
+      "bytes": 12366
+    },
+    "c631a4b6d5ad0350-pump-east.png": {
+      "source": "__base__/graphics/entity/pump/pump-east.png",
+      "sha256": "c631a4b6d5ad03507c1c5f7968da070cdd6d4cd65581872ef18574f14cf84efe",
+      "bytes": 266107
+    },
+    "4ad468a53603d1d7-pump-north.png": {
+      "source": "__base__/graphics/entity/pump/pump-north.png",
+      "sha256": "4ad468a53603d1d7566f77a8ca965851547e90b8cc2432c75e9519002efad296",
+      "bytes": 186295
+    },
+    "10a3c325aa365a13-pump-south.png": {
+      "source": "__base__/graphics/entity/pump/pump-south.png",
+      "sha256": "10a3c325aa365a1375edaeb5e051b30cd2da86efb812370914b3c0cc145161e6",
+      "bytes": 216258
+    },
+    "7735d8f7cfc942a1-pump-west.png": {
+      "source": "__base__/graphics/entity/pump/pump-west.png",
+      "sha256": "7735d8f7cfc942a16f2849baffa4e1d26f9f3adc575360189239ebf3f100312d",
+      "bytes": 295232
+    },
+    "370e66585c7329a1-pumpjack-base-shadow.png": {
+      "source": "__base__/graphics/entity/pumpjack/pumpjack-base-shadow.png",
+      "sha256": "370e66585c7329a1874e428e4a8f2d4629422ec5af9b841fb69316310be68c2a",
+      "bytes": 21284
+    },
+    "112c93df5f73ff4d-pumpjack-base.png": {
+      "source": "__base__/graphics/entity/pumpjack/pumpjack-base.png",
+      "sha256": "112c93df5f73ff4daa80385b9cbe04451cdd2d401924a1c087ee0f478474433f",
+      "bytes": 355938
+    },
+    "6f0dee13320730a0-pumpjack-horsehead-shadow.png": {
+      "source": "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+      "sha256": "6f0dee13320730a005f8f2816a05d4bd0b4494eafa332576312d218ab7ead5e5",
+      "bytes": 143820
+    },
+    "cccd92a5bfbda044-pumpjack-horsehead.png": {
+      "source": "__base__/graphics/entity/pumpjack/pumpjack-horsehead.png",
+      "sha256": "cccd92a5bfbda044b56aa9d9088eb62b3f3e4d5d3ba0a78e6f4f88d56a587643",
+      "bytes": 2042916
     },
     "3fb9cf44f60b9d37-radar-integration.png": {
+      "source": "__base__/graphics/entity/radar/radar-integration.png",
       "sha256": "3fb9cf44f60b9d374bf0a979a0cfc1e5db34757324412a5d1376a46affed3910",
       "bytes": 29940
     },
     "4d350412b7a92754-radar-shadow.png": {
+      "source": "__base__/graphics/entity/radar/radar-shadow.png",
       "sha256": "4d350412b7a92754ee35c3ac7be4adc017c572cb634997c7e2553cfd4f1c3286",
       "bytes": 754372
     },
     "b7523a75c733d216-radar.png": {
+      "source": "__base__/graphics/entity/radar/radar.png",
       "sha256": "b7523a75c733d216f0e3246012d3dba875aac1be0e1dfe01f335f905b8736d6a",
       "bytes": 4659565
     },
-    "3cb4495c6a9b304e-wooden-chest.png": {
-      "sha256": "3cb4495c6a9b304e0f5ac679a6d27013e33fc40de64d422788bfa5f571fd7bd4",
-      "bytes": 8474
+    "7287da6792bc8ca2-roboport-base-animation.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-base-animation.png",
+      "sha256": "7287da6792bc8ca26149563309cc1b2442fe055d82940ee9e85dddfe74fc7979",
+      "bytes": 38150
     },
-    "75b196ce41470233-iron-chest.png": {
-      "sha256": "75b196ce414702331e4b7e3fd4cb7043b5ec50bb20d00fb9e2bda34e17a8f0d3",
-      "bytes": 9313
+    "55a3115ad94e2293-roboport-base-patch.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-base-patch.png",
+      "sha256": "55a3115ad94e229381bada32312d6681123dc366ec034f991524d6b693271768",
+      "bytes": 26783
     },
-    "66aef8050f0d70ce-steel-chest.png": {
-      "sha256": "66aef8050f0d70cede5bd8171fcc9324fb68d59c08caa10d5fb6caf548c04e8e",
-      "bytes": 9512
+    "4dcf658978cd2b5d-roboport-base.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-base.png",
+      "sha256": "4dcf658978cd2b5d2fa23f8af53f0fd05665d8b8b3017dfdafc3f8dbfa1568a8",
+      "bytes": 112777
     },
-    "5a07b930bcd2d722-passive-provider-chest.png": {
-      "sha256": "5a07b930bcd2d7226842d6cc811771de25f41a3b0570afe41191bee6fcbdaac7",
-      "bytes": 9176
+    "4649be3b3960055d-roboport-door-down.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-door-down.png",
+      "sha256": "4649be3b3960055d8eb7acee3a22c5e891600d1cb962565f9d7e2f9d56f93fa5",
+      "bytes": 103463
+    },
+    "2ce039bcc53aca64-roboport-door-up.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-door-up.png",
+      "sha256": "2ce039bcc53aca64a44e7e6877c652d80a8c67bf94b56121794ae02c3fdb78df",
+      "bytes": 97330
+    },
+    "c4ece64de48b13bf-roboport-shadow.png": {
+      "source": "__base__/graphics/entity/roboport/roboport-shadow.png",
+      "sha256": "c4ece64de48b13bf15ae4a77abeb7179ade00e661cd7c9dc18d126e0315ffa20",
+      "bytes": 5436
+    },
+    "37ad9c547aada92f-small-electric-pole-shadow.png": {
+      "source": "__base__/graphics/entity/small-electric-pole/small-electric-pole-shadow.png",
+      "sha256": "37ad9c547aada92fc5f3cffd45e4389e09eaef1c4964ddd60a2e5ddaeecc1753",
+      "bytes": 6833
+    },
+    "29ab5ef02f99d251-small-electric-pole.png": {
+      "source": "__base__/graphics/entity/small-electric-pole/small-electric-pole.png",
+      "sha256": "29ab5ef02f99d25117f77ba2c0e47164fb834d4b8a13ae820997675c9504e380",
+      "bytes": 44465
+    },
+    "cfe889cce7ec1cbb-lamp-light.png": {
+      "source": "__base__/graphics/entity/small-lamp/lamp-light.png",
+      "sha256": "cfe889cce7ec1cbb7ed5aae78d3c39dcf6979d05e7d72e815f4c67320d52623d",
+      "bytes": 2687
+    },
+    "2ae6b093bc6d3a78-lamp-shadow.png": {
+      "source": "__base__/graphics/entity/small-lamp/lamp-shadow.png",
+      "sha256": "2ae6b093bc6d3a783b5fb62fb73ac190abb8990f16d57102200fccded41ac557",
+      "bytes": 885
+    },
+    "84a79b6b02fc92b4-lamp.png": {
+      "source": "__base__/graphics/entity/small-lamp/lamp.png",
+      "sha256": "84a79b6b02fc92b456413ab6278ee2bac78e1d449ede10fe2a9b989c2ccdd7bc",
+      "bytes": 11497
+    },
+    "4bed44aa4e510944-solar-panel-shadow.png": {
+      "source": "__base__/graphics/entity/solar-panel/solar-panel-shadow.png",
+      "sha256": "4bed44aa4e5109448ad1a52ce3795a9a83afa0f6243587bb842cf8a91f9e3568",
+      "bytes": 3874
+    },
+    "8b043c8fdbedf2c2-solar-panel.png": {
+      "source": "__base__/graphics/entity/solar-panel/solar-panel.png",
+      "sha256": "8b043c8fdbedf2c289879482d01d687bcf557447e7eadc201172bb4b43aebb94",
+      "bytes": 101748
+    },
+    "7701912d57a683fd-splitter-east-top_patch.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-east-top_patch.png",
+      "sha256": "7701912d57a683fda8e22a56df824d3ca7a83bf9de8ba62ec0d77323181edbb4",
+      "bytes": 402733
+    },
+    "5317533022f7707b-splitter-east.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-east.png",
+      "sha256": "5317533022f7707b95a1a7e098a3cc0ca309f1fff2b580407c0f5dc4eeb37068",
+      "bytes": 404053
+    },
+    "8d8017a3c733cdc6-splitter-north.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-north.png",
+      "sha256": "8d8017a3c733cdc68ec9960af30ca758abaa5ad9c355d35122c31a03608c8e53",
+      "bytes": 600048
+    },
+    "237327bc615c7c92-splitter-south.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-south.png",
+      "sha256": "237327bc615c7c929b8a266a8668d2b353e6243260c76d4f8b9d424929a1a861",
+      "bytes": 556172
+    },
+    "2922097c27d0ab94-splitter-west-top_patch.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-west-top_patch.png",
+      "sha256": "2922097c27d0ab944cbe683a479ebc23d7b39e888854f3bfbbe65b97f743fcfb",
+      "bytes": 385343
+    },
+    "2c6bd136fe54e4ff-splitter-west.png": {
+      "source": "__base__/graphics/entity/splitter/splitter-west.png",
+      "sha256": "2c6bd136fe54e4ffa6a1cb971e9880880b9b1b9e3a80646ab4116ac1f29de50f",
+      "bytes": 431479
+    },
+    "a8a402be6c486ba8-steam-engine-H-shadow.png": {
+      "source": "__base__/graphics/entity/steam-engine/steam-engine-H-shadow.png",
+      "sha256": "a8a402be6c486ba8315b251ba90e261697ad4a6b512f69272d42abb7f5bc222c",
+      "bytes": 185828
+    },
+    "27a5497eb6247482-steam-engine-H.png": {
+      "source": "__base__/graphics/entity/steam-engine/steam-engine-H.png",
+      "sha256": "27a5497eb62474828b47af4c79f1be436d2428b2daec5fb9ad0df72fd366cfae",
+      "bytes": 4066935
+    },
+    "cada31acc59a587e-steam-engine-V-shadow.png": {
+      "source": "__base__/graphics/entity/steam-engine/steam-engine-V-shadow.png",
+      "sha256": "cada31acc59a587e8cdb03ccfff3cc7a469be371e3cb1cca6ed37d61659d089d",
+      "bytes": 254135
+    },
+    "69345dd7b86b3cbc-steam-engine-V.png": {
+      "source": "__base__/graphics/entity/steam-engine/steam-engine-V.png",
+      "sha256": "69345dd7b86b3cbc51842fa0eb6572f71c66b68d140dad0d7b491db12477e69d",
+      "bytes": 3787472
+    },
+    "0f61b57c63a85d16-steam-turbine-H-shadow.png": {
+      "source": "__base__/graphics/entity/steam-turbine/steam-turbine-H-shadow.png",
+      "sha256": "0f61b57c63a85d16b291c83925bfa1454b36e0e8600b6374078645b25c1ba499",
+      "bytes": 26563
+    },
+    "dd06ff9ebde586fd-steam-turbine-H.png": {
+      "source": "__base__/graphics/entity/steam-turbine/steam-turbine-H.png",
+      "sha256": "dd06ff9ebde586fd295ea4e9bb83731a6b62a13fa7a1356ac5a1ab7d6a106a26",
+      "bytes": 913431
+    },
+    "b16f12751863c23e-steam-turbine-V-shadow.png": {
+      "source": "__base__/graphics/entity/steam-turbine/steam-turbine-V-shadow.png",
+      "sha256": "b16f12751863c23e1812caa22149432599f41fb3c209e12a45b590dddff1d172",
+      "bytes": 34348
+    },
+    "e75a47170f4267ca-steam-turbine-V.png": {
+      "source": "__base__/graphics/entity/steam-turbine/steam-turbine-V.png",
+      "sha256": "e75a47170f4267ca71441b011b2532ab2376fe8fec374efe3be5a41773600545",
+      "bytes": 908894
+    },
+    "55827d55aff04782-steel-chest-shadow.png": {
+      "source": "__base__/graphics/entity/steel-chest/steel-chest-shadow.png",
+      "sha256": "55827d55aff047829bfba5915861a9a007842ed62f61ddd212a4571cc4a31ff0",
+      "bytes": 505
+    },
+    "4ca0dfcbd64b7649-steel-chest.png": {
+      "source": "__base__/graphics/entity/steel-chest/steel-chest.png",
+      "sha256": "4ca0dfcbd64b764988392ea451762a0f7815bab32105fb92d2acbfd55023f780",
+      "bytes": 10892
+    },
+    "4941a9f5d189ba84-steel-furnace-shadow.png": {
+      "source": "__base__/graphics/entity/steel-furnace/steel-furnace-shadow.png",
+      "sha256": "4941a9f5d189ba845b9f64112fd21f49d1216c6d3ddae4a643047115298d66e1",
+      "bytes": 2161
+    },
+    "f60deb08bbe927c3-steel-furnace.png": {
+      "source": "__base__/graphics/entity/steel-furnace/steel-furnace.png",
+      "sha256": "f60deb08bbe927c3ca5cc0d5559d041000cf095f3e6a162b5ed08f0eb96b9cd8",
+      "bytes": 46019
+    },
+    "46d0eaed36c64054-stone-furnace-shadow.png": {
+      "source": "__base__/graphics/entity/stone-furnace/stone-furnace-shadow.png",
+      "sha256": "46d0eaed36c640542fad8bb695cdbd3b6c5054f7d12884792a812ece89cb37b8",
+      "bytes": 1648
+    },
+    "82b7968cd741a31b-stone-furnace.png": {
+      "source": "__base__/graphics/entity/stone-furnace/stone-furnace.png",
+      "sha256": "82b7968cd741a31b22557e760ae758eb93b32ccf47837beb0af4d6413851b68a",
+      "bytes": 35204
+    },
+    "fe3ea349417fb080-storage-tank-shadow.png": {
+      "source": "__base__/graphics/entity/storage-tank/storage-tank-shadow.png",
+      "sha256": "fe3ea349417fb080fdb1f646122578d4fcee5868e1895e884e5c3ba5415cadcb",
+      "bytes": 6892
+    },
+    "fe2820ed468b4110-storage-tank.png": {
+      "source": "__base__/graphics/entity/storage-tank/storage-tank.png",
+      "sha256": "fe2820ed468b41105aa582a28f384014625182e4ee49e92ecbe5ee9cca25e7ff",
+      "bytes": 167443
+    },
+    "7dd20ad47d44faeb-substation-shadow.png": {
+      "source": "__base__/graphics/entity/substation/substation-shadow.png",
+      "sha256": "7dd20ad47d44faebcd1e6a61138739ff57631e6f2cdc8834b1ed2b0349c06bcc",
+      "bytes": 19892
+    },
+    "217fbccb275c73f7-substation.png": {
+      "source": "__base__/graphics/entity/substation/substation.png",
+      "sha256": "217fbccb275c73f76889c3599f3ca2a1d00c50278936a4c7015a21183d7e6691",
+      "bytes": 91438
+    },
+    "89bd090471495532-transport-belt.png": {
+      "source": "__base__/graphics/entity/transport-belt/transport-belt.png",
+      "sha256": "89bd0904714955321374b3cb6e7c8e70c2ac47f95f5332e2a89c2e4e404dca64",
+      "bytes": 1475827
+    },
+    "253b188bb30fe2d6-underground-belt-structure-back-patch.png": {
+      "source": "__base__/graphics/entity/underground-belt/underground-belt-structure-back-patch.png",
+      "sha256": "253b188bb30fe2d6553c7e486850397c9c33eb332692f2e983aad948dee5efd1",
+      "bytes": 2027
+    },
+    "d555bdca8d9ba1f0-underground-belt-structure-front-patch.png": {
+      "source": "__base__/graphics/entity/underground-belt/underground-belt-structure-front-patch.png",
+      "sha256": "d555bdca8d9ba1f0f98967c8e27b0c853fae223caf30e69803ee6b8b3b16fe30",
+      "bytes": 6270
+    },
+    "e44d6f237e8e2e10-underground-belt-structure.png": {
+      "source": "__base__/graphics/entity/underground-belt/underground-belt-structure.png",
+      "sha256": "e44d6f237e8e2e109529a6ede0e496aceea7af8c5646da6405918a3e8a172bc3",
+      "bytes": 146854
+    },
+    "d9c07f12fe246eda-wooden-chest-shadow.png": {
+      "source": "__base__/graphics/entity/wooden-chest/wooden-chest-shadow.png",
+      "sha256": "d9c07f12fe246eda10e29c055335a7f8dfeeb7ca8479c02b4a731ec49430fe84",
+      "bytes": 438
+    },
+    "7be61d905c3d000f-wooden-chest.png": {
+      "source": "__base__/graphics/entity/wooden-chest/wooden-chest.png",
+      "sha256": "7be61d905c3d000f70d20dfdc629912dbe656ee51fb12bd679befbbf8f0026f5",
+      "bytes": 9368
+    },
+    "af87bc1b0911e442-empty.png": {
+      "source": "__core__/graphics/empty.png",
+      "sha256": "af87bc1b0911e442ec6580d428379730f03799781e36362c266b97be15704bb7",
+      "bytes": 87
+    },
+    "875641c6f6322d1d-recycler-E-shadow.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-E-shadow.png",
+      "sha256": "875641c6f6322d1db2571dda60204bcec24baaca3240ca0e5624a3b8a9eb9876",
+      "bytes": 153992
+    },
+    "c038a603ad27bc97-recycler-E.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-E.png",
+      "sha256": "c038a603ad27bc97681720264837d8a7d31f8365b5b1329a51876a3d5fc51f7d",
+      "bytes": 3683267
+    },
+    "9d2c345910c06820-recycler-N-shadow.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-N-shadow.png",
+      "sha256": "9d2c345910c06820bca55979f0c18c95d616e62639184878b04bcebf07c20605",
+      "bytes": 209131
+    },
+    "de73f620cbb1f1c9-recycler-N.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-N.png",
+      "sha256": "de73f620cbb1f1c9eec7acabcfe40bd438ad49e4b2d8c4adbacf2843ab661acf",
+      "bytes": 3672483
+    },
+    "a01b4cfe00ba7c58-recycler-S-shadow.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-S-shadow.png",
+      "sha256": "a01b4cfe00ba7c58c74b18c2980ccb9239cfccc2b431ba6749183ef3f2ab394c",
+      "bytes": 232302
+    },
+    "cd7f8eabf2bb9bd1-recycler-S.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-S.png",
+      "sha256": "cd7f8eabf2bb9bd1becf1e375a25a26d4473988156d918cdb1f3f65b55af94b2",
+      "bytes": 3529467
+    },
+    "f5a6373c9102657e-recycler-W-shadow.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-W-shadow.png",
+      "sha256": "f5a6373c9102657effc725270d7e12a5084171fffd2261ba22dc901761079d25",
+      "bytes": 155204
+    },
+    "8712e134eb790d0e-recycler-W.png": {
+      "source": "__quality__/graphics/entity/recycler/recycler-W.png",
+      "sha256": "8712e134eb790d0ea6344a30107aecb2d2a5a392c6ef621dafaa73f3eec87d22",
+      "bytes": 4159917
+    },
+    "cefeda8f21381b9d-biochamber-animation.png": {
+      "source": "__space-age__/graphics/entity/biochamber/biochamber-animation.png",
+      "sha256": "cefeda8f21381b9d527f7da3129fb455a54bef8a8e31fe1ba561a233751d23f5",
+      "bytes": 640473
+    },
+    "0a3c13b60cea6f8d-biochamber-shadow.png": {
+      "source": "__space-age__/graphics/entity/biochamber/biochamber-shadow.png",
+      "sha256": "0a3c13b60cea6f8db65a9c43f1036d7b3b833f2b37238f68d4b3b45cae093ba5",
+      "bytes": 9746
+    },
+    "00c0027d2a84d0d4-biochamber.png": {
+      "source": "__space-age__/graphics/entity/biochamber/biochamber.png",
+      "sha256": "00c0027d2a84d0d44c925d9b4c1d41a0676e6659cc263cd866af3b09aa9678d6",
+      "bytes": 98751
+    },
+    "7197aefc33a49418-biolab-anim.png": {
+      "source": "__space-age__/graphics/entity/biolab/biolab-anim.png",
+      "sha256": "7197aefc33a494184e1a54a335aff1365669675aa67f1a42f94462f4456a184c",
+      "bytes": 6148594
+    },
+    "01b6a71579037e85-biolab-shadow.png": {
+      "source": "__space-age__/graphics/entity/biolab/biolab-shadow.png",
+      "sha256": "01b6a71579037e85441d7cf0bcbe0445377e48e4ebc59b651751b6d2609c1d86",
+      "bytes": 75159
+    },
+    "6a9df3549652f68b-crusher-horizontal-integration.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-horizontal-integration.png",
+      "sha256": "6a9df3549652f68b36c2c81a5794fec6d38f92d694775d34035b7aa0b4104096",
+      "bytes": 17029
+    },
+    "82460f90a3fcbf1e-crusher-horizontal-shadow.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-horizontal-shadow.png",
+      "sha256": "82460f90a3fcbf1e7fd2644c3be6dc16e7acb0c5b13e465454ff5bd874198dab",
+      "bytes": 4263
+    },
+    "6f493bfce55f2c85-crusher-horizontal.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-horizontal.png",
+      "sha256": "6f493bfce55f2c85deb6a00432d6fb6a803949f73f358bbbcfe69c3081666a91",
+      "bytes": 1964424
+    },
+    "3d6ec585434649bc-crusher-vertical-integration.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-vertical-integration.png",
+      "sha256": "3d6ec585434649bcb123901c39c89565a50d70c6d7711669ff62a0b6a33c0338",
+      "bytes": 27830
+    },
+    "a3896dbec5a5495a-crusher-vertical-shadow.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-vertical-shadow.png",
+      "sha256": "a3896dbec5a5495aa6c69947c91f8111fbbcd0ff12c219967fc02f58a41838b1",
+      "bytes": 1297
+    },
+    "d29d79e8a5353d53-crusher-vertical.png": {
+      "source": "__space-age__/graphics/entity/crusher/crusher-vertical.png",
+      "sha256": "d29d79e8a5353d53ca87c2857e03704f19ff7a9cb973595c8f3f39a9dab009e7",
+      "bytes": 1515030
+    },
+    "af1fa94a878f492b-cryogenic-plant-anim1-base.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-anim1-base.png",
+      "sha256": "af1fa94a878f492b058ca8d71698528deff18da409f1b7c47bd373682892120e",
+      "bytes": 383106
+    },
+    "04b562b05990c0be-cryogenic-plant-anim2-base.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-anim2-base.png",
+      "sha256": "04b562b05990c0be8d34ce10d13831e74d2532f17c0ac19b22c044b3f5ce4708",
+      "bytes": 172737
+    },
+    "c394c67f9a4aedc5-cryogenic-plant-anim4-base.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-anim4-base.png",
+      "sha256": "c394c67f9a4aedc5f766323899acc75e02bec1ec5aa83c19d246b0204bef8deb",
+      "bytes": 268917
+    },
+    "7a8b3aea199782bf-cryogenic-plant-anim5-base.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-anim5-base.png",
+      "sha256": "7a8b3aea199782bfd14fb2cc2d9ba043d65586ba41b7300bbbb860590f1ccbdd",
+      "bytes": 550413
+    },
+    "5ad14a3c030f0634-cryogenic-plant-anim6-base.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-anim6-base.png",
+      "sha256": "5ad14a3c030f06347e173a15ccc614fa02ed6517ea4782ad4bf30fde025d2a43",
+      "bytes": 455582
+    },
+    "a01d9c3cd5e9da1c-cryogenic-plant-main.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-main.png",
+      "sha256": "a01d9c3cd5e9da1c01d44f6005e3a273dc269b12728560c8361fc28dd576beb0",
+      "bytes": 276810
+    },
+    "7adbe9899b18ce39-cryogenic-plant-shadow.png": {
+      "source": "__space-age__/graphics/entity/cryogenic-plant/cryogenic-plant-shadow.png",
+      "sha256": "7adbe9899b18ce39eb3545cefdc90219f02baa3b76f44897de7cbff498a15e8b",
+      "bytes": 18498
+    },
+    "effeddb40e34c343-foundry-main-1.png": {
+      "source": "__space-age__/graphics/entity/foundry/foundry-main-1.png",
+      "sha256": "effeddb40e34c343bb8c0be7df70c08f834f5ae8e3cd5852b07016e35150dae4",
+      "bytes": 9224239
+    },
+    "05cc4b8a17c14541-foundry-main-2.png": {
+      "source": "__space-age__/graphics/entity/foundry/foundry-main-2.png",
+      "sha256": "05cc4b8a17c1454145170194d30e1cb11fadb432807800a99367e369ec814ab6",
+      "bytes": 8658516
+    },
+    "dfa3787f1e4f53c5-foundry-shadow-1.png": {
+      "source": "__space-age__/graphics/entity/foundry/foundry-shadow-1.png",
+      "sha256": "dfa3787f1e4f53c5a672d945883d3f6e934ff1a8e5d52f7fc1875ad32f0fd468",
+      "bytes": 214902
+    },
+    "0231385a0d0df34c-foundry-shadow-2.png": {
+      "source": "__space-age__/graphics/entity/foundry/foundry-shadow-2.png",
+      "sha256": "0231385a0d0df34cc525903053ba75dbac0359c07e8bfeac6e446846d8439949",
+      "bytes": 217628
+    },
+    "9695400d3b39a7f0-heating-tower-main.png": {
+      "source": "__space-age__/graphics/entity/heating-tower/heating-tower-main.png",
+      "sha256": "9695400d3b39a7f0f80aae6ec7a12d664d819c374b4d84cae5245b5585dbf6fb",
+      "bytes": 98944
+    },
+    "0c4c42b326dc5374-heating-tower-shadow.png": {
+      "source": "__space-age__/graphics/entity/heating-tower/heating-tower-shadow.png",
+      "sha256": "0c4c42b326dc53747ab9c700a95ecd5b2f11cd74ef249003420e9c4db8984f9d",
+      "bytes": 7919
+    },
+    "a01d5afbd79130c8-stack-inserter-hand-base.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-hand-base.png",
+      "sha256": "a01d5afbd79130c8325c80a0ac54f06783144c8f8deb22966b0482d755cff419",
+      "bytes": 10252
+    },
+    "ed4fe4859698c8fb-stack-inserter-hand-closed-shadow.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-hand-closed-shadow.png",
+      "sha256": "ed4fe4859698c8fbd1f43bade81a3db99919c7b5e9087e9778d60c06c1125002",
+      "bytes": 4814
+    },
+    "c692101d1a3e4dac-stack-inserter-hand-closed.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-hand-closed.png",
+      "sha256": "c692101d1a3e4dacaa6bbcc6f8076cd7399a579afc4b93b0dfc23c9343fc9cee",
+      "bytes": 29634
+    },
+    "c61af2ef1b04da05-stack-inserter-hand-open-shadow.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-hand-open-shadow.png",
+      "sha256": "c61af2ef1b04da0507b8b04049c1dc006bb3a2419b7ca5618c02e97da31b62da",
+      "bytes": 4768
+    },
+    "6f7afe461c1185b6-stack-inserter-hand-open.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-hand-open.png",
+      "sha256": "6f7afe461c1185b67bee33318c1d3017a57f061040cb591ecec3e1d1dae1f727",
+      "bytes": 32186
+    },
+    "532811a9a767603b-stack-inserter-platform.png": {
+      "source": "__space-age__/graphics/entity/stack-inserter/stack-inserter-platform.png",
+      "sha256": "532811a9a767603b73a27818be94541627ed53ee58378fd1377a0f642d7dd0ff",
+      "bytes": 36697
+    },
+    "d12258e82b20c3d1-turbo-splitter-east-top_patch.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-east-top_patch.png",
+      "sha256": "d12258e82b20c3d1ed3a61a60de55a1c0e2f1331b0e7a8c4af433c339020ab57",
+      "bytes": 406622
+    },
+    "9f0d57ca135490be-turbo-splitter-east.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-east.png",
+      "sha256": "9f0d57ca135490be99139e8ab6028b259f760f10dbfaf63b9c53f20738b12d4a",
+      "bytes": 405515
+    },
+    "cf19d4b9661ef7ab-turbo-splitter-north.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-north.png",
+      "sha256": "cf19d4b9661ef7abeec9fe2f1442ee57c04cc6daf85dbe8774b5ae29a53ee6ac",
+      "bytes": 597704
+    },
+    "e04f8ea9bc6ae2e6-turbo-splitter-south.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-south.png",
+      "sha256": "e04f8ea9bc6ae2e6088388338d89db83cf092f06c8bbd47c007f56f5e4d320d5",
+      "bytes": 536520
+    },
+    "285a62cf344dc9cb-turbo-splitter-west-top_patch.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-west-top_patch.png",
+      "sha256": "285a62cf344dc9cb54ee7606729aad4e7a5938e5d76e180b496c7d005d6004fb",
+      "bytes": 389759
+    },
+    "d1e13e6adb7c7ff4-turbo-splitter-west.png": {
+      "source": "__space-age__/graphics/entity/turbo-splitter/turbo-splitter-west.png",
+      "sha256": "d1e13e6adb7c7ff446fbe467491ae4f4863df6534d0d5b6f69b341427a1d04d7",
+      "bytes": 442142
+    },
+    "a26127acd6695d04-turbo-transport-belt.png": {
+      "source": "__space-age__/graphics/entity/turbo-transport-belt/turbo-transport-belt.png",
+      "sha256": "a26127acd6695d04b760109d60b80dda799f19f0893723a5a442ff1198ca9a37",
+      "bytes": 3677187
+    },
+    "0dd740f4cee7a67c-turbo-underground-belt-structure-back-patch.png": {
+      "source": "__space-age__/graphics/entity/turbo-underground-belt/turbo-underground-belt-structure-back-patch.png",
+      "sha256": "0dd740f4cee7a67c4aab49faa11c7daff6942b2aa51e12c1f47cb90bc5596326",
+      "bytes": 42851
+    },
+    "41082dbda90db1f9-turbo-underground-belt-structure-front-patch.png": {
+      "source": "__space-age__/graphics/entity/turbo-underground-belt/turbo-underground-belt-structure-front-patch.png",
+      "sha256": "41082dbda90db1f9ef4a354f1b1135ae905608cbbdab11fb2bc32b966dfd59d7",
+      "bytes": 7775
+    },
+    "3166cb7bf333fe97-turbo-underground-belt-structure.png": {
+      "source": "__space-age__/graphics/entity/turbo-underground-belt/turbo-underground-belt-structure.png",
+      "sha256": "3166cb7bf333fe9749b687c40ccd6fd3c3296f4930183ec2a5ace7cbc27dbb54",
+      "bytes": 148323
+    },
+    "859e1c599cf7a809-accumulator.png": {
+      "source": "script-output/entity/accumulator.png",
+      "sha256": "859e1c599cf7a809a22e6db82446a2113d53ba2ddcaf5fed76a4d1486077dd13",
+      "bytes": 9401
     },
     "e09d0d52c9061337-active-provider-chest.png": {
+      "source": "script-output/entity/active-provider-chest.png",
       "sha256": "e09d0d52c9061337f248dcbb339e4ae076cf482e07ea35d7b70b1514b3ea27ef",
       "bytes": 9178
     },
-    "52ee3773af1c23e0-storage-chest.png": {
-      "sha256": "52ee3773af1c23e001683af600be528a66f66187952c36f2590ad21e61dfd1de",
-      "bytes": 9068
-    },
-    "3ad54d9237ccdbc8-buffer-chest.png": {
-      "sha256": "3ad54d9237ccdbc8d2081d59ec9c5003052c6886364ca743d4acfc3f134b9df9",
-      "bytes": 9182
-    },
-    "e9c4cbe93379df22-requester-chest.png": {
-      "sha256": "e9c4cbe93379df2253378153e056568d954551049b3e3bfd421331c7353042c4",
-      "bytes": 9061
-    },
-    "b879f70c588ee62d-inserter.png": {
-      "sha256": "b879f70c588ee62ddded796d3d06de33a544420e86f10c4659f2eaec4fe00f1e",
-      "bytes": 6450
-    },
-    "13f39d726e95eb4e-burner-inserter.png": {
-      "sha256": "13f39d726e95eb4e394eed1df9bf3cbf573e71aca1bf10c79efffcbe83c2c31d",
-      "bytes": 6250
-    },
-    "faa2ed8fc2cdc067-fast-inserter.png": {
-      "sha256": "faa2ed8fc2cdc0677b7d394a0e33f9fd5bdb5021d85219cf854e8065b2782db4",
-      "bytes": 6475
-    },
-    "9484fd4b8473587d-long-handed-inserter.png": {
-      "sha256": "9484fd4b8473587d51a42498a46aabddf00f7419beb87af00802b9a2b644482d",
-      "bytes": 6362
-    },
-    "b1a133c149a38ed6-bulk-inserter.png": {
-      "sha256": "b1a133c149a38ed66c4d0e22d2aa686d9f9b732b1d4c7f0f67981331bfbb2b85",
-      "bytes": 6444
-    },
-    "7e536993e04a7275-stack-inserter.png": {
-      "sha256": "7e536993e04a72756e23adac3ee13f0757814c807f1cf4ea7081bfe303c3f445",
-      "bytes": 7157
-    },
-    "1129218f982b6264-transport-belt.png": {
-      "sha256": "1129218f982b62645dfcf560fa72f78b7f90132c76173b6ec94b1b19083592eb",
-      "bytes": 11077
-    },
-    "e3a35e2448786ca6-splitter.png": {
-      "sha256": "e3a35e2448786ca654bc682f225a64ac2228ae1ccd73af6ad4b4519e7a97ec5a",
-      "bytes": 8959
-    },
-    "d3a7f7ff295a9f74-underground-belt.png": {
-      "sha256": "d3a7f7ff295a9f742f7cdbe8442b8b580965f1a75a94da04007aa44192b79a4e",
-      "bytes": 8616
-    },
-    "aeeccdaac1f8ccb6-fast-transport-belt.png": {
-      "sha256": "aeeccdaac1f8ccb6db889e5ad01f7177efe2654f6345da82bae04cb9af9ed989",
-      "bytes": 11035
-    },
-    "778a9537e4da7220-fast-splitter.png": {
-      "sha256": "778a9537e4da72204525b89982cf76f0152f7d7f6ed3497cf433758d46c0090f",
-      "bytes": 8948
-    },
-    "481053aac897df04-fast-underground-belt.png": {
-      "sha256": "481053aac897df04ff2e9aa2a19539be66c8d795047b52cbcccfc3dee5928506",
-      "bytes": 8569
-    },
-    "617afff82c069249-express-transport-belt.png": {
-      "sha256": "617afff82c06924923345bd61a75e37859f5ed9d8590d8d90b91bcd2e512d2f0",
-      "bytes": 11056
-    },
-    "347413748a763484-express-splitter.png": {
-      "sha256": "347413748a76348404c4b7dab0f3ff14be1627142d427469c8ba4c8e9a951c86",
-      "bytes": 9035
-    },
-    "126fcc76669a6efb-express-underground-belt.png": {
-      "sha256": "126fcc76669a6efb4c60287807441496b1b3a1836fb44c90cbf84bd6f992414c",
-      "bytes": 8604
-    },
-    "9d92f239525ff782-turbo-transport-belt.png": {
-      "sha256": "9d92f239525ff782029fa32e80d659fb8c48572de047d775d03ccedb578f5915",
-      "bytes": 11047
-    },
-    "4254a3caacc24d5f-turbo-splitter.png": {
-      "sha256": "4254a3caacc24d5fd31730c0cf8d991047abf51055efc983639897acc9155a39",
-      "bytes": 9033
-    },
-    "249beeec18b2bdf7-turbo-underground-belt.png": {
-      "sha256": "249beeec18b2bdf7e9f05db08509465b08fa56b7b6fb4d8dc94eceb404fd62ee",
-      "bytes": 8595
+    "d501fcfbebe7e39d-arithmetic-combinator.png": {
+      "source": "script-output/entity/arithmetic-combinator.png",
+      "sha256": "d501fcfbebe7e39dbbb59cc5cdf3973a083c21cc1d05951c62bf667d6ec7f00d",
+      "bytes": 10679
     },
     "6ff2b088db4b1830-assembling-machine-1.png": {
+      "source": "script-output/entity/assembling-machine-1.png",
       "sha256": "6ff2b088db4b18300f3bdc812a96167187238404fc310dfc86ba67d16af6328c",
       "bytes": 9788
     },
     "57d5151bef278b34-assembling-machine-2.png": {
+      "source": "script-output/entity/assembling-machine-2.png",
       "sha256": "57d5151bef278b34087526b37169756b10797cf6c92b9244745a2c3d7054f272",
       "bytes": 9992
     },
     "b746b505ee300ffc-assembling-machine-3.png": {
+      "source": "script-output/entity/assembling-machine-3.png",
       "sha256": "b746b505ee300ffccfa12cf4b2b0dfe24507211ed8c33743cfbc4892350ca119",
       "bytes": 9931
     },
-    "0759bd22850966e4-chemical-plant.png": {
-      "sha256": "0759bd22850966e4aba530c6b4f53cfdaedae294e0fc7eb6019e310bfd3842a1",
-      "bytes": 11052
-    },
-    "19a0aa27966e4df1-oil-refinery.png": {
-      "sha256": "19a0aa27966e4df1d7c4bab6fc4ffc1cde4bba14a3c064b0a7f95427532cfbc6",
-      "bytes": 11230
-    },
-    "a23f64fad1e37cff-centrifuge.png": {
-      "sha256": "a23f64fad1e37cffa3fb180accc79b122bbb711fe5163d366a75442a98efaeb2",
-      "bytes": 11429
-    },
-    "8c8a5a86d08ddd03-foundry.png": {
-      "sha256": "8c8a5a86d08ddd03a299e384ad4c4b0b3939ed7edcf653072f45d02295e86005",
-      "bytes": 9309
-    },
-    "fb716cbafdc543e5-biochamber.png": {
-      "sha256": "fb716cbafdc543e5dbd58c3ba21ae6e3cc33327add5ecda7bc6c78d9bac57c32",
-      "bytes": 9140
-    },
-    "ffbe8ce419028d22-cryogenic-plant.png": {
-      "sha256": "ffbe8ce419028d221648276ed57d0d3f828e2e301efb6dc4f8620af90936cc79",
-      "bytes": 10353
-    },
-    "9466431ab9359cc8-crusher.png": {
-      "sha256": "9466431ab9359cc8188a9b2ab54948f6be4c4e537abc3c384296f6e820c8a67f",
-      "bytes": 9571
-    },
-    "cc8e874c74ebe0bb-stone-furnace.png": {
-      "sha256": "cc8e874c74ebe0bb9ef30ee314534fa604d3002c51e08d05dc2befaf878bb8a6",
-      "bytes": 9173
-    },
-    "6399d817458adae0-steel-furnace.png": {
-      "sha256": "6399d817458adae07ac558c932d4f72cf79567db3b7daae528991bfc437d0228",
-      "bytes": 9625
-    },
-    "600012bff1e2bbb7-electric-furnace.png": {
-      "sha256": "600012bff1e2bbb70405cf040112695aa1f1db0c31b695b7808867ee5a858a4a",
-      "bytes": 11512
-    },
-    "d9f83857203493ed-recycler.png": {
-      "sha256": "d9f83857203493ed2a4539692da23476b7b3a87f17a2ec5b9e0e57899530bfaa",
-      "bytes": 10872
-    },
-    "44a8e4aa8b791b4d-burner-mining-drill.png": {
-      "sha256": "44a8e4aa8b791b4db26add549764b6b88b11b48d74bb41d0a090239df42f834b",
-      "bytes": 10366
-    },
-    "f76cc4ee4157111b-pumpjack.png": {
-      "sha256": "f76cc4ee4157111bb161e3a9db6783a3c394005ddfe22a1fd1bdb0368301c6da",
-      "bytes": 10047
-    },
-    "bb34633e0fdc0204-lab.png": {
-      "sha256": "bb34633e0fdc020405e4ba6bfd3fe7c30856e4705da90b8a9f07d98f265ee14f",
-      "bytes": 9846
-    },
-    "9c275f99eb569a72-biolab.png": {
-      "sha256": "9c275f99eb569a72b3dc02b7924d02148a7eebbbd49612a260ae924627aecd18",
-      "bytes": 11803
-    },
-    "a1bee8fb0e11e947-small-electric-pole.png": {
-      "sha256": "a1bee8fb0e11e947f894dfa168e1a6da7f61c2e9e45868563c0ed37764ae0853",
-      "bytes": 3564
-    },
-    "48144b968d6b29d9-medium-electric-pole.png": {
-      "sha256": "48144b968d6b29d94d0a2bb1c16001df969cbc3deb032ec6c55751d16927a594",
-      "bytes": 5197
-    },
     "08aa9cb97b5683a4-big-electric-pole.png": {
+      "source": "script-output/entity/big-electric-pole.png",
       "sha256": "08aa9cb97b5683a45315755e28f5ea3431f56c85963e0be267d79d1e4598185a",
       "bytes": 6819
     },
-    "818cf5a5f58b0198-substation.png": {
-      "sha256": "818cf5a5f58b0198a53c3aabd1ddedf03f7c5aea98fa85c130d0986e8a6292b3",
-      "bytes": 6229
+    "fb716cbafdc543e5-biochamber.png": {
+      "source": "script-output/entity/biochamber.png",
+      "sha256": "fb716cbafdc543e5dbd58c3ba21ae6e3cc33327add5ecda7bc6c78d9bac57c32",
+      "bytes": 9140
     },
-    "8c3c118dfc95bcee-solar-panel.png": {
-      "sha256": "8c3c118dfc95bcee8fe43e3f20c23b32db396bd1d1d1a8e017e78369ab8fd335",
-      "bytes": 10540
-    },
-    "859e1c599cf7a809-accumulator.png": {
-      "sha256": "859e1c599cf7a809a22e6db82446a2113d53ba2ddcaf5fed76a4d1486077dd13",
-      "bytes": 9401
-    },
-    "59f174a98de2ec5f-steam-engine.png": {
-      "sha256": "59f174a98de2ec5f04fc2f4bdb60d748486f34688a991b195b95529fdf38da43",
-      "bytes": 10820
-    },
-    "aa52f91fca57e9b9-steam-turbine.png": {
-      "sha256": "aa52f91fca57e9b95f4ca72779608a2c0dc6dee71fb73be4a5728d030d003234",
-      "bytes": 10959
-    },
-    "2f4e6f5916236d02-nuclear-reactor.png": {
-      "sha256": "2f4e6f5916236d0206dc3602c314e3d1fa6095dc867f97cc6510afd2bb9d268e",
-      "bytes": 9444
-    },
-    "72556ea817634064-heating-tower.png": {
-      "sha256": "72556ea81763406488e005298bf19bf152ebbc21cc9f5e5deaf779cf42d01b5a",
-      "bytes": 9037
+    "9c275f99eb569a72-biolab.png": {
+      "source": "script-output/entity/biolab.png",
+      "sha256": "9c275f99eb569a72b3dc02b7924d02148a7eebbbd49612a260ae924627aecd18",
+      "bytes": 11803
     },
     "bdfe596cf353b057-boiler.png": {
+      "source": "script-output/entity/boiler.png",
       "sha256": "bdfe596cf353b057da454b283294ecf5f166ec0e6fb273b07add88c8b8e3f56d",
       "bytes": 9633
     },
+    "3ad54d9237ccdbc8-buffer-chest.png": {
+      "source": "script-output/entity/buffer-chest.png",
+      "sha256": "3ad54d9237ccdbc8d2081d59ec9c5003052c6886364ca743d4acfc3f134b9df9",
+      "bytes": 9182
+    },
+    "b1a133c149a38ed6-bulk-inserter.png": {
+      "source": "script-output/entity/bulk-inserter.png",
+      "sha256": "b1a133c149a38ed66c4d0e22d2aa686d9f9b732b1d4c7f0f67981331bfbb2b85",
+      "bytes": 6444
+    },
+    "13f39d726e95eb4e-burner-inserter.png": {
+      "source": "script-output/entity/burner-inserter.png",
+      "sha256": "13f39d726e95eb4e394eed1df9bf3cbf573e71aca1bf10c79efffcbe83c2c31d",
+      "bytes": 6250
+    },
+    "44a8e4aa8b791b4d-burner-mining-drill.png": {
+      "source": "script-output/entity/burner-mining-drill.png",
+      "sha256": "44a8e4aa8b791b4db26add549764b6b88b11b48d74bb41d0a090239df42f834b",
+      "bytes": 10366
+    },
+    "a23f64fad1e37cff-centrifuge.png": {
+      "source": "script-output/entity/centrifuge.png",
+      "sha256": "a23f64fad1e37cffa3fb180accc79b122bbb711fe5163d366a75442a98efaeb2",
+      "bytes": 11429
+    },
+    "0759bd22850966e4-chemical-plant.png": {
+      "source": "script-output/entity/chemical-plant.png",
+      "sha256": "0759bd22850966e4aba530c6b4f53cfdaedae294e0fc7eb6019e310bfd3842a1",
+      "bytes": 11052
+    },
+    "b29d24c9055566ed-constant-combinator.png": {
+      "source": "script-output/entity/constant-combinator.png",
+      "sha256": "b29d24c9055566ede0f552dca6e3a6ecbefc1f9f8f3f49b6da3ff45b07221600",
+      "bytes": 9771
+    },
+    "c65f39e72396fb1d-construction-robot.png": {
+      "source": "script-output/entity/construction-robot.png",
+      "sha256": "c65f39e72396fb1da14c6e50918e99414de6893235bfe57f03c3891d3990a5bf",
+      "bytes": 8522
+    },
+    "9466431ab9359cc8-crusher.png": {
+      "source": "script-output/entity/crusher.png",
+      "sha256": "9466431ab9359cc8188a9b2ab54948f6be4c4e537abc3c384296f6e820c8a67f",
+      "bytes": 9571
+    },
+    "ffbe8ce419028d22-cryogenic-plant.png": {
+      "source": "script-output/entity/cryogenic-plant.png",
+      "sha256": "ffbe8ce419028d221648276ed57d0d3f828e2e301efb6dc4f8620af90936cc79",
+      "bytes": 10353
+    },
+    "1b93079d428535f8-decider-combinator.png": {
+      "source": "script-output/entity/decider-combinator.png",
+      "sha256": "1b93079d428535f8d61f8f47ac6833f869757ba7f6be8b3a04b44a2e4cbdc7b1",
+      "bytes": 11191
+    },
+    "600012bff1e2bbb7-electric-furnace.png": {
+      "source": "script-output/entity/electric-furnace.png",
+      "sha256": "600012bff1e2bbb70405cf040112695aa1f1db0c31b695b7808867ee5a858a4a",
+      "bytes": 11512
+    },
+    "347413748a763484-express-splitter.png": {
+      "source": "script-output/entity/express-splitter.png",
+      "sha256": "347413748a76348404c4b7dab0f3ff14be1627142d427469c8ba4c8e9a951c86",
+      "bytes": 9035
+    },
+    "617afff82c069249-express-transport-belt.png": {
+      "source": "script-output/entity/express-transport-belt.png",
+      "sha256": "617afff82c06924923345bd61a75e37859f5ed9d8590d8d90b91bcd2e512d2f0",
+      "bytes": 11056
+    },
+    "126fcc76669a6efb-express-underground-belt.png": {
+      "source": "script-output/entity/express-underground-belt.png",
+      "sha256": "126fcc76669a6efb4c60287807441496b1b3a1836fb44c90cbf84bd6f992414c",
+      "bytes": 8604
+    },
+    "faa2ed8fc2cdc067-fast-inserter.png": {
+      "source": "script-output/entity/fast-inserter.png",
+      "sha256": "faa2ed8fc2cdc0677b7d394a0e33f9fd5bdb5021d85219cf854e8065b2782db4",
+      "bytes": 6475
+    },
+    "778a9537e4da7220-fast-splitter.png": {
+      "source": "script-output/entity/fast-splitter.png",
+      "sha256": "778a9537e4da72204525b89982cf76f0152f7d7f6ed3497cf433758d46c0090f",
+      "bytes": 8948
+    },
+    "aeeccdaac1f8ccb6-fast-transport-belt.png": {
+      "source": "script-output/entity/fast-transport-belt.png",
+      "sha256": "aeeccdaac1f8ccb6db889e5ad01f7177efe2654f6345da82bae04cb9af9ed989",
+      "bytes": 11035
+    },
+    "481053aac897df04-fast-underground-belt.png": {
+      "source": "script-output/entity/fast-underground-belt.png",
+      "sha256": "481053aac897df04ff2e9aa2a19539be66c8d795047b52cbcccfc3dee5928506",
+      "bytes": 8569
+    },
+    "8c8a5a86d08ddd03-foundry.png": {
+      "source": "script-output/entity/foundry.png",
+      "sha256": "8c8a5a86d08ddd03a299e384ad4c4b0b3939ed7edcf653072f45d02295e86005",
+      "bytes": 9309
+    },
     "b4b6f7ed2f247805-heat-exchanger.png": {
+      "source": "script-output/entity/heat-exchanger.png",
       "sha256": "b4b6f7ed2f247805f19b962f768e56b8f5bd6808216d2f5280f8e49e6697e0c5",
       "bytes": 9696
     },
-    "9b7079d805947e64-storage-tank.png": {
-      "sha256": "9b7079d805947e64235cbb85bc3ec1c5202f5856900afb9bcd430b7f30805bd2",
-      "bytes": 10000
+    "72556ea817634064-heating-tower.png": {
+      "source": "script-output/entity/heating-tower.png",
+      "sha256": "72556ea81763406488e005298bf19bf152ebbc21cc9f5e5deaf779cf42d01b5a",
+      "bytes": 9037
+    },
+    "b879f70c588ee62d-inserter.png": {
+      "source": "script-output/entity/inserter.png",
+      "sha256": "b879f70c588ee62ddded796d3d06de33a544420e86f10c4659f2eaec4fe00f1e",
+      "bytes": 6450
+    },
+    "75b196ce41470233-iron-chest.png": {
+      "source": "script-output/entity/iron-chest.png",
+      "sha256": "75b196ce414702331e4b7e3fd4cb7043b5ec50bb20d00fb9e2bda34e17a8f0d3",
+      "bytes": 9313
+    },
+    "bb34633e0fdc0204-lab.png": {
+      "source": "script-output/entity/lab.png",
+      "sha256": "bb34633e0fdc020405e4ba6bfd3fe7c30856e4705da90b8a9f07d98f265ee14f",
+      "bytes": 9846
+    },
+    "dca0400087d5b843-logistic-robot.png": {
+      "source": "script-output/entity/logistic-robot.png",
+      "sha256": "dca0400087d5b84365f207fabd66009cbe85545a2bb585338b9586982d53e86e",
+      "bytes": 7250
+    },
+    "9484fd4b8473587d-long-handed-inserter.png": {
+      "source": "script-output/entity/long-handed-inserter.png",
+      "sha256": "9484fd4b8473587d51a42498a46aabddf00f7419beb87af00802b9a2b644482d",
+      "bytes": 6362
+    },
+    "48144b968d6b29d9-medium-electric-pole.png": {
+      "source": "script-output/entity/medium-electric-pole.png",
+      "sha256": "48144b968d6b29d94d0a2bb1c16001df969cbc3deb032ec6c55751d16927a594",
+      "bytes": 5197
+    },
+    "2f4e6f5916236d02-nuclear-reactor.png": {
+      "source": "script-output/entity/nuclear-reactor.png",
+      "sha256": "2f4e6f5916236d0206dc3602c314e3d1fa6095dc867f97cc6510afd2bb9d268e",
+      "bytes": 9444
+    },
+    "19a0aa27966e4df1-oil-refinery.png": {
+      "source": "script-output/entity/oil-refinery.png",
+      "sha256": "19a0aa27966e4df1d7c4bab6fc4ffc1cde4bba14a3c064b0a7f95427532cfbc6",
+      "bytes": 11230
+    },
+    "5a07b930bcd2d722-passive-provider-chest.png": {
+      "source": "script-output/entity/passive-provider-chest.png",
+      "sha256": "5a07b930bcd2d7226842d6cc811771de25f41a3b0570afe41191bee6fcbdaac7",
+      "bytes": 9176
     },
     "d7ab535d92244088-pipe.png": {
+      "source": "script-output/entity/pipe.png",
       "sha256": "d7ab535d92244088f16a755e3b13a8a68986e0eed4776e2c9101135a804787fa",
       "bytes": 7683
     },
     "af58539e3de676ad-pump.png": {
+      "source": "script-output/entity/pump.png",
       "sha256": "af58539e3de676adc633b10947d24948727833fa43711b5455619a5fb6ecbe8b",
       "bytes": 7938
     },
-    "d501fcfbebe7e39d-arithmetic-combinator.png": {
-      "sha256": "d501fcfbebe7e39dbbb59cc5cdf3973a083c21cc1d05951c62bf667d6ec7f00d",
-      "bytes": 10679
-    },
-    "1b93079d428535f8-decider-combinator.png": {
-      "sha256": "1b93079d428535f8d61f8f47ac6833f869757ba7f6be8b3a04b44a2e4cbdc7b1",
-      "bytes": 11191
-    },
-    "4479a38a0fc4b9cd-selector-combinator.png": {
-      "sha256": "4479a38a0fc4b9cdc26a7829f5d776cf8a7a4520fd7bcda5df02399003bb27b0",
-      "bytes": 10784
-    },
-    "b29d24c9055566ed-constant-combinator.png": {
-      "sha256": "b29d24c9055566ede0f552dca6e3a6ecbefc1f9f8f3f49b6da3ff45b07221600",
-      "bytes": 9771
-    },
-    "db0d67b9ab002cbb-small-lamp.png": {
-      "sha256": "db0d67b9ab002cbbef50124b8d9cc0a26ad6b8e6b48efca957b47644d4e781e2",
-      "bytes": 7992
-    },
-    "dca0400087d5b843-logistic-robot.png": {
-      "sha256": "dca0400087d5b84365f207fabd66009cbe85545a2bb585338b9586982d53e86e",
-      "bytes": 7250
-    },
-    "c65f39e72396fb1d-construction-robot.png": {
-      "sha256": "c65f39e72396fb1da14c6e50918e99414de6893235bfe57f03c3891d3990a5bf",
-      "bytes": 8522
-    },
-    "a32ad39eca92a325-roboport.png": {
-      "sha256": "a32ad39eca92a3251c3fc1019a5b03abb0379858f51142296812b50616623877",
-      "bytes": 11236
+    "f76cc4ee4157111b-pumpjack.png": {
+      "source": "script-output/entity/pumpjack.png",
+      "sha256": "f76cc4ee4157111bb161e3a9db6783a3c394005ddfe22a1fd1bdb0368301c6da",
+      "bytes": 10047
     },
     "031b95d131437c91-radar.png": {
+      "source": "script-output/entity/radar.png",
       "sha256": "031b95d131437c9119104aad4bed8bc1e0eb6aff857af62cfed7a5d117bcff94",
       "bytes": 10270
     },
-    "f336920a8b97d40a-iron-plate.png": {
-      "sha256": "f336920a8b97d40ad1c058cd8ec29b6375e5bf173551e4d4cac31a22fab672c7",
-      "bytes": 4821
+    "d9f83857203493ed-recycler.png": {
+      "source": "script-output/entity/recycler.png",
+      "sha256": "d9f83857203493ed2a4539692da23476b7b3a87f17a2ec5b9e0e57899530bfaa",
+      "bytes": 10872
     },
-    "c9b26608942c04a0-copper-plate.png": {
-      "sha256": "c9b26608942c04a04e9d49a47458e11663b01c98adf695b2f9a7d1c49d1f3a23",
-      "bytes": 5321
+    "e9c4cbe93379df22-requester-chest.png": {
+      "source": "script-output/entity/requester-chest.png",
+      "sha256": "e9c4cbe93379df2253378153e056568d954551049b3e3bfd421331c7353042c4",
+      "bytes": 9061
     },
-    "43474f525e1adb4f-steel-plate.png": {
-      "sha256": "43474f525e1adb4fd8cb796ec9c10e65135e006369e69f6fc5f3aa25597b8e40",
-      "bytes": 6298
+    "a32ad39eca92a325-roboport.png": {
+      "source": "script-output/entity/roboport.png",
+      "sha256": "a32ad39eca92a3251c3fc1019a5b03abb0379858f51142296812b50616623877",
+      "bytes": 11236
     },
-    "26809ca6f6f44a7d-iron-ore.png": {
-      "sha256": "26809ca6f6f44a7d7fdf27968d9f7e998b1ace55bbd9102b30dd073953af4585",
-      "bytes": 9296
+    "4479a38a0fc4b9cd-selector-combinator.png": {
+      "source": "script-output/entity/selector-combinator.png",
+      "sha256": "4479a38a0fc4b9cdc26a7829f5d776cf8a7a4520fd7bcda5df02399003bb27b0",
+      "bytes": 10784
     },
-    "d7a09fb16117c043-copper-ore.png": {
-      "sha256": "d7a09fb16117c043a9372b28ac4b66a8373727ec0deb6587346807bb983a1ecb",
-      "bytes": 9568
+    "a1bee8fb0e11e947-small-electric-pole.png": {
+      "source": "script-output/entity/small-electric-pole.png",
+      "sha256": "a1bee8fb0e11e947f894dfa168e1a6da7f61c2e9e45868563c0ed37764ae0853",
+      "bytes": 3564
     },
-    "850fbaea9175ad50-coal.png": {
-      "sha256": "850fbaea9175ad50b9f78c45e529b2a72c3faee10b9796ef98131fc2f8d923a9",
-      "bytes": 7576
+    "db0d67b9ab002cbb-small-lamp.png": {
+      "source": "script-output/entity/small-lamp.png",
+      "sha256": "db0d67b9ab002cbbef50124b8d9cc0a26ad6b8e6b48efca957b47644d4e781e2",
+      "bytes": 7992
     },
-    "ab0150d5e765877c-stone.png": {
-      "sha256": "ab0150d5e765877c592db4150d7f2f24c238420f4c58cb5c1bc8a8c8ce1e6704",
+    "8c3c118dfc95bcee-solar-panel.png": {
+      "source": "script-output/entity/solar-panel.png",
+      "sha256": "8c3c118dfc95bcee8fe43e3f20c23b32db396bd1d1d1a8e017e78369ab8fd335",
+      "bytes": 10540
+    },
+    "e3a35e2448786ca6-splitter.png": {
+      "source": "script-output/entity/splitter.png",
+      "sha256": "e3a35e2448786ca654bc682f225a64ac2228ae1ccd73af6ad4b4519e7a97ec5a",
       "bytes": 8959
     },
-    "24ae0722c7416ae1-uranium-ore.png": {
-      "sha256": "24ae0722c7416ae153aa73b5069326ffa505f0db9179a512ca02726ed610068b",
-      "bytes": 7926
+    "7e536993e04a7275-stack-inserter.png": {
+      "source": "script-output/entity/stack-inserter.png",
+      "sha256": "7e536993e04a72756e23adac3ee13f0757814c807f1cf4ea7081bfe303c3f445",
+      "bytes": 7157
     },
-    "1e8aae0b8aab3528-iron-gear-wheel.png": {
-      "sha256": "1e8aae0b8aab352890d6f6fb52605638f3cbe0cdd0a60878e5d63a7cc67dd616",
-      "bytes": 7134
+    "59f174a98de2ec5f-steam-engine.png": {
+      "source": "script-output/entity/steam-engine.png",
+      "sha256": "59f174a98de2ec5f04fc2f4bdb60d748486f34688a991b195b95529fdf38da43",
+      "bytes": 10820
     },
-    "21c1714293032d25-copper-cable.png": {
-      "sha256": "21c1714293032d25e4e928aeb89b3d07155583f6eb9620a92916b9fed90e68d0",
-      "bytes": 7372
+    "aa52f91fca57e9b9-steam-turbine.png": {
+      "source": "script-output/entity/steam-turbine.png",
+      "sha256": "aa52f91fca57e9b95f4ca72779608a2c0dc6dee71fb73be4a5728d030d003234",
+      "bytes": 10959
     },
-    "76aa03015ee54c50-electronic-circuit.png": {
-      "sha256": "76aa03015ee54c500ba1d9a7e21b9ca7f3b041b5e73b05b8cbab0ce0eb676082",
-      "bytes": 7098
+    "66aef8050f0d70ce-steel-chest.png": {
+      "source": "script-output/entity/steel-chest.png",
+      "sha256": "66aef8050f0d70cede5bd8171fcc9324fb68d59c08caa10d5fb6caf548c04e8e",
+      "bytes": 9512
+    },
+    "6399d817458adae0-steel-furnace.png": {
+      "source": "script-output/entity/steel-furnace.png",
+      "sha256": "6399d817458adae07ac558c932d4f72cf79567db3b7daae528991bfc437d0228",
+      "bytes": 9625
+    },
+    "cc8e874c74ebe0bb-stone-furnace.png": {
+      "source": "script-output/entity/stone-furnace.png",
+      "sha256": "cc8e874c74ebe0bb9ef30ee314534fa604d3002c51e08d05dc2befaf878bb8a6",
+      "bytes": 9173
+    },
+    "52ee3773af1c23e0-storage-chest.png": {
+      "source": "script-output/entity/storage-chest.png",
+      "sha256": "52ee3773af1c23e001683af600be528a66f66187952c36f2590ad21e61dfd1de",
+      "bytes": 9068
+    },
+    "9b7079d805947e64-storage-tank.png": {
+      "source": "script-output/entity/storage-tank.png",
+      "sha256": "9b7079d805947e64235cbb85bc3ec1c5202f5856900afb9bcd430b7f30805bd2",
+      "bytes": 10000
+    },
+    "818cf5a5f58b0198-substation.png": {
+      "source": "script-output/entity/substation.png",
+      "sha256": "818cf5a5f58b0198a53c3aabd1ddedf03f7c5aea98fa85c130d0986e8a6292b3",
+      "bytes": 6229
+    },
+    "1129218f982b6264-transport-belt.png": {
+      "source": "script-output/entity/transport-belt.png",
+      "sha256": "1129218f982b62645dfcf560fa72f78b7f90132c76173b6ec94b1b19083592eb",
+      "bytes": 11077
+    },
+    "4254a3caacc24d5f-turbo-splitter.png": {
+      "source": "script-output/entity/turbo-splitter.png",
+      "sha256": "4254a3caacc24d5fd31730c0cf8d991047abf51055efc983639897acc9155a39",
+      "bytes": 9033
+    },
+    "9d92f239525ff782-turbo-transport-belt.png": {
+      "source": "script-output/entity/turbo-transport-belt.png",
+      "sha256": "9d92f239525ff782029fa32e80d659fb8c48572de047d775d03ccedb578f5915",
+      "bytes": 11047
+    },
+    "249beeec18b2bdf7-turbo-underground-belt.png": {
+      "source": "script-output/entity/turbo-underground-belt.png",
+      "sha256": "249beeec18b2bdf7e9f05db08509465b08fa56b7b6fb4d8dc94eceb404fd62ee",
+      "bytes": 8595
+    },
+    "d3a7f7ff295a9f74-underground-belt.png": {
+      "source": "script-output/entity/underground-belt.png",
+      "sha256": "d3a7f7ff295a9f742f7cdbe8442b8b580965f1a75a94da04007aa44192b79a4e",
+      "bytes": 8616
+    },
+    "3cb4495c6a9b304e-wooden-chest.png": {
+      "source": "script-output/entity/wooden-chest.png",
+      "sha256": "3cb4495c6a9b304e0f5ac679a6d27013e33fc40de64d422788bfa5f571fd7bd4",
+      "bytes": 8474
     },
     "6eee07da1c1ed6df-advanced-circuit.png": {
+      "source": "script-output/item/advanced-circuit.png",
       "sha256": "6eee07da1c1ed6dff672d6a9a2d6a27886b10d3155cfdbe05eb634932cb6ca53",
       "bytes": 6970
     },
-    "912e32e53bdb9585-processing-unit.png": {
-      "sha256": "912e32e53bdb9585dd327ab625284ee2cb10862de35823b24cc61667dabb15bf",
-      "bytes": 7353
-    },
-    "f70ec8e1c80faeb0-battery.png": {
-      "sha256": "f70ec8e1c80faeb04b867ce6164a8f7e8d88fa3d75a508589b6b995bf8b62674",
-      "bytes": 7567
-    },
-    "94c1abb8b652cea9-engine-unit.png": {
-      "sha256": "94c1abb8b652cea962cb22567f146573756b1c2899082a56e95131c1a83b2ae0",
-      "bytes": 9268
-    },
-    "d8ff4668869f9361-electric-engine-unit.png": {
-      "sha256": "d8ff4668869f93611211573e6c3d4a3de078e9ba2e22a064d91f5f0e626d9118",
-      "bytes": 8694
-    },
-    "adb9c158074049a0-plastic-bar.png": {
-      "sha256": "adb9c158074049a0354b8b501aa31063b71d41d0c126ca4a92d1b22b033ca319",
-      "bytes": 3009
-    },
-    "1924f819e30c8a6c-sulfur.png": {
-      "sha256": "1924f819e30c8a6cad32377ee345da91ee7e5353e3e24487cac1417819c7f2e3",
-      "bytes": 6493
-    },
-    "64df5a4706c1c87b-low-density-structure.png": {
-      "sha256": "64df5a4706c1c87b0820f47a73dff29fc320097427fa6a453159ae3d3cb633c2",
-      "bytes": 7952
-    },
-    "675c526782dc347a-rocket-fuel.png": {
-      "sha256": "675c526782dc347aa75c9d817a537783023046f10504e965e04ee09a2147eb91",
-      "bytes": 6995
-    },
     "989818fad1f06eb7-automation-science-pack.png": {
+      "source": "script-output/item/automation-science-pack.png",
       "sha256": "989818fad1f06eb72612b409699897f03d2633dbd699b7ce064ad76179776533",
       "bytes": 6101
     },
-    "b5fc464df3cd17fa-logistic-science-pack.png": {
-      "sha256": "b5fc464df3cd17fa645518a0a308619b453a59b0d17a7fa09673f137a4d67e19",
-      "bytes": 6514
+    "f70ec8e1c80faeb0-battery.png": {
+      "source": "script-output/item/battery.png",
+      "sha256": "f70ec8e1c80faeb04b867ce6164a8f7e8d88fa3d75a508589b6b995bf8b62674",
+      "bytes": 7567
     },
     "751d7cf5b3f68b81-chemical-science-pack.png": {
+      "source": "script-output/item/chemical-science-pack.png",
       "sha256": "751d7cf5b3f68b811880470c0597221633d9ab849f1ae56e60d3dfc95bbdd648",
       "bytes": 6520
     },
+    "850fbaea9175ad50-coal.png": {
+      "source": "script-output/item/coal.png",
+      "sha256": "850fbaea9175ad50b9f78c45e529b2a72c3faee10b9796ef98131fc2f8d923a9",
+      "bytes": 7576
+    },
+    "21c1714293032d25-copper-cable.png": {
+      "source": "script-output/item/copper-cable.png",
+      "sha256": "21c1714293032d25e4e928aeb89b3d07155583f6eb9620a92916b9fed90e68d0",
+      "bytes": 7372
+    },
+    "d7a09fb16117c043-copper-ore.png": {
+      "source": "script-output/item/copper-ore.png",
+      "sha256": "d7a09fb16117c043a9372b28ac4b66a8373727ec0deb6587346807bb983a1ecb",
+      "bytes": 9568
+    },
+    "c9b26608942c04a0-copper-plate.png": {
+      "source": "script-output/item/copper-plate.png",
+      "sha256": "c9b26608942c04a04e9d49a47458e11663b01c98adf695b2f9a7d1c49d1f3a23",
+      "bytes": 5321
+    },
+    "d8ff4668869f9361-electric-engine-unit.png": {
+      "source": "script-output/item/electric-engine-unit.png",
+      "sha256": "d8ff4668869f93611211573e6c3d4a3de078e9ba2e22a064d91f5f0e626d9118",
+      "bytes": 8694
+    },
+    "76aa03015ee54c50-electronic-circuit.png": {
+      "source": "script-output/item/electronic-circuit.png",
+      "sha256": "76aa03015ee54c500ba1d9a7e21b9ca7f3b041b5e73b05b8cbab0ce0eb676082",
+      "bytes": 7098
+    },
+    "94c1abb8b652cea9-engine-unit.png": {
+      "source": "script-output/item/engine-unit.png",
+      "sha256": "94c1abb8b652cea962cb22567f146573756b1c2899082a56e95131c1a83b2ae0",
+      "bytes": 9268
+    },
+    "1e8aae0b8aab3528-iron-gear-wheel.png": {
+      "source": "script-output/item/iron-gear-wheel.png",
+      "sha256": "1e8aae0b8aab352890d6f6fb52605638f3cbe0cdd0a60878e5d63a7cc67dd616",
+      "bytes": 7134
+    },
+    "26809ca6f6f44a7d-iron-ore.png": {
+      "source": "script-output/item/iron-ore.png",
+      "sha256": "26809ca6f6f44a7d7fdf27968d9f7e998b1ace55bbd9102b30dd073953af4585",
+      "bytes": 9296
+    },
+    "f336920a8b97d40a-iron-plate.png": {
+      "source": "script-output/item/iron-plate.png",
+      "sha256": "f336920a8b97d40ad1c058cd8ec29b6375e5bf173551e4d4cac31a22fab672c7",
+      "bytes": 4821
+    },
+    "b5fc464df3cd17fa-logistic-science-pack.png": {
+      "source": "script-output/item/logistic-science-pack.png",
+      "sha256": "b5fc464df3cd17fa645518a0a308619b453a59b0d17a7fa09673f137a4d67e19",
+      "bytes": 6514
+    },
+    "64df5a4706c1c87b-low-density-structure.png": {
+      "source": "script-output/item/low-density-structure.png",
+      "sha256": "64df5a4706c1c87b0820f47a73dff29fc320097427fa6a453159ae3d3cb633c2",
+      "bytes": 7952
+    },
+    "adb9c158074049a0-plastic-bar.png": {
+      "source": "script-output/item/plastic-bar.png",
+      "sha256": "adb9c158074049a0354b8b501aa31063b71d41d0c126ca4a92d1b22b033ca319",
+      "bytes": 3009
+    },
+    "912e32e53bdb9585-processing-unit.png": {
+      "source": "script-output/item/processing-unit.png",
+      "sha256": "912e32e53bdb9585dd327ab625284ee2cb10862de35823b24cc61667dabb15bf",
+      "bytes": 7353
+    },
     "ec08415ce48d544f-production-science-pack.png": {
+      "source": "script-output/item/production-science-pack.png",
       "sha256": "ec08415ce48d544f9b21dd7eea739ff95b4c80f7a72ef195046c14cad4f09648",
       "bytes": 6612
     },
-    "59064e42a46a2e9f-utility-science-pack.png": {
-      "sha256": "59064e42a46a2e9f0217dea41411697793012494053c9d7d45c9d53272a0f837",
-      "bytes": 6538
+    "4f72b5f9f7aa645a-productivity-module.png": {
+      "source": "script-output/item/productivity-module.png",
+      "sha256": "4f72b5f9f7aa645a4c3f9de66f261633372aabde2d240a2044db7ea157f25cea",
+      "bytes": 10432
+    },
+    "675c526782dc347a-rocket-fuel.png": {
+      "source": "script-output/item/rocket-fuel.png",
+      "sha256": "675c526782dc347aa75c9d817a537783023046f10504e965e04ee09a2147eb91",
+      "bytes": 6995
     },
     "441aa33a15109715-space-science-pack.png": {
+      "source": "script-output/item/space-science-pack.png",
       "sha256": "441aa33a15109715588d8a3df7028dd13c12023a34baf50e6d3fb2fec59583e2",
       "bytes": 5305
     },
     "8dd5aa480651d269-speed-module.png": {
+      "source": "script-output/item/speed-module.png",
       "sha256": "8dd5aa480651d269cdee25e10a98607f610dab09c6ed6e60bede4126d8ea2783",
       "bytes": 10451
     },
-    "4f72b5f9f7aa645a-productivity-module.png": {
-      "sha256": "4f72b5f9f7aa645a4c3f9de66f261633372aabde2d240a2044db7ea157f25cea",
-      "bytes": 10432
+    "43474f525e1adb4f-steel-plate.png": {
+      "source": "script-output/item/steel-plate.png",
+      "sha256": "43474f525e1adb4fd8cb796ec9c10e65135e006369e69f6fc5f3aa25597b8e40",
+      "bytes": 6298
+    },
+    "ab0150d5e765877c-stone.png": {
+      "source": "script-output/item/stone.png",
+      "sha256": "ab0150d5e765877c592db4150d7f2f24c238420f4c58cb5c1bc8a8c8ce1e6704",
+      "bytes": 8959
+    },
+    "1924f819e30c8a6c-sulfur.png": {
+      "source": "script-output/item/sulfur.png",
+      "sha256": "1924f819e30c8a6cad32377ee345da91ee7e5353e3e24487cac1417819c7f2e3",
+      "bytes": 6493
+    },
+    "24ae0722c7416ae1-uranium-ore.png": {
+      "source": "script-output/item/uranium-ore.png",
+      "sha256": "24ae0722c7416ae153aa73b5069326ffa505f0db9179a512ca02726ed610068b",
+      "bytes": 7926
+    },
+    "59064e42a46a2e9f-utility-science-pack.png": {
+      "source": "script-output/item/utility-science-pack.png",
+      "sha256": "59064e42a46a2e9f0217dea41411697793012494053c9d7d45c9d53272a0f837",
+      "bytes": 6538
     }
   }
 }

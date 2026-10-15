@@ -1,30 +1,30 @@
-# Local assets
+# Game assets
 
-Default archive: `/path/to/factorio-data`.
-Set `FACTORIO_ARCHIVE` or pass `--archive` to the importer to override it.
+The library was mapped from Factorio **2.0.77** with Space Age, Quality and
+Elevated Rails. The importer reads three things from the user's own copy:
 
-The archived game is Factorio **2.0.77** with Space Age, Quality, and Elevated
-Rails. `metadata/archive-summary.json` records the source/version.
+| Source | Flag or variable | Use |
+|---|---|---|
+| The install's `data/` folder | `--data`, `FACTORIO_DATA` | Original art; `base/info.json` gives the version |
+| `script-output/data-raw-dump.json` | `--script-output`, `FACTORIO_SCRIPT_OUTPUT` | Evaluated prototype definitions, from `--dump-data` |
+| `script-output/<type>/<name>.png` | same folder | Engine-rendered icons, from `--dump-icon-sprites` |
 
-| Path under archive | Use |
-|---|---|
-| `data/` | Untouched original data and art |
-| `metadata/data-raw-dump.json` | Evaluated prototype definitions |
-| `metadata/asset-index.jsonl` | Images, dimensions, hashes, prototype users |
-| `metadata/sprite-definitions.jsonl` | Sprite definitions with JSON pointers |
-| `Factorio-Assets/icons/<type>/<name>.png` | Engine-rendered icons |
-| `Factorio-Assets/animations/<entity>/<variant>/` | 83 prepared clips |
-| `reference/doc-html/` | Documentation for the archived version |
+Without flags, the importer looks in the default Steam and standalone install
+folders and in the user data folder's `script-output`. The README lists them.
+`--archive` or `FACTORIO_ARCHIVE` reads a prepared archive instead: `data/`,
+`metadata/data-raw-dump.json`, `metadata/archive-summary.json` with a `version`,
+and icons in `Factorio-Assets/icons/<type>/<name>.png`.
 
-All source artwork is archived. `assets/manifest.json` is the reusable imported
-library, and `assets/catalog.json` maps 68 world objects and 28 item tokens to
-program roles and native variants. Read `catalog.md` for the selection workflow.
-The original seven demo selectors remain available as aliases.
+`assets/manifest.json` is the reusable imported library. Each file entry records
+its game path (`source`), SHA-256 and size. `assets/catalog.json` maps 68 world
+objects and 28 item tokens to program roles and native variants. Read
+`catalog.md` for the selection workflow. The original seven demo selectors remain
+available as aliases.
 
 ## Importing
 
 `npm run assets` regenerates the library from `catalog/objects.mjs` using the
-local archive. `scripts/import-assets.mjs` also accepts a small JSON spec with a
+user's game files. `scripts/import-assets.mjs` also accepts a small JSON spec with a
 `sprites` object. Each sprite is one of:
 
 - `icon`: exported icon `category` and `name`.
@@ -55,13 +55,14 @@ scales apply to source pixels. Factorio’s art already has its perspective. Bel
 direction indices are layout variants, not arbitrary camera rotations. Shadows
 use a 0.35 preview opacity multiplier; accurate lighting is outside the current kit.
 
-The source includes an empty `core/graphics/arrows/tip-arrow.png`, 34 references
-to Switch vibration resources absent on macOS, and one inactive explosion
-filename superseded by stripes. See the archive’s exception reports.
+The 2.0.77 data includes an empty `core/graphics/arrows/tip-arrow.png`, 34
+references to Switch vibration resources absent on macOS, and one inactive
+explosion filename superseded by stripes. None of them is in the library.
 
 ## Repository layout
 
-The selected art in `assets/` is intentionally tracked in the user's private
-repository. `dist/`, `.local/`, generated screenshots and the complete archive
-remain separate. Builds read `assets/` directly and copy only the required sprite
-files for an individual factory; the object browser includes the full library.
+Factorio artwork belongs to Wube Software and stays out of Git: `.gitignore`
+ignores everything in `assets/` except `manifest.json`, `catalog.json` and
+`materials/`. `dist/`, `.local/` and generated screenshots are ignored too. Builds
+read `assets/` directly and copy only the required sprite files for an
+individual factory; the object browser includes the full library.

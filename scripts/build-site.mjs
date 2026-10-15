@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, writeFile, mkdtemp, rename, rm } from 'node:fs/promises';
+import { cp, mkdir, readFile, writeFile, mkdtemp, rename, rm, access } from 'node:fs/promises';
 import { resolve, dirname, join, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spriteFiles } from '../kit/sprites.mjs';
@@ -10,6 +10,8 @@ export async function buildSite(name, ids) {
   if (ids) manifest.sprites = Object.fromEntries(ids.map(id => { if (!manifest.sprites[id]) throw new Error(`Missing asset: ${id}`); return [id, manifest.sprites[id]]; }));
   const files = [...new Set(Object.values(manifest.sprites).flatMap(spriteFiles))];
   manifest.files = Object.fromEntries(files.map(file => [file, manifest.files[file]]));
+  const missing = (await Promise.all(files.map(file => access(join(assets, file)).then(() => null, () => file)))).filter(Boolean);
+  if (missing.length) throw new Error(`${missing.length} Factorio images are missing from assets/. Import them from your copy of the game with npm run assets; see README.md.`);
   await mkdir(dirname(out), { recursive: true });
   let staging = await mkdtemp(join(dirname(out), `.${name}-`));
   try {

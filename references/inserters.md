@@ -2,8 +2,8 @@
 
 Ordinary inserters pick up behind their bases and drop in front. Belts transport
 items; inserters cross the inventory boundary of a chest or assembler. See the
-[Factorio mechanics reference](https://wiki.factorio.com/Inserters) and the archive's
-`reference/doc-html/prototypes/InserterPrototype.html` for installed 2.0.77 definitions.
+[Factorio mechanics reference](https://wiki.factorio.com/Inserters) and the game's
+bundled `doc-html/prototypes/InserterPrototype.html`, next to `data/`, for the installed definitions.
 Current web prototype documentation may describe a different game version.
 
 Use tile centers (`n + 0.5`) consistently. Chests occupy one tile; the example's
@@ -34,7 +34,7 @@ remaining chest stock. A machine begins work only after insertion completes.
 Import `{ "kind": "inserter", "name": "inserter" }` for the native platform,
 base, open/closed hands, and shadows. The platform uses its four-direction sheet;
 arm components articulate independently. Joint anchors were measured on the
-archived standard sprites. The two-link projection and event durations are
+2.0.77 standard sprites. The two-link projection and event durations are
 explanatory choreography, not an exact reproduction of engine lighting, physics,
 power, or throughput. The six mapped types share these joint positions and have
 been checked with their native platform and hand widths. The long-handed inserter
