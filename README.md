@@ -22,6 +22,12 @@
   <a href="#limits">Limits</a>
 </p>
 
+<p align="center">
+  <img src=".github/assets/obs-pipeline.webp" width="900" alt="The OBS Studio example as a factory under network congestion. Pumpjacks for the camera, mic and desktop audio feed belts through the graphics thread, the x264 and AAC encoders, and the stream and recording outputs. The send buffer holds 47 packets, 400 ms of video, and 26 P-frames have been dropped.">
+</p>
+
+<p align="center"><sub><code>examples/obs-pipeline</code> under network congestion, 37 seconds in. The send buffer has backed up to 400 ms, and the stream has dropped 26 P-frames while the recording keeps every packet.</sub></p>
+
 ---
 
 Ask Claude to explain a program, an algorithm or a whole system, and Factory has it build that program as a factory floor. Each value is an item on a belt. Each operation is a machine cycle. Stored state is stock in a chest. A filter is an assembler that lets some items through, a queue is a chest that keeps its order, and a cache miss is a machine that waits for a delivery.
@@ -174,7 +180,7 @@ Search the library from the terminal with `npm run objects -- cache`.
 - **[`kit/`](kit)** is the framework-free browser kit: deterministic trace playback (`trace.mjs`), native sprite drawing (`sprites.mjs`), the tile scene with belts, labels and moving items (`scene.mjs`), inserter placement and poses (`transport.mjs`), the phase list (`process.mjs`) and grid-snapped tables (`tables.mjs`).
 - **[`references/`](references)** are the long-form guides Claude opens when it needs them: program mapping, the kit API, the object library, game assets, inserters, design and verification.
 - **The library.** [`catalog/objects.mjs`](catalog/objects.mjs) selects each object from the game's prototype definitions. `npm run assets` turns that into `assets/manifest.json` and `assets/catalog.json`, and copies the art.
-- **Verification.** `npm test` checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, [`scripts/verify-browser.mjs`](scripts/verify-browser.mjs) and [`scripts/verify-catalog.mjs`](scripts/verify-catalog.mjs) drive the built pages at desktop and phone sizes and save screenshots.
+- **Verification.** `bun run test` runs the [Vite+](https://viteplus.dev) test suite, which checks the models, event conservation, stepping, sprite crops and asset path handling. With Playwright, [`scripts/verify-browser.mjs`](scripts/verify-browser.mjs) and [`scripts/verify-catalog.mjs`](scripts/verify-catalog.mjs) drive the built pages at desktop and phone sizes and save screenshots.
 
 <details>
 <summary><b>Repository layout</b></summary>
@@ -193,8 +199,10 @@ factory/
 │   └── materials/            the workbench textures
 ├── examples/                 array-pipeline, obs-pipeline and the catalog browser
 ├── scripts/                  import, build, preview server and browser checks
-├── tests/                    node --test suites
-└── agents/openai.yaml        the skill's display name in Codex
+├── tests/                    Vite+ test suites
+├── vite.config.mjs           test and coverage settings
+├── agents/openai.yaml        the skill's display name in Codex
+└── .github/assets/           README images
 ```
 
 </details>
@@ -207,6 +215,7 @@ factory/
 | **Node.js 20.10+** | everything | Built-in modules only: nothing to `npm install`. |
 | **A browser** | viewing figures | Figures are multi-file static sites. `npm run preview` serves them on `127.0.0.1:4173`. |
 | **[Claude Code](https://code.claude.com/docs/en/overview)**, [Codex](https://developers.openai.com/codex/skills) or [OpenCode](https://opencode.ai/docs/skills/) | using the skill | Written for Claude Code; it follows the open Agent Skills format. |
+| **Bun 1.2.4 and Node.js 24** | the tests only | `bun install`, then `bun run test`. The tests run on [Vite+](https://viteplus.dev). |
 | **Playwright and Chrome** | the browser checks only | Not installed by this repository. Point `PLAYWRIGHT_MODULE` at an existing installation; see [`references/verification.md`](references/verification.md). |
 
 ## Limits
@@ -218,7 +227,10 @@ factory/
 
 ## Contributing
 
-Issues and the wiki are turned off for this repository, and it does not take outside pull requests. [CONTRIBUTING.md](CONTRIBUTING.md) covers building, the checks and the house rules for anyone working on a copy. Report security problems as described in [SECURITY.md](SECURITY.md). Changes are recorded in the [changelog](CHANGELOG.md).
+Pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first: it covers the import, the tests, the browser checks, and the house rules a change has to keep (among them, no comments in code and no game art in Git). Report security problems as described in [SECURITY.md](SECURITY.md). Issues and the wiki are turned off.
+
+- [Contributing guide](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
 
 ## License
 
