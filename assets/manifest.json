@@ -12008,24 +12008,6 @@
       "imageWidth": 64,
       "imageHeight": 64
     },
-    "item-iron-plate": {
-      "kind": "icon",
-      "file": "f336920a8b97d40a-iron-plate.png",
-      "imageWidth": 64,
-      "imageHeight": 64
-    },
-    "item-copper-plate": {
-      "kind": "icon",
-      "file": "c9b26608942c04a0-copper-plate.png",
-      "imageWidth": 64,
-      "imageHeight": 64
-    },
-    "item-steel-plate": {
-      "kind": "icon",
-      "file": "43474f525e1adb4f-steel-plate.png",
-      "imageWidth": 64,
-      "imageHeight": 64
-    },
     "item-iron-ore": {
       "kind": "icon",
       "file": "26809ca6f6f44a7d-iron-ore.png",
@@ -12053,6 +12035,24 @@
     "item-uranium-ore": {
       "kind": "icon",
       "file": "24ae0722c7416ae1-uranium-ore.png",
+      "imageWidth": 64,
+      "imageHeight": 64
+    },
+    "item-iron-plate": {
+      "kind": "icon",
+      "file": "f336920a8b97d40a-iron-plate.png",
+      "imageWidth": 64,
+      "imageHeight": 64
+    },
+    "item-copper-plate": {
+      "kind": "icon",
+      "file": "c9b26608942c04a0-copper-plate.png",
+      "imageWidth": 64,
+      "imageHeight": 64
+    },
+    "item-steel-plate": {
+      "kind": "icon",
+      "file": "43474f525e1adb4f-steel-plate.png",
       "imageWidth": 64,
       "imageHeight": 64
     },
