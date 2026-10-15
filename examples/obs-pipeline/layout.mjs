@@ -110,6 +110,12 @@ function buildRoute([key, outPort, outDir, inPort, inDir, via, under, direct], f
   return { key, from, to, out, into, tiles, beltPath: path, hidden };
 }
 
+const AREAS = [
+  ['libobs', [0.15, 0.5, 38.15, 22.5], [0.5, 0.5, 21.1, 38.5]],
+  ['obs-outputs · RTMP', [38.8, 0.5, 23.7, 12.5], [0.5, 39, 12.5, 24]],
+  ['obs-ffmpeg · ffmpeg-mux', [38.8, 13.5, 23.7, 9.5], [13.5, 39, 8.1, 24]],
+];
+
 export function factoryLayout(mobile = false) {
   const objects = STATIONS.map(([id, sprite, size, x0, y0, label, caption]) => {
     const [x, y] = mobile ? [y0, x0] : [x0, y0];
@@ -120,6 +126,10 @@ export function factoryLayout(mobile = false) {
       variant: sprite === 'chemical-plant' ? (mobile ? 'south' : 'east') : sprite === 'burner-mining-drill' ? (mobile ? 'west' : 'north') : sprite === 'small-lamp' ? 'off' : undefined };
   });
   const routes = Object.fromEntries(ROUTE_SPECS.map(spec => { const r = buildRoute(spec, mobile); return [r.key, r]; }));
-  return { width: mobile ? 22 : 63, height: mobile ? 63.5 : 22.5, objects, routes,
+  const areas = AREAS.map(([label, desktop, phone]) => {
+    const [x, y, width, height] = mobile ? phone : desktop;
+    return { label, x, y, width, height, ...(mobile ? { labelEdge: 'left' } : {}) };
+  });
+  return { width: mobile ? 22 : 63, height: mobile ? 63.5 : 23.5, objects, routes, areas,
     beltTiles: Object.values(routes).flatMap(r => r.tiles) };
 }

@@ -4,6 +4,10 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Added
+
+- `areas` in a scene layout draw dotted, named rectangles around the major parts of a system. The skill uses them for multi-part figures, and the OBS example marks libobs, the RTMP output and the ffmpeg-mux recording process.
+
 ### Changed
 
 - Reference tables are plain tables: a filled header row, thin dividers between rows and roomier cells, over the same frame and textured floor, without the tile grid.

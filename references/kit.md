@@ -39,6 +39,11 @@ transport planner continues to place adjacent, standard-reach inserters.
 
 Optional `labelX`, `labelY`, `readoutX`, and `readoutY` place annotations in tile
 coordinates. `labelPlate` adds an opaque backing, sized to the text, where a label crosses a belt.
+A layout's optional `areas: [{label, x, y, width, height}]` draws each major part
+of a system as a dotted rectangle in tile coordinates, under the belts and
+machines, with its name on the top edge. `labelEdge: 'left'` runs the name down the
+left edge instead, for phone layouts that turn the desktop layout sideways. Give
+the phone layout its own rectangles; a plain transpose rarely clears its labels.
 The floor is transparent over a dark CSS material; Canvas draws the tile grid.
 
 `kit/transport.mjs` exports `connectStations`, `connectLayout`, `swing`, and

@@ -14,6 +14,10 @@ export class FactoryScene {
     ctx.lineWidth = .5; ctx.strokeStyle = '#294562';
     for (let x = 0; x <= layout.width; x++) { ctx.beginPath(); ctx.moveTo(x * tile, 0); ctx.lineTo(x * tile, cssHeight); ctx.stroke(); }
     for (let y = 0; y <= layout.height; y++) { ctx.beginPath(); ctx.moveTo(0, y * tile); ctx.lineTo(cssWidth, y * tile); ctx.stroke(); }
+    const areas = layout.areas ?? [];
+    ctx.save(); ctx.setLineDash([1.5, 5]); ctx.lineCap = 'round'; ctx.lineWidth = 1.6; ctx.strokeStyle = 'rgba(143, 181, 222, .7)';
+    for (const area of areas) ctx.strokeRect(area.x * tile, area.y * tile, area.width * tile, area.height * tile);
+    ctx.restore();
     for (const belt of layout.belts ?? []) {
       const [a, b] = [belt.from, belt.to], dx = Math.sign(b[0] - a[0]), dy = Math.sign(b[1] - a[1]);
       if (dx && dy) throw new Error('Use axis-aligned belt segments or explicit beltTiles for corners');
@@ -31,6 +35,16 @@ export class FactoryScene {
         { tileSize: tile, frame: view.frames?.[object.id] ?? 0, variant: view.variants?.[object.id] ?? object.variant, direction: view.directions?.[object.id] ?? object.direction ?? 0, pass });
     }
     for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile });
+    ctx.font = '600 10px ui-monospace, SFMono-Regular, monospace'; ctx.textAlign = 'left';
+    for (const area of areas.filter(a => a.label)) {
+      const text = area.label.toUpperCase(), width = ctx.measureText(text).width + 12;
+      ctx.save();
+      if (area.labelEdge === 'left') { ctx.translate(area.x * tile, area.y * tile + 12); ctx.rotate(Math.PI / 2); }
+      else ctx.translate(area.x * tile + 12, area.y * tile);
+      ctx.fillStyle = '#0c1e35'; ctx.fillRect(0, -8, width, 16);
+      ctx.fillStyle = '#8fb5de'; ctx.fillText(text, 6, 4);
+      ctx.restore();
+    }
     for (const object of objects) {
       const active = [].concat(view.active ?? []).includes(object.id);
       const lx = (object.labelX ?? object.x) * tile, ly = (object.labelY ?? object.y - 2.2) * tile;

@@ -48,6 +48,13 @@ same time. They do not become stages of one line. Use a single line only when th
 program really is one path. Smaller examples are fine for data values, frame
 counts or time scale. They are not fine for structure.
 
+When the system has several major parts, such as a web frontend, a worker and a
+database, or an outside service like GitHub, draw each part as a dotted area with
+its name, using `areas` in the layout. Keep every station of a part inside its
+area, give each area its own rectangle, and let belts and wires cross area edges
+where data passes between parts. Lay the stations out by part first, then route
+the belts between them.
+
 Record omissions in the figure's reference table, each with a reason. A core data
 path is never an omission: no audio in a media pipeline, no writes in a database,
 no second output when the system feeds several. Before you build, ask what an

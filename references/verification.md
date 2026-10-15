@@ -52,3 +52,5 @@ Check scope against the architecture inventory before polishing. Every inventory
 entry is drawn, or it appears in the reference table's omissions with a reason.
 Confirm that no core data path is missing, that independent threads run in
 parallel lanes, and that every fan-out or fan-in in the code appears in the scene.
+In a system with several major parts, check that each part has its own dotted
+area and that no station, label or readout sits across an area's edge.
