@@ -143,15 +143,23 @@ You don't have to name the skill. Claude also loads it when you ask for a Factor
 <br>
 
 ```text
-/factory how does this repository's job queue retry a failed job? Read src/queue and draw the real stages.
+/factory explain how PostgreSQL makes a COMMIT durable: WAL buffers, the backend's WAL flush, group commit, the WAL writer, the background writer and the checkpointer
 ```
 
 ```text
-/factory show a write-through cache in front of a slow database: 3 hits, 2 misses, and an eviction
+/factory explain how Kafka handles a produce request with acks=all: the producer's record accumulator and sender thread, the partition leader's log, follower fetches, the in-sync replica set and the high watermark
 ```
 
 ```text
-/factory explain how Git's three-way merge combines two branches that both changed one file
+/factory explain how Redis runs commands on its single-threaded event loop, and how BGSAVE forks a child that writes the RDB snapshot with copy-on-write
+```
+
+```text
+/factory explain how Nginx serves a request: the master and worker processes, each worker's epoll event loop, proxy_pass to an upstream group and its keepalive connection cache
+```
+
+```text
+/factory explain how Chromium produces a frame: the renderer main thread's style, layout and paint, the commit to the compositor thread, raster workers, and Viz in the GPU process drawing it
 ```
 
 </details>
