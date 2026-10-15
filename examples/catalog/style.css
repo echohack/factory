@@ -1,9 +1,9 @@
 :root { color-scheme:dark; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#080f1c; color:#c9d6e6; --line:#263b54; --muted:#91a5bd; }
 * { box-sizing:border-box; } body { margin:0; } main { max-width:1480px; margin:auto; padding:30px 40px; }
-a { color:inherit; text-decoration:none; } a:hover { color:#a6c8ed; } header,footer { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+a { color:inherit; text-decoration:none; } a:hover { color:#a6c8ed; } header { display:flex; justify-content:space-between; align-items:center; gap:16px; }
 header { padding-bottom:24px; border-bottom:1px solid var(--line); } .brand { font-size:24px; font-weight:650; letter-spacing:-1px; }
-header>span,.eyebrow,.results,footer,.pages,.card-meta,.part-id,.badge,details summary { font:10px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; letter-spacing:.7px; }
-header>span,footer,.results { color:var(--muted); } .intro { position:relative; padding:36px 0; } .eyebrow { color:#8fb5de; }
+header>span,.eyebrow,.results,.pages,.card-meta,.part-id,.badge,details summary { font:10px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; letter-spacing:.7px; }
+header>span,.results { color:var(--muted); } .intro { position:relative; padding:36px 0; } .eyebrow { color:#8fb5de; }
 h1 { font:400 clamp(42px,5vw,66px)/1.04 Georgia,serif; letter-spacing:-2.5px; margin:18px 0 0; } h1 em { color:#8bafd5; } .description { position:absolute; bottom:37px; right:0; color:var(--muted); font-size:13px; line-height:1.85; }
 .toolbar { display:flex; gap:16px; align-items:end; padding:18px; background:#0e1b2e; border:1px solid #304a66; border-radius:5px; }
 label { display:flex; flex-direction:column; gap:9px; font-size:11px; color:var(--muted); } .search { flex:1; }
@@ -19,8 +19,8 @@ h2 { font-size:15px; font-weight:550; margin:12px 0 7px; line-height:1.35; } .pa
 .roles { color:#b3c5db; font-size:11px; line-height:1.6; min-height:35px; margin:13px 0 10px; } .notes { color:var(--muted); font-size:10px; line-height:1.65; margin:0; }
 .options { display:flex; gap:6px; margin-top:12px; } .options select { width:100%; min-width:0; font-size:10px; padding:6px; min-height:30px; }
 .pages { display:flex; justify-content:center; align-items:center; gap:24px; margin:24px 0; color:var(--muted); }
-.explanation { color:var(--muted); font-size:12px; line-height:1.8; max-width:880px; margin:32px 0 20px; } details { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; color:var(--muted); } summary { cursor:pointer; } li { font-size:12px; line-height:1.8; margin:8px 0; } footer { margin-top:24px; font-size:10px; }
+.explanation { color:var(--muted); font-size:12px; line-height:1.8; max-width:880px; margin:32px 0 20px; } details { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; color:var(--muted); } summary { cursor:pointer; } li { font-size:12px; line-height:1.8; margin:8px 0; }
 @media(max-width:1100px) { #cards { grid-template-columns:repeat(3,minmax(0,1fr)); } .description { position:static; margin:22px 0 0; } }
 @media(max-width:760px) { main { padding:22px 18px; } #cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .toolbar { flex-wrap:wrap; gap:12px; } .search { flex-basis:100%; } .toolbar>label:not(.search) { flex:1; } #summary { display:none; } }
-@media(max-width:460px) { #cards { grid-template-columns:1fr; } main { padding:20px 14px; } .intro { padding:24px 0; } h1 { font-size:46px; } .description br { display:none; } .card-body { padding:16px; } .roles { min-height:0; } canvas { height:190px; } header>span { font-size:8px; } .pages { gap:16px; } footer { align-items:start; } footer span { text-align:right; } }
+@media(max-width:460px) { #cards { grid-template-columns:1fr; } main { padding:20px 14px; } .intro { padding:24px 0; } h1 { font-size:46px; } .description br { display:none; } .card-body { padding:16px; } .roles { min-height:0; } canvas { height:190px; } header>span { font-size:8px; } .pages { gap:16px; } }
 @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; } }

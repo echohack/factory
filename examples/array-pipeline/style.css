@@ -21,7 +21,7 @@ button { cursor: pointer; border: 1px solid #36516f; border-radius: 4px; padding
 button:hover { background: #203a57; }
 button:disabled { opacity: .45; cursor: default; }
 button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-footer, .speed, .bench-meta, thead th { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: 1.1px; }
+.speed, .bench-meta, thead th { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: 1.1px; }
 .workbench-frame { padding: var(--gutter); border: 1px solid #263c56; border-radius: 9px; background-color: #0c192a; background-image: conic-gradient(#192e47 25%, transparent 25% 50%, #192e47 50% 75%, transparent 75%); background-size: 4px 4px; }
 .workbench { border: 1px solid #304a66; border-radius: 5px; overflow: hidden; background: var(--surface); }
 .bench-header { display: flex; align-items: baseline; gap: 14px; padding: 15px var(--inset); border-bottom: 1px solid var(--line); }
@@ -76,9 +76,6 @@ kbd { border: 1px solid #354f6c; padding: 2px 4px; border-radius: 3px; font-size
 .input-panel input { min-width: 0; flex: 1; border: 1px solid #36516f; border-radius: 4px; padding: 11px; background: #0d1b2e; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, monospace; }
 .input-panel button { white-space: nowrap; }
 .input-panel > p { grid-column: 2; margin: 0; color: #efa27d; font-size: 12px; }
-footer { display: flex; justify-content: space-between; color: #879db7; font-size: 9px; margin-top: 24px; letter-spacing: .6px; }
-footer a { color: inherit; text-decoration: none; border-bottom: 1px solid #36516f; }
-footer a:hover { color: var(--ink); }
 @media (max-width: 900px) {
   .bench-body { grid-template-columns: 128px minmax(0, 1fr); }
   main { padding: 22px 24px; }
@@ -105,7 +102,5 @@ footer a:hover { color: var(--ink); }
   .input-panel > div { flex-wrap: wrap; }
   .input-panel input { width: 100%; flex-basis: 100%; }
   .input-panel button { margin-left: auto; }
-  footer { font-size: 8px; line-height: 1.8; gap: 12px; }
-  footer span:last-child { text-align: right; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none!important; scroll-behavior: auto!important; } }

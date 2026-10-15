@@ -14,8 +14,8 @@ The materials and layout come from Campfire, a separate project by the same auth
   Desaturate both texture layers over the blue floor to avoid a green cast.
 - `app/components/CharacterSheet/CharacterSheetSection.vue`: 4 px checker gutters
   between opaque content slabs.
-- `app/assets/css/skill-tree-book.css`: framed workbench, quiet header/footer
-  rules, mono metadata, and responsive margins.
+- `app/assets/css/skill-tree-book.css`: framed workbench, quiet header rules,
+  mono metadata, and responsive margins.
 
 `assets/materials/ash-fuzz.webp` and `ash-grain.png` are unchanged copies of
 Campfire's files in `public/img/textures/`, tracked in this repository. They are

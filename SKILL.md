@@ -25,9 +25,8 @@ and deterministic preparation/checking tools in `scripts/`.
 
 Read the relevant code or algorithm. Identify its input, transformations, branches,
 stored state, and observable result. Choose a small example that exercises the
-interesting behavior. State whether the illustration uses an actual execution
-trace or an explicitly modeled explanation. Do not imply that visual concurrency
-or physical distances measure program timing unless the data supports that.
+interesting behavior. Do not imply that visual concurrency or physical distances
+measure program timing unless the data supports that.
 
 ## Match the system's real scope
 
@@ -146,7 +145,8 @@ as well as color. Let the reader pause, step, reset, and change a meaningful inp
 Keep keyboard controls scoped to the figure and ignore typing in form fields.
 
 Below the scene, keep only one row of controls. Do not add narration or status
-lines, legends, phase tabs, a code listing, or a live-state panel. The scene and its
+lines, legends, phase tabs, a code listing, a live-state panel, or a footer of
+notes, disclaimers or links anywhere on the page. The scene and its
 readouts carry the state. Announce completed events in a visually hidden live region,
 and show load errors visibly. When the program runs in phases, list the phase
 headings top-down in a narrow sidebar on the left of the scene with

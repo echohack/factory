@@ -12,7 +12,6 @@ let pageNumber=0, playing=false, clock=0, last=null, revision=0, cards=[];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 for (const group of [...new Set(all.map(o=>o.group))]) $('group').add(new Option(group,group));
 $('summary').textContent=`${catalog.objects.length} WORLD OBJECTS / ${catalog.tokens.length} ITEM TOKENS`;
-$('version').textContent=`FACTORIO ${catalog.gameVersion} / NATIVE ART`;
 for (const item of catalog.deferred) { const li=document.createElement('li'); li.textContent=`${item.id}: ${item.reason}`; $('deferred').append(li); }
 const filtered=()=>all.filter(o=>(!$('group').value||o.group===$('group').value) && [o.name,o.id,o.group,...o.roles].join(' ').toLowerCase().includes($('search').value.toLowerCase().trim()));
 function pose(o, time, direction) {
