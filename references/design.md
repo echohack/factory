@@ -31,9 +31,9 @@ its first and last cells carry the inset.
 
 Areas that mark the major parts of a system use a dotted 1.6 px line in
 `rgba(143, 181, 222, .7)` with round dots 5 px apart, and the part's name in
-uppercase 10 px mono `#8fb5de` on a floor-colored plate across the top edge. Keep
-half a tile between neighboring areas, and keep every label and readout of a part
-inside its area.
+uppercase 10 px mono `#8fb5de` on a floor-colored plate across the top edge. The
+`areas` ground rule keeps half a tile between neighboring areas; keep every label
+and readout of a part inside its area as well.
 
 Header text, sidebar headings, the first control, and table text all start on one
 left edge, the `--inset` variable: 24 px on desktop and 16 px on phones. Set every

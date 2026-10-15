@@ -27,9 +27,13 @@ tile coordinates into the responsive canvas. Layout contains `width`, `height`,
 `objects: [{id,sprite,x,y,label,caption}]` and axis-aligned `belts` with `from` and
 `to` tile points. Each belt segment uses native east/west/north/south artwork.
 For corners, provide explicit native variants with `beltTiles` rather than rotating
-an image. Belt directions 4–11 are the native corners E→N, N→E, W→N, N→W, S→E,
-E→S, S→W and W→S. A belt tile may also set `sprite` and `variant`, such as an
-underground entrance. A view contains machine frame indices, an active object, a token path
+an image. Belt directions 4–11 are the native corners, named by the edges they
+join: east to north, north to east, west to north, north to west, south to east,
+east to south, south to west and west to south. Direction 4 takes items in at the
+east edge, so they travel west, and lets them out at the north edge. Let `belt()`
+in `patterns/build.mjs` pick corners from a path instead of choosing them by hand.
+A belt tile may also set `sprite` and `variant`, such as an underground entrance,
+a splitter or a pipe shape. A view contains machine frame indices, an active object, a token path
 and progress, and optional object readouts. Text labels remain upright and are
 part of the Canvas picture; the page must supply a DOM state equivalent.
 Objects can set `variant` and `direction`; `view.variants` and `view.directions`
@@ -39,6 +43,12 @@ transport planner continues to place adjacent, standard-reach inserters.
 
 Optional `labelX`, `labelY`, `readoutX`, and `readoutY` place annotations in tile
 coordinates. `labelPlate` adds an opaque backing, sized to the text, where a label crosses a belt.
+A layout's optional `wires: [{from, to, color, shadow}]` hangs copper, red or green
+wires between points in tile coordinates, over the machines; `poleWire` and
+`circuitWire` in `patterns/build.mjs` give the game's connection points. Optional
+`notes: [{text, x, y}]` writes a short plain label on the floor, such as a wire's
+condition beside the inserter it gates. A token with an empty `value` draws only
+its icon.
 A layout's optional `areas: [{label, x, y, width, height}]` draws each major part
 of a system as a dotted rectangle in tile coordinates, under the belts and
 machines, with its name on the top edge. `labelEdge: 'left'` runs the name down the

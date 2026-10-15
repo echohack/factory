@@ -7,8 +7,11 @@ bundled `doc-html/prototypes/InserterPrototype.html`, next to `data/`, for the i
 Current web prototype documentation may describe a different game version.
 
 Use tile centers (`n + 0.5`) consistently. Chests occupy one tile; the example's
-assemblers occupy three by three. Put each inserter base outside the building, in
-an adjacent unoccupied tile. Keep belt tiles outside both buildings and arm bases.
+assemblers occupy three by three. The ground rules in `patterns/rules.mjs` place
+inserter bases and belt tiles, and `checkLayout` enforces them; this file covers
+the transfer itself. In the game an inserter takes one tile behind its base and
+drops 1.2 tiles ahead, onto the far lane of a belt; `arm()` in
+`patterns/build.mjs` builds exactly that.
 
 `connectStations(source, target)` constructs a straight link with two standard
 inserters and at least two belt tiles. `connectLayout(layout)` wires `connections`

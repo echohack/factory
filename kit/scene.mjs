@@ -1,5 +1,6 @@
 import { pointOnPath } from './transport.mjs';
 export { pointOnPath } from './transport.mjs';
+const WIRE_COLORS = { copper: '#d08a3f', red: '#d2402f', green: '#45b04f' };
 export class FactoryScene {
   constructor(canvas, atlas) { this.canvas = canvas; this.atlas = atlas; this.ctx = canvas.getContext('2d'); }
   render(layout, view = {}) {
@@ -35,6 +36,15 @@ export class FactoryScene {
         { tileSize: tile, frame: view.frames?.[object.id] ?? 0, variant: view.variants?.[object.id] ?? object.variant, direction: view.directions?.[object.id] ?? object.direction ?? 0, pass });
     }
     for (const arm of view.arms ?? []) this.atlas.drawInserter(ctx, arm.sprite ?? 'inserter', arm, { tileSize: tile });
+    const hang = (from, to, color, width) => {
+      const [a, b] = [from, to].map(p => p.map(v => v * tile)), sag = Math.min(1.2, .08 * Math.hypot(...to.map((v, i) => v - from[i]))) * tile;
+      ctx.beginPath(); ctx.moveTo(...a); ctx.quadraticCurveTo((a[0] + b[0]) / 2, (a[1] + b[1]) / 2 + sag, ...b);
+      ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+    };
+    ctx.save(); ctx.lineCap = 'round';
+    for (const wire of layout.wires ?? []) if (wire.shadow) { ctx.globalAlpha = .22; hang(...wire.shadow, '#000', Math.max(1, tile * .05)); ctx.globalAlpha = 1; }
+    for (const wire of layout.wires ?? []) hang(wire.from, wire.to, WIRE_COLORS[wire.color] ?? wire.color, Math.max(1, tile * (wire.color === 'copper' ? .045 : .06)));
+    ctx.restore();
     ctx.font = '600 10px ui-monospace, SFMono-Regular, monospace'; ctx.textAlign = 'left';
     for (const area of areas.filter(a => a.label)) {
       const text = area.label.toUpperCase(), width = ctx.measureText(text).width + 12;
@@ -72,11 +82,18 @@ export class FactoryScene {
         ctx.fillStyle = '#dbe7f4'; ctx.fillText(text, rx, ry + 3);
       }
     }
+    ctx.font = '11px ui-monospace, SFMono-Regular, monospace'; ctx.textAlign = 'center';
+    for (const note of layout.notes ?? []) {
+      const w = ctx.measureText(note.text).width + 10;
+      ctx.fillStyle = '#0c1e35'; ctx.fillRect(note.x * tile - w / 2, note.y * tile - 11, w, 16);
+      ctx.fillStyle = '#9cb5d1'; ctx.fillText(note.text, note.x * tile, note.y * tile + 1);
+    }
     for (const token of view.tokens ?? (view.token ? [view.token] : [])) {
       const position = token.position ?? pointOnPath(token.path, token.progress ?? 0);
       if (!position) continue;
       const [x, groundY] = position.map(p => p * tile), y = groundY - (token.heldBy ? .12 * tile : 0), value = String(token.value);
       this.atlas.drawIcon(ctx, token.icon ?? 'item', x, y, Math.max(13, tile * .5));
+      if (token.value == null || token.value === '') continue;
       ctx.font = '700 13px ui-monospace, monospace'; const w = Math.max(25, ctx.measureText(value).width + 13);
       ctx.fillStyle = '#0b1a2b'; ctx.fillRect(x - w / 2, y - 30, w, 22); ctx.textAlign = 'center'; ctx.fillStyle = '#dbe7f4'; ctx.fillText(value, x, y - 14);
     }

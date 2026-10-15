@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Factory · Factory patterns</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23254b72'/%3E%3Cpath d='M8 24V14l8-5v5l8-5v15Z' fill='%23dbe7f4'/%3E%3C/svg%3E"><link rel="stylesheet" href="./style.css"></head>
+<body>
+<main>
+  <h1>Factory patterns</h1>
+  <div class="toolbar">
+    <label class="search">Find a pattern<input id="search" type="search" placeholder="Search names or terms, like retry or fan-in" autocomplete="off" spellcheck="false"></label>
+    <label>Family<select id="family"><option value="">All families</option></select></label>
+    <label>Speed<select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+    <button id="animate" aria-pressed="true" disabled>Pause Ⅱ</button>
+  </div>
+  <div class="results"><p id="count" role="status">Loading the patterns…</p><span id="summary"></span></div>
+  <div class="workbench-frame"><section class="workbench" aria-labelledby="ground-title">
+    <div class="bench-header"><h2 id="ground-title">Ground rules</h2><span class="bench-meta">EVERY PATTERN</span></div>
+    <div class="blueprint"><div class="table-wrap"><table><thead><tr><th scope="col">Rule</th><th scope="col">Statement</th><th scope="col">Check</th></tr></thead><tbody id="ground-body"></tbody></table></div></div>
+  </section></div>
+  <section id="cards" aria-label="Patterns"></section>
+  <p id="no-match" class="results" hidden>No patterns match.</p>
+</main>
+<script type="module" src="./app.mjs"></script>
+</body></html>

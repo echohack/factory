@@ -48,13 +48,13 @@ vp build
 vp preview
 ```
 
-`vp build` writes `dist/array-pipeline/`, `dist/obs-pipeline/` and `dist/catalog/`, each with only the sprites its `assets.json` lists. `vp preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
+`vp build` writes `dist/array-pipeline/`, `dist/obs-pipeline/`, `dist/catalog/` and `dist/patterns/`, each with only the sprites its `assets.json` lists. `vp preview` serves them on `http://127.0.0.1:4173/`. Built pages contain game art, so `dist/` is ignored and never committed.
 
 ## The checks
 
 Run the ones that match what you touched, and read every PNG they write: open it and look.
 
-**Tests.** The models, event conservation, stepping, sprite crops and asset paths, on Vite+. Without imported art, the art hash test is skipped; run it with the art before you change the library. All tests must pass.
+**Tests.** The models, event conservation, stepping, sprite crops and asset paths, and every factory pattern's standard example against the ground rules and the motion check, on Vite+. Without imported art, the art hash test is skipped; run it with the art before you change the library. All tests must pass.
 
 ```sh
 vp test
@@ -67,6 +67,7 @@ vp test run --coverage
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-browser
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-catalog
+PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-patterns
 ```
 
 **Review.** [`references/verification.md`](references/verification.md) has the full list: desktop and 390 px widths, a branch outcome, an operation in progress, the final result, reduced motion, and pause, step and reset.
@@ -78,10 +79,11 @@ These come from [`SKILL.md`](SKILL.md) and [`references/`](references). A pull r
 - **No comments in code.** Not in JavaScript, CSS or HTML. Put the explanation in names and structure, and longer guidance in `references/`.
 - **No game art in Git.** Imported PNGs in `assets/` and everything in `dist/` and `.local/` stay out of commits. Check `git status` before you commit. Import art only from your own copy of the game.
 - **The model is the truth.** Keep each figure's model pure and runnable on its own. Readouts, counters and machine activity come from it. Animation may interpolate between events, but it never invents work or loses a value.
-- **Inserters do every handoff.** Show the pickup, a closed hand carrying the item, the release and an empty return. A belt never runs under a chest or through an assembler, and stock plus items in flight stays constant. See [`references/inserters.md`](references/inserters.md).
+- **Build from factory patterns.** Arrange scenes from the patterns in [`patterns/`](patterns), and keep every layout passing `checkLayout`, which enforces the ground rules: an inserter between each building and its belt, no belt under or into a building, the game's reach, paired undergrounds, joined pipes. An arrangement that recurs becomes a pattern, with a standard example that passes `checkLayout` and `checkMotion`. See [`references/patterns.md`](references/patterns.md).
+- **Inserters do every handoff.** Show the pickup, a closed hand carrying the item, the release and an empty return, and keep stock plus items in flight constant. See [`references/inserters.md`](references/inserters.md).
 - **The real scope.** A figure of a system draws every thread, queue and output a user of that system would name, and lists what it leaves out in its reference table, with a reason.
 - **Library changes go through the catalog.** Add or change objects in [`catalog/objects.mjs`](catalog/objects.mjs), run `vp run assets`, and commit the regenerated `assets/manifest.json` and `assets/catalog.json`. Map each layer from the data dump. Never guess a sheet layout or drop a part to make an import pass.
-- **Kit changes keep the examples working.** Rebuild both examples and the catalog, run the checks, and update [`references/kit.md`](references/kit.md) in the same pull request.
+- **Kit changes keep the examples working.** Rebuild both examples, the catalog and the pattern gallery, run the checks, and update [`references/kit.md`](references/kit.md) in the same pull request.
 - **Plain strings.** A figure's titles, labels and table cells are written plainly, with no taglines, narration or em dashes.
 
 ## Changing the skill's text

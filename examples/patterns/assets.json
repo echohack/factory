@@ -1,0 +1,16 @@
+{
+  "icon": "splitter",
+  "library": true,
+  "ids": [
+    "accumulator", "assembling-machine-1", "assembling-machine-2", "assembling-machine-3", "bulk-inserter",
+    "burner-mining-drill", "centrifuge", "chemical-plant", "crusher", "electric-furnace", "fast-inserter",
+    "inserter", "lab", "logistic-robot", "long-handed-inserter", "medium-electric-pole",
+    "passive-provider-chest", "pipe", "pump", "pumpjack", "requester-chest", "roboport", "small-lamp",
+    "solar-panel", "splitter", "steel-chest", "stone-furnace", "storage-chest", "storage-tank", "substation",
+    "transport-belt", "underground-belt", "wooden-chest",
+    "item-advanced-circuit", "item-automation-science-pack", "item-battery", "item-coal", "item-copper-ore",
+    "item-copper-plate", "item-electronic-circuit", "item-engine-unit", "item-iron-gear-wheel", "item-iron-ore",
+    "item-iron-plate", "item-low-density-structure", "item-plastic-bar", "item-processing-unit",
+    "item-production-science-pack", "item-steel-plate"
+  ]
+}
