@@ -70,7 +70,7 @@ PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-catalog
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-patterns
 ```
 
-**Review.** [`references/verification.md`](references/verification.md) has the full list: desktop and 390 px widths, a branch outcome, an operation in progress, the final result, reduced motion, and pause, step and reset.
+**Review.** [`references/verification.md`](references/verification.md) has the full list: desktop and 390 px widths, a branch outcome, an operation in progress, the final result, reduced motion, and a loop that never stops.
 
 ## House rules
 

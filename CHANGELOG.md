@@ -14,11 +14,13 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 - `"library": true` in a page's `assets.json` lists the page with the library while it keeps its own sprite list.
 - `vp run verify-patterns` checks the gallery in a browser and saves a screenshot of every example.
 - `areas` in a scene layout draw dotted, named rectangles around the major parts of a system. The skill uses them for multi-part figures, and the OBS example marks libobs, the RTMP output and the ffmpeg-mux recording process.
+- `TracePlayer` takes `{ loop }`. A looping player starts again from the first event after the last one.
 
 ### Changed
 
 - `SKILL.md` builds scenes from factory patterns, and places every building, belt and inserter by the ground rules.
 - Reference tables are plain tables: a filled header row, thin dividers between rows and roomier cells, over the same frame and textured floor, without the tile grid.
+- Figures loop from the moment the page loads and never stop. A click on a phase heading jumps there and the loop continues. Each figure runs one example at one speed, and its reference tables compare the others. The pattern gallery and the object library also loop.
 
 ### Fixed
 
@@ -27,6 +29,7 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 ### Removed
 
 - `kit/tables.mjs`, which snapped table rows to the tile grid.
+- The row of controls under each example: play, pause, step and reset, speed, scenario, and their keyboard shortcuts. The pause button and speed selector from the pattern gallery, and the animate toggle from the object library.
 
 ## [0.1.0] - 2026-10-14
 

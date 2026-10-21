@@ -62,21 +62,16 @@ function filter() {
   drawAll();
 }
 
-function setPlaying(value) {
-  playing = value && !reduced.matches; last = null;
-  $('animate').setAttribute('aria-pressed', String(playing));
-  $('animate').textContent = playing ? 'Pause Ⅱ' : 'Run ▶';
-}
+function setPlaying(value) { playing = value; last = null; }
 $('search').addEventListener('input', filter);
 $('family').addEventListener('input', filter);
-$('animate').addEventListener('click', () => setPlaying(!playing));
-reduced.addEventListener('change', () => { setPlaying(!reduced.matches); $('animate').disabled = reduced.matches; drawAll(); });
+reduced.addEventListener('change', drawAll);
 document.addEventListener('visibilitychange', () => { last = null; });
 const observer = new IntersectionObserver(entries => { for (const entry of entries) { const card = cards.find(c => c.frame === entry.target); card.visible = entry.isIntersecting; if (card.visible) draw(card); } });
 new ResizeObserver(drawAll).observe($('cards'));
 function tick(now) {
   if (playing && !document.hidden) {
-    clock += last == null ? 0 : Math.min(now - last, 100) * Number($('speed').value);
+    clock += last == null ? 0 : Math.min(now - last, 100);
     for (const card of cards) if (card.visible) draw(card);
   }
   last = playing && !document.hidden ? now : null;
@@ -88,8 +83,7 @@ filter();
 try {
   atlas = await loadSprites('./assets/');
   for (const card of cards) { card.scene = new FactoryScene(card.canvas, atlas); observer.observe(card.frame); }
-  $('animate').disabled = reduced.matches;
-  setPlaying(!reduced.matches); drawAll(); requestAnimationFrame(tick);
+  setPlaying(true); drawAll(); requestAnimationFrame(tick);
   window.patternsDemo = {
     ids: cards.map(c => c.pattern.id), violations: Object.fromEntries(cards.map(c => [c.pattern.id, c.violations])),
     get clock() { return clock; }, get playing() { return playing; },

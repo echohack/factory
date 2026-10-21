@@ -12,12 +12,9 @@ async function open(options){const page=await browser.newPage(options);page.on('
 try {
   const page=await open({viewport:{width:1440,height:1100}});
   const total=await page.evaluate(()=>window.catalogDemo.count);assert.equal(total,96);
-  await page.locator('#animate').click();await page.waitForTimeout(150);
+  assert.equal(await page.locator('#animate').count(),0,'No animate toggle');await page.waitForTimeout(150);
   const a=await page.locator('[data-id="foundry"] canvas').screenshot();await page.waitForTimeout(180);
-  const b=await page.locator('[data-id="foundry"] canvas').screenshot();assert.ok(!a.equals(b),'Foundry frames animate');
-  await page.locator('#animate').click();const still=await page.locator('[data-id="foundry"] canvas').screenshot();await page.waitForTimeout(180);
-  assert.ok((await page.locator('[data-id="foundry"] canvas').screenshot()).equals(still),'Pause freezes native frames');
-  await page.reload();await ready(page);
+  const b=await page.locator('[data-id="foundry"] canvas').screenshot();assert.ok(!a.equals(b),'Foundry frames animate by default');
   do {
     for(const card of await page.locator('.card').all()) {
       for(const select of await card.locator('select').all()) {
@@ -38,8 +35,7 @@ try {
   const mobile=await open({viewport:{width:390,height:1100},deviceScaleFactor:1});
   assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await mobile.screenshot({path:resolve(output,'mobile.png')});
-  const reduced=await open({viewport:{width:1100,height:900},reducedMotion:'reduce'});
-  assert.equal(await reduced.locator('#animate').isDisabled(),true);
+  await open({viewport:{width:1100,height:900},reducedMotion:'reduce'});
   const sheets=await browser.newPage({viewport:{width:1200,height:1200}});
   for(let i=0;i<samples.length;i+=24){
     await sheets.setContent('<style>body{margin:0;padding:20px;background:#080f1c;color:#c9d6e6;font:12px monospace}main{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}figure{margin:0;background:#0c1e35;padding:10px}img{display:block;width:100%;height:136px;object-fit:contain}figcaption{margin-top:8px;font-size:11px}</style><main></main>');
@@ -47,5 +43,5 @@ try {
     await sheets.screenshot({path:resolve(output,`contact-${i/24+1}.png`),fullPage:true});
   }
   assert.deepEqual(errors,[],'No render or load errors');
-  console.log(`Catalog checks passed: ${total} previews, all selector options, search, paging, animation, pause, phone and reduced motion. Screenshots: ${output}`);
+  console.log(`Catalog checks passed: ${total} previews, all selector options, search, paging, looping previews, phone and reduced motion. Screenshots: ${output}`);
 } finally { await browser.close(); }

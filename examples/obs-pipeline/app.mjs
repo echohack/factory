@@ -6,7 +6,7 @@ import { swing, pointOnPath } from '../../kit/transport.mjs';
 import { processOutline } from '../../kit/process.mjs';
 import { factoryLayout } from './layout.mjs';
 const $ = id => document.getElementById(id);
-let settings = { ...SCENARIOS.healthy }, trace = makeTrace(settings), player = new TracePlayer(trace.events, trace.initial);
+let settings = { ...SCENARIOS.healthy }, trace = makeTrace(settings), player = new TracePlayer(trace.events, trace.initial, { loop: true });
 let scene, visible = true, lastTime = null, lastIndex = -1, frameClock = 0;
 const media = matchMedia('(prefers-reduced-motion: reduce)'), narrow = matchMedia('(max-width: 560px)');
 let cachedLayout = null, cachedNarrow = null;
@@ -26,9 +26,9 @@ const laneActive = (state, t) => LANES.filter(l => l.machines.some(m => working(
 const outline = processOutline($('process'), LANES, { onJump: jump });
 function jump(key) {
   const lane = LANES.find(l => l.key === key), from = player.snapshot().index;
-  const i = trace.events.findIndex((e, j) => j > from && (lane.machines.some(m => e.after.busy[m]?.from === e.t) ||
-    e.after.transits.some(tr => lane.routes.test(tr.key) && tr.start === e.t)));
-  if (i >= 0) { player.seek(i + 1); lastTime = null; render(); }
+  const starts = e => lane.machines.some(m => e.after.busy[m]?.from === e.t) || e.after.transits.some(tr => lane.routes.test(tr.key) && tr.start === e.t);
+  const next = trace.events.findIndex((e, j) => j > from && starts(e)), i = next >= 0 ? next : trace.events.findIndex(starts);
+  if (i >= 0) { player.seek(i + 1); player.play(); lastTime = null; render(); }
 }
 
 function handoffs(l, state, t) {
@@ -83,12 +83,10 @@ function render() {
   scene.render(l, { beltFrame: frameClock / 60, arms, tokens, active: on,
     frames: Object.fromEntries(on.filter(m => ANIMATED.includes(m)).map(m => [m, still ? 0 : t / 1.2])),
     variants: { preview: on.includes('gfx') ? 'on' : 'off' }, readouts: readouts(state, t) });
-  $('play').textContent = snap.done ? 'Run again ↺' : snap.playing ? 'Pause Ⅱ' : snap.index ? 'Continue ▶' : 'Start ▶';
-  $('step').disabled = snap.done;
   if (snap.done) outline.set('done'); else outline.set(laneActive(state, t), { done: [] });
   if (snap.index !== lastIndex) {
     const said = snap.index ? trace.events.slice(0, snap.index).findLast(e => e.notes.length) : null;
-    $('narration').textContent = snap.done ? summary(trace.result) : said ? said.notes.at(-1) : 'Ready.';
+    $('narration').textContent = snap.done ? summary(trace.result) : said ? said.notes.at(-1) : 'Starting.';
     lastIndex = snap.index;
   }
   const c = state.count;
@@ -133,30 +131,18 @@ function fill(id, rows) {
     return tr;
   }));
 }
-function toggle() { if (player.snapshot().done) { player.reset(); frameClock = 0; lastIndex = -1; } player.playing ? player.pause() : player.play(); lastTime = null; render(); }
-function reset() { player.reset(); frameClock = 0; lastIndex = -1; lastTime = null; render(); }
+function reset() { player.reset(); frameClock = 0; lastIndex = -1; player.play(); lastTime = null; render(); }
 function load(next) {
-  settings = next; trace = makeTrace(settings); player = new TracePlayer(trace.events, trace.initial);
-  $('scenario').value = currentName();
+  settings = next; trace = makeTrace(settings); player = new TracePlayer(trace.events, trace.initial, { loop: true });
   reset();
 }
-$('play').addEventListener('click', toggle);
-$('step').addEventListener('click', () => { player.step(); lastTime = null; render(); });
-$('reset').addEventListener('click', reset);
-$('factory').addEventListener('keydown', e => {
-  if (e.target.closest('input,select,textarea,button,a') || e.altKey || e.metaKey || e.ctrlKey || !scene) return;
-  if (e.code === 'Space') { e.preventDefault(); toggle(); }
-  if (e.code === 'ArrowRight') { e.preventDefault(); player.step(); render(); }
-});
-$('scenario').addEventListener('change', () => { if (SCENARIOS[$('scenario').value]) load({ ...SCENARIOS[$('scenario').value] }); });
-media.addEventListener('change', () => { if (media.matches) player.pause(); lastTime = null; lastIndex = -1; render(); });
 narrow.addEventListener('change', render);
 document.addEventListener('visibilitychange', () => { lastTime = null; });
 new IntersectionObserver(entries => { visible = entries[0].isIntersecting; lastTime = null; }, { threshold: 0 }).observe($('scene'));
 new ResizeObserver(render).observe($('scene'));
 function frame(now) {
   if (scene && visible && !document.hidden && player.playing) {
-    const dt = lastTime == null ? 0 : Math.min(now - lastTime, 100) * Number($('speed').value);
+    const dt = lastTime == null ? 0 : Math.min(now - lastTime, 100);
     player.update(dt); frameClock = media.matches ? 0 : frameClock + dt; render();
   }
   lastTime = visible && !document.hidden ? now : null; requestAnimationFrame(frame);
@@ -165,7 +151,6 @@ renderTables();
 try {
   const atlas = await loadSprites('./assets/');
   scene = new FactoryScene($('scene'), atlas);
-  for (const id of ['play', 'step', 'reset']) $(id).disabled = false;
   load(settings); requestAnimationFrame(frame);
   window.factoryDemo = { seek(i) { player.seek(i); render(); }, get state() { return player.snapshot(); }, get trace() { return trace; }, get layout() { return layout(); },
     load(name) { load({ ...SCENARIOS[name] }); }, step() { player.step(); render(); },
@@ -174,5 +159,5 @@ try {
       player.pause(); let i = 0, left = ms;
       while (i < trace.events.length && left >= trace.events[i].duration) left -= trace.events[i++].duration;
       player.index = i; player.elapsed = i < trace.events.length ? left : 0; frameClock = ms; lastIndex = -1; render();
-    }, finish() { player.seek(trace.events.length); render(); }, reset, render };
+    }, finish() { player.seek(trace.events.length); render(); }, play() { player.play(); lastTime = null; }, pause() { player.pause(); render(); }, reset, render };
 } catch (error) { $('narration').textContent = error.message; $('narration').classList.remove('sr-only'); console.error(error); }

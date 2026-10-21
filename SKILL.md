@@ -111,7 +111,7 @@ the kit from `../../kit/`, and an `assets.json` that lists the sprite IDs it dra
 as `{ "ids": [...] }`. Vite picks up every such folder as a page. The sidebar at
 `https://factory.localhost` lists it by its `<title>`, after `Factory ·`, with the
 icon of the object that `"icon"` in `assets.json` names.
-`kit/trace.mjs` provides deterministic playback and stepping. `kit/sprites.mjs`
+`kit/trace.mjs` provides deterministic looping playback and stepping. `kit/sprites.mjs`
 draws supported native sprite layers; `kit/scene.mjs` provides tile coordinates,
 belts, objects, moving value tokens, and machine activity. `kit/transport.mjs`
 places adjacent inserters and supplies pickup, carry, release, and return poses. See
@@ -165,7 +165,7 @@ Show pickup, a closed hand carrying the item, release, and an empty return.
 The item follows the hand while held, occupies a real belt lane while travelling,
 and enters the destination inventory only at release. Include hand contents in
 conservation checks; never count a value in both a chest and an inserter.
-Start machine work after its input arrives. Pause freezes the arms as well as belts.
+Start machine work after its input arrives.
 
 Useful detail includes real machinery, connections,
 status lamps, and stock; decorative machinery should not imply nonexistent work.
@@ -177,12 +177,17 @@ labels close to their stations. Label conventions where they appear in the diagr
 a wire's meaning beside the wire, a flag beside the station that sets it. Use one
 word for one action everywhere: if three consumers read a table, all three wires
 say READS. Reveal a failure, rejection, cache miss, or bottleneck through behavior
-as well as color. Let the reader pause, step, and reset. If the reader can change an
-input, such as a scenario, put that control in the one row of controls, without
-helper text.
-Keep keyboard controls scoped to the figure and ignore typing in form fields.
+as well as color.
 
-Below the scene, keep only one row of controls. Do not add narration or status
+Loop the factory from the moment the page loads, like a real factory that never
+stops. Give the `TracePlayer` `{ loop: true }`: after the last event it starts
+again from the first. Nothing starts or stops the loop: no play, pause, step or
+reset buttons, no keyboard shortcuts, no speed or input selectors. A click on a
+phase heading jumps to that phase, and the loop continues from there. The figure
+runs one example at one speed; compare other scenarios or inputs in the
+reference tables.
+
+Put nothing under the scene. Do not add a row of controls, narration or status
 lines, legends, phase tabs, a code listing, a live-state panel, or a footer of
 notes, disclaimers or links anywhere on the page. The scene and its
 readouts carry the state. Announce completed events in a visually hidden live region,
@@ -200,8 +205,8 @@ worked example computed from the model. Frame each table like the scene: the
 same workbench frame and header over the same textured floor, but no tile grid.
 Draw it as a plain table: a filled header row, a thin divider between rows, and
 room around each cell. Give each table a heading and no description. The
-example's Operations table shows the pattern. Start header text, phase headings,
-controls, and table text on one left edge.
+example's Operations table shows the pattern. Start header text, phase headings
+and table text on one left edge.
 
 Write every visible string plainly. Use titles, labels, and table cells. Cut
 taglines, explanatory paragraphs, and em dashes.
@@ -214,16 +219,18 @@ Preserve the grid and labels when improving machinery or layout.
 
 Fit the scene at narrow widths; reflow its stations when simply shrinking would
 make values unreadable. Supply a DOM/text equivalent of the important state.
-Reduced motion should start paused and allow event-by-event inspection. Suspend
-automatic work while hidden or offscreen, without a catch-up jump on return.
+Under reduced motion the loop keeps running, but draws each event's state without
+movement in between. Suspend the loop while hidden or offscreen, without a
+catch-up jump on return.
 
 ## Verify the explanation
 
 Follow [references/verification.md](references/verification.md). Run the model’s
 meaningful checks and `checkLayout` on every layout, import the actual assets, and open the finished figure. Inspect
 desktop and phone layouts, a branch outcome, an operation in progress, the final
-result, and reduced motion. Check that pause really freezes machinery and that
-reset clears both the simulation and readouts.
+result, and reduced motion. Check that the loop starts by itself and starts again
+after the last event, and that each new pass clears both the simulation and
+readouts.
 
 When refining, remove superseded directions. Keep only the chosen implementation
 and a baseline if comparison remains useful. Deliver the working figure and
