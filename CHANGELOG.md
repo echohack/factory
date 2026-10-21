@@ -4,6 +4,10 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-21
+
+Factory patterns with checked ground rules, and figures that loop with no controls.
+
 ### Added
 
 - Factory patterns. `patterns/` holds 36 arrangements taken from real factories, in six families: handoffs, belts, cells, fluids, layout and control. Each has one software meaning, its own rules, and a standard example that runs in the gallery at `https://factory.localhost/#patterns`. `vp run patterns <term>` searches them by vocabulary term.
