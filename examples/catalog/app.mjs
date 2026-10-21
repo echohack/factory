@@ -4,8 +4,7 @@ const [catalog, manifest] = await Promise.all(['catalog.json', 'manifest.json'].
   const response = await fetch(`./assets/${path}`); if (!response.ok) throw new Error(`Missing ${path}`); return response.json();
 }));
 const all = [...catalog.objects, ...catalog.tokens];
-let pageNumber=0, playing=false, clock=0, last=null, revision=0, cards=[];
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let pageNumber=0, clock=0, last=null, revision=0, cards=[];
 for (const group of [...new Set(all.map(o=>o.group))]) $('group').add(new Option(group,group));
 $('summary').textContent=`${catalog.objects.length} WORLD OBJECTS / ${catalog.tokens.length} ITEM TOKENS`;
 const filtered=()=>all.filter(o=>(!$('group').value||o.group===$('group').value) && [o.name,o.id,o.group,...o.roles].join(' ').toLowerCase().includes($('search').value.toLowerCase().trim()));
@@ -30,8 +29,8 @@ function draw(card) {
   const s=manifest.sprites[o.id], layers=spriteLayers(s);
   const bounds=layers.reduce((b,l)=>[Math.min(b[0],l.shift[0]-l.width*l.scale/64),Math.min(b[1],l.shift[1]-l.height*l.scale/64),Math.max(b[2],l.shift[0]+l.width*l.scale/64),Math.max(b[3],l.shift[1]+l.height*l.scale/64)],[0,0,0,0]);
   const tile=Math.min(38,(w-28)/(bounds[2]-bounds[0]),(h-28)/(bounds[3]-bounds[1]));
-  const x=w/2-(bounds[0]+bounds[2])*tile/2,y=h/2-(bounds[1]+bounds[3])*tile/2;
-  atlas.draw(ctx,o.id,x,y,{tileSize:tile,frame:clock*12,variant:card.variant?.value,direction:o.id==='radar'&&playing&&!reduced.matches?Math.floor(clock*12)%64:Number(card.direction?.value??0)});
+  const x=w/2-(bounds[0]+bounds[2])*tile/2,y=h/2-(bounds[1]+bounds[3])*tile/2, view=Number(card.direction?.value??0);
+  atlas.draw(ctx,o.id,x,y,{tileSize:tile,frame:clock*12,variant:card.variant?.value,direction:(view+(o.id==='radar'?Math.floor(clock*12):0))%Math.max(1,o.directions)});
 }
 async function render() {
   const version=++revision, list=filtered(), pages=Math.max(1,Math.ceil(list.length/pageSize));pageNumber=Math.min(pageNumber,pages-1);
@@ -58,14 +57,10 @@ async function render() {
 }
 for(const id of ['search','group']) $(id).addEventListener('input',()=>{pageNumber=0;render();});
 $('previous').onclick=()=>{pageNumber--;render();};$('next').onclick=()=>{pageNumber++;render();};
-function setPlaying(value){playing=value;$('animate').setAttribute('aria-pressed',String(value));$('animate').textContent=value?'Pause previews Ⅱ':'Animate previews ▶';last=null;}
-$('animate').onclick=()=>setPlaying(!playing);
-function syncMotion(){if(reduced.matches)setPlaying(false);$('animate').disabled=reduced.matches;$('animate').title=reduced.matches?'Animation is disabled while reduced motion is enabled.':'';}
-reduced.addEventListener('change',syncMotion);syncMotion();
 new ResizeObserver(()=>cards.forEach(draw)).observe($('cards'));
 document.addEventListener('visibilitychange',()=>{last=null;});
 function frame(now){
-  if(playing&&!document.hidden&&!reduced.matches){clock+=last==null?0:Math.min(now-last,100)/1000;for(const card of cards){const r=card.canvas.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)draw(card);}}
+  if(!document.hidden){clock+=last==null?0:Math.min(now-last,100)/1000;for(const card of cards){const r=card.canvas.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)draw(card);}}
   last=now;requestAnimationFrame(frame);
 }
 await render();requestAnimationFrame(frame);

@@ -66,6 +66,21 @@ test('pause freezes partial progress, step commits once, reset restores initial 
   expect(() => new TracePlayer([{ duration: 0 }], {})).toThrow();
 });
 
+test('a looping player starts again with the same events after the last one', () => {
+  const trace = makeTrace(DEFAULT_INPUT), total = trace.events.reduce((sum, e) => sum + e.duration, 0), first = trace.events[0].duration;
+  const player = new TracePlayer(trace.events, trace.initial, { loop: true });
+  player.play();
+  expect(player.update(total - 1)).toMatchObject({ index: trace.events.length - 1, playing: true });
+  const again = player.update(1);
+  expect(again).toMatchObject({ index: 0, progress: 0, done: false, playing: true });
+  expect(again.state).toStrictEqual(trace.initial);
+  const once = new TracePlayer(trace.events, trace.initial);
+  once.play(); once.update(first + 50);
+  expect(player.update(first + 50)).toStrictEqual(once.snapshot());
+  player.update(3 * total - first - 50);
+  expect(player.snapshot()).toMatchObject({ index: 0, progress: 0, playing: true });
+});
+
 test('the model rejects values it cannot draw', () => {
   for (const input of [[Infinity], [1.5], [1000], Array(17).fill(1)]) expect(() => makeTrace(input)).toThrow();
 });

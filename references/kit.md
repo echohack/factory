@@ -1,12 +1,15 @@
 # Kit contracts
 
-`kit/trace.mjs` exports `TracePlayer(events, initialState)`. Each event has
-`before`, `after`, a positive `duration` in milliseconds, and optional semantic
+`kit/trace.mjs` exports `TracePlayer(events, initialState, { loop })`. Each event
+has `before`, `after`, a positive `duration` in milliseconds, and optional semantic
 fields consumed by a scene. `update(ms)` advances only while playing;
 `step()` commits one event and pauses; `seek(index)` selects a committed event
-boundary; `reset()` clears playback. `snapshot()` returns the current committed
-state, current event, its progress, index, and completion status. The caller owns
-visibility, speed and requestAnimationFrame. Event duration is presentation time.
+boundary and pauses; `reset()` clears playback. `snapshot()` returns the current
+committed state, current event, its progress, index, and completion status. With
+`loop: true`, playback never stops: after the last event the player starts again
+from the first. Figures call `play()` after `seek()`, so a phase jump keeps the loop
+running. The caller owns visibility and requestAnimationFrame. Event duration is
+presentation time.
 
 `kit/sprites.mjs` exports `loadSprites(baseURL, {ids})` and `SpriteAtlas`.
 Pass an ID list to decode only the sprites used by a scene. `spriteFiles` and

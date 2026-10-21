@@ -8,7 +8,7 @@ h1 { margin:0 0 24px; font-size:20px; font-weight:650; color:#dbe7f4; }
 label { display:flex; flex-direction:column; gap:9px; font-size:11px; color:var(--muted); } .search { flex:1; }
 input,select,button { font-family:inherit; color:#c9d6e6; background:#102037; border:1px solid #36516f; border-radius:3px; padding:10px 12px; min-height:39px; }
 input { width:100%; font:12px system-ui; } select,button { font:12px system-ui; } input::placeholder { color:#8196ae; }
-button { cursor:pointer; white-space:nowrap; } button:hover { background:#203a57; } button:disabled { opacity:.4; cursor:default; } button[aria-pressed="true"] { background:#284b70; }
+button { cursor:pointer; white-space:nowrap; } button:hover { background:#203a57; } button:disabled { opacity:.4; cursor:default; }
 :focus-visible { outline:2px solid #8fb5de; outline-offset:3px; } .results { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:18px 0 12px; }
 #cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; } .card { display:flex; flex-direction:column; min-width:0; border:1px solid #304a66; border-radius:5px; overflow:hidden; background:#0e1b2e; }
 .preview { padding:6px; background:conic-gradient(#192e47 25%,transparent 25% 50%,#192e47 50% 75%,transparent 75%) 0 0/4px 4px #0c192a; }

@@ -2,7 +2,8 @@
 
 Run `vp test` and build the example with actual imported art. Test the model
 against the language’s real result, including empty and all-rejected inputs.
-Stepping and continuous playback must reach the same final state. Check that
+Stepping and continuous playback must reach the same final state, and a looping
+player must start each pass from the initial state. Check that
 every intermediate array and cumulative total agrees with the model.
 
 Open the output in the user’s external browser. Inspect at desktop width and
@@ -22,9 +23,11 @@ Compare screenshots with `Buffer.equals`, never `assert.deepEqual`: when two ima
 Buffers differ, Node builds a byte-by-byte diff that can exhaust system memory.
 Compare frames only within one paused event; a timed gap can cross an event boundary.
 
-Verify pause, step, reset, edited input, invalid input, keyboard control, speed,
-reduced motion, and hidden/offscreen suspension. Avoid announcing every animation
-frame to screen readers; announce completed semantic events.
+Verify that the loop starts on load and starts again after the last event, phase
+jumps, reduced motion, and hidden/offscreen suspension. Check that nothing starts
+or stops the loop: no buttons, keyboard shortcuts, or speed or input selectors.
+Avoid announcing every animation frame to screen readers; announce
+completed semantic events.
 
 Optional automated browser check, against `vp preview` after `vp build`. To check
 the dev server instead, pass its URL, such as `https://factory.localhost/array-pipeline/`:
@@ -51,7 +54,7 @@ variables checks the gallery and saves a screenshot of each example in
 
 For catalog changes, `vp test` checks every mapped layer’s crop bounds and file
 hash. Use `vp run verify-catalog` with the same browser environment variables
-to check search, variants, pause, mobile and reduced motion.
+to check search, variants, looping previews, mobile and reduced motion.
 Inspect the resulting contact sheets as well as any new animated frame sequences.
 
 Check scope against the architecture inventory before polishing. Every inventory

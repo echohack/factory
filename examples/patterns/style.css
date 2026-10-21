@@ -19,13 +19,9 @@ h1 { margin: 0 0 24px; font-size: 20px; font-weight: 650; color: #dbe7f4; }
 .toolbar { display: flex; gap: 16px; align-items: end; padding: 18px var(--inset); background: var(--surface); border: 1px solid #304a66; border-radius: 5px; }
 .toolbar label { display: flex; flex-direction: column; gap: 9px; font-size: 11px; color: var(--muted); }
 .search { flex: 1; }
-input, select, button { font: 12px system-ui, sans-serif; color: var(--ink); background: #102037; border: 1px solid #36516f; border-radius: 3px; padding: 10px 12px; min-height: 39px; }
+input, select { font: 12px system-ui, sans-serif; color: var(--ink); background: #102037; border: 1px solid #36516f; border-radius: 3px; padding: 10px 12px; min-height: 39px; }
 input { width: 100%; }
 input::placeholder { color: #8196ae; }
-button { cursor: pointer; white-space: nowrap; min-width: 96px; }
-button:hover { background: #203a57; }
-button:disabled { opacity: .45; cursor: default; }
-button[aria-pressed="true"] { background: #284b70; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .results { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin: 18px 0 12px; color: var(--muted); font: 10px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .7px; }
 .results p { margin: 0; }

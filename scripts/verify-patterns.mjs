@@ -25,6 +25,8 @@ async function open(options) {
 }
 try {
   const desktop = await open({ viewport: { width: 1440, height: 1100 }, deviceScaleFactor: 2 });
+  assert.equal(await desktop.evaluate(() => window.patternsDemo.playing), true, 'The examples loop on load');
+  assert.equal(await desktop.locator('.toolbar button').count(), 0, 'No pause control');
   const { ids, violations } = await desktop.evaluate(() => ({ ids: window.patternsDemo.ids, violations: window.patternsDemo.violations }));
   for (const id of ids) assert.deepEqual(violations[id], [], `${id} breaks no ground rule`);
   assert.equal(await desktop.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'No horizontal page overflow');
@@ -39,10 +41,10 @@ try {
   await desktop.evaluate(() => window.patternsDemo.seek(3000));
   const first = desktop.locator(`#${ids[0]} canvas`), still = await first.screenshot();
   await desktop.waitForTimeout(250);
-  assert.ok((await first.screenshot()).equals(still), 'Pause freezes the examples');
+  assert.ok((await first.screenshot()).equals(still), 'A stopped gallery stays still');
   await desktop.evaluate(() => window.patternsDemo.play());
   await desktop.waitForTimeout(250);
-  assert.ok(await desktop.evaluate(() => window.patternsDemo.clock > 3000), 'Run advances the examples');
+  assert.ok(await desktop.evaluate(() => window.patternsDemo.clock > 3000), 'The loop runs again');
   await desktop.locator('#search').fill('load balancer');
   assert.ok(await desktop.locator('#cards > article:not([hidden])').count() >= 1, 'Search finds patterns by term');
   await desktop.locator('#search').fill('');
@@ -53,7 +55,7 @@ try {
   await mobile.screenshot({ path: resolve(output, 'mobile.png') });
 
   const reduced = await open({ viewport: { width: 1280, height: 1000 }, reducedMotion: 'reduce' });
-  assert.equal(await reduced.evaluate(() => window.patternsDemo.playing), false, 'Reduced motion starts paused');
+  assert.equal(await reduced.evaluate(() => window.patternsDemo.playing), true, 'Reduced motion keeps the loop running');
   assert.deepEqual(errors, [], 'No browser errors');
   console.log(`Pattern checks passed for ${ids.length} patterns. Screenshots: ${output}`);
 } finally { await browser.close(); }
