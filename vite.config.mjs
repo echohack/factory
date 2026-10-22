@@ -13,7 +13,7 @@ export default defineConfig({
   preview: { host: '127.0.0.1', port: 4173, strictPort: true },
   run: {
     tasks: {
-      dev: { command: 'portless run --name factory vp dev', cache: false },
+      dev: { command: 'PORTLESS_PORT=1355 portless run --name factory vp dev', cache: false },
       assets: { command: 'node scripts/build-catalog.mjs', cache: false },
       'import-assets': { command: 'node scripts/import-assets.mjs', cache: false },
       objects: { command: 'node scripts/list-assets.mjs', cache: false },

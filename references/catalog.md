@@ -7,7 +7,7 @@ rendering limitations, in Factorio's crafting-menu order within each collection.
 files are in `assets/manifest.json`. These are world entities, not enlarged icons.
 
 Run `vp run objects cache` (or `worker`, `predicate`, `Power`, etc.) to find a
-part. Run `vp run dev`, then open `/catalog/` at `https://factory.localhost`
+part. Run `vp run dev`, then open `/catalog/` at `https://factory.localhost:1355`
 to inspect the 68 world objects and 28 item tokens. The browser has search,
 category filters, direction/state selectors and optional animation previews.
 

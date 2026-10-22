@@ -4,6 +4,10 @@ All notable changes to Factory are recorded here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Changed
+
+- `vp run dev` runs Portless as you on port 1355, so it no longer asks for sudo or binds port 443. The examples are at `https://factory.localhost:1355`. `SKILL.md` tells agents never to run Portless with sudo or install it as a startup service, because the root service runs `node` and `node_modules` that your user account can modify.
+
 ## [0.2.0] - 2026-10-21
 
 Factory patterns with checked ground rules, and figures that loop with no controls.

@@ -30,7 +30,7 @@ Avoid announcing every animation frame to screen readers; announce
 completed semantic events.
 
 Optional automated browser check, against `vp preview` after `vp build`. To check
-the dev server instead, pass its URL, such as `https://factory.localhost/array-pipeline/`:
+the dev server instead, pass its URL, such as `https://factory.localhost:1355/array-pipeline/`:
 
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs \

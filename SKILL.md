@@ -80,8 +80,8 @@ is a load balancer, backpressure is a full belt that stops its producer. The
 library in `patterns/` holds them in six families, with the ground rules every
 scene obeys, builders for their parts, and a running standard example of each.
 Read [references/patterns.md](references/patterns.md) before you lay out a scene,
-search with `vp run patterns <term>`, and open `https://factory.localhost/#patterns`
-to watch the examples run.
+search with `vp run patterns <term>`, and open
+`https://factory.localhost:1355/#patterns` to watch the examples run.
 
 Pick a pattern for each item of the architecture inventory by what the code does:
 a queue between threads is a belt handoff or a buffer chest, a pool of identical
@@ -109,7 +109,7 @@ Use the example as a starting point, not a required subject or fixed layout.
 A figure is a folder under `examples/` with an `index.html`, modules that import
 the kit from `../../kit/`, and an `assets.json` that lists the sprite IDs it draws
 as `{ "ids": [...] }`. Vite picks up every such folder as a page. The sidebar at
-`https://factory.localhost` lists it by its `<title>`, after `Factory ·`, with the
+`https://factory.localhost:1355` lists it by its `<title>`, after `Factory ·`, with the
 icon of the object that `"icon"` in `assets.json` names.
 `kit/trace.mjs` provides deterministic looping playback and stepping. `kit/sprites.mjs`
 draws supported native sprite layers; `kit/scene.mjs` provides tile coordinates,
@@ -143,11 +143,14 @@ Every command runs through Vite+. From the skill directory, after `vp install`:
 vp run dev
 ```
 
-It serves every figure with live reload at `https://factory.localhost`, through
-Portless, which needs Node.js 24. The home page is a sidebar of every figure. Open
-`https://factory.localhost/#<figure>` in the user’s external browser to show one
-in it; `/<figure>/` shows the figure alone, the object browser is `#catalog`, and
-the pattern gallery is `#patterns`.
+It serves every figure with live reload at `https://factory.localhost:1355`,
+through Portless, which needs Node.js 24 and runs as the user on port 1355.
+Never run Portless with sudo, on port 443, or as a startup service
+(`portless service install`); if it asks for sudo, stop and tell the user.
+The home page is a sidebar of every figure. Open
+`https://factory.localhost:1355/#<figure>` in the user’s external browser to show
+one in it; `/<figure>/` shows the figure alone, the object browser is `#catalog`,
+and the pattern gallery is `#patterns`.
 Without Portless, `vp dev` serves the same pages on localhost. `vp build` writes a
 static site to `dist/` with only the sprites each page lists, and `vp preview`
 serves it on port 4173. `vp run assets` regenerates the library from the user's
