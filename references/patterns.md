@@ -15,7 +15,7 @@ Patterns live in `patterns/`, next to the object library in `catalog/`:
 | `motion.mjs` | Runs the standard examples, and `checkMotion`, which checks their movement |
 | `index.mjs` | The registry, the families, the sources and `findPatterns` |
 
-The gallery at `https://factory.localhost/#patterns` runs every standard example
+The gallery at `https://factory.localhost:1355/#patterns` runs every standard example
 beside its rules. `vp run patterns <term>` searches the patterns by name or
 vocabulary term and prints their rules; `vp run patterns --rules` prints the
 ground rules.

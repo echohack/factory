@@ -41,7 +41,7 @@ ln -s "$PWD" ~/.config/opencode/skills/factory
 vp run dev
 ```
 
-`vp run dev` serves every example with live reload at `https://factory.localhost`, behind a sidebar that lists them, through [Portless](https://github.com/vercel-labs/portless). Its first run creates a local certificate authority and binds port 443, which asks for sudo. `vp dev` serves the same pages on localhost without Portless.
+`vp run dev` serves every example with live reload at `https://factory.localhost:1355`, behind a sidebar that lists them, through [Portless](https://github.com/vercel-labs/portless). Portless runs as you on port 1355, so it never needs sudo. Its first run creates a local certificate authority and adds it to your login keychain. If Portless still asks for sudo, an earlier run left it on port 443: decline, run `vp exec portless proxy start -p 1355` once, and run `vp run dev` again. `vp dev` serves the same pages on localhost without Portless.
 
 ```sh
 vp build
@@ -62,7 +62,7 @@ vp test watch
 vp test run --coverage
 ```
 
-**Browser checks.** Against `vp preview` after `vp build`; pass a URL such as `https://factory.localhost/array-pipeline/` to check the dev server instead. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
+**Browser checks.** Against `vp preview` after `vp build`; pass a URL such as `https://factory.localhost:1355/array-pipeline/` to check the dev server instead. Set `CHROME_PATH` to use a specific Chrome. Screenshots go to `.local/qa/`.
 
 ```sh
 PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs vp run verify-browser
