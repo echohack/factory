@@ -17,5 +17,8 @@
     "@vitest/coverage-v8": "5.0.3",
     "portless": "0.15.7",
     "vite-plus": "1.1.0"
+  },
+  "scripts": {
+    "lint": "ast-grep scan"
   }
 }
