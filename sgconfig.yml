@@ -1,0 +1,5 @@
+ruleDirs:
+  - lint/ast-grep
+languageGlobs:
+  html:
+    - "*.vue"
