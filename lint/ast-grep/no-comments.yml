@@ -1,0 +1,142 @@
+id: no-comments-javascript
+language: JavaScript
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^(#!|///\s*<reference|//\s*(eslint|oxlint|@ts-|@vitest-environment|@jest-environment|biome-ignore|prettier-ignore|oxfmt-ignore|tslint:)|/\*\s*(eslint|oxlint|global|prettier-ignore|oxfmt-ignore|@vite-ignore|[#@]__PURE__|webpack))'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-typescript
+language: TypeScript
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^(#!|///\s*<reference|//\s*(eslint|oxlint|@ts-|@vitest-environment|@jest-environment|biome-ignore|prettier-ignore|oxfmt-ignore|tslint:)|/\*\s*(eslint|oxlint|global|prettier-ignore|oxfmt-ignore|@vite-ignore|[#@]__PURE__|webpack))'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-tsx
+language: Tsx
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^(#!|///\s*<reference|//\s*(eslint|oxlint|@ts-|@vitest-environment|@jest-environment|biome-ignore|prettier-ignore|oxfmt-ignore|tslint:)|/\*\s*(eslint|oxlint|global|prettier-ignore|oxfmt-ignore|@vite-ignore|[#@]__PURE__|webpack))'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-rust
+language: Rust
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: line_comment
+    - kind: block_comment
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-swift
+language: Swift
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+    - kind: multiline_comment
+  not:
+    regex: '^//\s*(swiftlint:|swift-tools-version:)'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-python
+language: Python
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^(#!|#\s*(type:|noqa|pragma|pyright:|mypy:|fmt:|-\*-))'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-bash
+language: Bash
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^(#!|#\s*shellcheck)'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-ruby
+language: Ruby
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^#\s*(frozen_string_literal|rubocop:|encoding:)'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-css
+language: Css
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^/\*\s*(prettier-ignore|oxfmt-ignore|stylelint-)'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-html
+language: Html
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^<!--\s*(eslint|oxlint|prettier-ignore)'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
+---
+id: no-comments-hcl
+language: Hcl
+severity: error
+message: Code comments are not allowed.
+rule:
+  any:
+    - kind: comment
+  not:
+    regex: '^#\s*tflint-ignore'
+ignores:
+  - "**/auto-imports.d.ts"
+  - "**/components.d.ts"
