@@ -14,9 +14,9 @@
     "node": "^22.23.4 || ^24.22.1 || >=26.12.1"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "5.0.3",
-    "portless": "0.15.7",
-    "vite-plus": "1.1.0"
+    "@vitest/coverage-v8": "5.0.5",
+    "portless": "0.15.11",
+    "vite-plus": "1.4.0"
   },
   "scripts": {
     "lint": "ast-grep scan"
